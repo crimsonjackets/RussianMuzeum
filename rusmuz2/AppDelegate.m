@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  rusmuz2
+//  rusmuz
 //
-//  Created by Richard Topchiy on 02/06/14.
+//  Created by Richard Topchiy on 13/05/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
