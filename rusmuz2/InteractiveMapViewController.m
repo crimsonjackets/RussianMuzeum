@@ -16,6 +16,7 @@
 - (void)centerScrollViewContents;
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
 - (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
+- (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName;
 @end
 
 @implementation InteractiveMapViewController
@@ -33,7 +34,7 @@
     if (contentsFrame.size.height < boundsSize.height) {
         contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
     } else {
-        contentsFrame.origin.y = 0.0f;
+        contentsFrame.origin.y = self.selectorView.frame.size.height + 20.0f;
     }
     
     self.imageView.frame = contentsFrame;
@@ -84,32 +85,51 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.stateNames = \
+    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"appear");
+
+}
+
+- (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName
+{
+    self.roomNumbers = \
     [NSArray arrayWithContentsOfFile:
      [[NSBundle mainBundle]
-      pathForResource:@"states_name"
+      pathForResource:roomNumbersName
       ofType:@"plist"]];
     
     
     // 1
-    UIImage *image = [UIImage imageNamed:@"floor1.gif"];
-    self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:@"floor1.gif"]];
-    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
-    
+    UIImage *image = [UIImage imageNamed:imageName];
+    self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:imageName]];
+//    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
+    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 600.0f), .size=image.size};
+
     
     //MTImageView Code
     [self.imageView setDelegate:self];
     [self.scrollView addSubview:self.imageView];
     
     
-    NSArray *arrStates = \
+    NSArray *coordinates = \
     [NSArray arrayWithContentsOfFile:
      [[NSBundle mainBundle]
-      pathForResource:@"states_coord"
+      pathForResource:coordinatesName
       ofType:@"plist"]];
     
     [_imageView
-     setMapping:arrStates
+     setMapping:coordinates
      doneBlock:^(MTImageMapView *imageMapView) {
          NSLog(@"Areas are all mapped");
      }];
@@ -117,6 +137,7 @@
     
     // 2
     self.scrollView.contentSize = image.size;
+
     
     // 3
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
@@ -128,14 +149,9 @@
     twoFingerTapRecognizer.numberOfTapsRequired = 1;
     twoFingerTapRecognizer.numberOfTouchesRequired = 2;
     [self.scrollView addGestureRecognizer:twoFingerTapRecognizer];
-}
-
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
     // 4
-    CGRect scrollViewFrame = self.scrollView.frame;
+    CGRect scrollViewFrame =  self.scrollView.frame;
     CGFloat scaleWidth = scrollViewFrame.size.width / self.scrollView.contentSize.width;
     CGFloat scaleHeight = scrollViewFrame.size.height / self.scrollView.contentSize.height;
     CGFloat minScale = MIN(scaleWidth, scaleHeight);
@@ -150,6 +166,17 @@
 }
 
 
+- (IBAction)floorSelectorValueChanged:(id)sender
+{
+    if (self.floorSelector.selectedSegmentIndex == 0)
+    {
+        [self.imageView removeFromSuperview];
+        [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    } else {
+        [self.imageView removeFromSuperview];
+        [self reloadMapWithImageNamed:@"floor2.gif" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    }
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -158,6 +185,7 @@
     _floorSelector.frame = frame;
     
 }
+
 
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
@@ -169,7 +197,7 @@
 //      cancelButtonTitle:@"Ok"
 //      otherButtonTitles:nil] show];
 
-    self.roomNumber = [_stateNames objectAtIndex:inIndexSelected];
+    self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
     [self performSegueWithIdentifier:@"RoomSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -183,6 +211,5 @@
         secView.roomNumber = self.roomNumber;
     }
 }
-
 
 @end

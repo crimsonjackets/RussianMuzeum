@@ -99,20 +99,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7DN-MX-00Y">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="417"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5X-2i-HUg">
-                                        <rect key="frame" x="75" y="0.0" width="171" height="79"/>
+                                        <rect key="frame" x="75" y="15" width="171" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Gp-4e9">
-                                                <rect key="frame" x="21" y="26" width="128" height="29"/>
+                                                <rect key="frame" x="21" y="0.0" width="128" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="First"/>
                                                     <segment title="Second"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="floorSelectorValueChanged:" destination="A9N-Fd-kBa" eventType="valueChanged" id="w0J-1d-JuW"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -129,6 +132,7 @@
                     <connections>
                         <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
+                        <outlet property="selectorView" destination="m5X-2i-HUg" id="aiZ-Zn-a4C"/>
                         <segue destination="EBi-5r-THB" kind="push" identifier="RoomSegue" id="Q4i-QI-Wr4"/>
                     </connections>
                 </viewController>

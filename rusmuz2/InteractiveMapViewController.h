@@ -14,6 +14,11 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *floorSelector;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, strong) NSArray *stateNames;
+@property (nonatomic, strong) NSArray *roomNumbers;
+@property (weak, nonatomic) IBOutlet UIView *selectorView;
+
+- (IBAction)floorSelectorValueChanged:(id)sender;
+
+
 
 @end
