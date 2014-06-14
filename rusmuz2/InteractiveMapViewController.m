@@ -32,9 +32,9 @@
     }
     
     if (contentsFrame.size.height < boundsSize.height) {
-        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f + self.selectorView.frame.size.height + 30.0f;
     } else {
-        contentsFrame.origin.y = self.selectorView.frame.size.height + 20.0f;
+        contentsFrame.origin.y = self.selectorView.frame.size.height + 30.0f;
     }
     
     self.imageView.frame = contentsFrame;
@@ -85,7 +85,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+//    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    
+    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+
 
 }
 
@@ -120,7 +123,8 @@
     //MTImageView Code
     [self.imageView setDelegate:self];
     [self.scrollView addSubview:self.imageView];
-    
+    [self.scrollView sendSubviewToBack:self.imageView];
+    [self.selectorView setNeedsDisplay];
     
     NSArray *coordinates = \
     [NSArray arrayWithContentsOfFile:

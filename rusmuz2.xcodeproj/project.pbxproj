@@ -38,6 +38,8 @@
 		09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A69193BEE0100D62ED1 /* MTImageMapView.m */; };
 		09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6C193BF15500D62ED1 /* floor1.gif */; };
 		09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6D193BF15500D62ED1 /* floor2.gif */; };
+		79B5D094194CD5570075345E /* testNumbers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D093194CD5570075345E /* testNumbers.plist */; };
+		79B5D098194CD7080075345E /* testCoord.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D097194CD7080075345E /* testCoord.plist */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
 		79E804DC194A918D00B2713C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D7194A918D00B2713C /* zbar-back.png */; };
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
@@ -99,6 +101,8 @@
 		09E80A69193BEE0100D62ED1 /* MTImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageMapView.m; sourceTree = "<group>"; };
 		09E80A6C193BF15500D62ED1 /* floor1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = floor1.gif; sourceTree = "<group>"; };
 		09E80A6D193BF15500D62ED1 /* floor2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = floor2.gif; sourceTree = "<group>"; };
+		79B5D093194CD5570075345E /* testNumbers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testNumbers.plist; sourceTree = SOURCE_ROOT; };
+		79B5D097194CD7080075345E /* testCoord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testCoord.plist; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		79E804C2194A918D00B2713C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		79E804C3194A918D00B2713C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 		09E80A60193BEDF500D62ED1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				79B5D093194CD5570075345E /* testNumbers.plist */,
+				79B5D097194CD7080075345E /* testCoord.plist */,
 				09E80A61193BEDF500D62ED1 /* states_coord.plist */,
 				09E80A62193BEDF500D62ED1 /* states_name.plist */,
 				09E80A63193BEDF500D62ED1 /* US_States.gif */,
@@ -429,6 +435,8 @@
 				79E804E1194C8AA600B2713C /* floor1.png in Resources */,
 				09E809FE193BEB0800D62ED1 /* Images.xcassets in Resources */,
 				79E804DD194A918D00B2713C /* zbar-help.html in Resources */,
+				79B5D098194CD7080075345E /* testCoord.plist in Resources */,
+				79B5D094194CD5570075345E /* testNumbers.plist in Resources */,
 				79E804DF194A918D00B2713C /* zbar-samples.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
 				09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */,
