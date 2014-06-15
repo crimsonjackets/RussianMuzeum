@@ -170,6 +170,7 @@
     
     // 6
     [self centerScrollViewContents];
+    
 }
 
 
@@ -188,20 +189,12 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGRect frame = _floorSelector.frame;
-    frame.origin.x = scrollView.contentOffset.x;
+    frame.origin.y = -scrollView.contentOffset.y;
     _floorSelector.frame = frame;
+    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
 
-
-    
-//    CGPoint point = _selectorView.center;
-//    point.x = scrollView.contentOffset.x;
-//    _selectorView.center = point;
 }
 
-- (void)layoutSubViews
-{
-    NSLog(@"test");
-}
 
 
 
