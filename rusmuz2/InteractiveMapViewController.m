@@ -12,6 +12,10 @@
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
+@property (strong, nonatomic) IBOutlet UIView *selectorView;
+
+
+
 
 - (void)centerScrollViewContents;
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
@@ -88,8 +92,7 @@
 //    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
     
     [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-
-
+    
 }
 
 
@@ -187,8 +190,21 @@
     CGRect frame = _floorSelector.frame;
     frame.origin.x = scrollView.contentOffset.x;
     _floorSelector.frame = frame;
+
+
     
+//    CGPoint point = _selectorView.center;
+//    point.x = scrollView.contentOffset.x;
+//    _selectorView.center = point;
 }
+
+- (void)layoutSubViews
+{
+    NSLog(@"test");
+}
+
+
+
 
 
 -(void)imageMapView:(MTImageMapView *)inImageMapView
