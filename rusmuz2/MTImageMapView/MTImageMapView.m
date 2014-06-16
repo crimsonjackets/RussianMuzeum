@@ -79,7 +79,7 @@
 
 #pragma mark Image Map View
 @interface MTImageMapView()
-@property (atomic, retain) NSMutableArray *mapAreas;
+@property (atomic, strong) NSMutableArray *mapAreas;
 -(void)_finishConstructionWithImage:(UIImage *)inImage;
 -(void)_performHitTestOnArea:(NSValue *)inTouchPoint;
 

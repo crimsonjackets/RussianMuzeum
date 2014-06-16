@@ -12,6 +12,7 @@
 
 @property NSString *qrode;
 @property NSString *name;
+@property NSInteger *room;
 @property NSString *description;
 
 @end

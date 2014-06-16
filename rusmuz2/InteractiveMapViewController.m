@@ -144,7 +144,11 @@
     
     // 2
     self.scrollView.contentSize = image.size;
-
+    //self.scrollView.contentSize = CGSizeMake(image.size.width, image.size.height + 1000.0f);
+    //self.floorSelector.frame.size.height
+    
+    NSLog(@"%f",self.floorSelector.frame.size.height);
+    
     
     // 3
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
@@ -170,20 +174,23 @@
     
     // 6
     [self centerScrollViewContents];
-    
 }
-
 
 - (IBAction)floorSelectorValueChanged:(id)sender
 {
+    CGFloat zoomScale = self.scrollView.zoomScale;
+    CGPoint contentOffset = self.scrollView.contentOffset;
     if (self.floorSelector.selectedSegmentIndex == 0)
     {
         [self.imageView removeFromSuperview];
         [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
     } else {
         [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor2.gif" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+        [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
     }
+    
+    self.scrollView.zoomScale = zoomScale;
+    self.scrollView.contentOffset = contentOffset;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -191,8 +198,7 @@
     CGRect frame = _floorSelector.frame;
     frame.origin.y = -scrollView.contentOffset.y;
     _floorSelector.frame = frame;
-    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
-
+    //NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
 }
 
 

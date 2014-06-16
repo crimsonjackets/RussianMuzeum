@@ -6,11 +6,10 @@
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "ZBarSDK.h"
 #import "DatabaseManager.h"
 
-@interface QRViewController : ViewController <ZBarReaderDelegate>
+@interface QRViewController : UIViewController <ZBarReaderDelegate>
 
 @property (strong, nonatomic) NSString *textQRCode;
 @property (weak, nonatomic) IBOutlet UITextView *textviewQRCode;
