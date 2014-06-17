@@ -117,11 +117,10 @@
     
     
     // 1
-    UIImage *image = [UIImage imageNamed:imageName];
+    //UIImage *image = [UIImage imageNamed:imageName];
     self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:imageName]];
 //    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
-    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 600.0f), .size=image.size};
-
+    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=self.imageView.frame.size};
     
     //MTImageView Code
     [self.imageView setDelegate:self];
@@ -143,7 +142,7 @@
     
     
     // 2
-    self.scrollView.contentSize = image.size;
+    self.scrollView.contentSize = self.imageView.frame.size;
     //self.scrollView.contentSize = CGSizeMake(image.size.width, image.size.height + 1000.0f);
     //self.floorSelector.frame.size.height
     
