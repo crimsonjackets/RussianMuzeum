@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "QRViewController.h"
 
+
 ZBarReaderViewController *codeReader = nil;
 
 @interface ViewController ()
@@ -27,7 +28,6 @@ ZBarReaderViewController *codeReader = nil;
     DatabaseManager *databaseManager = [DatabaseManager sharedInstance];
     databaseManager.exhibits = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"It Works!!!",@"http://en.m.wikipedia.org", nil];
 
-    
 }
 
 

@@ -11,6 +11,7 @@
 #import "DatabaseManager.h"
 
 
+
 @interface ViewController : UIViewController <ZBarReaderDelegate>
 @property (strong, nonatomic) NSString *outText;
 @property (strong, nonatomic) NSDictionary *context;
