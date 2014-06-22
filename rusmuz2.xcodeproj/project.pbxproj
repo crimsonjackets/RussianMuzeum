@@ -41,6 +41,12 @@
 		791E4514194D0F0F008D8A93 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791E4513194D0F0F008D8A93 /* Reveal.framework */; };
 		7923D9C4194E6BB6008C3013 /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C2194E6BB6008C3013 /* floor1.png */; };
 		7923D9C5194E6BB6008C3013 /* floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C3194E6BB6008C3013 /* floor2.png */; };
+		798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBA19570619004B94A6 /* InfoViewController.m */; };
+		798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBD19570626004B94A6 /* PageContentViewController.m */; };
+		798FFBC31957063A004B94A6 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBBF1957063A004B94A6 /* page1.png */; };
+		798FFBC41957063A004B94A6 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC01957063A004B94A6 /* page2.png */; };
+		798FFBC51957063A004B94A6 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC11957063A004B94A6 /* page3.png */; };
+		798FFBC61957063A004B94A6 /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC21957063A004B94A6 /* page4.png */; };
 		79B5D094194CD5570075345E /* testNumbers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D093194CD5570075345E /* testNumbers.plist */; };
 		79B5D098194CD7080075345E /* testCoord.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D097194CD7080075345E /* testCoord.plist */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
@@ -106,6 +112,14 @@
 		791E4513194D0F0F008D8A93 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		7923D9C2194E6BB6008C3013 /* floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor1.png; sourceTree = "<group>"; };
 		7923D9C3194E6BB6008C3013 /* floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor2.png; sourceTree = "<group>"; };
+		798FFBB919570619004B94A6 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		798FFBBA19570619004B94A6 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		798FFBBC19570626004B94A6 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		798FFBBD19570626004B94A6 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		798FFBBF1957063A004B94A6 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
+		798FFBC01957063A004B94A6 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
+		798FFBC11957063A004B94A6 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
+		798FFBC21957063A004B94A6 /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
 		79B5D093194CD5570075345E /* testNumbers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testNumbers.plist; sourceTree = SOURCE_ROOT; };
 		79B5D097194CD7080075345E /* testCoord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testCoord.plist; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
@@ -222,6 +236,7 @@
 				09E80A26193BEC5400D62ED1 /* DatabaseManager.m */,
 				09E80A27193BEC5400D62ED1 /* Exhibit.h */,
 				09E80A28193BEC5400D62ED1 /* Exhibit.m */,
+				798FFBB819570600004B94A6 /* InfoPage */,
 				09E80A6B193BF15500D62ED1 /* FloorMaps */,
 				09E80A67193BEE0100D62ED1 /* MTImageMapView */,
 				79E804BD194A918D00B2713C /* ZBarSDK */,
@@ -291,6 +306,21 @@
 				09E80A6D193BF15500D62ED1 /* floor2.gif */,
 			);
 			path = FloorMaps;
+			sourceTree = "<group>";
+		};
+		798FFBB819570600004B94A6 /* InfoPage */ = {
+			isa = PBXGroup;
+			children = (
+				798FFBBF1957063A004B94A6 /* page1.png */,
+				798FFBC01957063A004B94A6 /* page2.png */,
+				798FFBC11957063A004B94A6 /* page3.png */,
+				798FFBC21957063A004B94A6 /* page4.png */,
+				798FFBBC19570626004B94A6 /* PageContentViewController.h */,
+				798FFBBD19570626004B94A6 /* PageContentViewController.m */,
+				798FFBB919570619004B94A6 /* InfoViewController.h */,
+				798FFBBA19570619004B94A6 /* InfoViewController.m */,
+			);
+			name = InfoPage;
 			sourceTree = "<group>";
 		};
 		79E804BD194A918D00B2713C /* ZBarSDK */ = {
@@ -438,12 +468,16 @@
 				79E804DC194A918D00B2713C /* zbar-back.png in Resources */,
 				79E804DE194A918D00B2713C /* zbar-helpicons.png in Resources */,
 				7923D9C4194E6BB6008C3013 /* floor1.png in Resources */,
+				798FFBC61957063A004B94A6 /* page4.png in Resources */,
+				798FFBC41957063A004B94A6 /* page2.png in Resources */,
 				09E80A2A193BEC5400D62ED1 /* Main.storyboard in Resources */,
 				09E80A65193BEDF500D62ED1 /* states_name.plist in Resources */,
 				09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */,
 				09E809FE193BEB0800D62ED1 /* Images.xcassets in Resources */,
 				79E804DD194A918D00B2713C /* zbar-help.html in Resources */,
 				79B5D098194CD7080075345E /* testCoord.plist in Resources */,
+				798FFBC31957063A004B94A6 /* page1.png in Resources */,
+				798FFBC51957063A004B94A6 /* page3.png in Resources */,
 				79B5D094194CD5570075345E /* testNumbers.plist in Resources */,
 				79E804DF194A918D00B2713C /* zbar-samples.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
@@ -469,12 +503,14 @@
 			files = (
 				09E80A2E193BEC5400D62ED1 /* ViewController.m in Sources */,
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
+				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
 				09E80A30193BEC5400D62ED1 /* Exhibit.m in Sources */,
 				09E80A2F193BEC5400D62ED1 /* DatabaseManager.m in Sources */,
 				09E80A2C193BEC5400D62ED1 /* InteractiveMapViewController.m in Sources */,
 				09E80A29193BEC5400D62ED1 /* AppDelegate.m in Sources */,
 				09E80A2D193BEC5400D62ED1 /* QRViewController.m in Sources */,
 				09E80A2B193BEC5400D62ED1 /* RoomViewController.m in Sources */,
+				798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */,
 				09E809F2193BEB0700D62ED1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
