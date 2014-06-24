@@ -9,7 +9,6 @@
 #import "InteractiveMapViewController.h"
 #import "RoomViewController.h"
 
-
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;

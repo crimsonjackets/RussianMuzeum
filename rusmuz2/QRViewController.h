@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
+#import "ViewController.h"
 #import "ZBarSDK.h"
 #import "DatabaseManager.h"
 
