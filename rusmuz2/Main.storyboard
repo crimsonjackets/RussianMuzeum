@@ -79,7 +79,7 @@
                                 </connections>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Gp-4e9">
-                                <rect key="frame" x="80" y="100" width="160" height="29"/>
+                                <rect key="frame" x="80" y="64" width="160" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="First"/>
