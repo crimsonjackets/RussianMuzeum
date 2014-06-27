@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  rusmuz
+//  rusmuz2
 //
-//  Created by Richard Topchiy on 13/05/14.
+//  Created by Richard Topchiy on 27/06/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
@@ -11,5 +11,12 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end
