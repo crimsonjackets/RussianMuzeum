@@ -12,7 +12,7 @@
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
-@property (strong, nonatomic) IBOutlet UIView *selectorView;
+
 
 
 
@@ -36,9 +36,9 @@
     }
     
     if (contentsFrame.size.height < boundsSize.height) {
-        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f + self.selectorView.frame.size.height + 30.0f;
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f + 30.0f;
     } else {
-        contentsFrame.origin.y = self.selectorView.frame.size.height + 30.0f;
+        contentsFrame.origin.y = 30.0f;
     }
     
     self.imageView.frame = contentsFrame;
@@ -126,7 +126,6 @@
     [self.imageView setDelegate:self];
     [self.scrollView addSubview:self.imageView];
     [self.scrollView sendSubviewToBack:self.imageView];
-    [self.selectorView setNeedsDisplay];
     
     NSArray *coordinates = \
     [NSArray arrayWithContentsOfFile:

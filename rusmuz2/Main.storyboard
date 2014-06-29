@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="986" y="1377"/>
         </scene>
-        <!--Interactive Map View Controller-->
+        <!--Interactive Map View Controller - RoomSegue-->
         <scene sceneID="xns-tn-5gl">
             <objects>
-                <viewController id="A9N-Fd-kBa" customClass="InteractiveMapViewController" sceneMemberID="viewController">
+                <viewController title="RoomSegue" id="A9N-Fd-kBa" customClass="InteractiveMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DN6-1R-MSt"/>
                         <viewControllerLayoutGuide type="bottom" id="3qJ-g1-d8X"/>
@@ -92,11 +92,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VAt-Ix-Lwq"/>
+                    <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
                     <connections>
                         <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
-                        <segue destination="EBi-5r-THB" kind="push" identifier="RoomSegue" id="Q4i-QI-Wr4"/>
+                        <segue destination="cbu-gn-lag" kind="push" identifier="RoomSegue" id="LvT-DT-ghd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahs-bK-ecJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W82-FB-cj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="1730"/>
+            <point key="canvasLocation" x="757" y="2382"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tEK-Jm-Vok">
@@ -254,21 +254,6 @@
             </objects>
             <point key="canvasLocation" x="1502" y="116"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ROC-zu-7bL">
-            <objects>
-                <navigationController id="imk-SH-pFc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="pbt-qn-idh">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="cbu-gn-lag" kind="relationship" relationship="rootViewController" id="4ET-gE-FpM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H3G-Dn-F59" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="457" y="2432"/>
-        </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="w8t-oP-KTN">
             <objects>
@@ -310,7 +295,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDu-GJ-49p" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="2432"/>
+            <point key="canvasLocation" x="1939" y="1730"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="wF3-Vd-kGC">
@@ -346,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBL-Pi-QmA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360" y="2432"/>
+            <point key="canvasLocation" x="2382" y="1730"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

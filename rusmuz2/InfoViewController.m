@@ -29,16 +29,18 @@
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
+   
+    
+    
     // Change the size of page view controller, depending on iOS version, due to translucency of NavBar in iOS >= 7
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // Load resources for iOS 6.1 or earlier
-            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
+        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
     } else {
         // Load resources for iOS 7 or later
-            self.pageViewController.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 94);
+        self.pageViewController.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 94);
     }
     
-
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
