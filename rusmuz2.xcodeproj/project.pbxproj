@@ -42,6 +42,7 @@
 		7923D9C4194E6BB6008C3013 /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C2194E6BB6008C3013 /* floor1.png */; };
 		7923D9C5194E6BB6008C3013 /* floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C3194E6BB6008C3013 /* floor2.png */; };
 		793CDB1419601E4E00E97CCB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB1319601E4E00E97CCB /* Event.m */; };
+		793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB18196099B900E97CCB /* NSManagedObjectContext+Queryable.m */; };
 		798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBA19570619004B94A6 /* InfoViewController.m */; };
 		798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBD19570626004B94A6 /* PageContentViewController.m */; };
 		798FFBC31957063A004B94A6 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBBF1957063A004B94A6 /* page1.png */; };
@@ -119,6 +120,9 @@
 		7923D9C3194E6BB6008C3013 /* floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor2.png; sourceTree = "<group>"; };
 		793CDB1219601E4E00E97CCB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		793CDB1319601E4E00E97CCB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		793CDB16196099B900E97CCB /* ios-queryable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ios-queryable-Prefix.pch"; sourceTree = "<group>"; };
+		793CDB17196099B900E97CCB /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
+		793CDB18196099B900E97CCB /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
 		798FFBB919570619004B94A6 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		798FFBBA19570619004B94A6 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		798FFBBC19570626004B94A6 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				79C0114A195CF74500BF6784 /* Model.xcdatamodeld */,
 				793CDB1219601E4E00E97CCB /* Event.h */,
 				793CDB1319601E4E00E97CCB /* Event.m */,
+				793CDB15196099B900E97CCB /* ios-queryable */,
 				798FFBB819570600004B94A6 /* InfoPage */,
 				09E80A6B193BF15500D62ED1 /* FloorMaps */,
 				09E80A67193BEE0100D62ED1 /* MTImageMapView */,
@@ -328,6 +333,16 @@
 				09E80A6D193BF15500D62ED1 /* floor2.gif */,
 			);
 			path = FloorMaps;
+			sourceTree = "<group>";
+		};
+		793CDB15196099B900E97CCB /* ios-queryable */ = {
+			isa = PBXGroup;
+			children = (
+				793CDB16196099B900E97CCB /* ios-queryable-Prefix.pch */,
+				793CDB17196099B900E97CCB /* NSManagedObjectContext+Queryable.h */,
+				793CDB18196099B900E97CCB /* NSManagedObjectContext+Queryable.m */,
+			);
+			path = "ios-queryable";
 			sourceTree = "<group>";
 		};
 		798FFBB819570600004B94A6 /* InfoPage */ = {
@@ -535,6 +550,7 @@
 				09E80A2D193BEC5400D62ED1 /* QRViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
 				09E80A2B193BEC5400D62ED1 /* RoomViewController.m in Sources */,
+				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
 				793CDB1419601E4E00E97CCB /* Event.m in Sources */,
 				798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */,
 				09E809F2193BEB0700D62ED1 /* main.m in Sources */,

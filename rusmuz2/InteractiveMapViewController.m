@@ -12,7 +12,6 @@
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
-@property (strong, nonatomic) IBOutlet UIView *selectorView;
 
 
 
