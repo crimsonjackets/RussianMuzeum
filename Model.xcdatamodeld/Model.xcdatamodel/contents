@@ -5,21 +5,21 @@
             <userInfo/>
         </attribute>
     </entity>
-    <entity name="Exhibit" syncable="YES">
+    <entity name="Exhibit" representedClassName="Exhibit" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qrCode" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="exhibits" inverseEntity="Room" syncable="YES"/>
     </entity>
-    <entity name="Room" syncable="YES">
+    <entity name="Room" representedClassName="Room" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="exhibits" toMany="YES" deletionRule="Cascade" destinationEntity="Exhibit" inverseName="room" inverseEntity="Exhibit" syncable="YES"/>
     </entity>
     <elements>
         <element name="Event" positionX="-675" positionY="-234" width="128" height="58"/>
-        <element name="Room" positionX="-965" positionY="-544" width="128" height="103"/>
         <element name="Exhibit" positionX="-720" positionY="-544" width="128" height="103"/>
+        <element name="Room" positionX="-965" positionY="-544" width="128" height="103"/>
     </elements>
 </model>

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "Exhibit.h"
+#import "Room.h"
 #import <CoreData/CoreData.h>
 
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
