@@ -55,6 +55,15 @@
     Room *room1 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     room1.number = [NSNumber numberWithInt:78];
     NSLog(@"Room with number %@ created", room1.number);
+    
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 
 - (IBAction)createExhibits:(id)sender {
@@ -75,6 +84,15 @@
         NSLog(@"Exhibit %@ created.",ex.name);
     }
     
+    
+    NSError *error1 = nil;
+    if (![context save:&error1]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
 }
 
 - (IBAction)fetchTheRoom:(id)sender {
@@ -90,5 +108,20 @@
     room = fetchedRoom[0];
 
     NSLog(@"Room is: %@", room);
+}
+
+- (IBAction)fetchAllExhibits:(id)sender {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
+    request.predicate = nil;
+    NSError *error = nil;
+    
+    NSArray *fetchedExhibits = [context executeFetchRequest:request error:&error];
+    
+    for (Exhibit *exhibit in fetchedExhibits) {
+        NSLog(@"Exhibit %@ has been found", exhibit.name);
+    }
+
 }
 @end

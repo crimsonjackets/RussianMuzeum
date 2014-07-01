@@ -19,5 +19,6 @@
 - (IBAction)createOneRoom:(id)sender;
 - (IBAction)createExhibits:(id)sender;
 - (IBAction)fetchTheRoom:(id)sender;
+- (IBAction)fetchAllExhibits:(id)sender;
 
 @end
