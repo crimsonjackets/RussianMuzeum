@@ -38,7 +38,8 @@
     if (contentsFrame.size.height < boundsSize.height) {
         contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f + 30.0f;
     } else {
-        contentsFrame.origin.y = 30.0f;
+        //contentsFrame.origin.y = 30.0f;
+        contentsFrame.origin.y = 0.0f;
     }
     
     self.imageView.frame = contentsFrame;
@@ -117,7 +118,6 @@
     
     
     // 1
-    //UIImage *image = [UIImage imageNamed:imageName];
     self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:imageName]];
 //    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
     self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=self.imageView.frame.size};
@@ -141,8 +141,13 @@
     
     
     // 2
+    //CGFloat height = self.imageView.frame.size.height - 300.0f;
+    //CGSize contentSize = CGSizeMake(self.imageView.frame.size.width, height);
+    
+    //self.scrollView.contentSize = self.imageView.frame.size;
+
     self.scrollView.contentSize = self.imageView.frame.size;
-    //self.scrollView.contentSize = CGSizeMake(image.size.width, image.size.height + 1000.0f);
+    
     //self.floorSelector.frame.size.height
     
     NSLog(@"%f",self.floorSelector.frame.size.height);
@@ -168,8 +173,10 @@
     
     // 5
     self.scrollView.maximumZoomScale = 1.0f;
-    self.scrollView.zoomScale = minScale;
     
+    //Adjust this thing to taste
+    //self.scrollView.zoomScale = 0.125f;
+    self.scrollView.zoomScale = minScale;
     // 6
     [self centerScrollViewContents];
 

@@ -167,12 +167,12 @@
                     <connections>
                         <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
-                        <segue destination="cbu-gn-lag" kind="push" identifier="RoomSegue" id="LvT-DT-ghd"/>
+                        <segue destination="10C-kE-Rcz" kind="push" identifier="RoomSegue" id="Zym-MT-sw7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahs-bK-ecJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="1730"/>
+            <point key="canvasLocation" x="1635" y="1794"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="JRW-Qe-LaS">
@@ -335,7 +335,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Ldt-If-BQX">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ldt-If-BQX" id="NGh-lF-hyN">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -357,7 +357,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDu-GJ-49p" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939" y="1730"/>
+            <point key="canvasLocation" x="2131" y="1794"/>
+        </scene>
+        <!--Mini Map View Controller-->
+        <scene sceneID="Rv6-Za-cVK">
+            <objects>
+                <viewController id="10C-kE-Rcz" customClass="MiniMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rg6-Mv-pwi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Je1-9h-bde"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cTm-Cb-t5I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkI-Xk-RKE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="diA-0z-qQD"/>
+                    <connections>
+                        <outlet property="scrollView" destination="xkI-Xk-RKE" id="Npi-9u-yer"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wi6-wl-qXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2058" y="2501"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="wF3-Vd-kGC">
@@ -370,30 +398,13 @@
                     <view key="view" contentMode="scaleToFill" id="JJx-ea-RtA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qtg-lV-4Pd">
-                                <rect key="frame" x="20" y="276" width="280" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qtg-lV-4Pd" firstAttribute="leading" secondItem="JJx-ea-RtA" secondAttribute="leading" constant="20" symbolic="YES" id="dIr-cu-TrO"/>
-                            <constraint firstItem="qtg-lV-4Pd" firstAttribute="centerY" secondItem="JJx-ea-RtA" secondAttribute="centerY" id="vt7-GQ-2RQ"/>
-                            <constraint firstAttribute="trailing" secondItem="qtg-lV-4Pd" secondAttribute="trailing" constant="20" symbolic="YES" id="yhD-tO-eNh"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="nCT-c7-R2n"/>
-                    <connections>
-                        <outlet property="detailDescriptionLabel" destination="qtg-lV-4Pd" id="EkO-qP-LKc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBL-Pi-QmA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="1730"/>
+            <point key="canvasLocation" x="2574" y="1794"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
