@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MTImageMapView.h"
+#import "Event.h"
+#import "Exhibit.h"
+#import "Room.h"
+#import <CoreData/CoreData.h>
 
 @interface MiniMapViewController : UIViewController <UIScrollViewDelegate, MTImageMapDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *roomNumbers;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

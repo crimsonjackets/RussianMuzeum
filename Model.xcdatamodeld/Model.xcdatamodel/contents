@@ -7,6 +7,7 @@
     </entity>
     <entity name="Exhibit" representedClassName="Exhibit" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qrCode" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="exhibits" inverseEntity="Room" syncable="YES"/>
@@ -19,7 +20,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="-675" positionY="-234" width="128" height="58"/>
-        <element name="Exhibit" positionX="-720" positionY="-544" width="128" height="103"/>
+        <element name="Exhibit" positionX="-720" positionY="-544" width="128" height="118"/>
         <element name="Room" positionX="-965" positionY="-544" width="128" height="103"/>
     </elements>
 </model>
