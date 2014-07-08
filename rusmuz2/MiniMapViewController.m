@@ -1,20 +1,17 @@
 //
-//  InteractiveMapViewController.m
-//  MTMapCheck
+//  MiniMapViewController.m
+//  rusmuz2
 //
-//  Created by Richard Topchiy on 30/05/14.
+//  Created by Richard Topchiy on 03/07/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
-#import "InteractiveMapViewController.h"
-#import "RoomViewController.h"
+#import "MiniMapViewController.h"
+#import "AppDelegate.h"
 
-@interface InteractiveMapViewController ()
+@interface MiniMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
-
-
-
 
 
 - (void)centerScrollViewContents;
@@ -23,7 +20,7 @@
 - (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName;
 @end
 
-@implementation InteractiveMapViewController
+@implementation MiniMapViewController
 
 - (void)centerScrollViewContents {
     CGSize boundsSize = self.scrollView.bounds.size;
@@ -90,7 +87,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-//    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    //    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
     
     [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
     
@@ -105,7 +102,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"appear");
-
+    
 }
 
 - (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName
@@ -119,8 +116,14 @@
     
     // 1
     self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:imageName]];
-//    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
+    //    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
     self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=self.imageView.frame.size};
+    
+    CGRect rect = CGRectFromString(@"{{3,2},{4,5}}");
+    UIView *view = [[UIView alloc] initWithFrame:rect];
+
+    [self.scrollView addSubview:view];
+    NSLog(@"View created");
     
     //MTImageView Code
     [self.imageView setDelegate:self];
@@ -145,12 +148,10 @@
     //CGSize contentSize = CGSizeMake(self.imageView.frame.size.width, height);
     
     //self.scrollView.contentSize = self.imageView.frame.size;
-
+    
     self.scrollView.contentSize = self.imageView.frame.size;
     
-    //self.floorSelector.frame.size.height
-    
-    NSLog(@"%f",self.floorSelector.frame.size.height);
+
     
     
     // 3
@@ -179,35 +180,8 @@
     self.scrollView.zoomScale = minScale;
     // 6
     [self centerScrollViewContents];
-
-}
-
-- (IBAction)floorSelectorValueChanged:(id)sender
-{
-    CGFloat zoomScale = self.scrollView.zoomScale;
-    CGPoint contentOffset = self.scrollView.contentOffset;
-    if (self.floorSelector.selectedSegmentIndex == 0)
-    {
-        [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
-    } else {
-        [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
-    }
     
-    self.scrollView.zoomScale = zoomScale;
-    self.scrollView.contentOffset = contentOffset;
 }
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGRect frame = _floorSelector.frame;
-    frame.origin.y = -scrollView.contentOffset.y;
-    _floorSelector.frame = frame;
-    //NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
-}
-
-
 
 
 
@@ -215,26 +189,19 @@
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
 {
-//    [[[UIAlertView alloc]
-//      initWithTitle:@"*** State Name ***"
-//      message:[_stateNames objectAtIndex:inIndexSelected]
-//      delegate:nil
-//      cancelButtonTitle:@"Ok"
-//      otherButtonTitles:nil] show];
-
+    //    [[[UIAlertView alloc]
+    //      initWithTitle:@"*** State Name ***"
+    //      message:[_stateNames objectAtIndex:inIndexSelected]
+    //      delegate:nil
+    //      cancelButtonTitle:@"Ok"
+    //      otherButtonTitles:nil] show];
+    
     self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
     [self performSegueWithIdentifier:@"RoomSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:nil];
     
-
+    
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"RoomSegue"]) {
-        RoomViewController *secView = [segue destinationViewController];
-        secView.roomNumber = self.roomNumber;
-    }
-}
 
 @end
