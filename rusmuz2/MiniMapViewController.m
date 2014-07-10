@@ -12,12 +12,14 @@
 @interface MiniMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
+@property (nonatomic, strong) UIView *containerView;
 
 
 - (void)centerScrollViewContents;
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
 - (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
-- (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName;
+- (void)exhibitButtonPressed:(UIButton *)button;
+
 @end
 
 @implementation MiniMapViewController
@@ -85,76 +87,49 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
-    //    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    CGSize containerSize = CGSizeMake(640.0f, 640.0f);
+    self.containerView = [[UIView alloc] initWithFrame:(CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=containerSize}];
+    [self.scrollView addSubview:self.containerView];
     
-    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
     
-}
+    NSMutableArray *coordinates = [[NSMutableArray alloc] init];
+    NSMutableArray *exhibits = [[NSMutableArray alloc] init];
+    
+    const CGFloat sideOfTheSquare = 20.0f;
+    
+    for (int i = 0; i<10; i++) {
+        
+        CGFloat horizontal = ( arc4random() % 640);
+        CGFloat vertical = ( arc4random() % 640);
+        CGFloat width = horizontal + sideOfTheSquare;
+        CGFloat heighth = vertical + sideOfTheSquare;
+        
 
-
-- (void)viewWillAppear:(BOOL)animated {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button addTarget:self
+                   action:@selector(exhibitButtonPressed:)
+         
+         forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"Show View" forState:UIControlStateNormal];
+        button.frame = CGRectMake(horizontal, vertical, 160.0f, 40.0f);
+        button.tag = i;
+        [self.containerView addSubview:button];
+        
+        NSLog(@"%ld", (long)button.tag);
+        [exhibits addObject:[NSString stringWithFormat:@"%d", i]];
+        
+    }
     
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"appear");
-    
-}
-
-- (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName
-{
-    self.roomNumbers = \
-    [NSArray arrayWithContentsOfFile:
-     [[NSBundle mainBundle]
-      pathForResource:roomNumbersName
-      ofType:@"plist"]];
-    
-    
-    // 1
-    self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:imageName]];
-    //    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
-    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=self.imageView.frame.size};
-    
-    CGRect rect = CGRectFromString(@"{{3,2},{4,5}}");
-    UIView *view = [[UIView alloc] initWithFrame:rect];
-
-    [self.scrollView addSubview:view];
-    NSLog(@"View created");
-    
-    //MTImageView Code
-    [self.imageView setDelegate:self];
-    [self.scrollView addSubview:self.imageView];
-    [self.scrollView sendSubviewToBack:self.imageView];
-    
-    NSArray *coordinates = \
-    [NSArray arrayWithContentsOfFile:
-     [[NSBundle mainBundle]
-      pathForResource:coordinatesName
-      ofType:@"plist"]];
-    
-    [_imageView
-     setMapping:coordinates
-     doneBlock:^(MTImageMapView *imageMapView) {
-         NSLog(@"Areas are all mapped");
-     }];
-    
-    
-    // 2
-    //CGFloat height = self.imageView.frame.size.height - 300.0f;
-    //CGSize contentSize = CGSizeMake(self.imageView.frame.size.width, height);
-    
-    //self.scrollView.contentSize = self.imageView.frame.size;
-    
-    self.scrollView.contentSize = self.imageView.frame.size;
-    
+    for (NSString *str in coordinates) {
+        NSLog(@"%@", str);
+    }
 
     
+//
+    // Tell the scroll view the size of the contents
+    self.scrollView.contentSize = containerSize;
     
-    // 3
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;
     doubleTapRecognizer.numberOfTouchesRequired = 1;
@@ -184,21 +159,17 @@
 }
 
 
-
-
--(void)imageMapView:(MTImageMapView *)inImageMapView
-   didSelectMapArea:(NSUInteger)inIndexSelected
-{
-    //    [[[UIAlertView alloc]
-    //      initWithTitle:@"*** State Name ***"
-    //      message:[_stateNames objectAtIndex:inIndexSelected]
-    //      delegate:nil
-    //      cancelButtonTitle:@"Ok"
-    //      otherButtonTitles:nil] show];
+- (void)viewWillAppear:(BOOL)animated {
     
-    self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
-    [self performSegueWithIdentifier:@"RoomSegue" sender:self];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [super viewWillAppear:animated];
+}
+
+-(void)exhibitButtonPressed:(UIButton *)button {
+    NSLog(@"%ld", (long)button.tag);
+}
+
+
+-(void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
     
 }
