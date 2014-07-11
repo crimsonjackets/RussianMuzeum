@@ -357,7 +357,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDu-GJ-49p" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="1794"/>
+            <point key="canvasLocation" x="2545" y="1794"/>
         </scene>
         <!--Mini Map View Controller-->
         <scene sceneID="Rv6-Za-cVK">
@@ -384,6 +384,7 @@
                     <navigationItem key="navigationItem" id="diA-0z-qQD"/>
                     <connections>
                         <outlet property="scrollView" destination="xkI-Xk-RKE" id="Npi-9u-yer"/>
+                        <segue destination="gPy-rP-dl4" kind="push" identifier="showExhibit" id="lmX-s1-GC0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi6-wl-qXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +408,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBL-Pi-QmA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="1794"/>
+            <point key="canvasLocation" x="3112" y="1766"/>
+        </scene>
+        <!--Exhibit View Controller - Detail-->
+        <scene sceneID="vm3-Is-yf7">
+            <objects>
+                <viewController title="Detail" id="gPy-rP-dl4" customClass="ExhibitViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VRM-aZ-1Lw"/>
+                        <viewControllerLayoutGuide type="bottom" id="aA2-dj-cil"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EI7-1O-GdM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sS4-bZ-mtb">
+                                <rect key="frame" x="54" y="273" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="7kA-Zi-vce"/>
+                    <connections>
+                        <outlet property="label" destination="sS4-bZ-mtb" id="BkV-jw-aUf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnn-Lf-n4C" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602" y="2501"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

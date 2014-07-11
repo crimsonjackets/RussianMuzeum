@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
+
 #import "MiniMapViewController.h"
 #import "AppDelegate.h"
+#import "ExhibitViewController.h"
 
 @interface MiniMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
@@ -99,7 +101,7 @@
     const CGFloat sideOfTheSquare = 20.0f;
     
     for (int i = 0; i<10; i++) {
-        
+        NSString *name = [NSString stringWithFormat:@"%d", i];
         CGFloat horizontal = ( arc4random() % 640);
         CGFloat vertical = ( arc4random() % 640);
         CGFloat width = horizontal + sideOfTheSquare;
@@ -111,7 +113,7 @@
                    action:@selector(exhibitButtonPressed:)
          
          forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:@"Show View" forState:UIControlStateNormal];
+        [button setTitle:name forState:UIControlStateNormal];
         button.frame = CGRectMake(horizontal, vertical, 160.0f, 40.0f);
         button.tag = i;
         [self.containerView addSubview:button];
@@ -149,9 +151,7 @@
     
     // 5
     self.scrollView.maximumZoomScale = 1.0f;
-    
-    //Adjust this thing to taste
-    //self.scrollView.zoomScale = 0.125f;
+
     self.scrollView.zoomScale = minScale;
     // 6
     [self centerScrollViewContents];
@@ -166,12 +166,24 @@
 
 -(void)exhibitButtonPressed:(UIButton *)button {
     NSLog(@"%ld", (long)button.tag);
+    [self performSegueWithIdentifier:@"showExhibit" sender:button];
 }
 
 
--(void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    
-    
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showExhibit"])
+    {
+        // Get reference to the destination view controller
+        ExhibitViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        UIButton  *button = (UIButton *)sender;
+        NSString *text = [NSString stringWithFormat:@"%ld", (long)button.tag];
+        vc.labelText = text;
+//        vc.label.text = text;
+        
+        NSLog(@"Segue works %@", text);
+    }
 }
 
 
