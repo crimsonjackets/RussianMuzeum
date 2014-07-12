@@ -114,8 +114,12 @@
          
          forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:name forState:UIControlStateNormal];
-        button.frame = CGRectMake(horizontal, vertical, 160.0f, 40.0f);
+        button.frame = CGRectMake(horizontal, vertical, 48.0f, 48.0f);
         button.tag = i;
+        
+
+        UIImage *image = [UIImage imageNamed:@"testButton.png"];
+                    [button setBackgroundImage:image forState:UIControlStateNormal];
         [self.containerView addSubview:button];
         
         NSLog(@"%ld", (long)button.tag);
