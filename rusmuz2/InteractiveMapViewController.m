@@ -40,8 +40,8 @@
     if (contentsFrame.size.height < boundsSize.height) {
         contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f + 30.0f;
     } else {
-        //contentsFrame.origin.y = 30.0f;
-        contentsFrame.origin.y = 0.0f;
+        contentsFrame.origin.y = 30.0f;
+        //contentsFrame.origin.y = 0.0f;
     }
     
     self.imageView.frame = contentsFrame;
@@ -143,16 +143,13 @@
     
     
     // 2
-    //CGFloat height = self.imageView.frame.size.height - 300.0f;
-    //CGSize contentSize = CGSizeMake(self.imageView.frame.size.width, height);
+    CGFloat height = self.imageView.frame.size.height - 300.0f;
+    CGSize contentSize = CGSizeMake(self.imageView.frame.size.width, height);
     
     //self.scrollView.contentSize = self.imageView.frame.size;
-
-    self.scrollView.contentSize = self.imageView.frame.size;
+    self.scrollView.contentSize = contentSize;
     
-    //self.floorSelector.frame.size.height
-    
-    //NSLog(@"%f",self.floorSelector.frame.size.height);
+    NSLog(@"FLOORSELECTOR SIZZE %f",self.floorSelector.frame.size.height);
     
     
     // 3
