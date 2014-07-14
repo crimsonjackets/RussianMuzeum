@@ -52,6 +52,7 @@
 		798FFBC41957063A004B94A6 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC01957063A004B94A6 /* page2.png */; };
 		798FFBC51957063A004B94A6 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC11957063A004B94A6 /* page3.png */; };
 		798FFBC61957063A004B94A6 /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC21957063A004B94A6 /* page4.png */; };
+		799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 799EA29519735E7B00D8F1DE /* ZoomSegue.m */; };
 		79B184811972004C002A95C2 /* testButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 79B184801972004C002A95C2 /* testButton.png */; };
 		79B5D094194CD5570075345E /* testNumbers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D093194CD5570075345E /* testNumbers.plist */; };
 		79B5D098194CD7080075345E /* testCoord.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D097194CD7080075345E /* testCoord.plist */; };
@@ -142,6 +143,8 @@
 		798FFBC01957063A004B94A6 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		798FFBC11957063A004B94A6 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		798FFBC21957063A004B94A6 /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
+		799EA29419735E7B00D8F1DE /* ZoomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomSegue.h; sourceTree = "<group>"; };
+		799EA29519735E7B00D8F1DE /* ZoomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomSegue.m; sourceTree = "<group>"; };
 		79B184801972004C002A95C2 /* testButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testButton.png; sourceTree = "<group>"; };
 		79B5D093194CD5570075345E /* testNumbers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testNumbers.plist; sourceTree = SOURCE_ROOT; };
 		79B5D097194CD7080075345E /* testCoord.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testCoord.plist; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				09E80A1E193BEC5400D62ED1 /* RoomViewController.m */,
 				09E80A1F193BEC5400D62ED1 /* InteractiveMapViewController.h */,
 				09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */,
+				799EA29419735E7B00D8F1DE /* ZoomSegue.h */,
+				799EA29519735E7B00D8F1DE /* ZoomSegue.m */,
 				796C145819656EA60046916C /* MiniMapViewController.h */,
 				796C145919656EA60046916C /* MiniMapViewController.m */,
 				09E80A21193BEC5400D62ED1 /* QRViewController.h */,
@@ -575,6 +580,7 @@
 				793CDB1C1960C2EE00E97CCB /* Exhibit.m in Sources */,
 				796C145A19656EA60046916C /* MiniMapViewController.m in Sources */,
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
+				799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */,
 				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
 				79D3102C196EFFEE00D7389D /* ExhibitViewController.m in Sources */,
 				79C0114C195CF74500BF6784 /* Model.xcdatamodeld in Sources */,

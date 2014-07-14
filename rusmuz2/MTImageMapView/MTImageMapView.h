@@ -42,6 +42,8 @@
 
 @interface MTImageMapView : UIImageView
 @property (nonatomic, assign) IBOutlet id<MTImageMapDelegate> delegate;
+
+@property (nonatomic) CGPoint touchPoint;
 -(void)setMapping:(NSArray *)inArrMapping
         doneBlock:(void (^)(MTImageMapView *imageMapView))inBlockDone;
 @end

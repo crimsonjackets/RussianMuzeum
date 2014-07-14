@@ -8,6 +8,8 @@
 
 #import "InteractiveMapViewController.h"
 #import "RoomViewController.h"
+#import "ZoomSegue.h"
+#import "MTImageMapView/MTImageMapView.h"
 
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
@@ -90,10 +92,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-//    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
     
     [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-    
+ 
 }
 
 
@@ -118,9 +119,10 @@
     
     
     // 1
-    self.imageView = [[MTImageMapView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    UIImage *image = [UIImage imageNamed:imageName];
+    self.imageView = [[MTImageMapView alloc] initWithImage:image];
 //    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
-    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=self.imageView.frame.size};
+    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
     
     //MTImageView Code
     [self.imageView setDelegate:self];
@@ -150,7 +152,7 @@
     
     //self.floorSelector.frame.size.height
     
-    NSLog(@"%f",self.floorSelector.frame.size.height);
+    //NSLog(@"%f",self.floorSelector.frame.size.height);
     
     
     // 3
@@ -234,7 +236,15 @@
     if ([segue.identifier isEqualToString:@"RoomSegue"]) {
         RoomViewController *secView = [segue destinationViewController];
         secView.roomNumber = self.roomNumber;
+        //CGPoint zoomedTouchPoint = CGPointMake(self.imageView.touchPoint.x * self.scrollView.zoomScale, self.imageView.touchPoint.y * self.scrollView.zoomScale);
+        
+        ((ZoomSegue *)segue).originatingPoint = CGPointMake(162.0f, 297.0f);
+        
+        //NSLog(@"%@", [NSString stringWithFormat:@"X: %f, Y: %f", self.imageView.touchPoint.x, self.imageView.touchPoint.y]);
+        
+        //NSLog(@"%@", [NSString stringWithFormat:@"X: %f, Y: %f", zoomedTouchPoint.x, zoomedTouchPoint.y]);
     }
 }
+
 
 @end
