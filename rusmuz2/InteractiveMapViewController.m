@@ -234,15 +234,15 @@
 //      delegate:nil
 //      cancelButtonTitle:@"Ok"
 //      otherButtonTitles:nil] show];
+
+    CGPoint pointInViewCoords = [self.parentView convertPoint:self.imageView.touchPoint fromView:self.imageView];
     
     
-    CGFloat x = self.imageView.touchPoint.x * self.scrollView.zoomScale + self.imageView.center.x;
-    CGFloat y =self.imageView.touchPoint.y * self.scrollView.zoomScale + self.imageView.center.y;
-    
-    NSLog(@"TouchPointX: %f", x);
-    NSLog(@"TouchPointY: %f", y);
-    
-    self.touchedPoint = CGPointMake(x, y);
+    NSLog(@"X standard point %f", pointInViewCoords.x);
+    NSLog(@"Y standard point %f", pointInViewCoords.y);
+
+    self.touchedPoint = pointInViewCoords;
+
     self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
     [self performSegueWithIdentifier:@"RoomSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:nil];
