@@ -14,7 +14,8 @@
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
-
+@property CGFloat previousContentOffset;
+@property CGPoint touchedPoint;
 
 
 
@@ -38,10 +39,11 @@
     }
     
     if (contentsFrame.size.height < boundsSize.height) {
-        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f + 30.0f;
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
     } else {
-        contentsFrame.origin.y = 30.0f;
-        //contentsFrame.origin.y = 0.0f;
+  //      contentsFrame.origin.y = +300.0f;
+        
+        contentsFrame.origin.y = 0.0f;
     }
     
     self.imageView.frame = contentsFrame;
@@ -83,7 +85,27 @@
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     // The scroll view has zoomed, so you need to re-center the contents
+    NSLog(@"ZOOMSCALE %f", self.scrollView.zoomScale);
+    
+    if (self.scrollView.zoomScale >0.2) {
+        CGRect frame = _floorSelector.frame;
+        frame.origin.y = frame.origin.y - 30.0f;
+        _floorSelector.frame = frame;
+    }
+    
     [self centerScrollViewContents];
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    CGRect frame = _floorSelector.frame;
+    frame.origin.y = frame.origin.y - scrollView.contentOffset.y + self.previousContentOffset;
+    _floorSelector.frame = frame;
+    self.previousContentOffset = scrollView.contentOffset.y;
+    
+    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
 }
 
 
@@ -92,8 +114,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
+    CGRect a = self.imageView.frame;
+    a.size.height = a.size.height + 30.0f;
+    self.imageView.frame = a;
+    self.previousContentOffset = 0.0f;
     [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+    
  
 }
 
@@ -143,10 +169,10 @@
     
     
     // 2
-    CGFloat height = self.imageView.frame.size.height - 300.0f;
+    CGFloat height = self.imageView.frame.size.height;
     CGSize contentSize = CGSizeMake(self.imageView.frame.size.width, height);
     
-    //self.scrollView.contentSize = self.imageView.frame.size;
+    self.scrollView.contentSize = self.imageView.frame.size;
     self.scrollView.contentSize = contentSize;
     
     NSLog(@"FLOORSELECTOR SIZZE %f",self.floorSelector.frame.size.height);
@@ -198,18 +224,6 @@
     self.scrollView.contentOffset = contentOffset;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGRect frame = _floorSelector.frame;
-    frame.origin.y = -scrollView.contentOffset.y;
-    _floorSelector.frame = frame;
-    //NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
-}
-
-
-
-
-
 
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
@@ -220,7 +234,15 @@
 //      delegate:nil
 //      cancelButtonTitle:@"Ok"
 //      otherButtonTitles:nil] show];
-
+    
+    
+    CGFloat x = self.imageView.touchPoint.x * self.scrollView.zoomScale + self.imageView.center.x;
+    CGFloat y =self.imageView.touchPoint.y * self.scrollView.zoomScale + self.imageView.center.y;
+    
+    NSLog(@"TouchPointX: %f", x);
+    NSLog(@"TouchPointY: %f", y);
+    
+    self.touchedPoint = CGPointMake(x, y);
     self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
     [self performSegueWithIdentifier:@"RoomSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -235,7 +257,7 @@
         secView.roomNumber = self.roomNumber;
         //CGPoint zoomedTouchPoint = CGPointMake(self.imageView.touchPoint.x * self.scrollView.zoomScale, self.imageView.touchPoint.y * self.scrollView.zoomScale);
         
-        ((ZoomSegue *)segue).originatingPoint = CGPointMake(162.0f, 297.0f);
+        ((ZoomSegue *)segue).originatingPoint = self.touchedPoint;
         
         //NSLog(@"%@", [NSString stringWithFormat:@"X: %f, Y: %f", self.imageView.touchPoint.x, self.imageView.touchPoint.y]);
         
