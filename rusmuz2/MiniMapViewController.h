@@ -13,7 +13,7 @@
 #import "Room.h"
 #import <CoreData/CoreData.h>
 
-@interface MiniMapViewController : UIViewController <UIScrollViewDelegate, MTImageMapDelegate>
+@interface MiniMapViewController : UIViewController <UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *roomNumbers;

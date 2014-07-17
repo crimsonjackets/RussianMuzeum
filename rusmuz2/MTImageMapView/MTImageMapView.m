@@ -274,6 +274,8 @@
     
     CGPoint     aTouchPoint     = [inTouchPoint CGPointValue];
     NSArray*    areaArray       = [self mapAreas];
+    
+    self.touchPoint = aTouchPoint;
 
     for(MTMapArea *anArea in areaArray)
     {

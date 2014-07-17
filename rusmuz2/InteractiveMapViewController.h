@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *floorSelector;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIView *parentView;
 @property (nonatomic, strong) NSArray *roomNumbers;
 
 
