@@ -31,7 +31,8 @@
                      }
                      completion:^(BOOL finished){
                          [destinationViewController.view removeFromSuperview]; // remove from temp super view
-                         [sourceViewController presentViewController:destinationViewController animated:NO completion:NULL]; // present VC
+                                                    // present VC
+                         [sourceViewController.navigationController pushViewController:destinationViewController animated:NO];
                      }];
 }
 
