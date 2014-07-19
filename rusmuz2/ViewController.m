@@ -83,6 +83,7 @@ ZBarReaderViewController *codeReader = nil;
 
     if (([context countForFetchRequest:exhibits error:&errorExhibit] == 0) || ([context countForFetchRequest:rooms error:&errorRoom] == 0)) {
         NSLog(@"Core Data Entities do not exist. Creating...");
+        [self getCoreData];
     }
     
     NSLog(@"Core Data exists");

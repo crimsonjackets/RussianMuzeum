@@ -29,7 +29,6 @@
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
 
-                         
                          destinationViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
                          destinationViewController.view.center = originalCenter;
                      }

@@ -91,7 +91,7 @@
     [super viewDidLoad];
     
     CGSize containerSize = CGSizeMake(640.0f, 640.0f);
-    self.containerView = [[UIView alloc] initWithFrame:(CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=containerSize}];
+    self.containerView = [[UIView alloc] initWithFrame:(CGRect){.origin=CGPointMake(0.0f, 20.0f), .size=containerSize}];
     [self.scrollView addSubview:self.containerView];
     
     
@@ -100,10 +100,12 @@
     
     const CGFloat sideOfTheSquare = 20.0f;
     
-    CGRect applicationFrame = CGRectMake(0.0f, 20.0f, containerSize.width, containerSize.height);
+    CGRect applicationFrame = CGRectMake(0.0f, 0.0f, containerSize.width, containerSize.height - 20.0f);
     UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
     contentView.backgroundColor = [UIColor greenColor];
     [self.containerView addSubview:contentView];
+
+
     
     
 //    CGRect applicationFrame1 = CGRectMake(0.0f, 0.0f, sideOfTheSquare, sideOfTheSquare);
@@ -115,7 +117,7 @@
     for (int i = 0; i<10; i++) {
         NSString *name = [NSString stringWithFormat:@"%d", i];
         CGFloat horizontal = ( arc4random() % 640);
-        CGFloat vertical = ( arc4random() % 640);
+        CGFloat vertical = ( arc4random() % 620);
         CGFloat width = horizontal + sideOfTheSquare;
         CGFloat heighth = vertical + sideOfTheSquare;
         
