@@ -31,6 +31,9 @@
 
                          destinationViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
                          destinationViewController.view.center = originalCenter;
+                         
+                         
+                         sourceViewController.navigationController.navigationItem.leftBarButtonItem.customView.alpha = 0;
                      }
                      completion:^(BOOL finished){
                          
