@@ -124,4 +124,18 @@
     }
 
 }
+
+- (IBAction)countCheck:(id)sender {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
+    
+    NSError *error = nil;
+    
+    // if there's no object fetched, return nil
+    if ([context countForFetchRequest:request error:&error] == 0) {
+        NSLog(@"!!!WARN: NO Object Matches.");
+    } else {
+        NSLog(@"COunt IS %lu", (unsigned long)[context countForFetchRequest:request error:&error]);
+    }
+}
 @end
