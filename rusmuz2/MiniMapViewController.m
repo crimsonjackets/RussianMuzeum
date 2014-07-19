@@ -100,6 +100,18 @@
     
     const CGFloat sideOfTheSquare = 20.0f;
     
+    CGRect applicationFrame = CGRectMake(0.0f, 20.0f, containerSize.width, containerSize.height);
+    UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    contentView.backgroundColor = [UIColor greenColor];
+    [self.containerView addSubview:contentView];
+    
+    
+//    CGRect applicationFrame1 = CGRectMake(0.0f, 0.0f, sideOfTheSquare, sideOfTheSquare);
+//    UIView *contentView1 = [[UIView alloc] initWithFrame:applicationFrame1];
+//    contentView1.backgroundColor = [UIColor redColor];
+//    [self.containerView addSubview:contentView1];
+//    
+    
     for (int i = 0; i<10; i++) {
         NSString *name = [NSString stringWithFormat:@"%d", i];
         CGFloat horizontal = ( arc4random() % 640);
