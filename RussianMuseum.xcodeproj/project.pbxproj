@@ -79,18 +79,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09E809E2193BEB0700D62ED1 /* rusmuz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rusmuz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09E809E2193BEB0700D62ED1 /* RussianMuseum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RussianMuseum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E809E5193BEB0700D62ED1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		09E809E7193BEB0700D62ED1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		09E809E9193BEB0700D62ED1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		09E809ED193BEB0700D62ED1 /* rusmuz2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rusmuz2-Info.plist"; sourceTree = "<group>"; };
+		09E809ED193BEB0700D62ED1 /* RussianMuseum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RussianMuseum-Info.plist"; sourceTree = "<group>"; };
 		09E809EF193BEB0700D62ED1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		09E809F1193BEB0700D62ED1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		09E809F3193BEB0800D62ED1 /* rusmuz2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rusmuz2-Prefix.pch"; sourceTree = "<group>"; };
+		09E809F3193BEB0800D62ED1 /* RussianMuseum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RussianMuseum-Prefix.pch"; sourceTree = "<group>"; };
 		09E809FD193BEB0800D62ED1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		09E80A03193BEB0800D62ED1 /* rusmuz2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rusmuz2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09E80A03193BEB0800D62ED1 /* RussianMuseumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RussianMuseumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E80A04193BEB0800D62ED1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		09E80A0C193BEB0800D62ED1 /* rusmuz2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rusmuz2Tests-Info.plist"; sourceTree = "<group>"; };
+		09E80A0C193BEB0800D62ED1 /* RussianMuseumTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RussianMuseumTests-Info.plist"; sourceTree = "<group>"; };
 		09E80A0E193BEB0800D62ED1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		09E80A10193BEB0800D62ED1 /* rusmuz2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rusmuz2Tests.m; sourceTree = "<group>"; };
 		09E80A1A193BEC5400D62ED1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 		09E809E3193BEB0700D62ED1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09E809E2193BEB0700D62ED1 /* rusmuz2.app */,
-				09E80A03193BEB0800D62ED1 /* rusmuz2Tests.xctest */,
+				09E809E2193BEB0700D62ED1 /* RussianMuseum.app */,
+				09E80A03193BEB0800D62ED1 /* RussianMuseumTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -300,10 +300,10 @@
 		09E809EC193BEB0700D62ED1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				09E809ED193BEB0700D62ED1 /* rusmuz2-Info.plist */,
+				09E809ED193BEB0700D62ED1 /* RussianMuseum-Info.plist */,
 				09E809EE193BEB0700D62ED1 /* InfoPlist.strings */,
 				09E809F1193BEB0700D62ED1 /* main.m */,
-				09E809F3193BEB0800D62ED1 /* rusmuz2-Prefix.pch */,
+				09E809F3193BEB0800D62ED1 /* RussianMuseum-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 		09E80A0B193BEB0800D62ED1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				09E80A0C193BEB0800D62ED1 /* rusmuz2Tests-Info.plist */,
+				09E80A0C193BEB0800D62ED1 /* RussianMuseumTests-Info.plist */,
 				09E80A0D193BEB0800D62ED1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -463,9 +463,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		09E809E1193BEB0700D62ED1 /* rusmuz2 */ = {
+		09E809E1193BEB0700D62ED1 /* RussianMuseum */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09E80A14193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "rusmuz2" */;
+			buildConfigurationList = 09E80A14193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "RussianMuseum" */;
 			buildPhases = (
 				09E809DE193BEB0700D62ED1 /* Sources */,
 				09E809DF193BEB0700D62ED1 /* Frameworks */,
@@ -475,14 +475,14 @@
 			);
 			dependencies = (
 			);
-			name = rusmuz2;
+			name = RussianMuseum;
 			productName = rusmuz2;
-			productReference = 09E809E2193BEB0700D62ED1 /* rusmuz2.app */;
+			productReference = 09E809E2193BEB0700D62ED1 /* RussianMuseum.app */;
 			productType = "com.apple.product-type.application";
 		};
-		09E80A02193BEB0800D62ED1 /* rusmuz2Tests */ = {
+		09E80A02193BEB0800D62ED1 /* RussianMuseumTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09E80A17193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "rusmuz2Tests" */;
+			buildConfigurationList = 09E80A17193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "RussianMuseumTests" */;
 			buildPhases = (
 				09E809FF193BEB0800D62ED1 /* Sources */,
 				09E80A00193BEB0800D62ED1 /* Frameworks */,
@@ -493,9 +493,9 @@
 			dependencies = (
 				09E80A09193BEB0800D62ED1 /* PBXTargetDependency */,
 			);
-			name = rusmuz2Tests;
+			name = RussianMuseumTests;
 			productName = rusmuz2Tests;
-			productReference = 09E80A03193BEB0800D62ED1 /* rusmuz2Tests.xctest */;
+			productReference = 09E80A03193BEB0800D62ED1 /* RussianMuseumTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -512,7 +512,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 09E809DD193BEB0700D62ED1 /* Build configuration list for PBXProject "rusmuz2" */;
+			buildConfigurationList = 09E809DD193BEB0700D62ED1 /* Build configuration list for PBXProject "RussianMuseum" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -525,8 +525,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09E809E1193BEB0700D62ED1 /* rusmuz2 */,
-				09E80A02193BEB0800D62ED1 /* rusmuz2Tests */,
+				09E809E1193BEB0700D62ED1 /* RussianMuseum */,
+				09E80A02193BEB0800D62ED1 /* RussianMuseumTests */,
 			);
 		};
 /* End PBXProject section */
@@ -612,7 +612,7 @@
 /* Begin PBXTargetDependency section */
 		09E80A09193BEB0800D62ED1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09E809E1193BEB0700D62ED1 /* rusmuz2 */;
+			target = 09E809E1193BEB0700D62ED1 /* RussianMuseum */;
 			targetProxy = 09E80A08193BEB0800D62ED1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -718,8 +718,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "rusmuz2/rusmuz2-Prefix.pch";
-				INFOPLIST_FILE = "rusmuz2/rusmuz2-Info.plist";
+				GCC_PREFIX_HEADER = "rusmuz2/RussianMuseum-Prefix.pch";
+				INFOPLIST_FILE = "rusmuz2/RussianMuseum-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -730,7 +730,7 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RussianMuseum;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -746,8 +746,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "rusmuz2/rusmuz2-Prefix.pch";
-				INFOPLIST_FILE = "rusmuz2/rusmuz2-Info.plist";
+				GCC_PREFIX_HEADER = "rusmuz2/RussianMuseum-Prefix.pch";
+				INFOPLIST_FILE = "rusmuz2/RussianMuseum-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -758,7 +758,7 @@
 					"-framework",
 					Reveal,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RussianMuseum;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -778,8 +778,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "rusmuz2Tests/rusmuz2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "rusmuz2Tests/RussianMuseumTests-Info.plist";
+				PRODUCT_NAME = RussianMuseumTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -796,8 +796,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rusmuz2/rusmuz2-Prefix.pch";
-				INFOPLIST_FILE = "rusmuz2Tests/rusmuz2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "rusmuz2Tests/RussianMuseumTests-Info.plist";
+				PRODUCT_NAME = RussianMuseumTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -806,7 +806,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09E809DD193BEB0700D62ED1 /* Build configuration list for PBXProject "rusmuz2" */ = {
+		09E809DD193BEB0700D62ED1 /* Build configuration list for PBXProject "RussianMuseum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09E80A12193BEB0800D62ED1 /* Debug */,
@@ -815,7 +815,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09E80A14193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "rusmuz2" */ = {
+		09E80A14193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "RussianMuseum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09E80A15193BEB0800D62ED1 /* Debug */,
@@ -824,7 +824,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09E80A17193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "rusmuz2Tests" */ = {
+		09E80A17193BEB0800D62ED1 /* Build configuration list for PBXNativeTarget "RussianMuseumTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09E80A18193BEB0800D62ED1 /* Debug */,
