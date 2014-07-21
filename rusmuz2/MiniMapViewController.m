@@ -13,7 +13,6 @@
 
 @interface MiniMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
-@property (nonatomic, strong) NSString *roomNumber;
 @property (nonatomic, strong) UIView *containerView;
 
 
@@ -90,8 +89,22 @@
 {
     [super viewDidLoad];
     
+    self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    
+    
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
+    request.predicate = [NSPredicate predicateWithFormat:@"room.number == %@", self.roomNumber];
+    NSError *error = nil;
+    
+    NSArray *fetchedExhibits = [context executeFetchRequest:request error:&error];
+    
+    NSLog(@"Fetched array: %@", fetchedExhibits);
+    
+    
     CGSize containerSize = CGSizeMake(640.0f, 640.0f);
-    self.containerView = [[UIView alloc] initWithFrame:(CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=containerSize}];
+    self.containerView = [[UIView alloc] initWithFrame:(CGRect){.origin=CGPointMake(0.0f, 20.0f), .size=containerSize}];
     [self.scrollView addSubview:self.containerView];
     
     
@@ -100,36 +113,77 @@
     
     const CGFloat sideOfTheSquare = 20.0f;
     
-    for (int i = 0; i<10; i++) {
-        NSString *name = [NSString stringWithFormat:@"%d", i];
-        CGFloat horizontal = ( arc4random() % 640);
-        CGFloat vertical = ( arc4random() % 640);
-        CGFloat width = horizontal + sideOfTheSquare;
-        CGFloat heighth = vertical + sideOfTheSquare;
-        
+    CGRect applicationFrame = CGRectMake(0.0f, 0.0f, containerSize.width, containerSize.height - 20.0f);
+    UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    contentView.backgroundColor = [UIColor greenColor];
+    [self.containerView addSubview:contentView];
 
+
+    
+    
+//    CGRect applicationFrame1 = CGRectMake(0.0f, 0.0f, sideOfTheSquare, sideOfTheSquare);
+//    UIView *contentView1 = [[UIView alloc] initWithFrame:applicationFrame1];
+//    contentView1.backgroundColor = [UIColor redColor];
+//    [self.containerView addSubview:contentView1];
+//
+    
+    
+    for (Exhibit *exhibit in fetchedExhibits) {
+        
+        NSArray * coordinates = [exhibit.coordinates componentsSeparatedByString:@","];
+        
+        CGFloat x = [coordinates[0] floatValue];
+        CGFloat y = [coordinates[1] floatValue];
+        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button addTarget:self
                    action:@selector(exhibitButtonPressed:)
          
          forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:name forState:UIControlStateNormal];
-        button.frame = CGRectMake(horizontal, vertical, 48.0f, 48.0f);
-        button.tag = i;
+        [button setTitle:exhibit.name forState:UIControlStateNormal];
+        button.frame = CGRectMake(x, y, 48.0f, 48.0f);
+        //button.tag = exhibit.name;
         
-
+        
         UIImage *image = [UIImage imageNamed:@"testButton.png"];
-                    [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
         [self.containerView addSubview:button];
         
         NSLog(@"%ld", (long)button.tag);
-        [exhibits addObject:[NSString stringWithFormat:@"%d", i]];
-        
+
     }
     
-    for (NSString *str in coordinates) {
-        NSLog(@"%@", str);
-    }
+    
+//    for (int i = 0; i<10; i++) {
+//        NSString *name = [NSString stringWithFormat:@"%d", i];
+//        CGFloat horizontal = ( arc4random() % 640);
+//        CGFloat vertical = ( arc4random() % 620);
+//        CGFloat width = horizontal + sideOfTheSquare;
+//        CGFloat heighth = vertical + sideOfTheSquare;
+//        
+//
+//        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        [button addTarget:self
+//                   action:@selector(exhibitButtonPressed:)
+//         
+//         forControlEvents:UIControlEventTouchUpInside];
+//        [button setTitle:name forState:UIControlStateNormal];
+//        button.frame = CGRectMake(horizontal, vertical, 48.0f, 48.0f);
+//        button.tag = i;
+//        
+//
+//        UIImage *image = [UIImage imageNamed:@"testButton.png"];
+//                    [button setBackgroundImage:image forState:UIControlStateNormal];
+//        [self.containerView addSubview:button];
+//        
+//        NSLog(@"%ld", (long)button.tag);
+//        [exhibits addObject:[NSString stringWithFormat:@"%d", i]];
+//        
+//    }
+//    
+//    for (NSString *str in coordinates) {
+//        NSLog(@"%@", str);
+//    }
 
     
 //
@@ -160,6 +214,7 @@
     // 6
     [self centerScrollViewContents];
     
+    
 }
 
 
@@ -182,9 +237,9 @@
         
         // Pass any objects to the view controller here, like...
         UIButton  *button = (UIButton *)sender;
-        NSString *text = [NSString stringWithFormat:@"%ld", (long)button.tag];
+        NSString *text = button.titleLabel.text;
         vc.labelText = text;
-//        vc.label.text = text;
+
         
         NSLog(@"Segue works %@", text);
     }

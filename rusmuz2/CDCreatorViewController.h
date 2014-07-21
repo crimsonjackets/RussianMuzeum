@@ -20,5 +20,6 @@
 - (IBAction)createExhibits:(id)sender;
 - (IBAction)fetchTheRoom:(id)sender;
 - (IBAction)fetchAllExhibits:(id)sender;
+- (IBAction)countCheck:(id)sender;
 
 @end

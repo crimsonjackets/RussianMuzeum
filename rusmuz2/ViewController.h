@@ -10,11 +10,17 @@
 #import "ZBarSDK.h"
 #import "DatabaseManager.h"
 
+#import "Exhibit.h"
+#import "Room.h"
+#import <CoreData/CoreData.h>
+
 
 
 @interface ViewController : UIViewController <ZBarReaderDelegate>
 @property (strong, nonatomic) NSString *outText;
 @property (strong, nonatomic) NSDictionary *context;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)buttonStart:(id)sender;
 

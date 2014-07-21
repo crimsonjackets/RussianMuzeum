@@ -97,13 +97,24 @@
 }
 
 
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    
+//    CGRect frame = _floorSelector.frame;
+//    frame.origin.y = frame.origin.y - scrollView.contentOffset.y + self.previousContentOffset;
+//    _floorSelector.frame = frame;
+//    self.previousContentOffset = scrollView.contentOffset.y;
+//    
+//    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
+//}
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
     CGRect frame = _floorSelector.frame;
-    frame.origin.y = frame.origin.y - scrollView.contentOffset.y + self.previousContentOffset;
+    frame.origin.y = -scrollView.contentOffset.y;
     _floorSelector.frame = frame;
-    self.previousContentOffset = scrollView.contentOffset.y;
     
     NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
 }
@@ -246,7 +257,6 @@
     self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
     [self performSegueWithIdentifier:@"RoomSegue" sender:self];
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 
 }
 
