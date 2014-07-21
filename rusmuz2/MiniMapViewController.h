@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSArray *roomNumbers;
+@property (nonatomic, strong) NSString *roomNumber;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

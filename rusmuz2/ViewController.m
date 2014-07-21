@@ -141,6 +141,14 @@ ZBarReaderViewController *codeReader = nil;
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
         ex.name =[NSString stringWithFormat:@"%d", i];
+        
+        
+        CGFloat horizontal = ( arc4random() % 640);
+        CGFloat vertical = ( arc4random() % 620);
+        
+        ex.coordinates = [NSString stringWithFormat:@"%f,%f", horizontal, vertical];
+        
+        
         NSLog(@"Exhibit %@ created.",ex.name);
     }
     
