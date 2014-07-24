@@ -32,9 +32,4 @@
     
 }
 
-
-- (CGRect)zoomedRect {
-    1
-}
-
 @end
