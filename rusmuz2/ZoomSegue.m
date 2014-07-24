@@ -16,6 +16,8 @@
 
 
 -(void)perform {
+    
+    //lets use standard iOS 7 scale speed, as it uses about 60x60 icons ASAF
     self.destStartFrame = CGRectMake(self.originatingPoint.x, self.originatingPoint.y, 60, 60);
     
     CGFloat duration = .25;
@@ -38,7 +40,7 @@
         destView.alpha = 1.0f;
     }];
     
-    [UIView animateWithDuration:duration*2 animations:^{
+    [UIView animateWithDuration:duration * 2 animations:^{
         destView.frame = UIScreen.mainScreen.bounds;
         sourceView.frame = [self zoomedRect];
     } completion:^(BOOL finished) {
