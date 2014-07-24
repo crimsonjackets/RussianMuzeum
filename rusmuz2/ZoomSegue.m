@@ -18,9 +18,13 @@
 -(void)perform {
     
     //lets use standard iOS 7 scale speed, as it uses about 60x60 icons ASAF
-    self.destStartFrame = CGRectMake(self.originatingPoint.x, self.originatingPoint.y, 60, 60);
     
-    CGFloat duration = .25;
+    //TODO width height have to be dependent on zoom level. small zoom llevel -> small room size
+    //TODO offset by half of the size
+    
+    self.destStartFrame = CGRectMake(self.originatingPoint.x - 10, self.originatingPoint.y - 10, 20, 20);
+    
+    CGFloat duration = .5;
     
     UIViewController *source = self.sourceViewController;
     UIViewController *dest = self.destinationViewController;

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "QRViewController.h"
+#import "ExhibitViewController.h"
 #import "AppDelegate.h"
 
 
@@ -98,7 +98,7 @@ ZBarReaderViewController *codeReader = nil;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"QRSegue"]) {
-        QRViewController *destination = [segue destinationViewController];
+        ExhibitViewController *destination = [segue destinationViewController];
         destination.textQRCode = _outText;
     }
 }

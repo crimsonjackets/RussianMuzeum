@@ -22,7 +22,7 @@
 		09E80A2A193BEC5400D62ED1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A1C193BEC5400D62ED1 /* Main.storyboard */; };
 		09E80A2B193BEC5400D62ED1 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A1E193BEC5400D62ED1 /* RoomViewController.m */; };
 		09E80A2C193BEC5400D62ED1 /* InteractiveMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */; };
-		09E80A2D193BEC5400D62ED1 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A22193BEC5400D62ED1 /* QRViewController.m */; };
+		09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */; };
 		09E80A2E193BEC5400D62ED1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A24193BEC5400D62ED1 /* ViewController.m */; };
 		09E80A2F193BEC5400D62ED1 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A26193BEC5400D62ED1 /* DatabaseManager.m */; };
 		09E80A32193BECC900D62ED1 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E80A31193BECC900D62ED1 /* libiconv.dylib */; };
@@ -59,7 +59,7 @@
 		79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C01143195CF4F100BF6784 /* DetailViewController.m */; };
 		79C01149195CF51700BF6784 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C01148195CF51700BF6784 /* CoreData.framework */; };
 		79C0114C195CF74500BF6784 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C0114A195CF74500BF6784 /* Model.xcdatamodeld */; };
-		79D3102C196EFFEE00D7389D /* ExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3102B196EFFEE00D7389D /* ExhibitViewController.m */; };
+		79D3102C196EFFEE00D7389D /* MockupExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
 		79E804DC194A918D00B2713C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D7194A918D00B2713C /* zbar-back.png */; };
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
@@ -99,8 +99,8 @@
 		09E80A1E193BEC5400D62ED1 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		09E80A1F193BEC5400D62ED1 /* InteractiveMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveMapViewController.h; sourceTree = "<group>"; };
 		09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveMapViewController.m; sourceTree = "<group>"; };
-		09E80A21193BEC5400D62ED1 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
-		09E80A22193BEC5400D62ED1 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitViewController.h; sourceTree = "<group>"; };
+		09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitViewController.m; sourceTree = "<group>"; };
 		09E80A23193BEC5400D62ED1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		09E80A24193BEC5400D62ED1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		09E80A25193BEC5400D62ED1 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
@@ -152,8 +152,8 @@
 		79C01143195CF4F100BF6784 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		79C01148195CF51700BF6784 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		79C0114B195CF74500BF6784 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		79D3102A196EFFEE00D7389D /* ExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitViewController.h; sourceTree = "<group>"; };
-		79D3102B196EFFEE00D7389D /* ExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitViewController.m; sourceTree = "<group>"; };
+		79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockupExhibitViewController.h; sourceTree = "<group>"; };
+		79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockupExhibitViewController.m; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		79E804C2194A918D00B2713C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		79E804C3194A918D00B2713C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -256,8 +256,8 @@
 				09E80A1A193BEC5400D62ED1 /* AppDelegate.h */,
 				09E80A1B193BEC5400D62ED1 /* AppDelegate.m */,
 				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
-				79D3102A196EFFEE00D7389D /* ExhibitViewController.h */,
-				79D3102B196EFFEE00D7389D /* ExhibitViewController.m */,
+				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
+				79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */,
 				793CDB21196236E600E97CCB /* CDCreatorViewController.h */,
 				793CDB22196236E600E97CCB /* CDCreatorViewController.m */,
 				79C01140195CF4F100BF6784 /* MasterViewController.h */,
@@ -272,10 +272,10 @@
 				799EA29519735E7B00D8F1DE /* ZoomSegue.m */,
 				796C145819656EA60046916C /* MiniMapViewController.h */,
 				796C145919656EA60046916C /* MiniMapViewController.m */,
-				09E80A21193BEC5400D62ED1 /* QRViewController.h */,
-				09E80A22193BEC5400D62ED1 /* QRViewController.m */,
 				09E80A23193BEC5400D62ED1 /* ViewController.h */,
 				09E80A24193BEC5400D62ED1 /* ViewController.m */,
+				09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */,
+				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
 				09E80A25193BEC5400D62ED1 /* DatabaseManager.h */,
 				09E80A26193BEC5400D62ED1 /* DatabaseManager.m */,
 				79C0114A195CF74500BF6784 /* Model.xcdatamodeld */,
@@ -577,14 +577,14 @@
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
 				799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */,
 				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
-				79D3102C196EFFEE00D7389D /* ExhibitViewController.m in Sources */,
+				79D3102C196EFFEE00D7389D /* MockupExhibitViewController.m in Sources */,
 				79C0114C195CF74500BF6784 /* Model.xcdatamodeld in Sources */,
 				79C01144195CF4F100BF6784 /* MasterViewController.m in Sources */,
 				09E80A2F193BEC5400D62ED1 /* DatabaseManager.m in Sources */,
 				09E80A2C193BEC5400D62ED1 /* InteractiveMapViewController.m in Sources */,
 				797C6328197CA60C00EA295E /* Exhibit.m in Sources */,
 				09E80A29193BEC5400D62ED1 /* AppDelegate.m in Sources */,
-				09E80A2D193BEC5400D62ED1 /* QRViewController.m in Sources */,
+				09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
 				09E80A2B193BEC5400D62ED1 /* RoomViewController.m in Sources */,
 				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
