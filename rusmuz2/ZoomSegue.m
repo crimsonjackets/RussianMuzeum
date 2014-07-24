@@ -33,4 +33,8 @@
 }
 
 
+- (CGRect)zoomedRect {
+    
+}
+
 @end
