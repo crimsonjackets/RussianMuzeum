@@ -7,6 +7,7 @@
 
 @interface ZoomSegue : UIStoryboardSegue
 
+// Originating point for animation
 @property CGPoint originatingPoint;
 
 @end
