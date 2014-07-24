@@ -16,14 +16,6 @@
 @property (nonatomic, strong) NSString *roomNumber;
 @property CGFloat previousContentOffset;
 @property CGPoint touchedPoint;
-
-
-
-
-- (void)centerScrollViewContents;
-- (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
-- (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
-- (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName;
 @end
 
 @implementation InteractiveMapViewController
@@ -225,10 +217,10 @@
     if (self.floorSelector.selectedSegmentIndex == 0)
     {
         [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
     } else {
         [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"states_coord" andRoomNumbersNamed:@"states_name"];
+    [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
     }
     
     self.scrollView.zoomScale = zoomScale;

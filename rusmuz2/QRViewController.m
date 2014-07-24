@@ -28,17 +28,6 @@
 
 - (void)viewDidLoad
 {
-//    if ([qrcodes objectForKey:_textQRCode] != nil) {
-//        _textviewQRCode.text = [qrcodes objectForKey:_textQRCode];
-//    } else {
-//        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hello World!"
-//                                                          message:@"This is your first UIAlertview message."
-//                                                         delegate:nil
-//                                                cancelButtonTitle:@"OK"
-//                                                otherButtonTitles:nil];
-//        
-//        [message show];    }
-
     DatabaseManager *databaseManager = [DatabaseManager sharedInstance];
     
     if ([databaseManager.exhibits objectForKey:_textQRCode] != nil) {

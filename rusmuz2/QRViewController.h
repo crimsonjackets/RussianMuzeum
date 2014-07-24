@@ -10,7 +10,7 @@
 #import "ZBarSDK.h"
 #import "DatabaseManager.h"
 
-@interface QRViewController : UIViewController <ZBarReaderDelegate>
+@interface QRViewController : UIViewController
 
 @property (strong, nonatomic) NSString *textQRCode;
 @property (weak, nonatomic) IBOutlet UITextView *textviewQRCode;

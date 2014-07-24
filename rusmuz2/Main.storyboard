@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPk-aq-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="1036"/>
+            <point key="canvasLocation" x="2005" y="1048"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kam-dm-Q5L">
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpL-dk-a3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2171" y="452"/>
+            <point key="canvasLocation" x="2051" y="-675"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="CYd-hG-lOo">
@@ -306,7 +306,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="b0G-7c-wOf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuY-2v-vbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741" y="452"/>
+            <point key="canvasLocation" x="1621" y="-675"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="awx-gU-QJR">
@@ -337,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVA-LS-jCf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="452"/>
+            <point key="canvasLocation" x="1202" y="-675"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="w8t-oP-KTN">
