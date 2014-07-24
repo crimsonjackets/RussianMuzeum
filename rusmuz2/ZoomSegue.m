@@ -4,43 +4,33 @@
 
 #import "ZoomSegue.h"
 #import "MiniMapViewController.h"
+#include "InteractiveMapViewController.h"
 
 @implementation ZoomSegue
 
 - (void)perform {
-    UIViewController *sourceViewController = self.sourceViewController;
+    InteractiveMapViewController *sourceViewController = self.sourceViewController;
     MiniMapViewController *destinationViewController = self.destinationViewController;
     
-    // Add the destination view as a subview, temporarily
-    [sourceViewController.view addSubview:destinationViewController.view];
+    UIView *sourceView = ((UIViewController *)self.sourceViewController).view;
+    UIView *destinationView = [((UIViewController *)self.destinationViewController).view snapshotViewAfterScreenUpdates:YES];
     
-    //destinationViewController.scrollView.contentSize =
+    destinationView.frame = CGRectMake(0, 0, 1, 1);
+    destinationView.center = self.originatingPoint;
     
-    // Transformation start scale
-    destinationViewController.view.transform = CGAffineTransformMakeScale(0.05, 0.05);
+    [sourceView addSubview:destinationView];
     
-    // Store original centre point of the destination view
-    CGPoint originalCenter = destinationViewController.view.center;
-    // Set center to start point of the button
-    destinationViewController.view.center = self.originatingPoint;
-    
-    [UIView animateWithDuration:0.5
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
+    [UIView animateWithDuration:1
                      animations:^{
-
-                         destinationViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                         destinationViewController.view.center = originalCenter;
+                         destinationView.frame = sourceView.frame;
                          
-                         
-                         sourceViewController.navigationController.navigationItem.leftBarButtonItem.customView.alpha = 0;
                      }
-                     completion:^(BOOL finished){
-                         
-                         [destinationViewController.view removeFromSuperview];
+                     completion:^(BOOL finished) {
+                         [destinationView removeFromSuperview];
                          [sourceViewController.navigationController pushViewController:destinationViewController animated:NO];
-                         
                      }];
+    
 }
+
 
 @end
