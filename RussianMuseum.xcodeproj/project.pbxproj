@@ -37,7 +37,6 @@
 		09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A69193BEE0100D62ED1 /* MTImageMapView.m */; };
 		09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6C193BF15500D62ED1 /* floor1.gif */; };
 		09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6D193BF15500D62ED1 /* floor2.gif */; };
-		791E4514194D0F0F008D8A93 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791E4513194D0F0F008D8A93 /* Reveal.framework */; };
 		7923D9C4194E6BB6008C3013 /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C2194E6BB6008C3013 /* floor1.png */; };
 		7923D9C5194E6BB6008C3013 /* floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C3194E6BB6008C3013 /* floor2.png */; };
 		793CDB1419601E4E00E97CCB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB1319601E4E00E97CCB /* Event.m */; };
@@ -119,7 +118,6 @@
 		09E80A69193BEE0100D62ED1 /* MTImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageMapView.m; sourceTree = "<group>"; };
 		09E80A6C193BF15500D62ED1 /* floor1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = floor1.gif; sourceTree = "<group>"; };
 		09E80A6D193BF15500D62ED1 /* floor2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = floor2.gif; sourceTree = "<group>"; };
-		791E4513194D0F0F008D8A93 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		7923D9C2194E6BB6008C3013 /* floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor1.png; sourceTree = "<group>"; };
 		7923D9C3194E6BB6008C3013 /* floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor2.png; sourceTree = "<group>"; };
 		793CDB1219601E4E00E97CCB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C01149195CF51700BF6784 /* CoreData.framework in Frameworks */,
-				791E4514194D0F0F008D8A93 /* Reveal.framework in Frameworks */,
 				09E809EA193BEB0700D62ED1 /* UIKit.framework in Frameworks */,
 				09E80A3C193BED1000D62ED1 /* AVFoundation.framework in Frameworks */,
 				79E804DB194A918D00B2713C /* libzbar.a in Frameworks */,
@@ -239,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				79C01148195CF51700BF6784 /* CoreData.framework */,
-				791E4513194D0F0F008D8A93 /* Reveal.framework */,
 				09E80A3B193BED1000D62ED1 /* AVFoundation.framework */,
 				09E80A39193BECFF00D62ED1 /* CoreMedia.framework */,
 				09E80A37193BECF700D62ED1 /* CoreAudio.framework */,
@@ -725,11 +721,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/rusmuz2/ZBarSDK",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					Reveal,
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RussianMuseum;
 				WRAPPER_EXTENSION = app;
 			};
@@ -753,11 +745,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/rusmuz2/ZBarSDK",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					Reveal,
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RussianMuseum;
 				WRAPPER_EXTENSION = app;
 			};
