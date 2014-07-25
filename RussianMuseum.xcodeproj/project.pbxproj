@@ -51,6 +51,7 @@
 		798FFBC41957063A004B94A6 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC01957063A004B94A6 /* page2.png */; };
 		798FFBC51957063A004B94A6 /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC11957063A004B94A6 /* page3.png */; };
 		798FFBC61957063A004B94A6 /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBC21957063A004B94A6 /* page4.png */; };
+		799A06C51982E4C700C83526 /* ExhibitsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 799A06C41982E4C700C83526 /* ExhibitsScrollView.m */; };
 		799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 799EA29519735E7B00D8F1DE /* ZoomSegue.m */; };
 		79B184811972004C002A95C2 /* testButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 79B184801972004C002A95C2 /* testButton.png */; };
 		79B5D094194CD5570075345E /* testNumbers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 79B5D093194CD5570075345E /* testNumbers.plist */; };
@@ -141,6 +142,8 @@
 		798FFBC01957063A004B94A6 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		798FFBC11957063A004B94A6 /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		798FFBC21957063A004B94A6 /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
+		799A06C31982E4C700C83526 /* ExhibitsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsScrollView.h; sourceTree = "<group>"; };
+		799A06C41982E4C700C83526 /* ExhibitsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitsScrollView.m; sourceTree = "<group>"; };
 		799EA29419735E7B00D8F1DE /* ZoomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomSegue.h; sourceTree = "<group>"; };
 		799EA29519735E7B00D8F1DE /* ZoomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomSegue.m; sourceTree = "<group>"; };
 		79B184801972004C002A95C2 /* testButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testButton.png; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 				09E80A1A193BEC5400D62ED1 /* AppDelegate.h */,
 				09E80A1B193BEC5400D62ED1 /* AppDelegate.m */,
 				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
+				799A06C31982E4C700C83526 /* ExhibitsScrollView.h */,
+				799A06C41982E4C700C83526 /* ExhibitsScrollView.m */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
 				79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */,
 				793CDB21196236E600E97CCB /* CDCreatorViewController.h */,
@@ -574,6 +579,7 @@
 				793CDB23196236E600E97CCB /* CDCreatorViewController.m in Sources */,
 				09E80A2E193BEC5400D62ED1 /* ViewController.m in Sources */,
 				796C145A19656EA60046916C /* MiniMapViewController.m in Sources */,
+				799A06C51982E4C700C83526 /* ExhibitsScrollView.m in Sources */,
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
 				799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */,
 				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
