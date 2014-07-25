@@ -17,47 +17,43 @@
 
 @implementation ExhibitViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     DatabaseManager *databaseManager = [DatabaseManager sharedInstance];
     
     if ([databaseManager.exhibits objectForKey:_textQRCode] != nil) {
         _textviewQRCode.text = [databaseManager.exhibits objectForKey:_textQRCode];
-    } else {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hello World!"
-                                                          message:@"This is your first UIAlertview message."
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        
-        [message show];    }
-
+    }
+    
+    
+    [self addImages];
+    
+    
 }
 
-- (void)didReceiveMemoryWarning
+
+
+- (void)addImages
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIImage *pic1 = [UIImage imageNamed:@"pic1.png"];
+    UIImage *pic2 = [UIImage imageNamed:@"pic2.png"];
+    UIImage *pic3 = [UIImage imageNamed:@"pic3.png"];
+    
+    UIImageView *one = [[UIImageView alloc] initWithImage:pic1];
+    UIImageView *two = [[UIImageView alloc] initWithImage:pic2];
+    UIImageView *three = [[UIImageView alloc] initWithImage:pic3];
+    
+    one.frame = CGRectMake(0, 0, pic1.size.width, pic1.size.height);
+    two.frame = CGRectMake(pic1.size.width, 0, pic2.size.width, pic2.size.height);
+    three.frame = CGRectMake(pic1.size.width + pic2.size.width, 0, pic3.size.width, pic3.size.height);
+    
+    
+    CGSize contentSize = CGSizeMake(pic1.size.width + pic2.size.width + pic3.size.width, pic1.size.height);
+    
+    [self.imageScrollView setContentSize:contentSize];
+    [self.imageScrollView addSubview:one];
+    [self.imageScrollView addSubview:two];
+    [self.imageScrollView addSubview:three];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
