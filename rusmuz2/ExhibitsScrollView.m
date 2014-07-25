@@ -26,7 +26,7 @@
     
     
     //if() adjust to taste
-    if (distanceFromCenter > (contentWidth / 4.0)) {
+    if (distanceFromCenter > (contentWidth / 2.0)) {
         self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
         
         //move content by the same amount to make it look still
