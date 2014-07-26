@@ -83,7 +83,7 @@
     }
     
 	// Purge anything after the last page
-    for (NSInteger i=lastPage+1; i<self.pageImages.count; i++) {
+    for (NSInteger i=lastPage+2; i<self.pageImages.count; i++) {
         [self purgePage:i];
     }
 }
@@ -92,7 +92,6 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 0; i<10; i++) {
         [array addObject:[UIImage imageNamed:@"pic1.png"]];
-        [array addObject:[UIImage imageNamed:@"pic2.png"]];
         [array addObject:[UIImage imageNamed:@"pic3.png"]];
     }
                self.pageImages = (NSArray *)array;
