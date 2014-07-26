@@ -89,19 +89,27 @@
 }
 
 - (void)lazyLoadImages {
-    self.pageImages = [NSArray arrayWithObjects:
-                       [UIImage imageNamed:@"pic1.png"],
-                       [UIImage imageNamed:@"pic2.png"],
-                       [UIImage imageNamed:@"pic3.png"],
-                       [UIImage imageNamed:@"pic2.png"],
-                       nil];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = 0; i<10; i++) {
+        [array addObject:[UIImage imageNamed:@"pic1.png"]];
+        [array addObject:[UIImage imageNamed:@"pic2.png"]];
+        [array addObject:[UIImage imageNamed:@"pic3.png"]];
+    }
+               self.pageImages = (NSArray *)array;
+    
+//    self.pageImages = [NSArray arrayWithObjects:
+//                       [UIImage imageNamed:@"pic1.png"],
+//                       [UIImage imageNamed:@"pic2.png"],
+//                       [UIImage imageNamed:@"pic3.png"],
+//                       [UIImage imageNamed:@"pic2.png"],
+//                       nil];
     NSInteger pageCount = self.pageImages.count;
     self.pageViews = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < pageCount; ++i) {
         [self.pageViews addObject:[NSNull null]];
     }
     for (UIImage *image in self.pageImages) {
-        self.contentSize = CGSizeMake(self.contentSize.width + image.size.width, image.size.width);
+        self.contentSize = CGSizeMake(self.contentSize.width + image.size.width, image.size.height);
     }
     
     self.imageScrollView.contentSize = CGSizeMake(0.0f, 0.0f);
@@ -125,7 +133,16 @@
         UIImage *image = [self.pageImages objectAtIndex:page];
         
         CGRect frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
-        frame.origin.x = frame.size.width * page;
+        
+        CGFloat totalWidth = 0.0f;
+        
+        for (int i = 0; i <= page; i++) {
+            UIImage *img = [self.pageImages objectAtIndex:i];
+            totalWidth += img.size.width;
+        }
+
+        
+        frame.origin.x = totalWidth;
         
         // 3
         UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
