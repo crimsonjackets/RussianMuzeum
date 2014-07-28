@@ -66,8 +66,13 @@
 - (void)loadVisiblePages {
     // First, determine which page is currently visible
     CGFloat pageWidth = self.imageScrollView.frame.size.width;
-    NSInteger page = (NSInteger)floor((self.imageScrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
 
+    
+    //BUG FIXED: multiplying by 2 due to the quantity of images visible
+    NSInteger page = 2 * (NSInteger)floor((self.imageScrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
+    
+    NSLog(@"CUREENT PAGE: %ld", (long)page);
+    
     // Work out which pages you want to load
     NSInteger firstPage = page - 2;
     NSInteger lastPage = page + 2;
@@ -94,7 +99,7 @@
         [array addObject:[UIImage imageNamed:@"pic1.png"]];
         [array addObject:[UIImage imageNamed:@"pic3.png"]];
     }
-               self.pageImages = (NSArray *)array;
+    self.pageImages = (NSArray *)array;
     
 //    self.pageImages = [NSArray arrayWithObjects:
 //                       [UIImage imageNamed:@"pic1.png"],
