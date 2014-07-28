@@ -74,8 +74,8 @@
     NSLog(@"CUREENT PAGE: %ld", (long)page);
     
     // Work out which pages you want to load
-    NSInteger firstPage = page - 2;
-    NSInteger lastPage = page + 2;
+    NSInteger firstPage = page - 3;
+    NSInteger lastPage = page + 3;
     
     // Purge anything before the first page
     for (NSInteger i=0; i<firstPage; i++) {
@@ -88,7 +88,7 @@
     }
     
 	// Purge anything after the last page
-    for (NSInteger i=lastPage+2; i<self.pageImages.count; i++) {
+    for (NSInteger i=lastPage; i<self.pageImages.count; i++) {
         [self purgePage:i];
     }
 }
@@ -140,7 +140,7 @@
         
         CGFloat totalWidth = 0.0f;
         
-        for (int i = 0; i <= page; i++) {
+        for (int i = 1; i <= page; i++) {
             UIImage *img = [self.pageImages objectAtIndex:i];
             totalWidth += img.size.width;
         }
