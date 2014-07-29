@@ -12,36 +12,14 @@
 
 
 @interface ExhibitViewController ()
-@property (nonatomic, strong) NSArray *pageImages;
-@property (nonatomic, strong) NSMutableArray *pageViews;
-@property CGSize contentSize;
+
+@property (nonatomic, strong) NSArray *previewsStorage;
+@property (nonatomic, strong) NSMutableArray *previewsViews;
+
+
 @end
 
 @implementation ExhibitViewController
-
-- (void)addImages
-{
-    UIImage *pic1 = [UIImage imageNamed:@"pic1.png"];
-    UIImage *pic2 = [UIImage imageNamed:@"pic2.png"];
-    UIImage *pic3 = [UIImage imageNamed:@"pic3.png"];
-    
-    UIImageView *one = [[UIImageView alloc] initWithImage:pic1];
-    UIImageView *two = [[UIImageView alloc] initWithImage:pic2];
-    UIImageView *three = [[UIImageView alloc] initWithImage:pic3];
-    
-    one.frame = CGRectMake(0, 0, pic1.size.width, pic1.size.height);
-    two.frame = CGRectMake(pic1.size.width, 0, pic2.size.width, pic2.size.height);
-    three.frame = CGRectMake(pic1.size.width + pic2.size.width, 0, pic3.size.width, pic3.size.height);
-    
-    
-    CGSize contentSize = CGSizeMake(pic1.size.width + pic2.size.width + pic3.size.width, pic1.size.height);
-        NSLog(@"Contentsize ME: %f", contentSize.width);
-        NSLog(@"Contentsize ME: %f", contentSize.height);
-    [self.imageScrollView setContentSize:contentSize];
-    [self.imageScrollView addSubview:one];
-    [self.imageScrollView addSubview:two];
-    [self.imageScrollView addSubview:three];
-}
 
 - (void)viewDidLoad
 {
@@ -53,9 +31,32 @@
     
     self.imageScrollView.delegate = self;
     //[self addImages];
-    [self lazyLoadImagesToScrollView:self.imageScrollView];
+    [self lazyLoadPreviews];
     
     NSLog(@"CONTENTSIZE %f", self.imageScrollView.contentSize.width);
+}
+
+- (void)lazyLoadPreviews {
+    self.previewsStorage = [self getPreviews];
+
+    NSInteger pageCount = self.previewsStorage.count;
+    self.previewsViews = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = 0; i < pageCount; ++i) {
+        [self.previewsViews addObject:[NSNull null]];
+    }
+    
+    CGSize contentSize;
+    for (UIImage *image in self.previewsStorage) {
+        contentSize.width = contentSize.width + image.size.width;
+        contentSize.height = image.size.height;
+    }
+    
+    self.imageScrollView.contentSize = contentSize;
+    
+    NSLog(@"Contentsize REijo: %f", contentSize.width);
+    NSLog(@"Contentsize REijo: %f", contentSize.height);
+    [self loadVisiblePagesInScrollView:self.imageScrollView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -63,46 +64,26 @@
     NSLog(@"DID scroll");
 }
 
-- (void)lazyLoadImagesToScrollView:(UIScrollView *)scrollView {
+#pragma mark - CoreData fetching
+- (NSArray *)getPreviews {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 0; i<10; i++) {
         [array addObject:[UIImage imageNamed:@"pic1.png"]];
         [array addObject:[UIImage imageNamed:@"pic3.png"]];
     }
-    self.pageImages = (NSArray *)array;
-    
-    //    self.pageImages = [NSArray arrayWithObjects:
-    //                       [UIImage imageNamed:@"pic1.png"],
-    //                       [UIImage imageNamed:@"pic2.png"],
-    //                       [UIImage imageNamed:@"pic3.png"],
-    //                       [UIImage imageNamed:@"pic2.png"],
-    //                       nil];
-    NSInteger pageCount = self.pageImages.count;
-    self.pageViews = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < pageCount; ++i) {
-        [self.pageViews addObject:[NSNull null]];
-    }
-    for (UIImage *image in self.pageImages) {
-        self.contentSize = CGSizeMake(self.contentSize.width + image.size.width, image.size.height);
-    }
-    
-    self.imageScrollView.contentSize = CGSizeMake(0.0f, 0.0f);
-    self.imageScrollView.contentSize = self.contentSize;
-    
-    NSLog(@"Contentsize REijo: %f", self.contentSize.width);
-    NSLog(@"Contentsize REijo: %f", self.contentSize.height);
-    [self loadVisiblePagesInScrollView:scrollView];
+    return (NSArray *)array;
 }
 
+#pragma mark - Scrolling Engine
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
     //Checking the scrollView:
     NSInteger visiblePages;
     NSMutableArray *viewArray;
-    NSArray *imageArray;
+    NSArray *storageArray;
     if (scrollView == self.imageScrollView) {
         visiblePages = 2;
-        viewArray = self.pageViews;
-        imageArray = self.pageImages;
+        viewArray = self.previewsViews;
+        storageArray = self.previewsStorage;
     }
     
     // First, determine which page is currently visible
@@ -120,22 +101,22 @@
     
     // Purge anything before the first page
     for (NSInteger i=0; i<firstPage; i++) {
-        [self purgePage:i inArray:imageArray fromViewArray:viewArray];
+        [self purgePage:i inArray:storageArray fromViewArray:viewArray];
     }
     
 	// Load pages in our range
     for (NSInteger i=firstPage; i<=lastPage; i++) {
-        [self loadPage:i fromArray:imageArray toViewArray:viewArray];
+        [self loadPage:i fromArray:storageArray toViewArray:viewArray andScrollView:scrollView];
     }
     
 	// Purge anything after the last page
-    for (NSInteger i=lastPage; i<self.pageImages.count; i++) {
-        [self purgePage:i inArray:imageArray fromViewArray:viewArray];
+    for (NSInteger i=lastPage; i<self.previewsStorage.count; i++) {
+        [self purgePage:i inArray:storageArray fromViewArray:viewArray];
     }
 }
 
-- (void)loadPage:(NSInteger)page fromArray:(NSArray *)array toViewArray:(NSMutableArray *)viewArray {
-    if (page < 0 || page >= self.pageImages.count) {
+- (void)loadPage:(NSInteger)page fromArray:(NSArray *)array toViewArray:(NSMutableArray *)viewArray andScrollView:(UIScrollView *)scrollView {
+    if (page < 0 || page >= self.previewsStorage.count) {
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
@@ -162,7 +143,7 @@
         UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
         newPageView.contentMode = UIViewContentModeScaleAspectFit;
         newPageView.frame = frame;
-        [self.imageScrollView addSubview:newPageView];
+        [scrollView addSubview:newPageView];
         // 4
         [viewArray replaceObjectAtIndex:page withObject:newPageView];
     }
@@ -181,7 +162,5 @@
         [viewArray replaceObjectAtIndex:page withObject:[NSNull null]];
     }
 }
-
-
 
 @end
