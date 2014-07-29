@@ -246,7 +246,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-vE-2R2">
-                                <rect key="frame" x="0.0" y="206" width="320" height="154"/>
+                                <rect key="frame" x="0.0" y="206" width="320" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                         </subviews>
@@ -254,6 +254,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mon-sk-1Fi"/>
                     <connections>
+                        <outlet property="blocksScrollView" destination="0dG-vE-2R2" id="N7h-Aq-Wib"/>
                         <outlet property="imageScrollView" destination="u87-2M-ySj" id="00o-eV-qIm"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,9 @@
 @property (nonatomic, strong) NSArray *previewsStorage;
 @property (nonatomic, strong) NSMutableArray *previewsViews;
 
+@property (nonatomic, strong) NSArray *blocksStorage;
+@property (nonatomic, strong) NSMutableArray *blocksViews;
+
 
 @end
 
@@ -30,11 +33,37 @@
     }
     
     self.imageScrollView.delegate = self;
+    self.blocksScrollView.delegate = self;
     //[self addImages];
     [self lazyLoadPreviews];
+    [self lazyLoadBlocks];
     
     NSLog(@"CONTENTSIZE %f", self.imageScrollView.contentSize.width);
 }
+
+- (void)lazyLoadBlocks {
+    self.blocksStorage = [self getBlocks];
+    
+    NSInteger pageCount = self.blocksStorage.count;
+    self.blocksViews = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = 0; i < pageCount; ++i) {
+        [self.blocksViews addObject:[NSNull null]];
+    }
+    
+    CGSize contentSize;
+    for (UIImage *image in self.blocksStorage) {
+        contentSize.width = contentSize.width + image.size.width;
+        contentSize.height = image.size.height;
+    }
+    
+    self.blocksScrollView.contentSize = contentSize;
+    
+    NSLog(@"Contentsize REijo: %f", contentSize.width);
+    NSLog(@"Contentsize REijo: %f", contentSize.height);
+    [self loadVisiblePagesInScrollView:self.blocksScrollView];
+}
+
 
 - (void)lazyLoadPreviews {
     self.previewsStorage = [self getPreviews];
@@ -61,7 +90,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self loadVisiblePagesInScrollView:scrollView];
-    NSLog(@"DID scroll");
+    NSLog(@"DID scroll: %f", scrollView.contentSize.height);
 }
 
 #pragma mark - CoreData fetching
@@ -74,6 +103,15 @@
     return (NSArray *)array;
 }
 
+- (NSArray *)getBlocks {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = 0; i<100; i++) {
+        [array addObject:[UIImage imageNamed:@"block.png"]];
+    }
+    return (NSArray *)array;
+}
+
+
 #pragma mark - Scrolling Engine
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
     //Checking the scrollView:
@@ -84,6 +122,10 @@
         visiblePages = 2;
         viewArray = self.previewsViews;
         storageArray = self.previewsStorage;
+    } else if (scrollView == self.blocksScrollView) {
+        visiblePages = 13;
+        viewArray = self.blocksViews;
+        storageArray = self.blocksStorage;
     }
     
     // First, determine which page is currently visible
@@ -96,8 +138,8 @@
     NSLog(@"CUREENT PAGE: %ld", (long)page);
     
     // Work out which pages you want to load
-    NSInteger firstPage = page - 3;
-    NSInteger lastPage = page + 3;
+    NSInteger firstPage = page - 1 - visiblePages;
+    NSInteger lastPage = page + 1 + visiblePages;
     
     // Purge anything before the first page
     for (NSInteger i=0; i<firstPage; i++) {

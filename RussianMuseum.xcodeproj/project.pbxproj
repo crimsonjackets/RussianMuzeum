@@ -43,6 +43,7 @@
 		793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB18196099B900E97CCB /* NSManagedObjectContext+Queryable.m */; };
 		793CDB1F1960C2EE00E97CCB /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB1E1960C2EE00E97CCB /* Room.m */; };
 		793CDB23196236E600E97CCB /* CDCreatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB22196236E600E97CCB /* CDCreatorViewController.m */; };
+		794A6FC519882FF6008A4A30 /* block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC419882FF6008A4A30 /* block@2x.png */; };
 		794E999A1983201400A9AA4C /* pic1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E99971983201400A9AA4C /* pic1@2x.png */; };
 		794E999B1983201400A9AA4C /* pic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E99981983201400A9AA4C /* pic2@2x.png */; };
 		794E999C1983201400A9AA4C /* pic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E99991983201400A9AA4C /* pic3@2x.png */; };
@@ -133,6 +134,7 @@
 		793CDB1E1960C2EE00E97CCB /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = CoreDataClasses/Room.m; sourceTree = "<group>"; };
 		793CDB21196236E600E97CCB /* CDCreatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCreatorViewController.h; sourceTree = "<group>"; };
 		793CDB22196236E600E97CCB /* CDCreatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCreatorViewController.m; sourceTree = "<group>"; };
+		794A6FC419882FF6008A4A30 /* block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block@2x.png"; sourceTree = "<group>"; };
 		794E99971983201400A9AA4C /* pic1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic1@2x.png"; sourceTree = "<group>"; };
 		794E99981983201400A9AA4C /* pic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic2@2x.png"; sourceTree = "<group>"; };
 		794E99991983201400A9AA4C /* pic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic3@2x.png"; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				794E99971983201400A9AA4C /* pic1@2x.png */,
 				794E99981983201400A9AA4C /* pic2@2x.png */,
 				794E99991983201400A9AA4C /* pic3@2x.png */,
+				794A6FC419882FF6008A4A30 /* block@2x.png */,
 			);
 			path = DesignElements;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				798FFBC51957063A004B94A6 /* page3.png in Resources */,
 				79B5D094194CD5570075345E /* testNumbers.plist in Resources */,
 				79E804DF194A918D00B2713C /* zbar-samples.png in Resources */,
+				794A6FC519882FF6008A4A30 /* block@2x.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
 				09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */,
 				09E809F0193BEB0700D62ED1 /* InfoPlist.strings in Resources */,
