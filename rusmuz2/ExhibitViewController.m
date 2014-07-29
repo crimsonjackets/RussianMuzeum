@@ -68,6 +68,8 @@
     [self loadVisiblePagesInScrollView:self.pictureScrollView];
 }
 
+
+
 - (void)lazyLoadBlocks {
     self.blocksStorage = [self getBlocks];
     
@@ -197,7 +199,7 @@
 }
 
 - (void)loadPage:(NSInteger)page fromArray:(NSArray *)array toViewArray:(NSMutableArray *)viewArray andScrollView:(UIScrollView *)scrollView {
-    if (page < 0 || page >= self.previewsStorage.count) {
+    if (page < 0 || page >= array.count) {
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
