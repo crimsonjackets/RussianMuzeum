@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSArray *blocksStorage;
 @property (nonatomic, strong) NSMutableArray *blocksViews;
 
+@property (nonatomic, strong) NSArray *picturesStorage;
+@property (nonatomic, strong) NSMutableArray *picturesViews;
 
 @end
 
@@ -34,11 +36,36 @@
     
     self.imageScrollView.delegate = self;
     self.blocksScrollView.delegate = self;
+    self.pictureScrollView.delegate = self;
     //[self addImages];
     [self lazyLoadPreviews];
     [self lazyLoadBlocks];
+    [self lazyLoadPictures];
     
     NSLog(@"CONTENTSIZE %f", self.imageScrollView.contentSize.width);
+}
+
+- (void)lazyLoadPictures {
+    self.picturesStorage = [self getPictures];
+    
+    NSInteger pageCount = self.picturesStorage.count;
+    self.picturesViews = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = 0; i < pageCount; ++i) {
+        [self.picturesViews addObject:[NSNull null]];
+    }
+    
+    CGSize contentSize;
+    for (UIImage *image in self.picturesStorage) {
+        contentSize.width = contentSize.width + image.size.width;
+        contentSize.height = image.size.height;
+    }
+    
+    self.pictureScrollView.contentSize = contentSize;
+    
+    NSLog(@"Contentsize REijo: %f", contentSize.width);
+    NSLog(@"Contentsize REijo: %f", contentSize.height);
+    [self loadVisiblePagesInScrollView:self.pictureScrollView];
 }
 
 - (void)lazyLoadBlocks {
@@ -111,6 +138,14 @@
     return (NSArray *)array;
 }
 
+- (NSArray *)getPictures {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = 0; i<100; i++) {
+        [array addObject:[UIImage imageNamed:@"picture.png"]];
+    }
+    return (NSArray *)array;
+}
+
 
 #pragma mark - Scrolling Engine
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
@@ -126,6 +161,10 @@
         visiblePages = 13;
         viewArray = self.blocksViews;
         storageArray = self.blocksStorage;
+    } else if (scrollView == self.pictureScrollView) {
+        visiblePages = 1;
+        viewArray = self.picturesViews;
+        storageArray = self.picturesStorage;
     }
     
     // First, determine which page is currently visible

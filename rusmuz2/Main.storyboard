@@ -229,7 +229,7 @@
             </objects>
             <point key="canvasLocation" x="757" y="2382"/>
         </scene>
-        <!--Exhibit View Controller-->
+        <!--Exhibit View Controller - TheTitle-->
         <scene sceneID="tEK-Jm-Vok">
             <objects>
                 <viewController id="I9K-N8-Atw" customClass="ExhibitViewController" sceneMemberID="viewController">
@@ -249,13 +249,18 @@
                                 <rect key="frame" x="0.0" y="206" width="320" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-HU-GEd">
+                                <rect key="frame" x="0.0" y="234" width="325" height="334"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mon-sk-1Fi"/>
+                    <navigationItem key="navigationItem" title="TheTitle" id="mon-sk-1Fi"/>
                     <connections>
                         <outlet property="blocksScrollView" destination="0dG-vE-2R2" id="N7h-Aq-Wib"/>
                         <outlet property="imageScrollView" destination="u87-2M-ySj" id="00o-eV-qIm"/>
+                        <outlet property="pictureScrollView" destination="AmM-HU-GEd" id="vFx-xm-hsJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPk-aq-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>

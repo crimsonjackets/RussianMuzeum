@@ -44,6 +44,7 @@
 		793CDB1F1960C2EE00E97CCB /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB1E1960C2EE00E97CCB /* Room.m */; };
 		793CDB23196236E600E97CCB /* CDCreatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB22196236E600E97CCB /* CDCreatorViewController.m */; };
 		794A6FC519882FF6008A4A30 /* block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC419882FF6008A4A30 /* block@2x.png */; };
+		794A6FC7198833BE008A4A30 /* picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC6198833BE008A4A30 /* picture@2x.png */; };
 		794E999A1983201400A9AA4C /* pic1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E99971983201400A9AA4C /* pic1@2x.png */; };
 		794E999B1983201400A9AA4C /* pic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E99981983201400A9AA4C /* pic2@2x.png */; };
 		794E999C1983201400A9AA4C /* pic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794E99991983201400A9AA4C /* pic3@2x.png */; };
@@ -135,6 +136,7 @@
 		793CDB21196236E600E97CCB /* CDCreatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCreatorViewController.h; sourceTree = "<group>"; };
 		793CDB22196236E600E97CCB /* CDCreatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCreatorViewController.m; sourceTree = "<group>"; };
 		794A6FC419882FF6008A4A30 /* block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block@2x.png"; sourceTree = "<group>"; };
+		794A6FC6198833BE008A4A30 /* picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture@2x.png"; sourceTree = "<group>"; };
 		794E99971983201400A9AA4C /* pic1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic1@2x.png"; sourceTree = "<group>"; };
 		794E99981983201400A9AA4C /* pic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic2@2x.png"; sourceTree = "<group>"; };
 		794E99991983201400A9AA4C /* pic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic3@2x.png"; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				794E99981983201400A9AA4C /* pic2@2x.png */,
 				794E99991983201400A9AA4C /* pic3@2x.png */,
 				794A6FC419882FF6008A4A30 /* block@2x.png */,
+				794A6FC6198833BE008A4A30 /* picture@2x.png */,
 			);
 			path = DesignElements;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				09E80A65193BEDF500D62ED1 /* states_name.plist in Resources */,
 				09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */,
 				09E809FE193BEB0800D62ED1 /* Images.xcassets in Resources */,
+				794A6FC7198833BE008A4A30 /* picture@2x.png in Resources */,
 				79B184811972004C002A95C2 /* testButton.png in Resources */,
 				79E804DD194A918D00B2713C /* zbar-help.html in Resources */,
 				794E999B1983201400A9AA4C /* pic2@2x.png in Resources */,
