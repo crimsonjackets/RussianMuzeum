@@ -53,47 +53,17 @@
     
     self.imageScrollView.delegate = self;
     //[self addImages];
-    [self lazyLoadImages];
+    [self lazyLoadImagesToScrollView:self.imageScrollView];
     
     NSLog(@"CONTENTSIZE %f", self.imageScrollView.contentSize.width);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self loadVisiblePages];
+    [self loadVisiblePagesInScrollView:scrollView];
     NSLog(@"DID scroll");
 }
 
-- (void)loadVisiblePages {
-    // First, determine which page is currently visible
-    CGFloat pageWidth = self.imageScrollView.frame.size.width;
-
-    
-    //BUG FIXED: multiplying by 2 due to the quantity of images visible
-    NSInteger page = 2 * (NSInteger)floor((self.imageScrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
-    
-    NSLog(@"CUREENT PAGE: %ld", (long)page);
-    
-    // Work out which pages you want to load
-    NSInteger firstPage = page - 3;
-    NSInteger lastPage = page + 3;
-    
-    // Purge anything before the first page
-    for (NSInteger i=0; i<firstPage; i++) {
-        [self purgePage:i];
-    }
-    
-	// Load pages in our range
-    for (NSInteger i=firstPage; i<=lastPage; i++) {
-        [self loadPage:i];
-    }
-    
-	// Purge anything after the last page
-    for (NSInteger i=lastPage; i<self.pageImages.count; i++) {
-        [self purgePage:i];
-    }
-}
-
-- (void)lazyLoadImages {
+- (void)lazyLoadImagesToScrollView:(UIScrollView *)scrollView {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 0; i<10; i++) {
         [array addObject:[UIImage imageNamed:@"pic1.png"]];
@@ -101,12 +71,12 @@
     }
     self.pageImages = (NSArray *)array;
     
-//    self.pageImages = [NSArray arrayWithObjects:
-//                       [UIImage imageNamed:@"pic1.png"],
-//                       [UIImage imageNamed:@"pic2.png"],
-//                       [UIImage imageNamed:@"pic3.png"],
-//                       [UIImage imageNamed:@"pic2.png"],
-//                       nil];
+    //    self.pageImages = [NSArray arrayWithObjects:
+    //                       [UIImage imageNamed:@"pic1.png"],
+    //                       [UIImage imageNamed:@"pic2.png"],
+    //                       [UIImage imageNamed:@"pic3.png"],
+    //                       [UIImage imageNamed:@"pic2.png"],
+    //                       nil];
     NSInteger pageCount = self.pageImages.count;
     self.pageViews = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < pageCount; ++i) {
@@ -121,27 +91,67 @@
     
     NSLog(@"Contentsize REijo: %f", self.contentSize.width);
     NSLog(@"Contentsize REijo: %f", self.contentSize.height);
-        [self loadVisiblePages];
+    [self loadVisiblePagesInScrollView:scrollView];
 }
 
-- (void)loadPage:(NSInteger)page {
+- (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
+    //Checking the scrollView:
+    NSInteger visiblePages;
+    NSMutableArray *viewArray;
+    NSArray *imageArray;
+    if (scrollView == self.imageScrollView) {
+        visiblePages = 2;
+        viewArray = self.pageViews;
+        imageArray = self.pageImages;
+    }
+    
+    // First, determine which page is currently visible
+    CGFloat pageWidth = scrollView.frame.size.width;
+
+    
+    //BUG FIXED: multiplying by 2 due to the quantity of images visible
+    NSInteger page = visiblePages * (NSInteger)floor((scrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
+    
+    NSLog(@"CUREENT PAGE: %ld", (long)page);
+    
+    // Work out which pages you want to load
+    NSInteger firstPage = page - 3;
+    NSInteger lastPage = page + 3;
+    
+    // Purge anything before the first page
+    for (NSInteger i=0; i<firstPage; i++) {
+        [self purgePage:i inArray:imageArray fromViewArray:viewArray];
+    }
+    
+	// Load pages in our range
+    for (NSInteger i=firstPage; i<=lastPage; i++) {
+        [self loadPage:i fromArray:imageArray toViewArray:viewArray];
+    }
+    
+	// Purge anything after the last page
+    for (NSInteger i=lastPage; i<self.pageImages.count; i++) {
+        [self purgePage:i inArray:imageArray fromViewArray:viewArray];
+    }
+}
+
+- (void)loadPage:(NSInteger)page fromArray:(NSArray *)array toViewArray:(NSMutableArray *)viewArray {
     if (page < 0 || page >= self.pageImages.count) {
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
     
     // 1
-    UIView *pageView = [self.pageViews objectAtIndex:page];
+    UIView *pageView = [viewArray objectAtIndex:page];
     if ((NSNull*)pageView == [NSNull null]) {
         // 2
-        UIImage *image = [self.pageImages objectAtIndex:page];
+        UIImage *image = [array objectAtIndex:page];
         
         CGRect frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
         
         CGFloat totalWidth = 0.0f;
         
         for (int i = 1; i <= page; i++) {
-            UIImage *img = [self.pageImages objectAtIndex:i];
+            UIImage *img = [array objectAtIndex:i];
             totalWidth += img.size.width;
         }
 
@@ -154,21 +164,21 @@
         newPageView.frame = frame;
         [self.imageScrollView addSubview:newPageView];
         // 4
-        [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
+        [viewArray replaceObjectAtIndex:page withObject:newPageView];
     }
 }
 
-- (void)purgePage:(NSInteger)page {
-    if (page < 0 || page >= self.pageImages.count) {
+- (void)purgePage:(NSInteger)page inArray:(NSArray *)array fromViewArray:(NSMutableArray *)viewArray {
+    if (page < 0 || page >= array.count) {
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
     
     // Remove a page from the scroll view and reset the container array
-    UIView *pageView = [self.pageViews objectAtIndex:page];
+    UIView *pageView = [viewArray objectAtIndex:page];
     if ((NSNull*)pageView != [NSNull null]) {
         [pageView removeFromSuperview];
-        [self.pageViews replaceObjectAtIndex:page withObject:[NSNull null]];
+        [viewArray replaceObjectAtIndex:page withObject:[NSNull null]];
     }
 }
 
