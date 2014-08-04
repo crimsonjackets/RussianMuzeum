@@ -20,6 +20,19 @@
 
 @implementation InteractiveMapViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    
+    CGRect a = self.imageView.frame;
+    a.size.height = a.size.height + 30.0f;
+    self.imageView.frame = a;
+    self.previousContentOffset = 0.0f;
+    //UIView *grayView = [[UIView alloc] initWithFrame:<#(CGRect)#>]
+    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+}
+
 - (void)centerScrollViewContents {
     CGSize boundsSize = self.scrollView.bounds.size;
     CGRect contentsFrame = self.imageView.frame;
@@ -33,7 +46,7 @@
     if (contentsFrame.size.height < boundsSize.height) {
         contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
     } else {
-  //      contentsFrame.origin.y = +300.0f;
+        //      contentsFrame.origin.y = +300.0f;
         
         contentsFrame.origin.y = 0.0f;
     }
@@ -91,12 +104,12 @@
 
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 //{
-//    
+//
 //    CGRect frame = _floorSelector.frame;
 //    frame.origin.y = frame.origin.y - scrollView.contentOffset.y + self.previousContentOffset;
 //    _floorSelector.frame = frame;
 //    self.previousContentOffset = scrollView.contentOffset.y;
-//    
+//
 //    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
 //}
 
@@ -109,33 +122,6 @@
     _floorSelector.frame = frame;
     
     NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
-}
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    CGRect a = self.imageView.frame;
-    a.size.height = a.size.height + 30.0f;
-    self.imageView.frame = a;
-    self.previousContentOffset = 0.0f;
-    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-    
- 
-}
-
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"appear");
-
 }
 
 - (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName

@@ -125,7 +125,7 @@
 #pragma mark - CoreData fetching
 - (NSArray *)getPreviews {
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i<10; i++) {
+    for (int i = 0; i<100; i++) {
         [array addObject:[UIImage imageNamed:@"pic1.png"]];
         [array addObject:[UIImage imageNamed:@"pic3.png"]];
     }

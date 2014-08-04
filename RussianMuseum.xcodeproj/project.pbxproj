@@ -56,6 +56,8 @@
 		7998082B198E944100580214 /* pic1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79980828198E944100580214 /* pic1@2x.png */; };
 		7998082C198E944100580214 /* pic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79980829198E944100580214 /* pic2@2x.png */; };
 		7998082D198E944100580214 /* pic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7998082A198E944100580214 /* pic3@2x.png */; };
+		7998082F198EFE7D00580214 /* rmButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7998082E198EFE7D00580214 /* rmButton@2x.png */; };
+		79980832198F0DB800580214 /* NavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79980831198F0DB800580214 /* NavigationButton.m */; };
 		799A06C51982E4C700C83526 /* ExhibitsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 799A06C41982E4C700C83526 /* ExhibitsScrollView.m */; };
 		799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 799EA29519735E7B00D8F1DE /* ZoomSegue.m */; };
 		79B184811972004C002A95C2 /* testButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 79B184801972004C002A95C2 /* testButton.png */; };
@@ -152,6 +154,9 @@
 		79980828198E944100580214 /* pic1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic1@2x.png"; sourceTree = "<group>"; };
 		79980829198E944100580214 /* pic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic2@2x.png"; sourceTree = "<group>"; };
 		7998082A198E944100580214 /* pic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic3@2x.png"; sourceTree = "<group>"; };
+		7998082E198EFE7D00580214 /* rmButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rmButton@2x.png"; sourceTree = "<group>"; };
+		79980830198F0DB700580214 /* NavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButton.h; sourceTree = "<group>"; };
+		79980831198F0DB800580214 /* NavigationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationButton.m; sourceTree = "<group>"; };
 		799A06C31982E4C700C83526 /* ExhibitsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsScrollView.h; sourceTree = "<group>"; };
 		799A06C41982E4C700C83526 /* ExhibitsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitsScrollView.m; sourceTree = "<group>"; };
 		799EA29419735E7B00D8F1DE /* ZoomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomSegue.h; sourceTree = "<group>"; };
@@ -269,6 +274,8 @@
 				09E80A1A193BEC5400D62ED1 /* AppDelegate.h */,
 				09E80A1B193BEC5400D62ED1 /* AppDelegate.m */,
 				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
+				79980830198F0DB700580214 /* NavigationButton.h */,
+				79980831198F0DB800580214 /* NavigationButton.m */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
 				79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */,
 				793CDB21196236E600E97CCB /* CDCreatorViewController.h */,
@@ -411,6 +418,7 @@
 		799A06C6198314F000C83526 /* DesignElements */ = {
 			isa = PBXGroup;
 			children = (
+				7998082E198EFE7D00580214 /* rmButton@2x.png */,
 				79980828198E944100580214 /* pic1@2x.png */,
 				79980829198E944100580214 /* pic2@2x.png */,
 				7998082A198E944100580214 /* pic3@2x.png */,
@@ -584,6 +592,7 @@
 				794A6FC519882FF6008A4A30 /* block@2x.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
 				7998082C198E944100580214 /* pic2@2x.png in Resources */,
+				7998082F198EFE7D00580214 /* rmButton@2x.png in Resources */,
 				09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */,
 				09E809F0193BEB0700D62ED1 /* InfoPlist.strings in Resources */,
 			);
@@ -621,6 +630,7 @@
 				09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
 				09E80A2B193BEC5400D62ED1 /* RoomViewController.m in Sources */,
+				79980832198F0DB800580214 /* NavigationButton.m in Sources */,
 				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
 				793CDB1419601E4E00E97CCB /* Event.m in Sources */,
 				798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */,
