@@ -3,33 +3,69 @@
 //
 
 #import "ZoomSegue.h"
-#import "MiniMapViewController.h"
-#include "InteractiveMapViewController.h"
+
+@interface ZoomSegue ()
+
+@property CGRect destStartFrame;
+
+@end
+
 
 @implementation ZoomSegue
 
-- (void)perform {
-    InteractiveMapViewController *sourceViewController = self.sourceViewController;
-    MiniMapViewController *destinationViewController = self.destinationViewController;
+
+
+-(void)perform {
     
-    UIView *sourceView = ((UIViewController *)self.sourceViewController).view;
-    UIView *destinationView = [((UIViewController *)self.destinationViewController).view snapshotViewAfterScreenUpdates:YES];
+    //lets use standard iOS 7 scale speed, as it uses about 60x60 icons ASAF
     
-    destinationView.frame = CGRectMake(0, 0, 1, 1);
-    destinationView.center = self.originatingPoint;
+    //TODO width height have to be dependent on zoom level. small zoom llevel -> small room size
+    //TODO offset by half of the size
     
-    [sourceView addSubview:destinationView];
+    self.destStartFrame = CGRectMake(self.originatingPoint.x - 10, self.originatingPoint.y - 10, 20, 20);
     
-    [UIView animateWithDuration:1
-                     animations:^{
-                         destinationView.frame = sourceView.frame;
-                         
-                     }
-                     completion:^(BOOL finished) {
-                         [destinationView removeFromSuperview];
-                         [sourceViewController.navigationController pushViewController:destinationViewController animated:NO];
-                     }];
+    CGFloat duration = .5;
     
+    UIViewController *source = self.sourceViewController;
+    UIViewController *dest = self.destinationViewController;
+    
+    UIView *sourceView = [source.view snapshotViewAfterScreenUpdates:YES];
+    UIView *destView = [dest.view snapshotViewAfterScreenUpdates:YES];
+
+    sourceView.frame = UIScreen.mainScreen.bounds;
+    
+    destView.frame = self.destStartFrame;
+    destView.alpha = 0.0f;
+    
+    [source.view addSubview:sourceView];
+    [source.view addSubview:destView];
+    
+    [UIView animateWithDuration:duration animations:^{
+        destView.alpha = 1.0f;
+    }];
+    
+    [UIView animateWithDuration:duration * 2 animations:^{
+        destView.frame = UIScreen.mainScreen.bounds;
+        sourceView.frame = [self zoomedRect];
+    } completion:^(BOOL finished) {
+        [source.navigationController pushViewController:dest animated:NO];
+        [destView removeFromSuperview];
+        [sourceView removeFromSuperview];
+    }];
+    
+}
+
+
+
+- (CGRect)zoomedRect {
+    float screenWidth = UIScreen.mainScreen.bounds.size.width;
+    float screenHeight = UIScreen.mainScreen.bounds.size.height;
+    
+    float size = screenWidth / self.destStartFrame.size.width;
+    float x = screenWidth/2 - (CGRectGetMidX(self.destStartFrame) * size);
+    float y = screenHeight/2 - (CGRectGetMidY(self.destStartFrame) * size);
+    
+    return CGRectMake(x, y, screenWidth * size, screenHeight * size);
 }
 
 @end

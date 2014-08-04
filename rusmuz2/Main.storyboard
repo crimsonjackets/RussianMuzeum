@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="757" y="2382"/>
         </scene>
-        <!--View Controller-->
+        <!--Exhibit View Controller-->
         <scene sceneID="tEK-Jm-Vok">
             <objects>
-                <viewController id="I9K-N8-Atw" customClass="QRViewController" sceneMemberID="viewController">
+                <viewController id="I9K-N8-Atw" customClass="ExhibitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FaH-gQ-9Q0"/>
                         <viewControllerLayoutGuide type="bottom" id="wJ8-GM-ciI"/>
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPk-aq-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="1036"/>
+            <point key="canvasLocation" x="1845" y="874"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kam-dm-Q5L">
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpL-dk-a3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2171" y="452"/>
+            <point key="canvasLocation" x="2051" y="-675"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="CYd-hG-lOo">
@@ -306,7 +306,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="b0G-7c-wOf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuY-2v-vbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741" y="452"/>
+            <point key="canvasLocation" x="1621" y="-675"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="awx-gU-QJR">
@@ -337,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVA-LS-jCf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="452"/>
+            <point key="canvasLocation" x="1202" y="-675"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="w8t-oP-KTN">
@@ -432,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="3112" y="1766"/>
         </scene>
-        <!--Exhibit View Controller - Detail-->
+        <!--Mockup Exhibit View Controller - Detail-->
         <scene sceneID="vm3-Is-yf7">
             <objects>
-                <viewController title="Detail" id="gPy-rP-dl4" customClass="ExhibitViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="gPy-rP-dl4" customClass="MockupExhibitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VRM-aZ-1Lw"/>
                         <viewControllerLayoutGuide type="bottom" id="aA2-dj-cil"/>

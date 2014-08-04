@@ -1,16 +1,19 @@
 //
-//  ExhibitViewController.h
-//  rusmuz2
+//  QRViewController.h
+//  rusmuz
 //
-//  Created by Richard Topchiy on 10/07/14.
+//  Created by Richard Topchiy on 19/05/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ViewController.h"
+#import "ZBarSDK.h"
+#import "DatabaseManager.h"
 
 @interface ExhibitViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *label;
-@property (strong, nonatomic) NSString *labelText;
+@property (strong, nonatomic) NSString *textQRCode;
+@property (weak, nonatomic) IBOutlet UITextView *textviewQRCode;
+
 
 @end

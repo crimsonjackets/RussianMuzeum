@@ -9,7 +9,7 @@
 
 #import "MiniMapViewController.h"
 #import "AppDelegate.h"
-#import "ExhibitViewController.h"
+#import "MockupExhibitViewController.h"
 
 @interface MiniMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
@@ -233,7 +233,7 @@
     if ([[segue identifier] isEqualToString:@"showExhibit"])
     {
         // Get reference to the destination view controller
-        ExhibitViewController *vc = [segue destinationViewController];
+        MockupExhibitViewController *vc = [segue destinationViewController];
         
         // Pass any objects to the view controller here, like...
         UIButton  *button = (UIButton *)sender;
