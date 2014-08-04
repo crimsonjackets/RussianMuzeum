@@ -9,8 +9,14 @@
 #import "ViewController.h"
 #import "ZBarSDK.h"
 #import "DatabaseManager.h"
+#import "ExhibitsScrollView.h"
 
-@interface ExhibitViewController : UIViewController
+@interface ExhibitViewController : UIViewController <UIScrollViewDelegate>
+
+
+@property (strong, nonatomic) IBOutlet ExhibitsScrollView *imageScrollView;
+@property (strong, nonatomic) IBOutlet UIScrollView *blocksScrollView;
+@property (strong, nonatomic) IBOutlet UIScrollView *pictureScrollView;
 
 @property (strong, nonatomic) NSString *textQRCode;
 @property (weak, nonatomic) IBOutlet UITextView *textviewQRCode;
