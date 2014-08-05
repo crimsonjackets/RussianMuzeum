@@ -217,13 +217,6 @@
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
 {
-//    [[[UIAlertView alloc]
-//      initWithTitle:@"*** State Name ***"
-//      message:[_stateNames objectAtIndex:inIndexSelected]
-//      delegate:nil
-//      cancelButtonTitle:@"Ok"
-//      otherButtonTitles:nil] show];
-
     CGPoint pointInViewCoords = [self.parentView convertPoint:self.imageView.touchPoint fromView:self.imageView];
     
     

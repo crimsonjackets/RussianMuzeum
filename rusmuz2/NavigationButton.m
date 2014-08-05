@@ -60,20 +60,36 @@
                      }];
 }
 
+//- (void)animateDeletion:(UIButton *)button withDuration:(CGFloat)duration {
+//    CGPoint newLeftCenter = self.center;
+//    CGRect frame = button.frame;
+//    button.frame = CGRectMake(frame.origin.x + frame.size.width/2, frame.origin.y + frame.size.height/2, frame.size.width / 10, frame.size.height / 10);
+//    [UIView animateWithDuration:duration
+//                          delay:0
+//                        options:UIViewAnimationOptionCurveEaseInOut
+//                     animations:^{
+//                         button.center = newLeftCenter;
+//                         //button.frame = frame;
+//                     } completion:^(BOOL finished) {
+//                         [button removeFromSuperview];
+//                     }];
+//}
+
+
 - (void)animateDeletion:(UIButton *)button withDuration:(CGFloat)duration {
-    CGPoint newLeftCenter = self.center;
-    CGRect frame = button.frame;
-    button.frame = CGRectMake(frame.origin.x + frame.size.width/2, frame.origin.y + frame.size.height/2, frame.size.width / 10, frame.size.height / 10);
+    CGRect frame = CGRectMake(self.frame.origin.x + 0.25 * self.frame.size.width, self.frame.origin.y + 0.25 * self.frame.size.height, button.frame.size.width / 2, button.frame.size.height / 2);
     [UIView animateWithDuration:duration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         button.center = newLeftCenter;
                          button.frame = frame;
                      } completion:^(BOOL finished) {
-                         [button removeFromSuperview];
+                    [button removeFromSuperview];
                      }];
 }
+
+
+
 
 - (void)showHideHomeButton {
     CGFloat duration = .2;
