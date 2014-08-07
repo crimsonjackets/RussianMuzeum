@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZBarSDK.h"
+//#import "ZBarSDK.h"
 #import "DatabaseManager.h"
 
 #import "Exhibit.h"
@@ -16,7 +16,7 @@
 
 
 
-@interface ViewController : UIViewController <ZBarReaderDelegate>
+@interface ViewController : UIViewController //<ZBarReaderDelegate>
 @property (strong, nonatomic) NSString *outText;
 @property (strong, nonatomic) NSDictionary *context;
 

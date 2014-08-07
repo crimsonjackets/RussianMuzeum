@@ -18,9 +18,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whx-6s-AMm" customClass="NavigationButton">
-                                <rect key="frame" x="191" y="488" width="54" height="60"/>
+                                <rect key="frame" x="240" y="280" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="rmButton.png"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -74,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efy-ud-mTT">
-                                <rect key="frame" x="103" y="332" width="115" height="30"/>
+                                <rect key="frame" x="103" y="253" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Core Data Tester">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6h9-cA-gfs">
-                                <rect key="frame" x="111" y="383" width="99" height="30"/>
+                                <rect key="frame" x="111" y="304" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Exhibit Screen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,7 +93,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz1-qZ-yXj">
-                                <rect key="frame" x="121" y="428" width="79" height="30"/>
+                                <rect key="frame" x="121" y="349" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button Test">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,7 +216,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" customClass="NavigationButton">
-                                <rect key="frame" x="230" y="450" width="54" height="60"/>
+                                <rect key="frame" x="230" y="340" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="rmButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -232,6 +231,7 @@
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
                     <connections>
                         <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
+                        <outlet property="navigationButton" destination="q0e-EL-YVn" id="fVd-Ae-4Yi"/>
                         <outlet property="parentView" destination="Er3-Fk-uSa" id="ire-2h-XP5"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
                         <segue destination="10C-kE-Rcz" kind="custom" identifier="RoomSegue" customClass="ZoomSegue" id="Zym-MT-sw7"/>

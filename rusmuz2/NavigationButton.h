@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NavigationButtonDelegate.h"
 @interface NavigationButton : UIButton
+
+@property (nonatomic, weak) id <NavigationButtonDelegate> delegate;
 
 @end

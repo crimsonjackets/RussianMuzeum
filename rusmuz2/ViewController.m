@@ -38,7 +38,7 @@ ZBarReaderViewController *codeReader = nil;
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
 - (IBAction)buttonStart:(id)sender {
     ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
     codeReader.readerDelegate=self;
@@ -69,7 +69,7 @@ ZBarReaderViewController *codeReader = nil;
     
     
 }
-
+*/
 
 - (void)checkCoreData {
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
