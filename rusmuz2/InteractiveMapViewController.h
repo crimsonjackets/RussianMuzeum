@@ -12,6 +12,7 @@
 @interface InteractiveMapViewController : UIViewController <UIScrollViewDelegate, MTImageMapDelegate>
 
 
+@property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *floorSelector;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *parentView;

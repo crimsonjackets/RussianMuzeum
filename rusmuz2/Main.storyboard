@@ -231,6 +231,7 @@
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
                     <connections>
                         <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
+                        <outlet property="navigationButton" destination="q0e-EL-YVn" id="fVd-Ae-4Yi"/>
                         <outlet property="parentView" destination="Er3-Fk-uSa" id="ire-2h-XP5"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
                         <segue destination="10C-kE-Rcz" kind="custom" identifier="RoomSegue" customClass="ZoomSegue" id="Zym-MT-sw7"/>

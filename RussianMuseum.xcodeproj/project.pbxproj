@@ -163,6 +163,7 @@
 		7998082E198EFE7D00580214 /* rmButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rmButton@2x.png"; sourceTree = "<group>"; };
 		79980830198F0DB700580214 /* NavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButton.h; sourceTree = "<group>"; };
 		79980831198F0DB800580214 /* NavigationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationButton.m; sourceTree = "<group>"; };
+		799988E219917BF8005CE978 /* NavigationButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationButtonDelegate.h; sourceTree = "<group>"; };
 		799A06C31982E4C700C83526 /* ExhibitsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsScrollView.h; sourceTree = "<group>"; };
 		799A06C41982E4C700C83526 /* ExhibitsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitsScrollView.m; sourceTree = "<group>"; };
 		799EA29419735E7B00D8F1DE /* ZoomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomSegue.h; sourceTree = "<group>"; };
@@ -280,6 +281,7 @@
 				09E80A1A193BEC5400D62ED1 /* AppDelegate.h */,
 				09E80A1B193BEC5400D62ED1 /* AppDelegate.m */,
 				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
+				799988E219917BF8005CE978 /* NavigationButtonDelegate.h */,
 				79980830198F0DB700580214 /* NavigationButton.h */,
 				79980831198F0DB800580214 /* NavigationButton.m */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,

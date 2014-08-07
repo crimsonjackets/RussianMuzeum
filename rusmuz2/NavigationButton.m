@@ -30,6 +30,7 @@
         NSLog(@"Animation");
     }completion:^(BOOL finished) {
     }];
+    
 }
 
 - (void)didTouchButton {
@@ -98,7 +99,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *image = [UIImage imageNamed:@"homeButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(checkHide:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(homeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
@@ -118,7 +119,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *image = [UIImage imageNamed:@"mapButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(checkHide:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(mapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
@@ -138,7 +139,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *image = [UIImage imageNamed:@"exhibitButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(checkHide:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(exhibitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
@@ -175,8 +176,19 @@
 
 }
 
-- (void)homePressed:(UIButton *)sender {
-    NSLog(@"home button pressed");
+- (void)homeButtonPressed:(UIButton *)sender {
+    NSLog(@"home button pressed from button");
+    [self.delegate homeButtonPressed];
+}
+
+- (void)mapButtonPressed:(UIButton *)sender {
+        [self.delegate mapButtonPressed];
+}
+- (void)changeFloorButtonPressed:(UIButton *)sender {
+        [self.delegate changeFloorButtonPressed];
+}
+- (void)exhibitButtonPressed:(UIButton *)sender {
+        [self.delegate exhibitButtonPressed];
 }
 
 /*

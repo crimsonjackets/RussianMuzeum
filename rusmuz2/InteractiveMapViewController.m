@@ -24,6 +24,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.navigationButton.delegate = self;
+    
     
     CGRect a = self.imageView.frame;
     a.size.height = a.size.height + 30.0f;
@@ -245,6 +247,24 @@
         //NSLog(@"%@", [NSString stringWithFormat:@"X: %f, Y: %f", zoomedTouchPoint.x, zoomedTouchPoint.y]);
     }
 }
+
+
+#pragma mark - Navigation Button methods
+
+- (void)homeButtonPressed {
+    NSLog(@"Home button pressed, ViewController");
+}
+
+- (void)mapButtonPressed {
+        NSLog(@"Map button pressed, ViewController");
+}
+- (void)changeFloorButtonPressed {
+        NSLog(@"Change Floor button pressed, ViewController");
+}
+- (void)exhibitButtonPressed {
+        NSLog(@"Exhibit button pressed, ViewController");
+}
+
 
 
 @end
