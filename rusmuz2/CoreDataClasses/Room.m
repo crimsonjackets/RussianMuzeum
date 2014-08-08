@@ -2,7 +2,7 @@
 //  Room.m
 //  RussianMuseum
 //
-//  Created by Richard Topchiy on 08/08/14.
+//  Created by Richard Topchiy on 09/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @implementation Room
 
-@dynamic about;
+@dynamic info;
 @dynamic name;
 @dynamic number;
 @dynamic exhibits;

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *blocksViews;
 
 @property (nonatomic, strong) NSArray *picturesStorage;
+@property (nonatomic, strong) NSArray *picturesInfo;
 @property (nonatomic, strong) NSMutableArray *picturesViews;
 
 @end
@@ -117,11 +118,6 @@
     [self loadVisiblePagesInScrollView:self.previewScrollView];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self loadVisiblePagesInScrollView:scrollView];
-    NSLog(@"DID scroll: %f", scrollView.contentSize.height);
-}
-
 #pragma mark - CoreData fetching
 - (NSArray *)getPreviews {
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -142,7 +138,7 @@
 
 - (NSArray *)getPictures {
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *infoArray = [[NSMutableArray alloc] init];
     
     NSManagedObjectContext *context = self.managedObjectContext;
     
@@ -154,13 +150,20 @@
     
     for (Exhibit *exhibit in fetchedExhibits) {
         [array addObject:[UIImage imageWithData:exhibit.picture scale:2]];
+        [infoArray addObject:exhibit.info];
     }
-
+    self.picturesInfo = (NSArray *)infoArray;
     return (NSArray *)array;
 }
 
 
 #pragma mark - Scrolling Engine
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self loadVisiblePagesInScrollView:scrollView];
+    NSLog(@"DID scroll: %f", scrollView.contentSize.height);
+}
+
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
     //Checking the scrollView:
     NSInteger visiblePages;
@@ -242,7 +245,7 @@
 //            totalWidth += img.size.width;
 //        }
         if (scrollView == self.previewScrollView) {
-            totalWidth = (page - 1) * (screenWidth/2);
+            totalWidth = (page) * (screenWidth/2);
         } else {
             for (int i = 1; i <= page; i++) {
                 UIImage *img = [array objectAtIndex:i];
@@ -255,6 +258,17 @@
         
         // 3
         UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
+        if (scrollView == self.pictureScrollView) {
+            UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
+            
+            [descriptionLabel setTextColor:[UIColor whiteColor]];
+            [descriptionLabel setBackgroundColor:[UIColor clearColor]];
+            [descriptionLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 17.0f]];
+            descriptionLabel.numberOfLines = 0;
+            descriptionLabel.textAlignment = NSTextAlignmentCenter;
+            [descriptionLabel setText:self.picturesInfo[page]];
+            [newPageView addSubview:descriptionLabel];
+        }
         if (scrollView == self.previewScrollView) {
             newPageView.contentMode = UIViewContentModeScaleAspectFill;
         } else {

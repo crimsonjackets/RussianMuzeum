@@ -49,8 +49,6 @@
 		796C145A19656EA60046916C /* MiniMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C145919656EA60046916C /* MiniMapViewController.m */; };
 		798F524619944FE100FE021D /* floor1Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524419944FE100FE021D /* floor1Button@2x.png */; };
 		798F524719944FE100FE021D /* floor2Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524519944FE100FE021D /* floor2Button@2x.png */; };
-		798F525019946A3A00FE021D /* Exhibit.m in Sources */ = {isa = PBXBuildFile; fileRef = 798F524F19946A3A00FE021D /* Exhibit.m */; };
-		798F525319946A3B00FE021D /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 798F525219946A3B00FE021D /* Room.m */; };
 		798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBA19570619004B94A6 /* InfoViewController.m */; };
 		798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBD19570626004B94A6 /* PageContentViewController.m */; };
 		798FFBC31957063A004B94A6 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 798FFBBF1957063A004B94A6 /* page1.png */; };
@@ -77,6 +75,8 @@
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
 		79E804DE194A918D00B2713C /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D9194A918D00B2713C /* zbar-helpicons.png */; };
 		79E804DF194A918D00B2713C /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804DA194A918D00B2713C /* zbar-samples.png */; };
+		79E9AAC619956C4B00DDB9D2 /* Exhibit.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E9AAC519956C4B00DDB9D2 /* Exhibit.m */; };
+		79E9AAC919956C4C00DDB9D2 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E9AAC819956C4C00DDB9D2 /* Room.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,10 +147,6 @@
 		798F524319943E0E00FE021D /* NavigationButtonEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButtonEnum.h; sourceTree = "<group>"; };
 		798F524419944FE100FE021D /* floor1Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor1Button@2x.png"; sourceTree = "<group>"; };
 		798F524519944FE100FE021D /* floor2Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor2Button@2x.png"; sourceTree = "<group>"; };
-		798F524E19946A3A00FE021D /* Exhibit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exhibit.h; path = CoreDataClasses/Exhibit.h; sourceTree = "<group>"; };
-		798F524F19946A3A00FE021D /* Exhibit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exhibit.m; path = CoreDataClasses/Exhibit.m; sourceTree = "<group>"; };
-		798F525119946A3B00FE021D /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = CoreDataClasses/Room.h; sourceTree = "<group>"; };
-		798F525219946A3B00FE021D /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = CoreDataClasses/Room.m; sourceTree = "<group>"; };
 		798FFBB919570619004B94A6 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		798FFBBA19570619004B94A6 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		798FFBBC19570626004B94A6 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -206,6 +202,10 @@
 		79E804D8194A918D00B2713C /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		79E804D9194A918D00B2713C /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		79E804DA194A918D00B2713C /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		79E9AAC419956C4B00DDB9D2 /* Exhibit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exhibit.h; path = CoreDataClasses/Exhibit.h; sourceTree = "<group>"; };
+		79E9AAC519956C4B00DDB9D2 /* Exhibit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exhibit.m; path = CoreDataClasses/Exhibit.m; sourceTree = "<group>"; };
+		79E9AAC719956C4C00DDB9D2 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = CoreDataClasses/Room.h; sourceTree = "<group>"; };
+		79E9AAC819956C4C00DDB9D2 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = CoreDataClasses/Room.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,10 +399,10 @@
 		793CDB201960C2FB00E97CCB /* CoreDataClasses */ = {
 			isa = PBXGroup;
 			children = (
-				798F525119946A3B00FE021D /* Room.h */,
-				798F525219946A3B00FE021D /* Room.m */,
-				798F524E19946A3A00FE021D /* Exhibit.h */,
-				798F524F19946A3A00FE021D /* Exhibit.m */,
+				79E9AAC719956C4C00DDB9D2 /* Room.h */,
+				79E9AAC819956C4C00DDB9D2 /* Room.m */,
+				79E9AAC419956C4B00DDB9D2 /* Exhibit.h */,
+				79E9AAC519956C4B00DDB9D2 /* Exhibit.m */,
 				793CDB1219601E4E00E97CCB /* Event.h */,
 				793CDB1319601E4E00E97CCB /* Event.m */,
 			);
@@ -632,7 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				798F525319946A3B00FE021D /* Room.m in Sources */,
+				79E9AAC919956C4C00DDB9D2 /* Room.m in Sources */,
 				793CDB23196236E600E97CCB /* CDCreatorViewController.m in Sources */,
 				09E80A2E193BEC5400D62ED1 /* ViewController.m in Sources */,
 				796C145A19656EA60046916C /* MiniMapViewController.m in Sources */,
@@ -644,7 +644,7 @@
 				79C0114C195CF74500BF6784 /* Model.xcdatamodeld in Sources */,
 				79C01144195CF4F100BF6784 /* MasterViewController.m in Sources */,
 				09E80A2C193BEC5400D62ED1 /* InteractiveMapViewController.m in Sources */,
-				798F525019946A3A00FE021D /* Exhibit.m in Sources */,
+				79E9AAC619956C4B00DDB9D2 /* Exhibit.m in Sources */,
 				09E80A29193BEC5400D62ED1 /* AppDelegate.m in Sources */,
 				09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
