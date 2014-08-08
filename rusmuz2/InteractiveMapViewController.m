@@ -11,10 +11,10 @@
 #import "ZoomSegue.h"
 #import "MTImageMapView/MTImageMapView.h"
 
+
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
 @property (nonatomic, strong) NSString *roomNumber;
-@property CGFloat previousContentOffset;
 @property CGPoint touchedPoint;
 @end
 
@@ -24,14 +24,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    self.navigationButton.buttonKind = mapVC;
     self.navigationButton.delegate = self;
     
-    
-    CGRect a = self.imageView.frame;
-    a.size.height = a.size.height + 30.0f;
-    self.imageView.frame = a;
-    self.previousContentOffset = 0.0f;
-    //UIView *grayView = [[UIView alloc] initWithFrame:<#(CGRect)#>]
     [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
 }
 
@@ -94,37 +90,9 @@
     // The scroll view has zoomed, so you need to re-center the contents
     NSLog(@"ZOOMSCALE %f", self.scrollView.zoomScale);
     
-    if (self.scrollView.zoomScale >0.2) {
-        CGRect frame = _floorSelector.frame;
-        frame.origin.y = frame.origin.y - 30.0f;
-        _floorSelector.frame = frame;
-    }
-    
     [self centerScrollViewContents];
 }
 
-
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//
-//    CGRect frame = _floorSelector.frame;
-//    frame.origin.y = frame.origin.y - scrollView.contentOffset.y + self.previousContentOffset;
-//    _floorSelector.frame = frame;
-//    self.previousContentOffset = scrollView.contentOffset.y;
-//
-//    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
-//}
-
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    
-    CGRect frame = _floorSelector.frame;
-    frame.origin.y = -scrollView.contentOffset.y;
-    _floorSelector.frame = frame;
-    
-    NSLog(@"ContentOffset: %f", self.scrollView.contentOffset.y);
-}
 
 - (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName
 {
@@ -166,8 +134,7 @@
     self.scrollView.contentSize = self.imageView.frame.size;
     self.scrollView.contentSize = contentSize;
     
-    NSLog(@"FLOORSELECTOR SIZZE %f",self.floorSelector.frame.size.height);
-    
+
     
     // 3
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
@@ -197,24 +164,6 @@
     [self centerScrollViewContents];
 
 }
-
-- (IBAction)floorSelectorValueChanged:(id)sender
-{
-    CGFloat zoomScale = self.scrollView.zoomScale;
-    CGPoint contentOffset = self.scrollView.contentOffset;
-    if (self.floorSelector.selectedSegmentIndex == 0)
-    {
-        [self.imageView removeFromSuperview];
-    [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-    } else {
-        [self.imageView removeFromSuperview];
-    [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-    }
-    
-    self.scrollView.zoomScale = zoomScale;
-    self.scrollView.contentOffset = contentOffset;
-}
-
 
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
@@ -255,10 +204,24 @@
     NSLog(@"Home button pressed, ViewController");
 }
 
-- (void)mapButtonPressed {
-        NSLog(@"Map button pressed, ViewController");
-}
 - (void)changeFloorButtonPressed {
+    CGFloat zoomScale = self.scrollView.zoomScale;
+    CGPoint contentOffset = self.scrollView.contentOffset;
+
+    if ([_currentFloor  isEqual: @2]) {
+        [self.imageView removeFromSuperview];
+        [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+        _currentFloor = @1;
+        NSLog(@"Current floor number 11111is %@", _currentFloor);
+    } else {
+        [self.imageView removeFromSuperview];
+        [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+        _currentFloor = @2;
+        NSLog(@"Current floor number is %@", _currentFloor);
+    }
+    self.navigationButton.currentFloor  = _currentFloor;
+    self.scrollView.zoomScale = zoomScale;
+    self.scrollView.contentOffset = contentOffset;
         NSLog(@"Change Floor button pressed, ViewController");
 }
 - (void)exhibitButtonPressed {

@@ -1,8 +1,8 @@
 //
 //  Room.h
-//  rusmuz2
+//  RussianMuseum
 //
-//  Created by Richard Topchiy on 30/06/14.
+//  Created by Richard Topchiy on 08/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 

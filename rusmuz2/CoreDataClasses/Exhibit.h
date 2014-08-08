@@ -2,7 +2,7 @@
 //  Exhibit.h
 //  RussianMuseum
 //
-//  Created by Richard Topchiy on 21/07/14.
+//  Created by Richard Topchiy on 08/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * coordinates;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * qrCode;
+@property (nonatomic, retain) NSData * picture;
 @property (nonatomic, retain) Room *room;
 
 @end

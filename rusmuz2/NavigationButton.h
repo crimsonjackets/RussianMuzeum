@@ -11,5 +11,7 @@
 @interface NavigationButton : UIButton
 
 @property (nonatomic, weak) id <NavigationButtonDelegate> delegate;
+@property (nonatomic) ButtonKind buttonKind;
+@property (strong, nonatomic) NSNumber *currentFloor;
 
 @end

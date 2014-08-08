@@ -204,17 +204,6 @@
                                     <outlet property="delegate" destination="A9N-Fd-kBa" id="1y6-Km-p0E"/>
                                 </connections>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Gp-4e9">
-                                <rect key="frame" x="80" y="64" width="160" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <connections>
-                                    <action selector="floorSelectorValueChanged:" destination="A9N-Fd-kBa" eventType="valueChanged" id="w0J-1d-JuW"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" customClass="NavigationButton">
                                 <rect key="frame" x="230" y="340" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -230,7 +219,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
                     <connections>
-                        <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
                         <outlet property="navigationButton" destination="q0e-EL-YVn" id="fVd-Ae-4Yi"/>
                         <outlet property="parentView" destination="Er3-Fk-uSa" id="ire-2h-XP5"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
@@ -284,7 +272,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u87-2M-ySj" customClass="ExhibitsScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u87-2M-ySj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
@@ -302,8 +290,8 @@
                     <navigationItem key="navigationItem" title="TheTitle" id="mon-sk-1Fi"/>
                     <connections>
                         <outlet property="blocksScrollView" destination="0dG-vE-2R2" id="N7h-Aq-Wib"/>
-                        <outlet property="imageScrollView" destination="u87-2M-ySj" id="00o-eV-qIm"/>
                         <outlet property="pictureScrollView" destination="AmM-HU-GEd" id="vFx-xm-hsJ"/>
+                        <outlet property="previewScrollView" destination="u87-2M-ySj" id="N0b-0V-uyC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPk-aq-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
