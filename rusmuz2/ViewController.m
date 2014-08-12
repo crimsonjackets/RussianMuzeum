@@ -10,7 +10,6 @@
 #import "ExhibitViewController.h"
 #import "AppDelegate.h"
 
-
 @interface ViewController ()
 
 
@@ -129,11 +128,19 @@
     
     NSArray *fetchedRoom = [self.managedObjectContext executeFetchRequest:request error:&error];
     room = fetchedRoom[0];
-    for (int i=0; i<100; i++) {
+    for (int i=0; i<50; i++) {
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
         ex.name =[NSString stringWithFormat:@"%d", i];
+        
+        
+        
         ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
+        
+        
+        
+        
+        
         ex.info = @"Брюллов посетил Помпеи в 1828 году, сделав много набросков для будущей картины про известное извержение вулкана Везувий в 79 году н. э. и разрушение города Помпеи близ Неаполя. Полотно выставлялось в Риме, где получило восторженные отклики критиков и переправлено в парижский Лувр. Эта работа стала первой картиной художника, вызвавшей такой интерес за рубежом. Вальтер Скотт назвал картину «необычной, эпической».";
         
         CGFloat horizontal = ( arc4random() % 640);

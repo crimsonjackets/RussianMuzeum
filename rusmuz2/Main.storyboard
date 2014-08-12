@@ -263,7 +263,7 @@
         <!--Exhibit View Controller - TheTitle-->
         <scene sceneID="tEK-Jm-Vok">
             <objects>
-                <viewController id="I9K-N8-Atw" customClass="ExhibitViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="I9K-N8-Atw" customClass="ExhibitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FaH-gQ-9Q0"/>
                         <viewControllerLayoutGuide type="bottom" id="wJ8-GM-ciI"/>
@@ -273,21 +273,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u87-2M-ySj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-vE-2R2">
-                                <rect key="frame" x="0.0" y="206" width="320" height="28"/>
+                                <rect key="frame" x="0.0" y="146" width="320" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-HU-GEd">
-                                <rect key="frame" x="0.0" y="234" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="172" width="320" height="396"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="TheTitle" id="mon-sk-1Fi"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="blocksScrollView" destination="0dG-vE-2R2" id="N7h-Aq-Wib"/>
                         <outlet property="pictureScrollView" destination="AmM-HU-GEd" id="vFx-xm-hsJ"/>

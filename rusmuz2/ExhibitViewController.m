@@ -9,6 +9,8 @@
 #import "ExhibitViewController.h"
 #import "AppDelegate.h"
 
+#define PREVIEW_HEIGHT 146
+
 @interface ExhibitViewController ()
 
 @property (nonatomic, strong) NSArray *previewsStorage;
@@ -26,9 +28,12 @@
 @implementation ExhibitViewController
 
 
-
 - (void)viewDidLoad
 {
+    //Temporarily, just for debougage and design CHK
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
+    
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
     self.previewScrollView.delegate = self;
@@ -110,7 +115,7 @@
 //        contentSize.width = contentSize.width + image.size.width;
 //        contentSize.height = image.size.height;
 //    }
-    CGSize size = CGSizeMake((screenWidth/2) * self.previewsStorage.count, 150);
+    CGSize size = CGSizeMake((screenWidth/2) * self.previewsStorage.count, PREVIEW_HEIGHT);
     self.previewScrollView.contentSize = size;
     
     NSLog(@"Contentsize REijo: %f", contentSize.width);
@@ -161,7 +166,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self loadVisiblePagesInScrollView:scrollView];
-    NSLog(@"DID scroll: %f", scrollView.contentSize.height);
+    NSLog(@"DID scroll content offset: %f", scrollView.contentOffset.x);
 }
 
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
@@ -231,7 +236,7 @@
         CGFloat screenWidth = screenRect.size.width;
         if (scrollView == self.previewScrollView) {
 
-            frame = CGRectMake(0.0f, 0.0f, screenWidth/2, 211);
+            frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
         } else {
             frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
         }
@@ -239,13 +244,13 @@
         
         
         CGFloat totalWidth = 0.0f;
-        
-//        for (int i = 1; i <= page; i++) {
-//            UIImage *img = [array objectAtIndex:i];
-//            totalWidth += img.size.width;
-//        }
+
+        UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
+
         if (scrollView == self.previewScrollView) {
             totalWidth = (page) * (screenWidth/2);
+            newPageView.clipsToBounds = YES;
+            NSLog(@"TW preview: %f", totalWidth);
         } else {
             for (int i = 1; i <= page; i++) {
                 UIImage *img = [array objectAtIndex:i];
@@ -257,7 +262,8 @@
         frame.origin.x = totalWidth;
         
         // 3
-        UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
+
+
         if (scrollView == self.pictureScrollView) {
             UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
             
