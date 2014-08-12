@@ -7,14 +7,16 @@
 //
 
 #import "ViewController.h"
-#import "ZBarSDK.h"
-#import "DatabaseManager.h"
 #import "ExhibitsScrollView.h"
+#import "Exhibit.h"
+#import "Room.h"
+#import <CoreData/CoreData.h>
 
 @interface ExhibitViewController : UIViewController <UIScrollViewDelegate>
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (strong, nonatomic) IBOutlet ExhibitsScrollView *imageScrollView;
+@property (strong, nonatomic) IBOutlet UIScrollView *previewScrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *blocksScrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *pictureScrollView;
 

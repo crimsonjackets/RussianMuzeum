@@ -1,8 +1,8 @@
 //
 //  Room.m
-//  rusmuz2
+//  RussianMuseum
 //
-//  Created by Richard Topchiy on 30/06/14.
+//  Created by Richard Topchiy on 09/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @implementation Room
 
-@dynamic about;
+@dynamic info;
 @dynamic name;
 @dynamic number;
 @dynamic exhibits;

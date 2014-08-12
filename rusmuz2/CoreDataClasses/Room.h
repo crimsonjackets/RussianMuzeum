@@ -1,8 +1,8 @@
 //
 //  Room.h
-//  rusmuz2
+//  RussianMuseum
 //
-//  Created by Richard Topchiy on 30/06/14.
+//  Created by Richard Topchiy on 09/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 @interface Room : NSManagedObject
 
-@property (nonatomic, retain) NSString * about;
+@property (nonatomic, retain) NSString * info;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * number;
 @property (nonatomic, retain) NSSet *exhibits;

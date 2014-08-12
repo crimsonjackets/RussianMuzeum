@@ -204,17 +204,6 @@
                                     <outlet property="delegate" destination="A9N-Fd-kBa" id="1y6-Km-p0E"/>
                                 </connections>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-Gp-4e9">
-                                <rect key="frame" x="80" y="64" width="160" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <connections>
-                                    <action selector="floorSelectorValueChanged:" destination="A9N-Fd-kBa" eventType="valueChanged" id="w0J-1d-JuW"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" customClass="NavigationButton">
                                 <rect key="frame" x="230" y="340" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -230,7 +219,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
                     <connections>
-                        <outlet property="floorSelector" destination="Q9F-Gp-4e9" id="olv-RV-iSX"/>
                         <outlet property="navigationButton" destination="q0e-EL-YVn" id="fVd-Ae-4Yi"/>
                         <outlet property="parentView" destination="Er3-Fk-uSa" id="ire-2h-XP5"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
@@ -275,7 +263,7 @@
         <!--Exhibit View Controller - TheTitle-->
         <scene sceneID="tEK-Jm-Vok">
             <objects>
-                <viewController id="I9K-N8-Atw" customClass="ExhibitViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="I9K-N8-Atw" customClass="ExhibitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FaH-gQ-9Q0"/>
                         <viewControllerLayoutGuide type="bottom" id="wJ8-GM-ciI"/>
@@ -284,26 +272,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u87-2M-ySj" customClass="ExhibitsScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="211"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u87-2M-ySj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-vE-2R2">
-                                <rect key="frame" x="0.0" y="206" width="320" height="28"/>
+                                <rect key="frame" x="0.0" y="146" width="320" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-HU-GEd">
-                                <rect key="frame" x="0.0" y="234" width="320" height="334"/>
+                                <rect key="frame" x="0.0" y="172" width="320" height="396"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="TheTitle" id="mon-sk-1Fi"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="blocksScrollView" destination="0dG-vE-2R2" id="N7h-Aq-Wib"/>
-                        <outlet property="imageScrollView" destination="u87-2M-ySj" id="00o-eV-qIm"/>
                         <outlet property="pictureScrollView" destination="AmM-HU-GEd" id="vFx-xm-hsJ"/>
+                        <outlet property="previewScrollView" destination="u87-2M-ySj" id="N0b-0V-uyC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPk-aq-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>

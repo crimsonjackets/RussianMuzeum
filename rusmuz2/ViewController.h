@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import "ZBarSDK.h"
-#import "DatabaseManager.h"
+
 
 #import "Exhibit.h"
 #import "Room.h"

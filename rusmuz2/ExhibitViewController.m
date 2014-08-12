@@ -7,9 +7,9 @@
 //
 
 #import "ExhibitViewController.h"
-#import "ZBarSDK.h"
+#import "AppDelegate.h"
 
-
+#define PREVIEW_HEIGHT 146
 
 @interface ExhibitViewController ()
 
@@ -20,21 +20,23 @@
 @property (nonatomic, strong) NSMutableArray *blocksViews;
 
 @property (nonatomic, strong) NSArray *picturesStorage;
+@property (nonatomic, strong) NSArray *picturesInfo;
 @property (nonatomic, strong) NSMutableArray *picturesViews;
 
 @end
 
 @implementation ExhibitViewController
 
+
 - (void)viewDidLoad
 {
-    DatabaseManager *databaseManager = [DatabaseManager sharedInstance];
+    //Temporarily, just for debougage and design CHK
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
     
-    if ([databaseManager.exhibits objectForKey:_textQRCode] != nil) {
-        _textviewQRCode.text = [databaseManager.exhibits objectForKey:_textQRCode];
-    }
+    self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
-    self.imageScrollView.delegate = self;
+    self.previewScrollView.delegate = self;
     self.blocksScrollView.delegate = self;
     self.pictureScrollView.delegate = self;
     //[self addImages];
@@ -42,7 +44,7 @@
     [self lazyLoadBlocks];
     [self lazyLoadPictures];
     
-    NSLog(@"CONTENTSIZE %f", self.imageScrollView.contentSize.width);
+    NSLog(@"CONTENTSIZE %f", self.previewScrollView.contentSize.width);
 }
 
 - (void)lazyLoadPictures {
@@ -95,8 +97,8 @@
 
 
 - (void)lazyLoadPreviews {
-    self.previewsStorage = [self getPreviews];
-
+//    self.previewsStorage = [self getPreviews];
+    self.previewsStorage = [self getPictures];
     NSInteger pageCount = self.previewsStorage.count;
     self.previewsViews = [[NSMutableArray alloc] init];
     
@@ -104,22 +106,21 @@
         [self.previewsViews addObject:[NSNull null]];
     }
     
-    CGSize contentSize;
-    for (UIImage *image in self.previewsStorage) {
-        contentSize.width = contentSize.width + image.size.width;
-        contentSize.height = image.size.height;
-    }
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+
     
-    self.imageScrollView.contentSize = contentSize;
+    CGSize contentSize;
+//    for (UIImage *image in self.previewsStorage) {
+//        contentSize.width = contentSize.width + image.size.width;
+//        contentSize.height = image.size.height;
+//    }
+    CGSize size = CGSizeMake((screenWidth/2) * self.previewsStorage.count, PREVIEW_HEIGHT);
+    self.previewScrollView.contentSize = size;
     
     NSLog(@"Contentsize REijo: %f", contentSize.width);
     NSLog(@"Contentsize REijo: %f", contentSize.height);
-    [self loadVisiblePagesInScrollView:self.imageScrollView];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self loadVisiblePagesInScrollView:scrollView];
-    NSLog(@"DID scroll: %f", scrollView.contentSize.height);
+    [self loadVisiblePagesInScrollView:self.previewScrollView];
 }
 
 #pragma mark - CoreData fetching
@@ -142,20 +143,38 @@
 
 - (NSArray *)getPictures {
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i<100; i++) {
-        [array addObject:[UIImage imageNamed:@"picture.png"]];
+    NSMutableArray *infoArray = [[NSMutableArray alloc] init];
+    
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
+    request.predicate = nil;
+    NSError *error = nil;
+    
+    NSArray *fetchedExhibits = [context executeFetchRequest:request error:&error];
+    
+    for (Exhibit *exhibit in fetchedExhibits) {
+        [array addObject:[UIImage imageWithData:exhibit.picture scale:2]];
+        [infoArray addObject:exhibit.info];
     }
+    self.picturesInfo = (NSArray *)infoArray;
     return (NSArray *)array;
 }
 
 
 #pragma mark - Scrolling Engine
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self loadVisiblePagesInScrollView:scrollView];
+    NSLog(@"DID scroll content offset: %f", scrollView.contentOffset.x);
+}
+
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
     //Checking the scrollView:
     NSInteger visiblePages;
     NSMutableArray *viewArray;
     NSArray *storageArray;
-    if (scrollView == self.imageScrollView) {
+    if (scrollView == self.previewScrollView) {
         visiblePages = 2;
         viewArray = self.previewsViews;
         storageArray = self.previewsStorage;
@@ -182,6 +201,8 @@
     NSInteger firstPage = page - 1 - visiblePages;
     NSInteger lastPage = page + 1 + visiblePages;
     
+    NSLog(@"first page: %ld", (long)firstPage);
+        NSLog(@"last page: %ld", (long)lastPage);
     // Purge anything before the first page
     for (NSInteger i=0; i<firstPage; i++) {
         [self purgePage:i inArray:storageArray fromViewArray:viewArray];
@@ -210,21 +231,55 @@
         // 2
         UIImage *image = [array objectAtIndex:page];
         
-        CGRect frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+        CGRect frame;
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        if (scrollView == self.previewScrollView) {
+
+            frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+        } else {
+            frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+        }
+        
+        
         
         CGFloat totalWidth = 0.0f;
-        
-        for (int i = 1; i <= page; i++) {
-            UIImage *img = [array objectAtIndex:i];
-            totalWidth += img.size.width;
+
+        UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
+
+        if (scrollView == self.previewScrollView) {
+            totalWidth = (page) * (screenWidth/2);
+            newPageView.clipsToBounds = YES;
+            NSLog(@"TW preview: %f", totalWidth);
+        } else {
+            for (int i = 1; i <= page; i++) {
+                UIImage *img = [array objectAtIndex:i];
+                totalWidth += img.size.width;
+            }
         }
 
         
         frame.origin.x = totalWidth;
         
         // 3
-        UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
-        newPageView.contentMode = UIViewContentModeScaleAspectFit;
+
+
+        if (scrollView == self.pictureScrollView) {
+            UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
+            
+            [descriptionLabel setTextColor:[UIColor whiteColor]];
+            [descriptionLabel setBackgroundColor:[UIColor clearColor]];
+            [descriptionLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 17.0f]];
+            descriptionLabel.numberOfLines = 0;
+            descriptionLabel.textAlignment = NSTextAlignmentCenter;
+            [descriptionLabel setText:self.picturesInfo[page]];
+            [newPageView addSubview:descriptionLabel];
+        }
+        if (scrollView == self.previewScrollView) {
+            newPageView.contentMode = UIViewContentModeScaleAspectFill;
+        } else {
+            newPageView.contentMode = UIViewContentModeScaleAspectFit;
+        }
         newPageView.frame = frame;
         [scrollView addSubview:newPageView];
         // 4
@@ -237,13 +292,13 @@
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
-    
     // Remove a page from the scroll view and reset the container array
     UIView *pageView = [viewArray objectAtIndex:page];
     if ((NSNull*)pageView != [NSNull null]) {
         [pageView removeFromSuperview];
         [viewArray replaceObjectAtIndex:page withObject:[NSNull null]];
     }
+    
 }
 
 @end

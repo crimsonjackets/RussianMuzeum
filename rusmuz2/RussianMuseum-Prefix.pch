@@ -15,4 +15,4 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#import "NavigationButton.h"
+#import "NavigationButtonEnum.h"

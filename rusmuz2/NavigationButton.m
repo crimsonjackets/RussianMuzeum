@@ -13,6 +13,7 @@
 @property BOOL buttonOpened;
 @property (strong, nonatomic) UIButton *homeButton;
 @property (strong, nonatomic) UIButton *mapButton;
+@property (strong, nonatomic) UIButton *changeFloorButton;
 @property (strong, nonatomic) UIButton *exhibitButton;
 @end
 
@@ -21,24 +22,32 @@
 - (void)awakeFromNib {
     self.buttonOpened = NO;
     
-    NSLog(@"Yeah, it self!!!");
     [self addTarget:self action:@selector(didTouchButton) forControlEvents:UIControlEventTouchUpInside];
     UIImage *buttonImage = [UIImage imageNamed:@"rmButton"];
     [self setImage:buttonImage forState:UIControlStateNormal];
-
-    [UIView animateWithDuration:0.5 animations:^{
-        NSLog(@"Animation");
-    }completion:^(BOOL finished) {
-    }];
-    
 }
 
 - (void)didTouchButton {
     [self animateRMButton];
-    [self showHideHomeButton];
-    [self showHideMapButton];
-    [self showHideExhibitButton];
+    
+    [self showHideNeededButtons];
+    
     _buttonOpened = YES;
+}
+
+- (void)showHideNeededButtons {
+    if (self.buttonKind == mapVC) {
+        [self showHideHomeButton];
+        [self showHideChangeFloorButton];
+        [self showHideExhibitButton];
+    } else if (self.buttonKind == rootVC) {
+        [self showHideMapButton];
+        [self showHideExhibitButton];
+    } else if (self.buttonKind == exhibitVC) {
+        [self showHideHomeButton];
+        [self showHideMapButton];
+
+    }
 }
 
 - (void)animateRMButton {
@@ -61,21 +70,6 @@
                      }];
 }
 
-//- (void)animateDeletion:(UIButton *)button withDuration:(CGFloat)duration {
-//    CGPoint newLeftCenter = self.center;
-//    CGRect frame = button.frame;
-//    button.frame = CGRectMake(frame.origin.x + frame.size.width/2, frame.origin.y + frame.size.height/2, frame.size.width / 10, frame.size.height / 10);
-//    [UIView animateWithDuration:duration
-//                          delay:0
-//                        options:UIViewAnimationOptionCurveEaseInOut
-//                     animations:^{
-//                         button.center = newLeftCenter;
-//                         //button.frame = frame;
-//                     } completion:^(BOOL finished) {
-//                         [button removeFromSuperview];
-//                     }];
-//}
-
 
 - (void)animateDeletion:(UIButton *)button withDuration:(CGFloat)duration {
     CGRect frame = CGRectMake(self.frame.origin.x + 0.25 * self.frame.size.width, self.frame.origin.y + 0.25 * self.frame.size.height, button.frame.size.width / 2, button.frame.size.height / 2);
@@ -88,7 +82,6 @@
                     [button removeFromSuperview];
                      }];
 }
-
 
 
 
@@ -129,6 +122,34 @@
         UIButton *button = _mapButton;
         [self animateDeletion:button withDuration:duration];
         _mapButton = nil;
+    }
+}
+
+- (void)showHideChangeFloorButton {
+    CGFloat duration = .3;
+    CGFloat offset = 90;
+    if (_changeFloorButton == nil) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        UIImage *image;
+
+        if ([_currentFloor  isEqual: @2]) {
+        image = [UIImage imageNamed:@"floor1Button"];
+        } else {
+        image = [UIImage imageNamed:@"floor2Button"];
+        }
+
+        button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self action:@selector(changeFloorButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
+        [[self superview] insertSubview:button belowSubview:self];
+        [self animateCreation:button withOffset:offset andDuration:duration];
+        _changeFloorButton = button;
+    } else {
+        UIButton *button = _changeFloorButton;
+        [self animateDeletion:button withDuration:duration];
+        _changeFloorButton = nil;
     }
 }
 
@@ -177,18 +198,19 @@
 }
 
 - (void)homeButtonPressed:(UIButton *)sender {
-    NSLog(@"home button pressed from button");
     [self.delegate homeButtonPressed];
 }
 
 - (void)mapButtonPressed:(UIButton *)sender {
-        [self.delegate mapButtonPressed];
+    [self.delegate mapButtonPressed];
+    
 }
 - (void)changeFloorButtonPressed:(UIButton *)sender {
-        [self.delegate changeFloorButtonPressed];
+    [self.delegate changeFloorButtonPressed];
+    [self didTouchButton];
 }
 - (void)exhibitButtonPressed:(UIButton *)sender {
-        [self.delegate exhibitButtonPressed];
+    [self.delegate exhibitButtonPressed];
 }
 
 /*

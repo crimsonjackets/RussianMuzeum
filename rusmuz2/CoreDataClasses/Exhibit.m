@@ -2,7 +2,7 @@
 //  Exhibit.m
 //  RussianMuseum
 //
-//  Created by Richard Topchiy on 21/07/14.
+//  Created by Richard Topchiy on 09/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 
@@ -12,9 +12,10 @@
 
 @implementation Exhibit
 
-@dynamic about;
+@dynamic info;
 @dynamic coordinates;
 @dynamic name;
+@dynamic picture;
 @dynamic qrCode;
 @dynamic room;
 

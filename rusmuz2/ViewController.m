@@ -10,9 +10,6 @@
 #import "ExhibitViewController.h"
 #import "AppDelegate.h"
 
-
-ZBarReaderViewController *codeReader = nil;
-
 @interface ViewController ()
 
 
@@ -26,8 +23,6 @@ ZBarReaderViewController *codeReader = nil;
 	// Do any additional setup after loading the view, typically from a nib.
     [self checkCoreData];
 
-    DatabaseManager *databaseManager = [DatabaseManager sharedInstance];
-    databaseManager.exhibits = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"It Works!!!",@"http://en.m.wikipedia.org", nil];
 
 }
 
@@ -105,10 +100,6 @@ ZBarReaderViewController *codeReader = nil;
 
 
 
-
-
-
-
 - (void)createOneRoom {
     NSManagedObjectContext *context = self.managedObjectContext;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
@@ -137,11 +128,20 @@ ZBarReaderViewController *codeReader = nil;
     
     NSArray *fetchedRoom = [self.managedObjectContext executeFetchRequest:request error:&error];
     room = fetchedRoom[0];
-    for (int i=0; i<10; i++) {
+    for (int i=0; i<50; i++) {
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
         ex.name =[NSString stringWithFormat:@"%d", i];
         
+        
+        
+        ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
+        
+        
+        
+        
+        
+        ex.info = @"Брюллов посетил Помпеи в 1828 году, сделав много набросков для будущей картины про известное извержение вулкана Везувий в 79 году н. э. и разрушение города Помпеи близ Неаполя. Полотно выставлялось в Риме, где получило восторженные отклики критиков и переправлено в парижский Лувр. Эта работа стала первой картиной художника, вызвавшей такой интерес за рубежом. Вальтер Скотт назвал картину «необычной, эпической».";
         
         CGFloat horizontal = ( arc4random() % 640);
         CGFloat vertical = ( arc4random() % 620);

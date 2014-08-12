@@ -8,19 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MTImageMapView.h"
+#import "NavigationButton.h"
 
-@interface InteractiveMapViewController : UIViewController <UIScrollViewDelegate, MTImageMapDelegate>
+@interface InteractiveMapViewController : UIViewController <UIScrollViewDelegate, MTImageMapDelegate, NavigationButtonDelegate>
 
 
 @property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *floorSelector;
+@property (strong, nonatomic) NSNumber *currentFloor;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *parentView;
 @property (nonatomic, strong) NSArray *roomNumbers;
-
-
-- (IBAction)floorSelectorValueChanged:(id)sender;
-
-
 
 @end
