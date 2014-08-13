@@ -90,13 +90,6 @@
     
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"QRSegue"]) {
-        ExhibitViewController *destination = [segue destinationViewController];
-        destination.textQRCode = _outText;
-    }
-}
 
 
 
@@ -128,7 +121,7 @@
     
     NSArray *fetchedRoom = [self.managedObjectContext executeFetchRequest:request error:&error];
     room = fetchedRoom[0];
-    for (int i=0; i<50; i++) {
+    for (int i=0; i<10; i++) {
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
         ex.name =[NSString stringWithFormat:@"%d", i];

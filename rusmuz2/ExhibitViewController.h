@@ -20,8 +20,8 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *blocksScrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *pictureScrollView;
 
-@property (strong, nonatomic) NSString *textQRCode;
-@property (weak, nonatomic) IBOutlet UITextView *textviewQRCode;
+@property (strong, nonatomic) NSString *exhibitQRCode;
+
 
 
 @end

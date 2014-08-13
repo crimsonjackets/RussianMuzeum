@@ -80,6 +80,7 @@
 		79E804DF194A918D00B2713C /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804DA194A918D00B2713C /* zbar-samples.png */; };
 		79E9AAC619956C4B00DDB9D2 /* Exhibit.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E9AAC519956C4B00DDB9D2 /* Exhibit.m */; };
 		79E9AAC919956C4C00DDB9D2 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E9AAC819956C4C00DDB9D2 /* Room.m */; };
+		84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84848CF3199BD7F400CFD4FD /* StartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,8 @@
 		79E9AAC519956C4B00DDB9D2 /* Exhibit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exhibit.m; path = CoreDataClasses/Exhibit.m; sourceTree = "<group>"; };
 		79E9AAC719956C4C00DDB9D2 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Room.h; path = CoreDataClasses/Room.h; sourceTree = "<group>"; };
 		79E9AAC819956C4C00DDB9D2 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Room.m; path = CoreDataClasses/Room.m; sourceTree = "<group>"; };
+		84848CF2199BD7F400CFD4FD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		84848CF3199BD7F400CFD4FD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +293,8 @@
 				09E80A1A193BEC5400D62ED1 /* AppDelegate.h */,
 				09E80A1B193BEC5400D62ED1 /* AppDelegate.m */,
 				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
+				84848CF2199BD7F400CFD4FD /* StartViewController.h */,
+				84848CF3199BD7F400CFD4FD /* StartViewController.m */,
 				79495A49199A8B8C00F5F354 /* QRViewController.h */,
 				79495A4A199A8B8C00F5F354 /* QRViewController.m */,
 				798F524319943E0E00FE021D /* NavigationButtonEnum.h */,
@@ -564,6 +569,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Richard Topchiy";
 				TargetAttributes = {
+					09E809E1193BEB0700D62ED1 = {
+						DevelopmentTeam = FM33Y8RWW7;
+					};
 					09E80A02193BEB0800D62ED1 = {
 						TestTargetID = 09E809E1193BEB0700D62ED1;
 					};
@@ -666,6 +674,7 @@
 				79980832198F0DB800580214 /* NavigationButton.m in Sources */,
 				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
 				793CDB1419601E4E00E97CCB /* Event.m in Sources */,
+				84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */,
 				798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */,
 				09E809F2193BEB0700D62ED1 /* main.m in Sources */,
 			);
@@ -784,7 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Richard Topchiy";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -799,6 +808,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RussianMuseum;
+				PROVISIONING_PROFILE = "a33c8fae-5548-4a2a-8d04-3d814be87bf7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -808,7 +818,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Richard Topchiy";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -823,6 +833,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RussianMuseum;
+				PROVISIONING_PROFILE = "a33c8fae-5548-4a2a-8d04-3d814be87bf7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

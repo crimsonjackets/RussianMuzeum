@@ -7,13 +7,14 @@
 //
 
 #import "QRViewController.h"
+#import "ExhibitViewController.h"
 
 @interface QRViewController ()
-@property (nonatomic) BOOL isReading;
+@property (nonatomic, strong) NSString *QRCode;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+@property BOOL scanned;
 
--(BOOL)startReading;
 @end
 
 @implementation QRViewController
@@ -21,25 +22,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _isReading = NO;
+    self.scanned = NO;
+    [self startReading];
+    
     _captureSession = nil;
 
 }
 
-- (IBAction)startStopReading:(id)sender {
-    if (!_isReading) {
-        if ([self startReading]) {
-            [_bbitemStart setTitle:@"Stop"];
-            [_lblStatus setText:@"Scanning for QR Code..."];
-        }
-    }
-    else{
-       // [self stopReading];
-        [_bbitemStart setTitle:@"Start!"];
-    }
-    
-    _isReading = !_isReading;
-}
 
 - (BOOL)startReading {
     NSError *error;
@@ -74,6 +63,55 @@
     return YES;
 }
 
+
+-(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
+    if (metadataObjects != nil && [metadataObjects count] > 0) {
+        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        if (_scanned == NO) {
+            if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+                NSLog(@"QR CODE SCANNED");
+                _scanned = YES;
+                [_QRCode performSelectorOnMainThread:@selector(setQRCode:) withObject:[metadataObj stringValue] waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(pushVC) withObject:nil waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+                
+            }
+        }
+
+    }
+}
+
+- (void)pushVC {
+//    ExhibitViewController *vc = [[ExhibitViewController alloc] init];
+//    vc.exhibitQRCode = _QRCode;
+//    [self.navigationController pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"QRtoExhibit" sender:self];
+    
+}
+
+-(void)stopReading{
+    [_captureSession stopRunning];
+    _captureSession = nil;
+    
+    [_videoPreviewLayer removeFromSuperlayer];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"QRtoExhibit"]) {
+//        
+//        if ([segue.destinationViewController respondsToSelector:@(setExhibitQRCode)]) {
+//            [segue.destinationViewController performSelector:@(setExhibitQRCode) withObject:_QRCode];
+//        }
+//
+//        
+//        
+        //[segue.destinationViewController setexhibitQRCode];
+        ExhibitViewController *destination = segue.destinationViewController;
+        destination.exhibitQRCode = self.QRCode;
+        
+    }
+}
 /*
 #pragma mark - Navigation
 
