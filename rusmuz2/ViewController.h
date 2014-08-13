@@ -22,7 +22,6 @@
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)buttonStart:(id)sender;
 
 
 
