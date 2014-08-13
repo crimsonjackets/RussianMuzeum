@@ -278,6 +278,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="IEB-OG-dyX" id="UbD-GL-67s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-t7-a1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
