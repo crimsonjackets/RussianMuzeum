@@ -8,4 +8,3 @@ end
 target "RussianMuseumTests" do
 
 end
-
