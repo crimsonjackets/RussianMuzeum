@@ -7,23 +7,45 @@
 //
 
 #import "AppDelegate.h"
-
+#import <RestKit.h>
 #import "MasterViewController.h"
 
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
+/*
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
+*/
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     
-//    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-//    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-//    controller.managedObjectContext = self.managedObjectContext;
+    NSError *error = nil;
+    NSURL *modelURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Model" ofType:@"momd"]];
+    // NOTE: Due to an iOS 5 bug, the managed object model returned is immutable.
+    NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    
+    // Initialize the Core Data stack
+    [managedObjectStore createPersistentStoreCoordinator];
+    
+    NSPersistentStore __unused *persistentStore = [managedObjectStore addInMemoryPersistentStore:&error];
+    NSAssert(persistentStore, @"Failed to add persistent store: %@", error);
+    
+    [managedObjectStore createManagedObjectContexts];
+    
+    // Set the default store shared instance
+    [RKManagedObjectStore setDefaultStore:managedObjectStore];
+    
+    // Override point for customization after application launch.
+    //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    
+    self.managedObjectContext = managedObjectStore.mainQueueManagedObjectContext;
+    //RKGMasterViewController *controller = (RKGMasterViewController *)navigationController.topViewController;
+    //controller.managedObjectContext = managedObjectStore.mainQueueManagedObjectContext;
+     
     return YES;
+     
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -51,9 +73,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
+    //[self saveContext];
 }
-
+/*
 - (void)saveContext
 {
     NSError *error = nil;
@@ -134,6 +156,7 @@
          Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
          
          */
+/*
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -148,5 +171,5 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
-
+*/
 @end

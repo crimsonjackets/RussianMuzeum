@@ -7,43 +7,35 @@
 //
 
 #import "StartViewController.h"
+#import "AppDelegate.h"
+#import "Exhibit.h"
 
 @interface StartViewController ()
-
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation StartViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    self.imageView.image = [self getRandomExhibitImage];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIImage *)getRandomExhibitImage {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
+    request.predicate = nil;
+    NSError *error = nil;
+    
+    NSArray *fetchedExhibits = [context executeFetchRequest:request error:&error];
+    Exhibit *exhibit = fetchedExhibits[arc4random_uniform([fetchedExhibits count])];
+    UIImage *picture = [UIImage imageWithData:exhibit.picture scale:2];
+    return  picture;
 }
-*/
 
 @end
