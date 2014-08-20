@@ -93,6 +93,25 @@
     [self centerScrollViewContents];
 }
 
+- (void)changeFloor {
+    CGFloat zoomScale = self.scrollView.zoomScale;
+    CGPoint contentOffset = self.scrollView.contentOffset;
+    
+    if ([_currentFloor  isEqual: @2]) {
+        [self.imageView removeFromSuperview];
+        [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+        _currentFloor = @1;
+        NSLog(@"Current floor number 11111is %@", _currentFloor);
+    } else {
+        [self.imageView removeFromSuperview];
+        [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+        _currentFloor = @2;
+        NSLog(@"Current floor number is %@", _currentFloor);
+    }
+    self.navigationButton.currentFloor  = _currentFloor;
+    self.scrollView.zoomScale = zoomScale;
+    self.scrollView.contentOffset = contentOffset;
+}
 
 - (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName
 {
@@ -199,34 +218,18 @@
 
 
 #pragma mark - Navigation Button methods
-
 - (void)homeButtonPressed {
     NSLog(@"Home button pressed, ViewController");
 }
 
 - (void)changeFloorButtonPressed {
-    CGFloat zoomScale = self.scrollView.zoomScale;
-    CGPoint contentOffset = self.scrollView.contentOffset;
+    [self changeFloor];
+    NSLog(@"Change Floor button pressed, ViewController");
+}
+- (void)QRButtonPressed {
+    NSLog(@"QR button pressed, ViewController");
+}
 
-    if ([_currentFloor  isEqual: @2]) {
-        [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-        _currentFloor = @1;
-        NSLog(@"Current floor number 11111is %@", _currentFloor);
-    } else {
-        [self.imageView removeFromSuperview];
-        [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
-        _currentFloor = @2;
-        NSLog(@"Current floor number is %@", _currentFloor);
-    }
-    self.navigationButton.currentFloor  = _currentFloor;
-    self.scrollView.zoomScale = zoomScale;
-    self.scrollView.contentOffset = contentOffset;
-        NSLog(@"Change Floor button pressed, ViewController");
-}
-- (void)exhibitButtonPressed {
-        NSLog(@"Exhibit button pressed, ViewController");
-}
 
 
 

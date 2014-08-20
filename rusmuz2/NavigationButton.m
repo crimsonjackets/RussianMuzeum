@@ -12,9 +12,9 @@
 
 @property BOOL buttonOpened;
 @property (strong, nonatomic) UIButton *homeButton;
-@property (strong, nonatomic) UIButton *mapButton;
+@property (strong, nonatomic) UIButton *QRButton;
 @property (strong, nonatomic) UIButton *changeFloorButton;
-@property (strong, nonatomic) UIButton *exhibitButton;
+@property (strong, nonatomic) UIButton *mapButton;
 @end
 
 @implementation NavigationButton
@@ -39,13 +39,14 @@
     if (self.buttonKind == mapVC) {
         [self showHideHomeButton];
         [self showHideChangeFloorButton];
-        [self showHideExhibitButton];
-    } else if (self.buttonKind == rootVC) {
+        [self showHideQRButton];
+    } else if (self.buttonKind == startVC) {
+        [self showHideQRButton];
         [self showHideMapButton];
-        [self showHideExhibitButton];
     } else if (self.buttonKind == exhibitVC) {
         [self showHideHomeButton];
         [self showHideMapButton];
+        [self showHideQRButton];
 
     }
 }
@@ -105,29 +106,29 @@
     }
 }
 
-- (void)showHideMapButton {
+- (void)showHideQRButton {
     CGFloat duration = .3;
     CGFloat offset = 90;
-    if (_mapButton == nil) {
+    if (_QRButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *image = [UIImage imageNamed:@"mapButton"];
+        UIImage *image = [UIImage imageNamed:@"QRButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(mapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(QRButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
         [self animateCreation:button withOffset:offset andDuration:duration];
-        _mapButton = button;
+        _QRButton = button;
     } else {
-        UIButton *button = _mapButton;
+        UIButton *button = _QRButton;
         [self animateDeletion:button withDuration:duration];
-        _mapButton = nil;
+        _QRButton = nil;
     }
 }
 
 - (void)showHideChangeFloorButton {
     CGFloat duration = .3;
-    CGFloat offset = 90;
+    CGFloat offset = 160;
     if (_changeFloorButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         
@@ -153,23 +154,23 @@
     }
 }
 
-- (void)showHideExhibitButton {
+- (void)showHideMapButton {
     CGFloat duration = .3;
     CGFloat offset = 160;
-    if (_exhibitButton == nil) {
+    if (_mapButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *image = [UIImage imageNamed:@"exhibitButton"];
+        UIImage *image = [UIImage imageNamed:@"mapButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self action:@selector(exhibitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(mapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
         button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
         [self animateCreation:button withOffset:offset andDuration:duration];
-        _exhibitButton = button;
+        _mapButton = button;
     } else {
-        UIButton *button = _exhibitButton;
+        UIButton *button = _mapButton;
         [self animateDeletion:button withDuration:duration];
-        _exhibitButton = nil;
+        _mapButton = nil;
     }
 }
 
@@ -201,16 +202,16 @@
     [self.delegate homeButtonPressed];
 }
 
-- (void)mapButtonPressed:(UIButton *)sender {
-    [self.delegate mapButtonPressed];
+- (void)QRButtonPressed:(UIButton *)sender {
+    [self.delegate QRButtonPressed];
     
 }
 - (void)changeFloorButtonPressed:(UIButton *)sender {
     [self.delegate changeFloorButtonPressed];
     [self didTouchButton];
 }
-- (void)exhibitButtonPressed:(UIButton *)sender {
-    [self.delegate exhibitButtonPressed];
+- (void)mapButtonPressed:(UIButton *)sender {
+    [self.delegate mapButtonPressed];
 }
 
 /*

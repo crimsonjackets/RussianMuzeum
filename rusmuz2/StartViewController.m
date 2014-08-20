@@ -21,14 +21,12 @@
 {
     [super viewDidLoad];
     
-    //self.navigationButton.buttonKind = mapVC;
-    //self.navigationButton.delegate = self;
-    
+    self.navigationButton.buttonKind = startVC;
+    self.navigationButton.delegate = self;
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    Exhibit *randomExhibit = [self getRandomExhibit];
-    self.imageView.image = [UIImage imageWithData:randomExhibit.picture scale:2];
-    self.titleLabel.text = randomExhibit.name;
-    self.authorLabel.text = randomExhibit.author;
+    
+    [self showExhibit:[self getRandomExhibit]];
+
 }
 
 
@@ -44,6 +42,14 @@
 
 //    UIImage *picture = [UIImage imageWithData:exhibit.picture scale:2];
     return  exhibit;
+}
+
+- (void)showExhibit:(Exhibit *)exhibit {
+    
+    self.imageView.image = [UIImage imageWithData:exhibit.picture scale:2];
+    self.titleLabel.text = exhibit.name;
+    self.authorLabel.text = exhibit.author;
+    
 }
 
 @end

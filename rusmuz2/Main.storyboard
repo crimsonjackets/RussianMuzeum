@@ -259,7 +259,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
                     <connections>
-                        <outlet property="navigationButton" destination="q0e-EL-YVn" id="fVd-Ae-4Yi"/>
+                        <outlet property="navigationButton" destination="q0e-EL-YVn" id="lDy-08-o3B"/>
                         <outlet property="parentView" destination="Er3-Fk-uSa" id="ire-2h-XP5"/>
                         <outlet property="scrollView" destination="7DN-MX-00Y" id="GZj-RI-pGn"/>
                         <segue destination="10C-kE-Rcz" kind="custom" identifier="RoomSegue" customClass="ZoomSegue" id="Zym-MT-sw7"/>
@@ -286,7 +286,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ity-XD-NKL" customClass="NavigationButton">
-                                <rect key="frame" x="223" y="298" width="54" height="60"/>
+                                <rect key="frame" x="236" y="417" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="rmButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

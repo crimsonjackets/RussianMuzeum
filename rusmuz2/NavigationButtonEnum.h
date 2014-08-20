@@ -2,7 +2,7 @@
 #define NavigationButtonEnum_h
 
 typedef NS_ENUM(NSUInteger, ButtonKind) {
-    rootVC,
+    startVC,
     mapVC,
     exhibitVC,
 };
