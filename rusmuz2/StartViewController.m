@@ -7,8 +7,9 @@
 //
 
 #import "StartViewController.h"
-#import "AppDelegate.h"
-#import "Exhibit.h"
+
+
+
 
 @interface StartViewController ()
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -19,13 +20,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    self.imageView.image = [self getRandomExhibitImage];
     
+    //self.navigationButton.buttonKind = mapVC;
+    //self.navigationButton.delegate = self;
+    
+    self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    Exhibit *randomExhibit = [self getRandomExhibit];
+    self.imageView.image = [UIImage imageWithData:randomExhibit.picture scale:2];
+    self.titleLabel.text = randomExhibit.name;
+    self.authorLabel.text = randomExhibit.author;
 }
 
 
-- (UIImage *)getRandomExhibitImage {
+- (Exhibit *)getRandomExhibit {
     NSManagedObjectContext *context = self.managedObjectContext;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
@@ -34,8 +41,9 @@
     
     NSArray *fetchedExhibits = [context executeFetchRequest:request error:&error];
     Exhibit *exhibit = fetchedExhibits[arc4random_uniform([fetchedExhibits count])];
-    UIImage *picture = [UIImage imageWithData:exhibit.picture scale:2];
-    return  picture;
+
+//    UIImage *picture = [UIImage imageWithData:exhibit.picture scale:2];
+    return  exhibit;
 }
 
 @end

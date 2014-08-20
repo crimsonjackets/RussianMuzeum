@@ -124,8 +124,9 @@
     for (int i=0; i<10; i++) {
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
-        ex.name =[NSString stringWithFormat:@"%d", i];
-        
+        ex.name =[NSString stringWithFormat:@"Экспонат номер %d", i];
+        ex.author = @"Автор этого экспоната";
+
         
         
         ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);

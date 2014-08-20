@@ -1,8 +1,8 @@
 //
 //  Event.h
-//  rusmuz2
+//  RussianMuseum
 //
-//  Created by Richard Topchiy on 29/06/14.
+//  Created by Richard Topchiy on 20/08/14.
 //  Copyright (c) 2014 Richard Topchiy. All rights reserved.
 //
 

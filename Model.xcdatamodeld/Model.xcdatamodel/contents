@@ -6,6 +6,7 @@
         </attribute>
     </entity>
     <entity name="Exhibit" representedClassName="Exhibit" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,7 +22,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="-675" positionY="-234" width="128" height="58"/>
-        <element name="Exhibit" positionX="-720" positionY="-544" width="128" height="135"/>
+        <element name="Exhibit" positionX="-720" positionY="-544" width="128" height="150"/>
         <element name="Room" positionX="-965" positionY="-544" width="128" height="105"/>
     </elements>
 </model>
