@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FF7AB44701F43368F7F610C"
+               BlueprintIdentifier = "388F6D5B212741FD8EA66910"
                BuildableName = "libPods-RussianMuseum-RestKit.a"
                BlueprintName = "Pods-RussianMuseum-RestKit"
                ReferencedContainer = "container:Pods.xcodeproj">
