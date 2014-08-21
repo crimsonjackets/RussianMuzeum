@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"THIS STRING SHOULD APPEAR ONLY ONCE!!!");
     //Temporarily, just for debougage and design CHK
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
 

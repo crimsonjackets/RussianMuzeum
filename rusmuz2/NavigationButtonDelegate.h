@@ -12,7 +12,7 @@
 
 @optional
 - (void)homeButtonPressed;
-- (void)mapButtonPressed;
+- (void)QRButtonPressed;
 - (void)changeFloorButtonPressed;
-- (void)exhibitButtonPressed;
+- (void)mapButtonPressed;
 @end
