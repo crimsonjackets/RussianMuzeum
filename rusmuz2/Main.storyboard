@@ -33,7 +33,7 @@
         <!--View Controller-->
         <scene sceneID="Bdb-2t-7OP">
             <objects>
-                <viewController id="mg1-Na-GR1" customClass="QRViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRViewController" id="mg1-Na-GR1" customClass="QRViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QCn-oR-fEK"/>
                         <viewControllerLayoutGuide type="bottom" id="sB9-f6-QRq"/>
@@ -272,7 +272,7 @@
         <!--Start View Controller-->
         <scene sceneID="dkw-FO-ftI">
             <objects>
-                <viewController id="tgr-Y8-UBL" customClass="StartViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="tgr-Y8-UBL" customClass="StartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AwQ-Nz-ee7"/>
                         <viewControllerLayoutGuide type="bottom" id="zo4-9m-gsI"/>
@@ -621,6 +621,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SXw-Xu-tFP"/>
+        <segue reference="rQJ-aN-BWZ"/>
     </inferredMetricsTieBreakers>
 </document>

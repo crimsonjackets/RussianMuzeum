@@ -10,7 +10,8 @@
 #import "RoomViewController.h"
 #import "ZoomSegue.h"
 #import "MTImageMapView/MTImageMapView.h"
-
+#import "StartViewController.h"
+#import "QRViewController.h"
 
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
@@ -220,6 +221,8 @@
 #pragma mark - Navigation Button methods
 - (void)homeButtonPressed {
     NSLog(@"Home button pressed, ViewController");
+    StartViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"StartViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)changeFloorButtonPressed {
@@ -227,6 +230,10 @@
     NSLog(@"Change Floor button pressed, ViewController");
 }
 - (void)QRButtonPressed {
+
+    
+    QRViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
     NSLog(@"QR button pressed, ViewController");
 }
 

@@ -24,7 +24,7 @@
     self.navigationButton.buttonKind = startVC;
     self.navigationButton.delegate = self;
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    
+    NSLog(@"View didload");
     [self showExhibit:[self getRandomExhibit]];
 
 }
