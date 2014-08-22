@@ -13,5 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;
 
+- (IBAction)cancelButton:(id)sender;
 
 @end

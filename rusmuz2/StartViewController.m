@@ -45,11 +45,9 @@
 }
 
 - (void)showExhibit:(Exhibit *)exhibit {
-    
     self.imageView.image = [UIImage imageWithData:exhibit.picture scale:2];
     self.titleLabel.text = exhibit.name;
     self.authorLabel.text = exhibit.author;
-    
 }
 
 
