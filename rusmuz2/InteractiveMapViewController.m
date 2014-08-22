@@ -225,19 +225,18 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)QRButtonPressed {
+
+    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRNVC"];
+    //QRViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRViewController"];
+    [self presentViewController:nvc animated:YES completion:nil];
+    NSLog(@"QR button pressed, ViewController");
+}
+
 - (void)changeFloorButtonPressed {
     [self changeFloor];
     NSLog(@"Change Floor button pressed, ViewController");
 }
-- (void)QRButtonPressed {
-
-    
-    QRViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRViewController"];
-    [self presentViewController:vc animated:YES completion:nil];
-    NSLog(@"QR button pressed, ViewController");
-}
-
-
 
 
 @end

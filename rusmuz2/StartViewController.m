@@ -52,4 +52,25 @@
     
 }
 
+
+#pragma mark - Navigation Button methods
+- (void)homeButtonPressed {
+    NSLog(@"Home button pressed, ViewController");
+    StartViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"StartViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)QRButtonPressed {
+    UINavigationController *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRNVC"];
+    //QRViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"QRViewController"];
+    [self presentViewController:nvc animated:YES completion:nil];
+    NSLog(@"QR button pressed, ViewController");
+}
+
+- (void)mapButtonPressed {
+    InteractiveMapViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InteractiveMapViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
 @end

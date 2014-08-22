@@ -12,7 +12,12 @@
 #import "Room.h"
 #import <CoreData/CoreData.h>
 
-@interface ExhibitViewController : UIViewController <UIScrollViewDelegate>
+#import "StartViewController.h"
+#import "InteractiveMapViewController.h"
+
+@interface ExhibitViewController : UIViewController <UIScrollViewDelegate, NavigationButtonDelegate>
+
+@property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

@@ -13,6 +13,8 @@
 #import "Room.h"
 #import <CoreData/CoreData.h>
 
+#import "InteractiveMapViewController.h"
+
 @interface StartViewController : UIViewController <NavigationButtonDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
