@@ -47,7 +47,6 @@
 		7946DF1019A4CB2300F971EB /* Exhibit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7946DF0F19A4CB2300F971EB /* Exhibit.m */; };
 		7946DF1319A551B600F971EB /* mapButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7946DF1119A551B600F971EB /* mapButton@2x.png */; };
 		7946DF1419A551B600F971EB /* QRButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7946DF1219A551B600F971EB /* QRButton@2x.png */; };
-		7946DF1A19A55BC300F971EB /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7946DF1919A55BC300F971EB /* UIViewController+Navigation.m */; };
 		79495A46199A525D00F5F354 /* testPicture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79495A45199A525D00F5F354 /* testPicture@2x.png */; };
 		79495A48199A5E0400F5F354 /* largePhoto@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */; };
 		79495A4B199A8B8C00F5F354 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79495A4A199A8B8C00F5F354 /* QRViewController.m */; };
@@ -151,8 +150,6 @@
 		7946DF0F19A4CB2300F971EB /* Exhibit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exhibit.m; path = CoreDataClasses/Exhibit.m; sourceTree = "<group>"; };
 		7946DF1119A551B600F971EB /* mapButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapButton@2x.png"; sourceTree = "<group>"; };
 		7946DF1219A551B600F971EB /* QRButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QRButton@2x.png"; sourceTree = "<group>"; };
-		7946DF1819A55BC300F971EB /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
-		7946DF1919A55BC300F971EB /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
 		79495A45199A525D00F5F354 /* testPicture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testPicture@2x.png"; sourceTree = "<group>"; };
 		79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "largePhoto@2x.jpg"; sourceTree = "<group>"; };
 		79495A49199A8B8C00F5F354 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
@@ -301,17 +298,21 @@
 			children = (
 				09E80A1A193BEC5400D62ED1 /* AppDelegate.h */,
 				09E80A1B193BEC5400D62ED1 /* AppDelegate.m */,
-				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
-				7946DF1819A55BC300F971EB /* UIViewController+Navigation.h */,
-				7946DF1919A55BC300F971EB /* UIViewController+Navigation.m */,
-				84848CF2199BD7F400CFD4FD /* StartViewController.h */,
-				84848CF3199BD7F400CFD4FD /* StartViewController.m */,
-				79495A49199A8B8C00F5F354 /* QRViewController.h */,
-				79495A4A199A8B8C00F5F354 /* QRViewController.m */,
 				798F524319943E0E00FE021D /* NavigationButtonEnum.h */,
 				799988E219917BF8005CE978 /* NavigationButtonDelegate.h */,
 				79980830198F0DB700580214 /* NavigationButton.h */,
 				79980831198F0DB800580214 /* NavigationButton.m */,
+				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
+				84848CF2199BD7F400CFD4FD /* StartViewController.h */,
+				84848CF3199BD7F400CFD4FD /* StartViewController.m */,
+				79495A49199A8B8C00F5F354 /* QRViewController.h */,
+				79495A4A199A8B8C00F5F354 /* QRViewController.m */,
+				09E80A1F193BEC5400D62ED1 /* InteractiveMapViewController.h */,
+				09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */,
+				09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */,
+				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
+				799A06C31982E4C700C83526 /* ExhibitsScrollView.h */,
+				799A06C41982E4C700C83526 /* ExhibitsScrollView.m */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
 				79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */,
 				793CDB21196236E600E97CCB /* CDCreatorViewController.h */,
@@ -322,18 +323,12 @@
 				79C01143195CF4F100BF6784 /* DetailViewController.m */,
 				09E80A1D193BEC5400D62ED1 /* RoomViewController.h */,
 				09E80A1E193BEC5400D62ED1 /* RoomViewController.m */,
-				09E80A1F193BEC5400D62ED1 /* InteractiveMapViewController.h */,
-				09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */,
 				799EA29419735E7B00D8F1DE /* ZoomSegue.h */,
 				799EA29519735E7B00D8F1DE /* ZoomSegue.m */,
 				796C145819656EA60046916C /* MiniMapViewController.h */,
 				796C145919656EA60046916C /* MiniMapViewController.m */,
 				09E80A23193BEC5400D62ED1 /* ViewController.h */,
 				09E80A24193BEC5400D62ED1 /* ViewController.m */,
-				09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */,
-				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
-				799A06C31982E4C700C83526 /* ExhibitsScrollView.h */,
-				799A06C41982E4C700C83526 /* ExhibitsScrollView.m */,
 				79C0114A195CF74500BF6784 /* Model.xcdatamodeld */,
 				79B184801972004C002A95C2 /* testButton.png */,
 				799A06C6198314F000C83526 /* DesignElements */,
@@ -705,7 +700,6 @@
 				796C145A19656EA60046916C /* MiniMapViewController.m in Sources */,
 				799A06C51982E4C700C83526 /* ExhibitsScrollView.m in Sources */,
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
-				7946DF1A19A55BC300F971EB /* UIViewController+Navigation.m in Sources */,
 				799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */,
 				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
 				79495A4B199A8B8C00F5F354 /* QRViewController.m in Sources */,

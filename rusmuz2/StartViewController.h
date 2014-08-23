@@ -13,11 +13,16 @@
 #import "Room.h"
 #import <CoreData/CoreData.h>
 
+#import "InteractiveMapViewController.h"
+
 @interface StartViewController : UIViewController <NavigationButtonDelegate>
+
+@property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
-@property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
 
 @end

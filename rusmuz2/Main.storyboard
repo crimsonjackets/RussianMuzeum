@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kQi-cf-Jf8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tgr-Y8-UBL">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -50,7 +50,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ReP-pY-HyI"/>
+                    <navigationItem key="navigationItem" id="ReP-pY-HyI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SYs-yU-gvD">
+                            <connections>
+                                <action selector="cancelButton:" destination="mg1-Na-GR1" id="ZIQ-8v-Jqy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="viewPreview" destination="nhR-Ok-Rsu" id="l2f-EZ-dZy"/>
                         <segue destination="I9K-N8-Atw" kind="push" identifier="QRtoExhibit" id="rQJ-aN-BWZ"/>
@@ -58,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qeN-SK-NpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1571" y="394"/>
+            <point key="canvasLocation" x="1879" y="338"/>
         </scene>
         <!--View Controller - Main Page-->
         <scene sceneID="ufC-wZ-h7g">
@@ -128,9 +134,6 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="mg1-Na-GR1" kind="push" id="dS3-3Y-U9F"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-vK-66N">
                                 <rect key="frame" x="129" y="425" width="81" height="30"/>
@@ -138,9 +141,6 @@
                                 <state key="normal" title="StartScreen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="tgr-Y8-UBL" kind="push" id="qc1-8F-hHO"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -228,7 +228,7 @@
         <!--Interactive Map View Controller - RoomSegue-->
         <scene sceneID="xns-tn-5gl">
             <objects>
-                <viewController title="RoomSegue" id="A9N-Fd-kBa" customClass="InteractiveMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InteractiveMapViewController" title="RoomSegue" id="A9N-Fd-kBa" customClass="InteractiveMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DN6-1R-MSt"/>
                         <viewControllerLayoutGuide type="bottom" id="3qJ-g1-d8X"/>
@@ -319,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-t7-a1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="2071"/>
+            <point key="canvasLocation" x="404" y="2337"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="JRW-Qe-LaS">
@@ -377,7 +377,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-gO-BJj" customClass="NavigationButton">
-                                <rect key="frame" x="220" y="450" width="54" height="60"/>
+                                <rect key="frame" x="220" y="449" width="54" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="rmButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -391,6 +391,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="blocksScrollView" destination="0dG-vE-2R2" id="N7h-Aq-Wib"/>
+                        <outlet property="navigationButton" destination="cxl-gO-BJj" id="EsX-Nt-XfI"/>
                         <outlet property="pictureScrollView" destination="AmM-HU-GEd" id="vFx-xm-hsJ"/>
                         <outlet property="previewScrollView" destination="u87-2M-ySj" id="N0b-0V-uyC"/>
                     </connections>
@@ -611,6 +612,24 @@
             </objects>
             <point key="canvasLocation" x="2602" y="2501"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="txy-yA-Fer">
+            <objects>
+                <navigationController storyboardIdentifier="QRNVC" automaticallyAdjustsScrollViewInsets="NO" id="XyA-EK-fmR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RkJ-fW-MEw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mg1-Na-GR1" kind="relationship" relationship="rootViewController" id="pyS-YH-blr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJ3-BZ-GBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="338"/>
+        </scene>
     </scenes>
     <resources>
         <image name="rmButton.png" width="54" height="60"/>
@@ -621,6 +640,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rQJ-aN-BWZ"/>
+        <segue reference="SXw-Xu-tFP"/>
     </inferredMetricsTieBreakers>
 </document>

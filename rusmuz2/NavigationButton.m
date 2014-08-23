@@ -22,12 +22,12 @@
 - (void)awakeFromNib {
     self.buttonOpened = NO;
     
-    [self addTarget:self action:@selector(didTouchButton) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(didTouchRMButton) forControlEvents:UIControlEventTouchUpInside];
     UIImage *buttonImage = [UIImage imageNamed:@"rmButton"];
     [self setImage:buttonImage forState:UIControlStateNormal];
 }
 
-- (void)didTouchButton {
+- (void)didTouchRMButton {
     [self animateRMButton];
     
     [self showHideNeededButtons];
@@ -129,6 +129,7 @@
 - (void)showHideChangeFloorButton {
     CGFloat duration = .3;
     CGFloat offset = 160;
+
     if (_changeFloorButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         
@@ -199,18 +200,20 @@
 }
 
 - (void)homeButtonPressed:(UIButton *)sender {
+    [self didTouchRMButton];
     [self.delegate homeButtonPressed];
 }
 
 - (void)QRButtonPressed:(UIButton *)sender {
+    [self didTouchRMButton];
     [self.delegate QRButtonPressed];
-    
 }
 - (void)changeFloorButtonPressed:(UIButton *)sender {
+    [self didTouchRMButton];
     [self.delegate changeFloorButtonPressed];
-    [self didTouchButton];
 }
 - (void)mapButtonPressed:(UIButton *)sender {
+    [self didTouchRMButton];
     [self.delegate mapButtonPressed];
 }
 
