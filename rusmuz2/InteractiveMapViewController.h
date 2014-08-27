@@ -14,7 +14,9 @@
 
 
 @property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
+
 @property (strong, nonatomic) NSNumber *currentFloor;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIView *parentView;
 @property (nonatomic, strong) NSArray *roomNumbers;

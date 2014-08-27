@@ -26,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *pictureScrollView;
 
 @property (strong, nonatomic) NSString *exhibitQRCode;
-
+@property (strong, nonatomic) NSNumber *roomNumber;
 
 
 @end

@@ -96,9 +96,26 @@
     }
 }
 
-- (void)createExhibits {
+- (Room *)fetchTheRoom {
     NSManagedObjectContext *context = self.managedObjectContext;
     Room *room = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
+    NSNumber *roomNumber = @78;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"number == %@", roomNumber];
+    request.predicate = predicate;
+    request.fetchLimit = 1;
+    NSError *error = nil;
+    
+    NSArray *fetchedRoom = [context executeFetchRequest:request error:&error];
+    room = fetchedRoom[0];
+    NSLog(@"Room is: %@", room);
+    return room;
+}
+
+- (void)createExhibits {
+    NSManagedObjectContext *context = self.managedObjectContext;
+    Room *room = [self fetchTheRoom];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Room"];
     request.predicate = nil;
@@ -158,7 +175,7 @@
 }
 
 - (void)mapButtonPressed {
-    InteractiveMapViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InteractiveMapViewController"];
+    FloorSelectorViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FloorSelectorViewController"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

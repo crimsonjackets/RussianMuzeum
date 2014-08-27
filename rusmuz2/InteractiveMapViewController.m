@@ -7,11 +7,11 @@
 //
 
 #import "InteractiveMapViewController.h"
-#import "RoomViewController.h"
 #import "ZoomSegue.h"
 #import "MTImageMapView/MTImageMapView.h"
 #import "StartViewController.h"
 #import "QRViewController.h"
+#import "ExhibitViewController.h"
 
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
@@ -29,7 +29,15 @@
     self.navigationButton.buttonKind = mapVC;
     self.navigationButton.delegate = self;
     
+
+    
+    if ([self.currentFloor isEqualToNumber:@1]) {
     [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+    }
+    
+    if ([self.currentFloor isEqualToNumber:@2]) {
+    [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
+    }
 }
 
 - (void)centerScrollViewContents {
@@ -188,34 +196,15 @@
 -(void)imageMapView:(MTImageMapView *)inImageMapView
    didSelectMapArea:(NSUInteger)inIndexSelected
 {
-    CGPoint pointInViewCoords = [self.parentView convertPoint:self.imageView.touchPoint fromView:self.imageView];
-    
-    
-    NSLog(@"X standard point %f", pointInViewCoords.x);
-    NSLog(@"Y standard point %f", pointInViewCoords.y);
-
-    self.touchedPoint = pointInViewCoords;
 
     self.roomNumber = [_roomNumbers objectAtIndex:inIndexSelected];
-    [self performSegueWithIdentifier:@"RoomSegue" sender:self];
-    [self dismissViewControllerAnimated:YES completion:nil];
 
+    ExhibitViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExhibitViewController"];
+    vc.roomNumber = (NSNumber *)self.roomNumber;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"RoomSegue"]) {
-        RoomViewController *secView = [segue destinationViewController];
-        secView.roomNumber = self.roomNumber;
-        //CGPoint zoomedTouchPoint = CGPointMake(self.imageView.touchPoint.x * self.scrollView.zoomScale, self.imageView.touchPoint.y * self.scrollView.zoomScale);
-        
-        ((ZoomSegue *)segue).originatingPoint = self.touchedPoint;
-        
-        //NSLog(@"%@", [NSString stringWithFormat:@"X: %f, Y: %f", self.imageView.touchPoint.x, self.imageView.touchPoint.y]);
-        
-        //NSLog(@"%@", [NSString stringWithFormat:@"X: %f, Y: %f", zoomedTouchPoint.x, zoomedTouchPoint.y]);
-    }
-}
+
 
 
 #pragma mark - Navigation Button methods
