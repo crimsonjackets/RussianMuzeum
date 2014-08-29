@@ -376,9 +376,19 @@
                                     <action selector="button1Floor:" destination="ZmC-Uu-uh5" eventType="touchUpInside" id="odw-9q-Kwm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-8d-eVl" customClass="NavigationButton">
+                                <rect key="frame" x="237" y="449" width="54" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="rmButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationButton" destination="cKP-8d-eVl" id="a6h-mT-Xjp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8T-g1-ukT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

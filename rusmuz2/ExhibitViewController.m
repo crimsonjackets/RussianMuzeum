@@ -274,6 +274,9 @@
         if (scrollView == self.pictureScrollView) {
             UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
             
+            UIView *blackView = [[UIView alloc] initWithFrame:self.pictureScrollView.frame];
+
+            
             [descriptionLabel setTextColor:[UIColor whiteColor]];
             [descriptionLabel setBackgroundColor:[UIColor clearColor]];
             [descriptionLabel setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];

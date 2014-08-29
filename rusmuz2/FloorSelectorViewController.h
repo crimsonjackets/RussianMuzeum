@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationButton.h"
 
-@interface FloorSelectorViewController : UIViewController
+@interface FloorSelectorViewController : UIViewController <NavigationButtonDelegate>
+
+@property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
 
 - (IBAction)button1Floor:(id)sender;
 - (IBAction)button2Floor:(id)sender;
