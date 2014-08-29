@@ -76,6 +76,7 @@
 		79C0114C195CF74500BF6784 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C0114A195CF74500BF6784 /* Model.xcdatamodeld */; };
 		79CB3E5919AD8C5A00F9F062 /* FloorSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */; };
 		79D3102C196EFFEE00D7389D /* MockupExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */; };
+		79DC2C4319B0DAB000936425 /* mainLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DC2C4219B0DAB000936425 /* mainLogo@2x.png */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
 		79E804DC194A918D00B2713C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D7194A918D00B2713C /* zbar-back.png */; };
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
@@ -192,6 +193,7 @@
 		79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorSelectorViewController.m; sourceTree = "<group>"; };
 		79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockupExhibitViewController.h; sourceTree = "<group>"; };
 		79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockupExhibitViewController.m; sourceTree = "<group>"; };
+		79DC2C4219B0DAB000936425 /* mainLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainLogo@2x.png"; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		79E804C2194A918D00B2713C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		79E804C3194A918D00B2713C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 		799A06C6198314F000C83526 /* DesignElements */ = {
 			isa = PBXGroup;
 			children = (
+				79DC2C4219B0DAB000936425 /* mainLogo@2x.png */,
 				79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */,
 				79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */,
 				79495A45199A525D00F5F354 /* testPicture@2x.png */,
@@ -618,6 +621,7 @@
 				7923D9C5194E6BB6008C3013 /* floor2.png in Resources */,
 				79E804DC194A918D00B2713C /* zbar-back.png in Resources */,
 				79E804DE194A918D00B2713C /* zbar-helpicons.png in Resources */,
+				79DC2C4319B0DAB000936425 /* mainLogo@2x.png in Resources */,
 				7923D9C4194E6BB6008C3013 /* floor1.png in Resources */,
 				798FFBC61957063A004B94A6 /* page4.png in Resources */,
 				798FFBC41957063A004B94A6 /* page2.png in Resources */,

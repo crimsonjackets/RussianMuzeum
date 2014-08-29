@@ -276,7 +276,7 @@
             
             [descriptionLabel setTextColor:[UIColor whiteColor]];
             [descriptionLabel setBackgroundColor:[UIColor clearColor]];
-            [descriptionLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 17.0f]];
+            [descriptionLabel setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
             descriptionLabel.numberOfLines = 0;
             descriptionLabel.textAlignment = NSTextAlignmentCenter;
             [descriptionLabel setText:self.picturesInfo[page]];

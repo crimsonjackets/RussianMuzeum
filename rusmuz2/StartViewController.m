@@ -48,7 +48,10 @@
 }
 
 - (void)showExhibit:(Exhibit *)exhibit {
+
+
     self.imageView.image = [UIImage imageWithData:exhibit.picture scale:2];
+
     self.titleLabel.text = exhibit.name;
     self.authorLabel.text = exhibit.author;
 }
@@ -128,10 +131,10 @@
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
         ex.name =[NSString stringWithFormat:@"Экспонат номер %d", i];
-        ex.author = @"Автор этого экспоната";
+        ex.author = [NSString stringWithFormat:@"Автор экспоната номер %d", i];
         
         
-        
+
         ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
         
         
@@ -163,8 +166,8 @@
 #pragma mark - Navigation Button methods
 - (void)homeButtonPressed {
     NSLog(@"Home button pressed, ViewController");
-    StartViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"StartViewController"];
-    [self presentViewController:vc animated:YES completion:nil];
+//    StartViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"StartViewController"];
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)QRButtonPressed {
