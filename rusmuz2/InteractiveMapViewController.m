@@ -222,6 +222,11 @@
     NSLog(@"QR button pressed, ViewController");
 }
 
+- (void)mapButtonPressed {
+    FloorSelectorViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FloorSelectorViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (void)changeFloorButtonPressed {
     [self changeFloor];
     NSLog(@"Change Floor button pressed, ViewController");
