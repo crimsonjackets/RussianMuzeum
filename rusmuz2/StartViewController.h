@@ -13,7 +13,7 @@
 #import "Room.h"
 #import <CoreData/CoreData.h>
 
-#import "InteractiveMapViewController.h"
+#import "FloorSelectorViewController.h"
 
 @interface StartViewController : UIViewController <NavigationButtonDelegate>
 

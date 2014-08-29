@@ -38,7 +38,8 @@
 - (void)showHideNeededButtons {
     if (self.buttonKind == mapVC) {
         [self showHideHomeButton];
-        [self showHideChangeFloorButton];
+        //[self showHideChangeFloorButton];
+        [self showHideMapButton];
         [self showHideQRButton];
     } else if (self.buttonKind == startVC) {
         [self showHideQRButton];
@@ -208,10 +209,12 @@
     [self didTouchRMButton];
     [self.delegate QRButtonPressed];
 }
+
 - (void)changeFloorButtonPressed:(UIButton *)sender {
     [self didTouchRMButton];
     [self.delegate changeFloorButtonPressed];
 }
+
 - (void)mapButtonPressed:(UIButton *)sender {
     [self didTouchRMButton];
     [self.delegate mapButtonPressed];

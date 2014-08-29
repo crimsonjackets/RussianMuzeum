@@ -47,6 +47,8 @@
     [self lazyLoadBlocks];
     [self lazyLoadPictures];
     
+    NSLog(@"RoomNumber IS:  %@", self.roomNumber);
+    NSLog(@"QR is: %@", self.exhibitQRCode);
     NSLog(@"CONTENTSIZE %f", self.previewScrollView.contentSize.width);
 }
 
@@ -151,7 +153,8 @@
     NSManagedObjectContext *context = self.managedObjectContext;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
-    request.predicate = nil;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"room.number == %@", self.roomNumber];
+    request.predicate = predicate;
     NSError *error = nil;
     
     NSArray *fetchedExhibits = [context executeFetchRequest:request error:&error];
@@ -163,6 +166,7 @@
     self.picturesInfo = (NSArray *)infoArray;
     return (NSArray *)array;
 }
+
 
 
 #pragma mark - Scrolling Engine
