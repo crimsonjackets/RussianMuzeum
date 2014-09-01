@@ -9,6 +9,9 @@
 #import "ExhibitViewController.h"
 #import "AppDelegate.h"
 
+#import "ExhibitPreview.h"
+#import "BlockView.h"
+
 #define PREVIEW_HEIGHT 146
 
 @interface ExhibitViewController ()
@@ -249,11 +252,26 @@
             frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
         }
         
-        
-        
         CGFloat totalWidth = 0.0f;
+        UIView *newPageView;
+        if (scrollView == self.previewScrollView) {
+            newPageView = [[ExhibitPreview alloc] initWithImage:image];
+            ExhibitPreview *newExhibitPreview = (ExhibitPreview *)newPageView;
+            NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
+            newExhibitPreview.number.text = number;
+        } else if (scrollView == self.blocksScrollView) {
+            /*
+            NSInteger pageNumber = (NSInteger)page + 1;
+            newPageView = [[BlockView alloc] init];
+            BlockView *newBlockView = (BlockView *)newPageView;
+            [newBlockView setInteger:pageNumber];
+            */
 
-        UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
+            
+        } else {
+            newPageView = [[UIImageView alloc] initWithImage:image];
+        }
+        
         newPageView.contentMode = UIViewContentModeScaleAspectFit;
 
         if (scrollView == self.previewScrollView) {
@@ -272,7 +290,9 @@
         
         // 3
 
-            [newPageView addSubview:[self blackViewWithFrame:newPageView.frame]];
+            //[newPageView addSubview:[self blackViewWithFrame:newPageView.frame]];
+        
+        
         if (scrollView == self.pictureScrollView) {
 //            [newPageView addSubview:[self blackViewWithFrame:self.pictureScrollView.frame]];
             UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
