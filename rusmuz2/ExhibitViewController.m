@@ -9,6 +9,9 @@
 #import "ExhibitViewController.h"
 #import "AppDelegate.h"
 
+#import "ExhibitPreview.h"
+#import "BlockView.h"
+
 #define PREVIEW_HEIGHT 146
 
 @interface ExhibitViewController ()
@@ -65,7 +68,8 @@
     CGSize contentSize;
     for (UIImage *image in self.picturesStorage) {
         contentSize.width = contentSize.width + image.size.width;
-        contentSize.height = image.size.height;
+        //contentSize.height = image.size.height;
+        contentSize.height = self.pictureScrollView.frame.size.height;
     }
     
     self.pictureScrollView.contentSize = contentSize;
@@ -241,18 +245,34 @@
         CGRect frame;
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenWidth = screenRect.size.width;
+        
         if (scrollView == self.previewScrollView) {
-
             frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
         } else {
             frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
         }
         
-        
-        
         CGFloat totalWidth = 0.0f;
+        UIView *newPageView;
+        if (scrollView == self.previewScrollView) {
+            newPageView = [[ExhibitPreview alloc] initWithImage:image];
+            ExhibitPreview *newExhibitPreview = (ExhibitPreview *)newPageView;
+            NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
+            newExhibitPreview.number.text = number;
+        } else if (scrollView == self.blocksScrollView) {
+            /*
+            NSInteger pageNumber = (NSInteger)page + 1;
+            newPageView = [[BlockView alloc] init];
+            BlockView *newBlockView = (BlockView *)newPageView;
+            [newBlockView setInteger:pageNumber];
+            */
 
-        UIImageView *newPageView = [[UIImageView alloc] initWithImage:image];
+            
+        } else {
+            newPageView = [[UIImageView alloc] initWithImage:image];
+        }
+        
+        newPageView.contentMode = UIViewContentModeScaleAspectFit;
 
         if (scrollView == self.previewScrollView) {
             totalWidth = (page) * (screenWidth/2);
@@ -270,23 +290,24 @@
         
         // 3
 
-
+            //[newPageView addSubview:[self blackViewWithFrame:newPageView.frame]];
+        
+        
         if (scrollView == self.pictureScrollView) {
+//            [newPageView addSubview:[self blackViewWithFrame:self.pictureScrollView.frame]];
             UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 300)];
-            
             [descriptionLabel setTextColor:[UIColor whiteColor]];
             [descriptionLabel setBackgroundColor:[UIColor clearColor]];
-            [descriptionLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 17.0f]];
+            [descriptionLabel setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
             descriptionLabel.numberOfLines = 0;
             descriptionLabel.textAlignment = NSTextAlignmentCenter;
             [descriptionLabel setText:self.picturesInfo[page]];
             [newPageView addSubview:descriptionLabel];
-        }
-        if (scrollView == self.previewScrollView) {
+        } else if (scrollView == self.previewScrollView) {
             newPageView.contentMode = UIViewContentModeScaleAspectFill;
-        } else {
-            newPageView.contentMode = UIViewContentModeScaleAspectFit;
         }
+        
+
         newPageView.frame = frame;
         [scrollView addSubview:newPageView];
         // 4
@@ -306,6 +327,14 @@
         [viewArray replaceObjectAtIndex:page withObject:[NSNull null]];
     }
     
+}
+
+
+- (UIView *)blackViewWithFrame:(CGRect)frame {
+    UIView *blackView = [[UIView alloc] initWithFrame:frame];
+    blackView.backgroundColor = [UIColor blackColor];
+    blackView.alpha = 0.5;
+    return blackView;
 }
 
 

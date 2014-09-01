@@ -11,6 +11,8 @@
 #import "Exhibit.h"
 #import "Room.h"
 #import <CoreData/CoreData.h>
+#import "ExhibitPreview.h"
+
 
 #import "StartViewController.h"
 #import "InteractiveMapViewController.h"

@@ -35,6 +35,8 @@
     _buttonOpened = YES;
 }
 
+
+/*
 - (void)showHideNeededButtons {
     if (self.buttonKind == mapVC) {
         [self showHideHomeButton];
@@ -51,7 +53,13 @@
 
     }
 }
-
+ 
+ */
+- (void)showHideNeededButtons {
+    [self showHideHomeButton];
+    [self showHideMapButton];
+    [self showHideQRButton];
+}
 - (void)animateRMButton {
     UIView *myView = self.imageView;
     CABasicAnimation* spinAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];

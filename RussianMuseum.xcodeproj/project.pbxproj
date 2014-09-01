@@ -76,11 +76,14 @@
 		79C0114C195CF74500BF6784 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C0114A195CF74500BF6784 /* Model.xcdatamodeld */; };
 		79CB3E5919AD8C5A00F9F062 /* FloorSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */; };
 		79D3102C196EFFEE00D7389D /* MockupExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */; };
+		79DC2C4319B0DAB000936425 /* mainLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DC2C4219B0DAB000936425 /* mainLogo@2x.png */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
 		79E804DC194A918D00B2713C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D7194A918D00B2713C /* zbar-back.png */; };
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
 		79E804DE194A918D00B2713C /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D9194A918D00B2713C /* zbar-helpicons.png */; };
 		79E804DF194A918D00B2713C /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804DA194A918D00B2713C /* zbar-samples.png */; };
+		79EA5C9C19B20FC00076E011 /* ExhibitPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */; };
+		79EA5C9F19B2C59D0076E011 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA5C9E19B2C59D0076E011 /* BlockView.m */; };
 		79EF8D5F19AD7FBE00BFB4DC /* floorSelectorImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */; };
 		84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84848CF3199BD7F400CFD4FD /* StartViewController.m */; };
 /* End PBXBuildFile section */
@@ -192,6 +195,7 @@
 		79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorSelectorViewController.m; sourceTree = "<group>"; };
 		79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockupExhibitViewController.h; sourceTree = "<group>"; };
 		79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockupExhibitViewController.m; sourceTree = "<group>"; };
+		79DC2C4219B0DAB000936425 /* mainLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainLogo@2x.png"; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		79E804C2194A918D00B2713C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		79E804C3194A918D00B2713C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -217,6 +221,10 @@
 		79E804D8194A918D00B2713C /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		79E804D9194A918D00B2713C /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		79E804DA194A918D00B2713C /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		79EA5C9A19B20FC00076E011 /* ExhibitPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitPreview.h; sourceTree = "<group>"; };
+		79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitPreview.m; sourceTree = "<group>"; };
+		79EA5C9D19B2C59D0076E011 /* BlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockView.h; sourceTree = "<group>"; };
+		79EA5C9E19B2C59D0076E011 /* BlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockView.m; sourceTree = "<group>"; };
 		79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floorSelectorImage.png; sourceTree = "<group>"; };
 		84848CF2199BD7F400CFD4FD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		84848CF3199BD7F400CFD4FD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
@@ -315,6 +323,10 @@
 				09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */,
 				09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */,
 				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
+				79EA5C9A19B20FC00076E011 /* ExhibitPreview.h */,
+				79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */,
+				79EA5C9D19B2C59D0076E011 /* BlockView.h */,
+				79EA5C9E19B2C59D0076E011 /* BlockView.m */,
 				799A06C31982E4C700C83526 /* ExhibitsScrollView.h */,
 				799A06C41982E4C700C83526 /* ExhibitsScrollView.m */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
@@ -449,6 +461,7 @@
 		799A06C6198314F000C83526 /* DesignElements */ = {
 			isa = PBXGroup;
 			children = (
+				79DC2C4219B0DAB000936425 /* mainLogo@2x.png */,
 				79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */,
 				79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */,
 				79495A45199A525D00F5F354 /* testPicture@2x.png */,
@@ -618,6 +631,7 @@
 				7923D9C5194E6BB6008C3013 /* floor2.png in Resources */,
 				79E804DC194A918D00B2713C /* zbar-back.png in Resources */,
 				79E804DE194A918D00B2713C /* zbar-helpicons.png in Resources */,
+				79DC2C4319B0DAB000936425 /* mainLogo@2x.png in Resources */,
 				7923D9C4194E6BB6008C3013 /* floor1.png in Resources */,
 				798FFBC61957063A004B94A6 /* page4.png in Resources */,
 				798FFBC41957063A004B94A6 /* page2.png in Resources */,
@@ -703,6 +717,7 @@
 				09E80A2E193BEC5400D62ED1 /* ViewController.m in Sources */,
 				796C145A19656EA60046916C /* MiniMapViewController.m in Sources */,
 				799A06C51982E4C700C83526 /* ExhibitsScrollView.m in Sources */,
+				79EA5C9C19B20FC00076E011 /* ExhibitPreview.m in Sources */,
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
 				799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */,
 				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
@@ -721,6 +736,7 @@
 				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
 				84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */,
 				798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */,
+				79EA5C9F19B2C59D0076E011 /* BlockView.m in Sources */,
 				09E809F2193BEB0700D62ED1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
