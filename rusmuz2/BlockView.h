@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BlockView : UIView
+@interface BlockView : UIImageView
 
 @property (strong, nonatomic) UIView *redView;
 @property (nonatomic, strong) UILabel *numberLabel;

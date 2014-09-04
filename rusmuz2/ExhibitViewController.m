@@ -144,7 +144,7 @@
 
 - (NSArray *)getBlocks {
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (int i = 0; i<100; i++) {
+    for (int i = 0; i<20; i++) {
         [array addObject:[UIImage imageNamed:@"block.png"]];
     }
     return (NSArray *)array;
@@ -253,6 +253,8 @@
         }
         
         CGFloat totalWidth = 0.0f;
+        
+        
         UIView *newPageView;
         if (scrollView == self.previewScrollView) {
             newPageView = [[ExhibitPreview alloc] initWithImage:image];
@@ -260,13 +262,15 @@
             NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
             newExhibitPreview.number.text = number;
         } else if (scrollView == self.blocksScrollView) {
-            /*
-            NSInteger pageNumber = (NSInteger)page + 1;
-            newPageView = [[BlockView alloc] init];
-            BlockView *newBlockView = (BlockView *)newPageView;
-            [newBlockView setInteger:pageNumber];
-            */
 
+            NSInteger pageNumber = (NSInteger)page + 1;
+            newPageView = [[BlockView alloc] initWithImage:image];
+            BlockView *newBlockView = (BlockView *)newPageView;
+                        NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
+            newBlockView.numberLabel.text = number;
+//            [newBlockView setInteger:pageNumber];
+
+//newPageView = [[UIImageView alloc] initWithImage:image];
             
         } else {
             newPageView = [[UIImageView alloc] initWithImage:image];
