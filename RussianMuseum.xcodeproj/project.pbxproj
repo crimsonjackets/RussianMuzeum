@@ -51,6 +51,7 @@
 		79495A4B199A8B8C00F5F354 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79495A4A199A8B8C00F5F354 /* QRViewController.m */; };
 		794A6FC519882FF6008A4A30 /* block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC419882FF6008A4A30 /* block@2x.png */; };
 		794A6FC7198833BE008A4A30 /* picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC6198833BE008A4A30 /* picture@2x.png */; };
+		7951B4E019BB4F6A00F86AB4 /* ExhibitImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */; };
 		796C145A19656EA60046916C /* MiniMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C145919656EA60046916C /* MiniMapViewController.m */; };
 		798F524619944FE100FE021D /* floor1Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524419944FE100FE021D /* floor1Button@2x.png */; };
 		798F524719944FE100FE021D /* floor2Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524519944FE100FE021D /* floor2Button@2x.png */; };
@@ -158,6 +159,8 @@
 		79495A4A199A8B8C00F5F354 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
 		794A6FC419882FF6008A4A30 /* block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block@2x.png"; sourceTree = "<group>"; };
 		794A6FC6198833BE008A4A30 /* picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture@2x.png"; sourceTree = "<group>"; };
+		7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitImageView.h; sourceTree = "<group>"; };
+		7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitImageView.m; sourceTree = "<group>"; };
 		796C145819656EA60046916C /* MiniMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapViewController.h; sourceTree = "<group>"; };
 		796C145919656EA60046916C /* MiniMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapViewController.m; sourceTree = "<group>"; };
 		798F524319943E0E00FE021D /* NavigationButtonEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButtonEnum.h; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */,
 				79EA5C9D19B2C59D0076E011 /* BlockView.h */,
 				79EA5C9E19B2C59D0076E011 /* BlockView.m */,
+				7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */,
+				7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */,
 				799A06C31982E4C700C83526 /* ExhibitsScrollView.h */,
 				799A06C41982E4C700C83526 /* ExhibitsScrollView.m */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
@@ -720,6 +725,7 @@
 				79EA5C9C19B20FC00076E011 /* ExhibitPreview.m in Sources */,
 				09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */,
 				799EA29619735E7B00D8F1DE /* ZoomSegue.m in Sources */,
+				7951B4E019BB4F6A00F86AB4 /* ExhibitImageView.m in Sources */,
 				798FFBBE19570626004B94A6 /* PageContentViewController.m in Sources */,
 				79495A4B199A8B8C00F5F354 /* QRViewController.m in Sources */,
 				7946DF0D19A4CB2300F971EB /* Event.m in Sources */,
