@@ -287,9 +287,9 @@
     CGFloat pageWidth = _previewScrollView.frame.size.width;
     
     //BUG FIXED: multiplying by 2 due to the quantity of images visible
-    NSInteger page = 2 * (NSInteger)floor((_previewScrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
+    NSInteger page = (NSInteger)floor((_previewScrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
     
-    NSLog(@"CUREENT PAGE: %ld", (long)page);
+    NSLog(@"CUREENT PAGE PREVIEWS: %ld", (long)page);
     
     // Work out which pages you want to load
     NSInteger firstPage = page - 3;
@@ -302,20 +302,98 @@
     
     // Purge anything before the first page
     for (NSInteger i=0; i<firstPage; i++) {
-        [self purgePreview:i];
+        //[self purgePreview:i];
     }
     
 	// Load pages in our range
     for (NSInteger i=firstPage; i<=lastPage; i++) {
         //[self loadPage:i fromArray:storageArray toViewArray:viewArray andScrollView:scrollView];
-        [self loadPreview:i];
+        [self loadPreviewScreen:i];
     }
     
 	// Purge anything after the last page
     for (NSInteger i=lastPage; i<self.previewsStorage.count; i++) {
-        [self purgePreview:i];
+        //[self purgePreview:i];
     }
 }
+
+
+- (void)loadPreviewScreen:(NSInteger)screen {
+    if (screen < 0 || screen >= _pageCount) {
+        // If it's outside the range of what you have to display, then do nothing
+        return;
+    }
+    
+    NSInteger previous = screen - 1;
+    NSInteger next = screen + 1;
+    
+    //[self loadPreview:previous];
+    //[self loadPreview:next];
+    
+    if (!(previous < 0 || previous >= _previewsViews.count)) {
+        
+        ExhibitPreview *exhibitPreview =  [_previewsViews objectAtIndex:previous];
+    if ((NSNull*)exhibitPreview == [NSNull null]) {
+        Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
+        UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+        
+        ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
+        
+        NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
+        exhibitPreview.number.text = number;
+        exhibitPreview.author.text = exhibit.author;
+        exhibitPreview.title.text = exhibit.name;
+        
+        
+        exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
+        exhibitPreview.clipsToBounds = YES;
+        
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        CGFloat totalWidth = screen * screenWidth;
+        
+        CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+        frame.origin.x = totalWidth;
+        exhibitPreview.frame = frame;
+                [_previewScrollView addSubview:exhibitPreview];        
+        [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
+    }
+
+    }
+
+    if (!(next < 0 || next >= _previewsViews.count)) {
+        
+        ExhibitPreview *exhibitPreview = [_previewsViews objectAtIndex:next];
+        if ((NSNull*)exhibitPreview == [NSNull null]) {
+            Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
+            UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+            
+            ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
+            
+            NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
+            exhibitPreview.number.text = number;
+            exhibitPreview.author.text = exhibit.author;
+            exhibitPreview.title.text = exhibit.name;
+            
+            exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
+            exhibitPreview.clipsToBounds = YES;
+            
+            CGRect screenRect = [[UIScreen mainScreen] bounds];
+            CGFloat screenWidth = screenRect.size.width;
+            CGFloat totalWidth = screen * screenWidth + screenWidth/2;
+            
+            CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+            frame.origin.x = totalWidth;
+            exhibitPreview.frame = frame;
+                    [_previewScrollView addSubview:exhibitPreview];
+            //[_previewsViews replaceObjectAtIndex:next withObject:wexhibitPreview];
+    }
+
+    }
+
+
+}
+
 
 - (void)loadPreview:(NSInteger)page {
     NSLog(@"PREVIEW PAGE IS : %ld", (long)page);
@@ -343,8 +421,7 @@
         
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenWidth = screenRect.size.width;
-        CGFloat totalWidth = 0.0f;
-        totalWidth = (page) * (screenWidth/2);
+        CGFloat totalWidth = (page + 2) * (screenWidth/2);
         
         CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
         frame.origin.x = totalWidth;
