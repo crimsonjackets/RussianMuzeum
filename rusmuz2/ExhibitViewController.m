@@ -14,6 +14,8 @@
 #import "ExhibitImageView.h"
 
 #define PREVIEW_HEIGHT 146
+#define BLOCK_WIDTH 28
+#define BLOCK_HEIGHT 28
 
 @interface ExhibitViewController ()
 
@@ -54,7 +56,7 @@
     
     //[self addImages];
     [self lazyLoadPreviews];
-//    [self lazyLoadBlocks];
+    [self lazyLoadBlocks];
     [self lazyLoadPictures];
     
     NSLog(@"RoomNumber IS:  %@", self.roomNumber);
@@ -63,7 +65,7 @@
 }
 
 - (void)lazyLoadPreviews {
-    NSInteger pageCount = _pageCount;
+    NSInteger pageCount = _pageCount * 2;
     self.previewsViews = [[NSMutableArray alloc] init];
     
     
@@ -90,26 +92,49 @@
 
 
 - (void)lazyLoadBlocks {
-    self.blocksStorage = [self getBlocks];
+    //self.blocksStorage = [self getBlocks];
     
     NSInteger pageCount = _pageCount;
     self.blocksViews = [[NSMutableArray alloc] init];
     
     for (NSInteger i = 0; i < pageCount; ++i) {
+        //TODO POTENTIALLY CAN INITIALIZE HERE ALL THE BLOCKS WITHOUT LAZY LOADING
         [self.blocksViews addObject:[NSNull null]];
     }
     
     CGSize contentSize;
-    for (UIImage *image in self.blocksStorage) {
-        contentSize.width = contentSize.width + image.size.width;
-        contentSize.height = image.size.height;
-    }
+    contentSize.width = BLOCK_WIDTH * (_pageCount);
+    contentSize.height = BLOCK_HEIGHT;
     
     self.blocksScrollView.contentSize = contentSize;
     
     NSLog(@"Contentsize REijo: %f", contentSize.width);
     NSLog(@"Contentsize REijo: %f", contentSize.height);
-    [self loadVisiblePagesInScrollView:self.blocksScrollView];
+
+    for (int i = 0; i < _pageCount; i++) {
+        UIView *pageView = [_blocksViews objectAtIndex:i];
+        if ((NSNull*)pageView == [NSNull null]) {
+            
+            CGFloat totalWidth = BLOCK_WIDTH * i;
+            
+            BlockView *view = [[BlockView alloc] initWithImage:[UIImage imageNamed:@"block.png"]];
+            
+                        NSString *number = [NSString stringWithFormat:@"%ld", (long)i + 1];
+            view.numberLabel.text = number;
+            
+            CGRect frame = CGRectMake(0, 0, BLOCK_WIDTH, BLOCK_HEIGHT);
+            
+            frame.origin.x = totalWidth;
+            view.frame = frame;
+            [self.blocksScrollView addSubview:view];
+            // 4
+            [_blocksViews replaceObjectAtIndex:i withObject:view];
+            
+            
+            
+        }
+        
+    }
 }
 
 - (void)lazyLoadPictures {
@@ -208,6 +233,50 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self loadVisiblePagesInScrollView:scrollView];
     NSLog(@"DID scroll content offset: %f", scrollView.contentOffset.x);
+    
+    if (scrollView == self.previewScrollView) {
+        static NSInteger previousPage = 0;
+        CGFloat pageWidth = scrollView.frame.size.width;
+        float fractionalPage = scrollView.contentOffset.x / pageWidth;
+        NSInteger page = lround(fractionalPage);
+        if (previousPage != page) {
+            // Page has changed, do your thing!
+            // ...
+            // Finally, update previous page
+            
+            
+            CGPoint offset = scrollView.contentOffset;
+            offset.x = scrollView.frame.size.width * page;
+            
+            [self.pictureScrollView setContentOffset:offset animated:YES];
+            previousPage = page;
+        }
+
+    } else if (scrollView == self.blocksScrollView) {
+
+
+
+    } else if (scrollView == self.pictureScrollView) {
+        static NSInteger previousPage = 0;
+        CGFloat pageWidth = scrollView.frame.size.width;
+        float fractionalPage = scrollView.contentOffset.x / pageWidth;
+        NSInteger page = lround(fractionalPage);
+        if (previousPage != page) {
+            // Page has changed, do your thing!
+            // ...
+            // Finally, update previous page
+            
+            
+            CGPoint offset = scrollView.contentOffset;
+            offset.x = scrollView.frame.size.width * page;
+            
+            [self.previewScrollView setContentOffset:offset animated:YES];
+            previousPage = page;
+        }
+
+
+    }
+    
 }
 
 - (void)loadVisiblePagesInScrollView:(UIScrollView *)scrollView {
@@ -215,18 +284,19 @@
     NSInteger visiblePages;
     NSMutableArray *viewArray;
     NSArray *storageArray;
+    
     if (scrollView == self.previewScrollView) {
         visiblePages = 2;
         viewArray = self.previewsViews;
         storageArray = self.previewsStorage;
-    } else if (scrollView == self.blocksScrollView) {
-        visiblePages = 13;
-        viewArray = self.blocksViews;
-        storageArray = self.blocksStorage;
-    } else if (scrollView == self.pictureScrollView) {
+    }
+    
+    else if (scrollView == self.pictureScrollView) {
         visiblePages = 1;
         viewArray = self.picturesViews;
         storageArray = self.picturesStorage;
+    } else {
+        return;
     }
     
     // First, determine which page is currently visible
@@ -260,6 +330,9 @@
         [self purgePage:i inArray:storageArray fromViewArray:viewArray];
     }
 }
+
+
+
 
 - (void)loadPage:(NSInteger)page fromArray:(NSArray *)array toViewArray:(NSMutableArray *)viewArray andScrollView:(UIScrollView *)scrollView {
     if (page < 0 || page >= array.count) {
@@ -361,6 +434,8 @@
         viewArray = _previewsViews;
     } else if(scrollView == _pictureScrollView) {
         viewArray = _picturesViews;
+    } else if (scrollView == _blocksScrollView) {
+        viewArray = _blocksViews;
     }
     
         UIView *pageView = [viewArray objectAtIndex:page];
@@ -397,7 +472,7 @@
             newExhibitPreview.title.text = exhibit.name;
         } else if (scrollView == self.blocksScrollView) {
 
-            
+            NSLog(@"I WANT TO LOAD BLOCK!!!");
         } else if (scrollView == self.pictureScrollView){
             newPageView = [[ExhibitImageView alloc] initWithImage:image];
             ExhibitImageView *newExhibitImageView = (ExhibitImageView *)newPageView;
