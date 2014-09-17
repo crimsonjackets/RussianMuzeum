@@ -19,13 +19,14 @@
 
 @interface ExhibitViewController ()
 
-@property (nonatomic, strong) NSArray *previewsStorage;
+
 @property (nonatomic, strong) NSMutableArray *previewsViews;
 
-@property (nonatomic, strong) NSArray *blocksStorage;
+@property (nonatomic, strong) NSMutableArray *previousPreviewsViews;
+@property (nonatomic, strong) NSMutableArray *nextPreviewsViews;
+
 @property (nonatomic, strong) NSMutableArray *blocksViews;
 
-@property (nonatomic, strong) NSArray *picturesStorage;
 @property (nonatomic, strong) NSArray *picturesInfo;
 @property (nonatomic, strong) NSMutableArray *picturesViews;
 
@@ -65,12 +66,15 @@
 }
 
 - (void)lazyLoadPreviews {
-    NSInteger pageCount = _pageCount * 2;
-    self.previewsViews = [[NSMutableArray alloc] init];
-    
+    NSInteger pageCount = _pageCount;
+//    self.previewsViews = [[NSMutableArray alloc] init];
+    _previousPreviewsViews = [[NSMutableArray alloc] init];
+    _nextPreviewsViews = [[NSMutableArray alloc] init];
     
     for (NSInteger i = 0; i < pageCount; ++i) {
-        [self.previewsViews addObject:[NSNull null]];
+        //        [self.previewsViews addObject:[NSNull null]];
+        [_previousPreviewsViews addObject:[NSNull null]];
+        [_nextPreviewsViews addObject:[NSNull null]];
     }
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -312,7 +316,7 @@
     }
     
 	// Purge anything after the last page
-    for (NSInteger i=lastPage; i<self.previewsStorage.count; i++) {
+    for (NSInteger i=lastPage; i<_pageCount; i++) {
         //[self purgePreview:i];
     }
 }
@@ -330,9 +334,9 @@
     //[self loadPreview:previous];
     //[self loadPreview:next];
     
-    if (!(previous < 0 || previous >= _previewsViews.count)) {
+    if (!(previous < 0 || previous >= _previousPreviewsViews.count)) {
         
-        ExhibitPreview *exhibitPreview =  [_previewsViews objectAtIndex:previous];
+        ExhibitPreview *exhibitPreview =  [_previousPreviewsViews objectAtIndex:previous];
     if ((NSNull*)exhibitPreview == [NSNull null]) {
         Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
         UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
@@ -355,15 +359,15 @@
         CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
         frame.origin.x = totalWidth;
         exhibitPreview.frame = frame;
-                [_previewScrollView addSubview:exhibitPreview];        
-        [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
+                [_previewScrollView addSubview:exhibitPreview];
+        [_previousPreviewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
     }
 
     }
 
-    if (!(next < 0 || next >= _previewsViews.count)) {
+    if (!(next < 0 || next >= _nextPreviewsViews.count)) {
         
-        ExhibitPreview *exhibitPreview = [_previewsViews objectAtIndex:next];
+        ExhibitPreview *exhibitPreview = [_nextPreviewsViews objectAtIndex:next];
         if ((NSNull*)exhibitPreview == [NSNull null]) {
             Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
             UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
@@ -386,7 +390,7 @@
             frame.origin.x = totalWidth;
             exhibitPreview.frame = frame;
                     [_previewScrollView addSubview:exhibitPreview];
-            //[_previewsViews replaceObjectAtIndex:next withObject:wexhibitPreview];
+            [_nextPreviewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
     }
 
     }
@@ -449,15 +453,6 @@
 }
 
 - (void)loadVisiblePictures {
-
-    NSMutableArray *viewArray;
-    NSArray *storageArray;
-    
-
-    viewArray = self.picturesViews;
-    storageArray = self.picturesStorage;
-    
-    
     
     // First, determine which page is currently visible
     CGFloat pageWidth = _pictureScrollView.frame.size.width;
@@ -488,7 +483,7 @@
     }
     
 	// Purge anything after the last page
-    for (NSInteger i=lastPage; i<self.previewsStorage.count; i++) {
+    for (NSInteger i=lastPage; i<_pageCount; i++) {
         [self purgePicture:i];
     }
     
