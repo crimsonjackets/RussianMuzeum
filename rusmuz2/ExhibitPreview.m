@@ -52,7 +52,7 @@
         [self addSubview:self.title];
         [self.title setContentOffset: CGPointMake(0,0) animated:NO];
         
-                [self alignTitleBottom];
+        //        [self alignTitleBottom];
         //        [self.title sizeToFit];
         
         

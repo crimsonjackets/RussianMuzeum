@@ -67,12 +67,16 @@
 
 - (void)lazyLoadPreviews {
     NSInteger pageCount = _pageCount;
-//    self.previewsViews = [[NSMutableArray alloc] init];
+    _previewsViews = [[NSMutableArray alloc] init];
     _previousPreviewsViews = [[NSMutableArray alloc] init];
     _nextPreviewsViews = [[NSMutableArray alloc] init];
     
     for (NSInteger i = 0; i < pageCount; ++i) {
-        //        [self.previewsViews addObject:[NSNull null]];
+        //Only for debougage!!!
+        [_previewsViews addObject:[NSNull null]];
+        [_previewsViews addObject:[NSNull null]];
+        
+        
         [_previousPreviewsViews addObject:[NSNull null]];
         [_nextPreviewsViews addObject:[NSNull null]];
     }
@@ -333,68 +337,97 @@
     
     //[self loadPreview:previous];
     //[self loadPreview:next];
-    
+    /*
     if (!(previous < 0 || previous >= _previousPreviewsViews.count)) {
         
-        ExhibitPreview *exhibitPreview =  [_previousPreviewsViews objectAtIndex:previous];
-    if ((NSNull*)exhibitPreview == [NSNull null]) {
-        Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
-        UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
-        
-        ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
-        
-        NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
-        exhibitPreview.number.text = number;
-        exhibitPreview.author.text = exhibit.author;
-        exhibitPreview.title.text = exhibit.name;
-        
-        
-        exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
-        exhibitPreview.clipsToBounds = YES;
-        
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        CGFloat totalWidth = screen * screenWidth;
-        
-        CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
-        frame.origin.x = totalWidth;
-        exhibitPreview.frame = frame;
+        if ((NSNull *)[_previousPreviewsViews objectAtIndex:previous] == [NSNull null]) {
+            ExhibitPreview *exhibitPreview =  [_previewsViews objectAtIndex:previous];
+            if ((NSNull*)exhibitPreview == [NSNull null]) {
+                Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
+                UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+                
+                ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
+                
+                NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
+                exhibitPreview.number.text = number;
+                exhibitPreview.author.text = exhibit.author;
+                exhibitPreview.title.text = exhibit.name;
+                
+                
+                exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
+                exhibitPreview.clipsToBounds = YES;
+                
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+                CGFloat screenWidth = screenRect.size.width;
+                CGFloat totalWidth = screen * screenWidth;
+                
+                CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+                frame.origin.x = totalWidth;
+                exhibitPreview.frame = frame;
+                
                 [_previewScrollView addSubview:exhibitPreview];
-        [_previousPreviewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
-    }
-
-    }
-
-    if (!(next < 0 || next >= _nextPreviewsViews.count)) {
+                [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
+                [_previousPreviewsViews replaceObjectAtIndex:previous withObject:[NSNumber numberWithBool:YES]];
+            } else {
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+                CGFloat screenWidth = screenRect.size.width;
+                CGFloat totalWidth = screen * screenWidth;
+                
+                CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+                frame.origin.x = totalWidth;
+                exhibitPreview.frame = frame;
+                
+                [_previewScrollView addSubview:exhibitPreview];
+                [_previousPreviewsViews replaceObjectAtIndex:previous withObject:[NSNumber numberWithBool:YES]];
+            }
+        }
         
-        ExhibitPreview *exhibitPreview = [_nextPreviewsViews objectAtIndex:next];
-        if ((NSNull*)exhibitPreview == [NSNull null]) {
-            Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
-            UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
-            
-            ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
-            
-            NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
-            exhibitPreview.number.text = number;
-            exhibitPreview.author.text = exhibit.author;
-            exhibitPreview.title.text = exhibit.name;
-            
-            exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
-            exhibitPreview.clipsToBounds = YES;
-            
-            CGRect screenRect = [[UIScreen mainScreen] bounds];
-            CGFloat screenWidth = screenRect.size.width;
-            CGFloat totalWidth = screen * screenWidth + screenWidth/2;
-            
-            CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
-            frame.origin.x = totalWidth;
-            exhibitPreview.frame = frame;
-                    [_previewScrollView addSubview:exhibitPreview];
-            [_nextPreviewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
+        
     }
-
+    
+     */
+     
+    if (!(next < 0 || next >= _nextPreviewsViews.count)) {
+        if ((NSNull *)[_nextPreviewsViews objectAtIndex:next] == [NSNull null]) {
+            ExhibitPreview *exhibitPreview = [_previewsViews objectAtIndex:next];
+            if ((NSNull*)exhibitPreview == [NSNull null]) {
+                Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
+                UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+                
+                ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
+                
+                NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
+                exhibitPreview.number.text = number;
+                exhibitPreview.author.text = exhibit.author;
+                exhibitPreview.title.text = exhibit.name;
+                
+                exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
+                exhibitPreview.clipsToBounds = YES;
+                
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+                CGFloat screenWidth = screenRect.size.width;
+                CGFloat totalWidth = screen * screenWidth + screenWidth/2;
+                
+                CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+                frame.origin.x = totalWidth;
+                exhibitPreview.frame = frame;
+                [_previewScrollView addSubview:exhibitPreview];
+                [_previewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
+                [_nextPreviewsViews replaceObjectAtIndex:next withObject:[NSNumber numberWithBool:YES]];
+            } else {
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+                CGFloat screenWidth = screenRect.size.width;
+                CGFloat totalWidth = screen * screenWidth + screenWidth/2;
+                
+                CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+                frame.origin.x = totalWidth;
+                exhibitPreview.frame = frame;
+                [_previewScrollView addSubview:exhibitPreview];
+                [_nextPreviewsViews replaceObjectAtIndex:next withObject:[NSNumber numberWithBool:YES]];
+            }
+        }
     }
-
+    
 
 }
 
