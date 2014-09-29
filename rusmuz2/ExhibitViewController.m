@@ -73,7 +73,7 @@
     
     for (NSInteger i = 0; i < pageCount; ++i) {
         //Only for debougage!!!
-        [_previewsViews addObject:[NSNull null]];
+
         [_previewsViews addObject:[NSNull null]];
         
         
@@ -314,10 +314,10 @@
     }
     
 	// Load pages in our range
-    for (NSInteger i=firstPage; i<=lastPage; i++) {
+//    for (NSInteger i=firstPage; i<=lastPage; i++) {
         //[self loadPage:i fromArray:storageArray toViewArray:viewArray andScrollView:scrollView];
-        [self loadPreviewScreen:i];
-    }
+        [self loadPreviewScreen:page];
+  //  }
     
 	// Purge anything after the last page
     for (NSInteger i=lastPage; i<_pageCount; i++) {
@@ -337,10 +337,8 @@
     
     //[self loadPreview:previous];
     //[self loadPreview:next];
-    /*
-    if (!(previous < 0 || previous >= _previousPreviewsViews.count)) {
-        
-        if ((NSNull *)[_previousPreviewsViews objectAtIndex:previous] == [NSNull null]) {
+    
+    if (!(previous < 0 || previous >= _previewsViews.count)) {
             ExhibitPreview *exhibitPreview =  [_previewsViews objectAtIndex:previous];
             if ((NSNull*)exhibitPreview == [NSNull null]) {
                 Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
@@ -367,7 +365,6 @@
                 
                 [_previewScrollView addSubview:exhibitPreview];
                 [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
-                [_previousPreviewsViews replaceObjectAtIndex:previous withObject:[NSNumber numberWithBool:YES]];
             } else {
                 CGRect screenRect = [[UIScreen mainScreen] bounds];
                 CGFloat screenWidth = screenRect.size.width;
@@ -376,19 +373,15 @@
                 CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
                 frame.origin.x = totalWidth;
                 exhibitPreview.frame = frame;
-                
-                [_previewScrollView addSubview:exhibitPreview];
-                [_previousPreviewsViews replaceObjectAtIndex:previous withObject:[NSNumber numberWithBool:YES]];
             }
-        }
-        
+
         
     }
-    
-     */
+
+
      
-    if (!(next < 0 || next >= _nextPreviewsViews.count)) {
-        if ((NSNull *)[_nextPreviewsViews objectAtIndex:next] == [NSNull null]) {
+    if (!(next < 0 || next >= _previewsViews.count)) {
+        
             ExhibitPreview *exhibitPreview = [_previewsViews objectAtIndex:next];
             if ((NSNull*)exhibitPreview == [NSNull null]) {
                 Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
@@ -413,7 +406,6 @@
                 exhibitPreview.frame = frame;
                 [_previewScrollView addSubview:exhibitPreview];
                 [_previewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
-                [_nextPreviewsViews replaceObjectAtIndex:next withObject:[NSNumber numberWithBool:YES]];
             } else {
                 CGRect screenRect = [[UIScreen mainScreen] bounds];
                 CGFloat screenWidth = screenRect.size.width;
@@ -422,12 +414,11 @@
                 CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
                 frame.origin.x = totalWidth;
                 exhibitPreview.frame = frame;
-                [_previewScrollView addSubview:exhibitPreview];
-                [_nextPreviewsViews replaceObjectAtIndex:next withObject:[NSNumber numberWithBool:YES]];
+
+                
             }
-        }
     }
-    
+
 
 }
 
