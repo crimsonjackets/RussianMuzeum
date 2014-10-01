@@ -8,7 +8,22 @@
 
 #import "ExhibitPreview.h"
 
+#define PREVIEW_HEIGHT 146
+
+
 @implementation ExhibitPreview
+
+
+- (ExhibitPreview *)initWithExhibit:(Exhibit *)exhibit {
+    UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+    
+    ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
+    
+    exhibitPreview.author.text = exhibit.author;
+    exhibitPreview.title.text = exhibit.name;
+    
+    return exhibitPreview;
+}
 
 - (id)initWithImage:(UIImage *)image {
     self = [super initWithImage:image];
@@ -66,6 +81,15 @@
         //[self.author setText:@"ВАСНЕЦОВ"];
         [self addSubview:self.author];
         
+        
+        self.contentMode = UIViewContentModeScaleAspectFill;
+        self.clipsToBounds = YES;
+        
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        
+        CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+        self.frame = frame;   
     }
     return self;
 }
@@ -89,6 +113,29 @@
     topCorrect = (topCorrect <0.0 ? 0.0 : topCorrect);
 //    self.title.contentOffset = (CGPoint){.x = 0, .y = -topCorrect};
     [self.title setContentOffset:(CGPoint){.x = 0, .y = -100}];
+}
+
+
+
+
+- (ExhibitPreview *)copy {
+    ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:self.image];
+    
+    exhibitPreview.number.text = self.number.text;
+    exhibitPreview.author.text = self.author.text;
+    exhibitPreview.title.text = self.title.text;
+    
+    
+    exhibitPreview.contentMode = UIViewContentModeScaleAspectFill;
+    exhibitPreview.clipsToBounds = YES;
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
+    CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+    exhibitPreview.frame = frame;
+
+    return exhibitPreview;
 }
 
 @end

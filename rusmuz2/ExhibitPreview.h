@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Exhibit.h"
 
 @interface ExhibitPreview : UIImageView
 
@@ -16,5 +17,10 @@
 //@property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UITextView *title;
 @property (strong, nonatomic) UILabel *author;
+
+
+- (ExhibitPreview *)initWithExhibit:(Exhibit *)exhibit;
+- (ExhibitPreview *)copy;
+
 
 @end
