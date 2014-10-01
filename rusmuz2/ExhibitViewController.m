@@ -403,7 +403,7 @@
     NSLog(@"CUREENT PAGE: %ld", (long)page);
     
     // Work out which pages you want to load
-    NSInteger firstPage = page - 1;
+    NSInteger firstPage = page - 2;
     NSInteger lastPage = page + 2;
     
     
