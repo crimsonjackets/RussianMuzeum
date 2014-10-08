@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSMutableArray *previewsViews;
 @property (nonatomic, strong) NSMutableArray *previewsCopies;
 
+@property (nonatomic, strong) NSMutableArray *images;
+
 @property CGFloat scrollViewStartingPoint;
 @property BOOL isScrollingToTheRight;
 
@@ -89,10 +91,16 @@
     
     NSLog(@"Contentsize REijo: %f", contentSize.width);
     NSLog(@"Contentsize REijo: %f", contentSize.height);
-//    [self loadVisiblePagesInScrollView:self.previewScrollView];
-    [self loadVisiblePreviews];
+
+    //[self loadVisiblePreviews];
+    [self loadAllPreviews];
 }
 
+- (void)loadAllPreviews {
+    for (NSInteger i=0; i<=_pageCount; i++) {
+        [self loadPreviewScreen:i];
+    }
+}
 
 - (void)lazyLoadBlocks {
     //self.blocksStorage = [self getBlocks];
@@ -154,19 +162,16 @@
     for (NSInteger i = 0; i < pageCount; ++i) {
         [self.picturesViews addObject:[NSNull null]];
     }
-    
 
-//    for (UIImage *image in self.picturesStorage) {
-//        contentSize.width = contentSize.width + image.size.width;
-//        //contentSize.height = image.size.height;
-//
-//    }
-//    
+    //[self loadVisiblePictures];
+    [self loadAllPictures];
+}
 
-    
-    NSLog(@"Contentsize REijo: %f", contentSize.width);
-    NSLog(@"Contentsize REijo: %f", contentSize.height);
-    [self loadVisiblePictures];
+- (void)loadAllPictures {
+    for (NSInteger i=0; i<=_pageCount; i++) {
+        //[self loadPage:i fromArray:storageArray toViewArray:viewArray andScrollView:scrollView];
+        [self loadPicture:i];
+    }
 }
 
 
@@ -176,6 +181,7 @@
     NSManagedObjectContext *context = self.managedObjectContext;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exhibit"];
+    request.fetchBatchSize = 5;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"room.number == %@", self.roomNumber];
     request.predicate = predicate;
     NSError *error = nil;
@@ -188,17 +194,30 @@
 }
 
 
-
 #pragma mark - Scrolling Engine
-
+/*
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (scrollView == _previewScrollView) {
+
             [self loadVisiblePreviews];
+        
+        
+
     } else if (scrollView == self.pictureScrollView) {
+
+            
                     [self loadVisiblePictures];
+
     }
 }
+ 
+ 
+ //shitComment
+*/
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     if (scrollView == self.previewScrollView) {
@@ -211,6 +230,7 @@
             CGPoint offset = scrollView.contentOffset;
             offset.x = scrollView.frame.size.width * page;
             
+
             [self.pictureScrollView setContentOffset:offset animated:YES];
             previousPage = page;
 
@@ -304,20 +324,21 @@
 //            ExhibitPreview *exhibitPreviewCopy =  [_previewsCopies objectAtIndex:previous];
         
             if ((NSNull*)exhibitPreview == [NSNull null]) {
-                Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
-                ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
-                
-                NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
-                
-                NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
-                exhibitPreview.number.text = number;
+                    Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
+                    ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
+                    
+                    NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
+                    
+                    NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
+                    exhibitPreview.number.text = number;
+                    
+                    CGRect frame = exhibitPreview.frame;
+                    frame.origin.x = totalWidth;
+                    exhibitPreview.frame = frame;
+                                    [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
 
-                CGRect frame = exhibitPreview.frame;
-                frame.origin.x = totalWidth;
-                exhibitPreview.frame = frame;
-                
                 [_previewScrollView addSubview:exhibitPreview];
-                [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
+
                 
             } else if (exhibitPreview.frame.origin.x != totalWidth) {
                 ExhibitPreview *copiedPreview = [exhibitPreview copy];
@@ -340,6 +361,7 @@
         
         ExhibitPreview *exhibitPreview = [_previewsViews objectAtIndex:next];
             if ((NSNull*)exhibitPreview == [NSNull null]) {
+                    
                 Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
                 
                 ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
@@ -355,9 +377,11 @@
                 CGRect frame = exhibitPreview.frame;
                 frame.origin.x = totalWidth;
                 exhibitPreview.frame = frame;
-                
+                                    [_previewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
+
                 [_previewScrollView addSubview:exhibitPreview];
-                [_previewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
+
+
                 
             } else if (exhibitPreview.frame.origin.x != totalWidth) {
                 ExhibitPreview *copiedPreview = [exhibitPreview copy];
