@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "NavigationButton.h"
+#import "InteractiveMapViewController.h"
+#import "StartViewController.h"
+#import "SponsorViewController.h"
 
 @interface FloorSelectorViewController : UIViewController <NavigationButtonDelegate>
 

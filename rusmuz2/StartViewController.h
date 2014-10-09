@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "NavigationButton.h"
 #import <UIKit/UIKit.h>
 #import "Exhibit.h"
 #import "Room.h"
 #import <CoreData/CoreData.h>
 
+#import "NavigationButton.h"
 #import "FloorSelectorViewController.h"
 
 @interface StartViewController : UIViewController <NavigationButtonDelegate>

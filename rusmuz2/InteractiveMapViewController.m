@@ -7,11 +7,9 @@
 //
 
 #import "InteractiveMapViewController.h"
-#import "ZoomSegue.h"
+
 #import "MTImageMapView/MTImageMapView.h"
-#import "StartViewController.h"
-#import "QRViewController.h"
-#import "ExhibitViewController.h"
+
 
 @interface InteractiveMapViewController ()
 @property (nonatomic, strong) MTImageMapView *imageView;
@@ -230,6 +228,11 @@
 - (void)changeFloorButtonPressed {
     [self changeFloor];
     NSLog(@"Change Floor button pressed, ViewController");
+}
+
+- (void)sponsorButtonPressed {
+    FloorSelectorViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SponsorViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

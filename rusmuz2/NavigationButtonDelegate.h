@@ -15,4 +15,5 @@
 - (void)QRButtonPressed;
 - (void)changeFloorButtonPressed;
 - (void)mapButtonPressed;
+- (void)sponsorButtonPressed;
 @end
