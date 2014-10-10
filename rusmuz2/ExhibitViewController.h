@@ -16,6 +16,7 @@
 
 #import "StartViewController.h"
 #import "InteractiveMapViewController.h"
+#import "SponsorViewController.h"
 
 @interface ExhibitViewController : UIViewController <UIScrollViewDelegate, NavigationButtonDelegate>
 
