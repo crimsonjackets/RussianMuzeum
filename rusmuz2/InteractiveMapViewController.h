@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MTImageMapView.h"
+
 #import "NavigationButton.h"
+#import "StartViewController.h"
+#import "QRViewController.h"
+#import "ExhibitViewController.h"
+#import "SponsorViewController.h"
 
 @interface InteractiveMapViewController : UIViewController <UIScrollViewDelegate, MTImageMapDelegate, NavigationButtonDelegate>
 

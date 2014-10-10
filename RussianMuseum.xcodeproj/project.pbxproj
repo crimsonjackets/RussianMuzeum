@@ -56,6 +56,9 @@
 		794A6FC519882FF6008A4A30 /* block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC419882FF6008A4A30 /* block@2x.png */; };
 		794A6FC7198833BE008A4A30 /* picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 794A6FC6198833BE008A4A30 /* picture@2x.png */; };
 		7951B4E019BB4F6A00F86AB4 /* ExhibitImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */; };
+		795852BD19E70CA70000BF0D /* sponsorButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 795852BC19E70CA70000BF0D /* sponsorButton@2x.png */; };
+		795852C019E71BBB0000BF0D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795852BF19E71BBB0000BF0D /* SponsorViewController.m */; };
+		795852C219E71EBD0000BF0D /* sponsorScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 795852C119E71EBD0000BF0D /* sponsorScreen.png */; };
 		796C145A19656EA60046916C /* MiniMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C145919656EA60046916C /* MiniMapViewController.m */; };
 		798F524619944FE100FE021D /* floor1Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524419944FE100FE021D /* floor1Button@2x.png */; };
 		798F524719944FE100FE021D /* floor2Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524519944FE100FE021D /* floor2Button@2x.png */; };
@@ -169,6 +172,10 @@
 		794A6FC6198833BE008A4A30 /* picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture@2x.png"; sourceTree = "<group>"; };
 		7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitImageView.h; sourceTree = "<group>"; };
 		7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitImageView.m; sourceTree = "<group>"; };
+		795852BC19E70CA70000BF0D /* sponsorButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sponsorButton@2x.png"; sourceTree = "<group>"; };
+		795852BE19E71BBB0000BF0D /* SponsorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorViewController.h; sourceTree = "<group>"; };
+		795852BF19E71BBB0000BF0D /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
+		795852C119E71EBD0000BF0D /* sponsorScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sponsorScreen.png; sourceTree = "<group>"; };
 		796C145819656EA60046916C /* MiniMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapViewController.h; sourceTree = "<group>"; };
 		796C145919656EA60046916C /* MiniMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapViewController.m; sourceTree = "<group>"; };
 		798F524319943E0E00FE021D /* NavigationButtonEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButtonEnum.h; sourceTree = "<group>"; };
@@ -326,6 +333,8 @@
 				09E80A1C193BEC5400D62ED1 /* Main.storyboard */,
 				84848CF2199BD7F400CFD4FD /* StartViewController.h */,
 				84848CF3199BD7F400CFD4FD /* StartViewController.m */,
+				795852BE19E71BBB0000BF0D /* SponsorViewController.h */,
+				795852BF19E71BBB0000BF0D /* SponsorViewController.m */,
 				79495A49199A8B8C00F5F354 /* QRViewController.h */,
 				79495A4A199A8B8C00F5F354 /* QRViewController.m */,
 				79CB3E5719AD8C5A00F9F062 /* FloorSelectorViewController.h */,
@@ -488,6 +497,8 @@
 				791F84D519D8EE040061BAB8 /* QRCodeFrame */,
 				79DC2C4219B0DAB000936425 /* mainLogo@2x.png */,
 				79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */,
+				795852BC19E70CA70000BF0D /* sponsorButton@2x.png */,
+				795852C119E71EBD0000BF0D /* sponsorScreen.png */,
 				79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */,
 				79495A45199A525D00F5F354 /* testPicture@2x.png */,
 				798F524419944FE100FE021D /* floor1Button@2x.png */,
@@ -652,6 +663,8 @@
 			files = (
 				79495A46199A525D00F5F354 /* testPicture@2x.png in Resources */,
 				798F524719944FE100FE021D /* floor2Button@2x.png in Resources */,
+				795852C219E71EBD0000BF0D /* sponsorScreen.png in Resources */,
+				795852BD19E70CA70000BF0D /* sponsorButton@2x.png in Resources */,
 				09E80A66193BEDF500D62ED1 /* US_States.gif in Resources */,
 				7923D9C5194E6BB6008C3013 /* floor2.png in Resources */,
 				791F84DA19D8EE040061BAB8 /* qrLB.png in Resources */,
@@ -766,6 +779,7 @@
 				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
 				84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */,
 				798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */,
+				795852C019E71BBB0000BF0D /* SponsorViewController.m in Sources */,
 				79EA5C9F19B2C59D0076E011 /* BlockView.m in Sources */,
 				09E809F2193BEB0700D62ED1 /* main.m in Sources */,
 			);

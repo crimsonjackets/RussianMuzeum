@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -229,7 +230,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXO-ZP-2iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1407" y="2447"/>
+            <point key="canvasLocation" x="1411" y="2069"/>
+        </scene>
+        <!--Sponsor View Controller-->
+        <scene sceneID="r9E-AM-J6a">
+            <objects>
+                <viewController storyboardIdentifier="SponsorViewController" id="82h-Yl-zpD" customClass="SponsorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EmL-hK-ERJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="9nV-Cj-V6A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PGt-en-apN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sponsorScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="bWd-g8-0xG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agt-jv-XRw" customClass="NavigationButton">
+                                <rect key="frame" x="225" y="490" width="54" height="60"/>
+                                <state key="normal" image="rmButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9nV-Cj-V6A" firstAttribute="top" secondItem="agt-jv-XRw" secondAttribute="bottom" constant="18" id="CZo-eP-9Zz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="agt-jv-XRw" secondAttribute="trailing" constant="25" id="R1o-jH-rxU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navigationButton" destination="agt-jv-XRw" id="6gl-5U-trG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vj9-Pv-MWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="2711"/>
         </scene>
         <!--RoomSegue-->
         <scene sceneID="xns-tn-5gl">
@@ -243,14 +280,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7DN-MX-00Y">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7DN-MX-00Y">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <outlet property="delegate" destination="A9N-Fd-kBa" id="1y6-Km-p0E"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" customClass="NavigationButton">
-                                <rect key="frame" x="230" y="340" width="54" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" customClass="NavigationButton">
+                                <rect key="frame" x="225" y="490" width="54" height="60"/>
                                 <state key="normal" image="rmButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -258,7 +295,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3qJ-g1-d8X" firstAttribute="top" secondItem="7DN-MX-00Y" secondAttribute="bottom" id="WPF-6f-wev"/>
+                            <constraint firstItem="3qJ-g1-d8X" firstAttribute="top" secondItem="q0e-EL-YVn" secondAttribute="bottom" constant="18" id="RMu-k4-Toc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q0e-EL-YVn" secondAttribute="trailing" constant="25" id="bVM-og-82S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
@@ -291,14 +329,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ity-XD-NKL" customClass="NavigationButton">
-                                <rect key="frame" x="236" y="417" width="54" height="60"/>
-                                <state key="normal" image="rmButton.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1j-6T-LtJ">
-                                <rect key="frame" x="20" y="485" width="280" height="26"/>
+                                <rect key="frame" x="20" y="490" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -318,6 +350,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuA-8i-hpH" customClass="NavigationButton">
+                                <rect key="frame" x="250" y="400" width="54" height="60"/>
+                                <state key="normal" image="rmButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -325,13 +363,13 @@
                     <connections>
                         <outlet property="authorLabel" destination="5Wn-Zy-Bcy" id="OyO-bO-l9A"/>
                         <outlet property="imageView" destination="IEB-OG-dyX" id="UbD-GL-67s"/>
-                        <outlet property="navigationButton" destination="Ity-XD-NKL" id="dlf-28-UcS"/>
+                        <outlet property="navigationButton" destination="ZuA-8i-hpH" id="Ri2-b7-Df0"/>
                         <outlet property="titleLabel" destination="x1j-6T-LtJ" id="nSQ-bQ-fgV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-t7-a1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="2253"/>
+            <point key="canvasLocation" x="428" y="2216"/>
         </scene>
         <!--Floor Selector View Controller-->
         <scene sceneID="FyR-by-KN7">
@@ -345,11 +383,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="floorSelectorImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="GdY-A5-ezP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="floorSelectorImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="XeE-GU-o1v">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zj6-s1-jHa">
-                                <rect key="frame" x="20" y="341" width="280" height="207"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zj6-s1-jHa">
+                                <rect key="frame" x="16" y="336" width="288" height="182"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="114"/>
                                 <state key="normal" title="2">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -359,8 +397,14 @@
                                     <action selector="button2Floor:" destination="ZmC-Uu-uh5" eventType="touchUpInside" id="cdL-z2-Dfe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bn-HJ-2Rh">
-                                <rect key="frame" x="20" y="20" width="289" height="268"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-8d-eVl" customClass="NavigationButton">
+                                <rect key="frame" x="241" y="490" width="54" height="60"/>
+                                <state key="normal" image="rmButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bn-HJ-2Rh">
+                                <rect key="frame" x="129" y="70" width="63" height="149"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="114"/>
                                 <state key="normal" title="1">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -370,14 +414,14 @@
                                     <action selector="button1Floor:" destination="ZmC-Uu-uh5" eventType="touchUpInside" id="odw-9q-Kwm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-8d-eVl" customClass="NavigationButton">
-                                <rect key="frame" x="237" y="449" width="54" height="60"/>
-                                <state key="normal" image="rmButton.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2lL-Vx-fgp" firstAttribute="top" secondItem="cKP-8d-eVl" secondAttribute="bottom" constant="18" id="Crj-9H-hgV"/>
+                            <constraint firstAttribute="trailing" secondItem="cKP-8d-eVl" secondAttribute="trailing" constant="25" id="Jd5-VW-w1T"/>
+                            <constraint firstItem="4bn-HJ-2Rh" firstAttribute="top" secondItem="1Qr-l3-kBH" secondAttribute="bottom" constant="50" id="P1h-w8-Nkb"/>
+                            <constraint firstItem="2lL-Vx-fgp" firstAttribute="top" secondItem="zj6-s1-jHa" secondAttribute="bottom" constant="50" id="wCx-sC-OAq"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="navigationButton" destination="cKP-8d-eVl" id="a6h-mT-Xjp"/>
@@ -408,14 +452,18 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-HU-GEd">
                                 <rect key="frame" x="0.0" y="172" width="320" height="396"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-gO-BJj" customClass="NavigationButton">
-                                <rect key="frame" x="220" y="449" width="54" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-gO-BJj" customClass="NavigationButton">
+                                <rect key="frame" x="225" y="490" width="54" height="60"/>
                                 <state key="normal" image="rmButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cxl-gO-BJj" secondAttribute="trailing" constant="25" id="Acg-JG-D1y"/>
+                            <constraint firstItem="wJ8-GM-ciI" firstAttribute="top" secondItem="cxl-gO-BJj" secondAttribute="bottom" constant="18" id="erm-DK-rb0"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="TheTitle" id="mon-sk-1Fi"/>
@@ -664,6 +712,7 @@
         <image name="qrRB.png" width="65" height="65"/>
         <image name="qrUR.png" width="65" height="65"/>
         <image name="rmButton.png" width="54" height="60"/>
+        <image name="sponsorScreen.png" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

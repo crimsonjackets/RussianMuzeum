@@ -59,7 +59,7 @@
     self.blocksScrollView.delegate = self;
     self.pictureScrollView.delegate = self;
     
-    //[self addImages];
+
     [self lazyLoadPreviews];
     [self lazyLoadBlocks];
     [self lazyLoadPictures];
@@ -195,6 +195,7 @@
 
 
 #pragma mark - Scrolling Engine
+
 /*
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (scrollView == _previewScrollView) {
@@ -212,12 +213,16 @@
 }
  
  
- //shitComment
 */
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    
+    if (scrollView == _previewScrollView) {
+        NSLog(@"PreviewScrollVeiw ENDED ANIMATION");
+    } else if (scrollView == _pictureScrollView) {
+        NSLog(@"PICTURE SCR VIEW ENDED ANIMATION");
+    }
 }
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     if (scrollView == self.previewScrollView) {
@@ -516,6 +521,11 @@
 
 - (void)mapButtonPressed {
     InteractiveMapViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InteractiveMapViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)sponsorButtonPressed {
+    FloorSelectorViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SponsorViewController"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

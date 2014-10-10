@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UIButton *QRButton;
 @property (strong, nonatomic) UIButton *changeFloorButton;
 @property (strong, nonatomic) UIButton *mapButton;
+@property (strong, nonatomic) UIButton *sponsorButton;
 @end
 
 @implementation NavigationButton
@@ -59,6 +60,7 @@
     [self showHideHomeButton];
     [self showHideMapButton];
     [self showHideQRButton];
+    [self showHideSponsorButton];
 }
 - (void)animateRMButton {
     UIView *myView = self.imageView;
@@ -104,7 +106,7 @@
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(homeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
-        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
+        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 0.75f * image.size.width, 0.75f * image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
         [self animateCreation:button withOffset:offset andDuration:duration];
         _homeButton = button;
@@ -117,14 +119,14 @@
 
 - (void)showHideQRButton {
     CGFloat duration = .3;
-    CGFloat offset = 90;
+    CGFloat offset = 90 - 20;
     if (_QRButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *image = [UIImage imageNamed:@"QRButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(QRButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
-        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
+        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 0.75f * image.size.width, 0.75f * image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
         [self animateCreation:button withOffset:offset andDuration:duration];
         _QRButton = button;
@@ -137,7 +139,7 @@
 
 - (void)showHideChangeFloorButton {
     CGFloat duration = .3;
-    CGFloat offset = 160;
+    CGFloat offset = 160 - 40;
 
     if (_changeFloorButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -153,7 +155,7 @@
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(changeFloorButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
-        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
+        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y,0.75f *  image.size.width,0.75f *  image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
         [self animateCreation:button withOffset:offset andDuration:duration];
         _changeFloorButton = button;
@@ -166,14 +168,14 @@
 
 - (void)showHideMapButton {
     CGFloat duration = .3;
-    CGFloat offset = 160;
+    CGFloat offset = 160 - 40;
     if (_mapButton == nil) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage *image = [UIImage imageNamed:@"mapButton"];
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(mapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:image forState:UIControlStateNormal];
-        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, image.size.width, image.size.height);
+        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y,0.75f *  image.size.width,0.75f *  image.size.height);
         [[self superview] insertSubview:button belowSubview:self];
         [self animateCreation:button withOffset:offset andDuration:duration];
         _mapButton = button;
@@ -183,6 +185,28 @@
         _mapButton = nil;
     }
 }
+
+- (void)showHideSponsorButton {
+    CGFloat duration = .3;
+    CGFloat offset = 160 + 10;
+    if (_sponsorButton == nil) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *image = [UIImage imageNamed:@"sponsorButton"];
+        button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self action:@selector(sponsorButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        button.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y,0.75f *  image.size.width,0.75f *  image.size.height);
+        [[self superview] insertSubview:button belowSubview:self];
+        [self animateCreation:button withOffset:offset andDuration:duration];
+        _sponsorButton = button;
+    } else {
+        UIButton *button = _sponsorButton;
+        [self animateDeletion:button withDuration:duration];
+        _sponsorButton = nil;
+    }
+}
+
+
 
 - (void)animateButton {
     if (!_buttonOpened) {
@@ -228,13 +252,9 @@
     [self.delegate mapButtonPressed];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+- (void)sponsorButtonPressed:(UIButton *)sender {
+    [self didTouchRMButton];
+    [self.delegate sponsorButtonPressed];
 }
-*/
 
 @end

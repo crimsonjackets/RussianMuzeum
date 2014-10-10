@@ -182,5 +182,10 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)sponsorButtonPressed {
+    FloorSelectorViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SponsorViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 
 @end
