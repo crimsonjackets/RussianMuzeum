@@ -60,6 +60,7 @@
 		795852C019E71BBB0000BF0D /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 795852BF19E71BBB0000BF0D /* SponsorViewController.m */; };
 		795852C219E71EBD0000BF0D /* sponsorScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 795852C119E71EBD0000BF0D /* sponsorScreen.png */; };
 		796C145A19656EA60046916C /* MiniMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C145919656EA60046916C /* MiniMapViewController.m */; };
+		797BD01F19E9A31200A58B9D /* BlockScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797BD01E19E9A31200A58B9D /* BlockScrollView.m */; };
 		798F524619944FE100FE021D /* floor1Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524419944FE100FE021D /* floor1Button@2x.png */; };
 		798F524719944FE100FE021D /* floor2Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 798F524519944FE100FE021D /* floor2Button@2x.png */; };
 		798FFBBB19570619004B94A6 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 798FFBBA19570619004B94A6 /* InfoViewController.m */; };
@@ -178,6 +179,8 @@
 		795852C119E71EBD0000BF0D /* sponsorScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sponsorScreen.png; sourceTree = "<group>"; };
 		796C145819656EA60046916C /* MiniMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapViewController.h; sourceTree = "<group>"; };
 		796C145919656EA60046916C /* MiniMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapViewController.m; sourceTree = "<group>"; };
+		797BD01D19E9A31200A58B9D /* BlockScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockScrollView.h; sourceTree = "<group>"; };
+		797BD01E19E9A31200A58B9D /* BlockScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockScrollView.m; sourceTree = "<group>"; };
 		798F524319943E0E00FE021D /* NavigationButtonEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationButtonEnum.h; sourceTree = "<group>"; };
 		798F524419944FE100FE021D /* floor1Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor1Button@2x.png"; sourceTree = "<group>"; };
 		798F524519944FE100FE021D /* floor2Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor2Button@2x.png"; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
 				79EA5C9A19B20FC00076E011 /* ExhibitPreview.h */,
 				79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */,
+				797BD01D19E9A31200A58B9D /* BlockScrollView.h */,
+				797BD01E19E9A31200A58B9D /* BlockScrollView.m */,
 				79EA5C9D19B2C59D0076E011 /* BlockView.h */,
 				79EA5C9E19B2C59D0076E011 /* BlockView.m */,
 				7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */,
@@ -775,6 +780,7 @@
 				09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
 				7946DF1019A4CB2300F971EB /* Exhibit.m in Sources */,
+				797BD01F19E9A31200A58B9D /* BlockScrollView.m in Sources */,
 				79980832198F0DB800580214 /* NavigationButton.m in Sources */,
 				793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */,
 				84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */,

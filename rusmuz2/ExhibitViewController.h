@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "ExhibitsScrollView.h"
+#import <CoreData/CoreData.h>
 #import "Exhibit.h"
 #import "Room.h"
-#import <CoreData/CoreData.h>
+
+#import "ExhibitsScrollView.h"
+#import "BlockScrollView.h"
+
 #import "ExhibitPreview.h"
 
 

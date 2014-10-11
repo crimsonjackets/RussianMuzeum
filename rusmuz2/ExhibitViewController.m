@@ -14,8 +14,7 @@
 #import "ExhibitImageView.h"
 
 #define PREVIEW_HEIGHT 146
-#define BLOCK_WIDTH 28
-#define BLOCK_HEIGHT 28
+
 
 @interface ExhibitViewController ()
 
@@ -61,7 +60,8 @@
     
 
     [self lazyLoadPreviews];
-    [self lazyLoadBlocks];
+    //[self lazyLoadBlocks];
+    //[self initBlockScrollView];
     [self lazyLoadPictures];
     
     NSLog(@"RoomNumber IS:  %@", self.roomNumber);
@@ -102,6 +102,8 @@
     }
 }
 
+
+/*
 - (void)lazyLoadBlocks {
     //self.blocksStorage = [self getBlocks];
     
@@ -147,6 +149,8 @@
         
     }
 }
+ 
+ */
 
 - (void)lazyLoadPictures {
     NSInteger pageCount = _pageCount;
