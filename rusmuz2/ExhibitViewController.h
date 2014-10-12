@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "ExhibitsScrollView.h"
+#import <CoreData/CoreData.h>
 #import "Exhibit.h"
 #import "Room.h"
-#import <CoreData/CoreData.h>
+
+#import "ExhibitsScrollView.h"
+#import "BlockScrollView.h"
+
 #import "ExhibitPreview.h"
 
 
@@ -25,7 +28,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *previewScrollView;
-@property (strong, nonatomic) IBOutlet UIScrollView *blocksScrollView;
+@property (strong, nonatomic) IBOutlet BlockScrollView *blocksScrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *pictureScrollView;
 
 @property (strong, nonatomic) NSString *exhibitQRCode;

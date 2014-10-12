@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qeN-SK-NpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1879" y="338"/>
+            <point key="canvasLocation" x="1039" y="2862"/>
         </scene>
         <!--Main Page-->
         <scene sceneID="ufC-wZ-h7g">
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj9-Pv-MWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="2711"/>
+            <point key="canvasLocation" x="931" y="4365"/>
         </scene>
         <!--RoomSegue-->
         <scene sceneID="xns-tn-5gl">
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahs-bK-ecJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="1804"/>
+            <point key="canvasLocation" x="1341" y="3682"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="dkw-FO-ftI">
@@ -369,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIP-t7-a1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="2216"/>
+            <point key="canvasLocation" x="470" y="3682"/>
         </scene>
         <!--Floor Selector View Controller-->
         <scene sceneID="FyR-by-KN7">
@@ -429,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8T-g1-ukT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="2216"/>
+            <point key="canvasLocation" x="931" y="3682"/>
         </scene>
         <!--TheTitle-->
         <scene sceneID="tEK-Jm-Vok">
@@ -446,11 +446,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u87-2M-ySj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-vE-2R2">
-                                <rect key="frame" x="0.0" y="146" width="320" height="28"/>
-                            </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmM-HU-GEd">
-                                <rect key="frame" x="0.0" y="172" width="320" height="396"/>
+                                <rect key="frame" x="0.0" y="146" width="320" height="422"/>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-vE-2R2" customClass="BlockScrollView">
+                                <rect key="frame" x="0.0" y="146" width="320" height="28"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-gO-BJj" customClass="NavigationButton">
                                 <rect key="frame" x="225" y="490" width="54" height="60"/>
@@ -477,7 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPk-aq-AB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2105" y="1088"/>
+            <point key="canvasLocation" x="1765" y="3682"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kam-dm-Q5L">
@@ -634,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wi6-wl-qXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189" y="2545"/>
+            <point key="canvasLocation" x="2589" y="2459"/>
         </scene>
         <!--Detail-->
         <scene sceneID="wF3-Vd-kGC">
@@ -683,7 +683,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnn-Lf-n4C" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2614" y="2545"/>
+            <point key="canvasLocation" x="3014" y="2459"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="txy-yA-Fer">
@@ -701,7 +701,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJ3-BZ-GBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345" y="338"/>
+            <point key="canvasLocation" x="505" y="2862"/>
         </scene>
     </scenes>
     <resources>

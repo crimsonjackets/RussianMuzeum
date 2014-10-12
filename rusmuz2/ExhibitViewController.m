@@ -14,8 +14,7 @@
 #import "ExhibitImageView.h"
 
 #define PREVIEW_HEIGHT 146
-#define BLOCK_WIDTH 28
-#define BLOCK_HEIGHT 28
+
 
 @interface ExhibitViewController ()
 
@@ -61,7 +60,9 @@
     
 
     [self lazyLoadPreviews];
-    [self lazyLoadBlocks];
+
+    _blocksScrollView.numberOfBlocks = _pageCount;
+
     [self lazyLoadPictures];
     
     NSLog(@"RoomNumber IS:  %@", self.roomNumber);
@@ -102,6 +103,8 @@
     }
 }
 
+
+/*
 - (void)lazyLoadBlocks {
     //self.blocksStorage = [self getBlocks];
     
@@ -147,6 +150,8 @@
         
     }
 }
+ 
+ */
 
 - (void)lazyLoadPictures {
     NSInteger pageCount = _pageCount;
@@ -234,11 +239,9 @@
 
             CGPoint offset = scrollView.contentOffset;
             offset.x = scrollView.frame.size.width * page;
-            
 
             [self.pictureScrollView setContentOffset:offset animated:YES];
             previousPage = page;
-
             
         }
         
@@ -254,11 +257,11 @@
         NSInteger page = lround(fractionalPage);
         if (previousPage != page) {
 
-            
             CGPoint offset = scrollView.contentOffset;
             offset.x = scrollView.frame.size.width * page;
             
             [self.previewScrollView setContentOffset:offset animated:YES];
+            [_blocksScrollView setSelectedViewNumber:page];
             previousPage = page;
 
         }
