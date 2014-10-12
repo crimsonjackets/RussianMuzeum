@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BlockView : UIImageView
+@interface BlockView : UIView
 
-@property (strong, nonatomic) UIView *redView;
 @property (nonatomic, strong) UILabel *numberLabel;
-@property BOOL active;
-
-- (void)setInteger:(NSInteger)integer;
-
+@property (nonatomic) BOOL selected;
 
 @end

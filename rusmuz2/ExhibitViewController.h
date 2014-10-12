@@ -28,7 +28,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *previewScrollView;
-@property (strong, nonatomic) IBOutlet UIScrollView *blocksScrollView;
+@property (strong, nonatomic) IBOutlet BlockScrollView *blocksScrollView;
 @property (strong, nonatomic) IBOutlet UIScrollView *pictureScrollView;
 
 @property (strong, nonatomic) NSString *exhibitQRCode;

@@ -60,8 +60,9 @@
     
 
     [self lazyLoadPreviews];
-    //[self lazyLoadBlocks];
-    //[self initBlockScrollView];
+
+    _blocksScrollView.numberOfBlocks = _pageCount;
+
     [self lazyLoadPictures];
     
     NSLog(@"RoomNumber IS:  %@", self.roomNumber);
@@ -238,11 +239,9 @@
 
             CGPoint offset = scrollView.contentOffset;
             offset.x = scrollView.frame.size.width * page;
-            
 
             [self.pictureScrollView setContentOffset:offset animated:YES];
             previousPage = page;
-
             
         }
         
@@ -258,11 +257,11 @@
         NSInteger page = lround(fractionalPage);
         if (previousPage != page) {
 
-            
             CGPoint offset = scrollView.contentOffset;
             offset.x = scrollView.frame.size.width * page;
             
             [self.previewScrollView setContentOffset:offset animated:YES];
+            [_blocksScrollView setSelectedViewNumber:page];
             previousPage = page;
 
         }

@@ -11,5 +11,8 @@
 
 @interface BlockScrollView : UIScrollView
 
+@property (nonatomic) NSInteger numberOfBlocks;
+@property (nonatomic) NSInteger selectedViewNumber;
+
 
 @end
