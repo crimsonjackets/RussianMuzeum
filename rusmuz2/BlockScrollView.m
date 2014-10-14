@@ -13,6 +13,9 @@
 
 @interface BlockScrollView ()
 @property (strong, nonatomic) NSMutableArray *blocks;
+
+@property (nonatomic) CGFloat minContentOffsetNormalized;
+@property (nonatomic) CGFloat maxContentOffsetNormalized;
 @end
 
 
@@ -45,9 +48,11 @@
         [self addSubview:view];
         [_blocks addObject:view];
     }
+    _minContentOffsetNormalized = (BLOCK_WIDTH * 6 - 22) / contentSize.width;
+    _maxContentOffsetNormalized = (contentSize.width - (BLOCK_WIDTH * 6 + 5)) / contentSize.width;
 }
 
-
+/*
 - (void)setSelectedViewNumber:(NSInteger)selectedViewNumber {
     for (int i = 0; i < selectedViewNumber; i++) {
      BlockView *blockView = _blocks[i];
@@ -62,9 +67,9 @@
      blockView.selected = NO;
      }
 
-    if (selectedViewNumber < 5) {
+    if (selectedViewNumber <= 5) {
         
-        [self setContentOffset:CGPointMake(0, 0) animated:YES];
+        [self setContentOffset:CGPointZero animated:YES];
         
     } else if ((selectedViewNumber > 5) && (selectedViewNumber < (_numberOfBlocks - 6))) {
         
@@ -89,5 +94,48 @@
     
 }
 
+*/
+
+ - (void)setSelectedViewNumber:(NSInteger)selectedViewNumber {
+ for (int i = 0; i < selectedViewNumber; i++) {
+ BlockView *blockView = _blocks[i];
+ blockView.selected = NO;
+ }
+ 
+ BlockView *blockView = _blocks[selectedViewNumber];
+ blockView.selected = YES;
+ 
+ for (int i = selectedViewNumber + 1; i < _blocks.count; i++) {
+ BlockView *blockView = _blocks[i];
+ blockView.selected = NO;
+ }
+
+ if (selectedViewNumber <= 5) {
+ 
+
+ 
+ } else if ((selectedViewNumber > 5) && (selectedViewNumber < (_numberOfBlocks - 6))) {
+ 
+ 
+ } else if (selectedViewNumber > _numberOfBlocks - 6) {
+ 
+
+ }
+ 
+ }
+
+
+- (void)scrollToContentOffsetNormalized:(CGFloat)contentOffsetNormalized {
+    
+    if ((contentOffsetNormalized < _minContentOffsetNormalized) || (contentOffsetNormalized > _maxContentOffsetNormalized)) {
+        return;
+    } else {
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        
+        CGPoint contentOffset = CGPointMake(contentOffsetNormalized * self.contentSize.width - (screenWidth - BLOCK_WIDTH) / 2, 0);
+        [self setContentOffset:contentOffset animated:NO];
+    }
+}
 
 @end

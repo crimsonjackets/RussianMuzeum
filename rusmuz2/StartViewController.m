@@ -127,7 +127,7 @@
     
     NSArray *fetchedRoom = [self.managedObjectContext executeFetchRequest:request error:&error];
     room = fetchedRoom[0];
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 15; i++) {
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
         ex.name =[NSString stringWithFormat:@"Экспонат номер %d", i];
