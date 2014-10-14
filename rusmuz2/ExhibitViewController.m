@@ -22,24 +22,20 @@
 @property (nonatomic, strong) NSMutableArray *previewsViews;
 @property (nonatomic, strong) NSMutableArray *previewsCopies;
 
-@property (nonatomic, strong) NSMutableArray *images;
-
-@property CGFloat scrollViewStartingPoint;
-@property BOOL isScrollingToTheRight;
-
-
 @property (nonatomic, strong) NSMutableArray *blocksViews;
 
 @property (nonatomic, strong) NSArray *picturesInfo;
 @property (nonatomic, strong) NSMutableArray *picturesViews;
 
 @property (nonatomic, strong) NSArray *exhibitsStorage;
+
+
 @property NSUInteger pageCount;
+@property (nonatomic) CGFloat contentOffsetNormalized;
 
 @end
 
 @implementation ExhibitViewController
-
 
 - (void)viewDidLoad
 {
@@ -266,12 +262,18 @@
 
         }
         
-        
+        [_blocksScrollView scrollToContentOffsetNormalized:self.contentOffsetNormalized];
     }
     
 }
 
-
+- (CGFloat)contentOffsetNormalized {
+    CGFloat offsetX = _pictureScrollView.contentOffset.x;
+    CGFloat contentWidth = _pictureScrollView.contentSize.width;
+    CGFloat normalized = offsetX / contentWidth;
+            NSLog(@"ContentOffset Normalized: %f", normalized);
+    return normalized;
+}
 
 - (void)loadVisiblePreviews {
     CGFloat pageWidth = _previewScrollView.frame.size.width;

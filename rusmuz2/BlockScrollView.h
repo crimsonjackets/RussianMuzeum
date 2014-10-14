@@ -14,5 +14,6 @@
 @property (nonatomic) NSInteger numberOfBlocks;
 @property (nonatomic) NSInteger selectedViewNumber;
 
+- (void)scrollToContentOffsetNormalized:(CGFloat)contentOffsetNormalized;
 
 @end
