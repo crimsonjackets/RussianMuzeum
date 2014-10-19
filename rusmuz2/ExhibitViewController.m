@@ -46,14 +46,17 @@
     self.navigationButton.buttonKind = exhibitVC;
     self.navigationButton.delegate = self;
     
+    
     self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
     _exhibitsStorage = [self getExhibits];
-    
+
     self.previewScrollView.delegate = self;
     self.blocksScrollView.delegate = self;
     self.pictureScrollView.delegate = self;
-    
+
+    self.previewScrollView.exhibitTappedDelegate = self;
+    self.blocksScrollView.exhibitTappedDelegate = self;
 
     [self lazyLoadPreviews];
 
@@ -99,56 +102,6 @@
     }
 }
 
-
-/*
-- (void)lazyLoadBlocks {
-    //self.blocksStorage = [self getBlocks];
-    
-    NSInteger pageCount = _pageCount;
-    self.blocksViews = [[NSMutableArray alloc] init];
-    
-    for (NSInteger i = 0; i < pageCount; ++i) {
-        //TODO POTENTIALLY CAN INITIALIZE HERE ALL THE BLOCKS WITHOUT LAZY LOADING
-        [self.blocksViews addObject:[NSNull null]];
-    }
-    
-    CGSize contentSize;
-    contentSize.width = BLOCK_WIDTH * (_pageCount);
-    contentSize.height = BLOCK_HEIGHT;
-    
-    self.blocksScrollView.contentSize = contentSize;
-    
-    NSLog(@"Contentsize REijo: %f", contentSize.width);
-    NSLog(@"Contentsize REijo: %f", contentSize.height);
-
-    for (int i = 0; i < _pageCount; i++) {
-        UIView *pageView = [_blocksViews objectAtIndex:i];
-        if ((NSNull*)pageView == [NSNull null]) {
-            
-            CGFloat totalWidth = BLOCK_WIDTH * i;
-            
-            BlockView *view = [[BlockView alloc] initWithImage:[UIImage imageNamed:@"block.png"]];
-            
-                        NSString *number = [NSString stringWithFormat:@"%ld", (long)i + 1];
-            view.numberLabel.text = number;
-            
-            CGRect frame = CGRectMake(0, 0, BLOCK_WIDTH, BLOCK_HEIGHT);
-            
-            frame.origin.x = totalWidth;
-            view.frame = frame;
-            [self.blocksScrollView addSubview:view];
-            // 4
-            [_blocksViews replaceObjectAtIndex:i withObject:view];
-            
-            
-            
-        }
-        
-    }
-}
- 
- */
-
 - (void)lazyLoadPictures {
     NSInteger pageCount = _pageCount;
     self.picturesViews = [[NSMutableArray alloc] init];
@@ -170,7 +123,6 @@
 
 - (void)loadAllPictures {
     for (NSInteger i=0; i<=_pageCount; i++) {
-        //[self loadPage:i fromArray:storageArray toViewArray:viewArray andScrollView:scrollView];
         [self loadPicture:i];
     }
 }
@@ -225,7 +177,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
+/*
     if (scrollView == self.previewScrollView) {
         static NSInteger previousPage = 0;
         CGFloat pageWidth = scrollView.frame.size.width;
@@ -262,9 +214,29 @@
 
         }
         
-        [_blocksScrollView scrollToContentOffsetNormalized:self.contentOffsetNormalized];
+        [_blocksScrollView scrollToContentOffsetNormalized:self.contentOffsetNormalized animated:NO];
     }
-    
+  */
+
+    if (scrollView == self.pictureScrollView) {
+        
+        static NSInteger previousPage = 0;
+        CGFloat pageWidth = scrollView.frame.size.width;
+        float fractionalPage = scrollView.contentOffset.x / pageWidth;
+        NSInteger page = lround(fractionalPage);
+        if (previousPage != page) {
+            
+            CGPoint offset = scrollView.contentOffset;
+            offset.x = scrollView.frame.size.width * page;
+            
+            [self.previewScrollView setContentOffset:offset animated:YES];
+            [_blocksScrollView setSelectedViewNumber:page];
+            previousPage = page;
+            
+        }
+        [_previewScrollView setContentOffset:self.pictureScrollView.contentOffset animated:NO];
+        [_blocksScrollView scrollToContentOffsetNormalized:self.contentOffsetNormalized animated:NO];
+    }
 }
 
 - (CGFloat)contentOffsetNormalized {
@@ -330,83 +302,92 @@
         CGFloat totalWidth = screen * screenWidth;
         
         
-            ExhibitPreview *exhibitPreview =  [_previewsViews objectAtIndex:previous];
-//            ExhibitPreview *exhibitPreviewCopy =  [_previewsCopies objectAtIndex:previous];
+        ExhibitPreview *exhibitPreview =  [_previewsViews objectAtIndex:previous];
+        //            ExhibitPreview *exhibitPreviewCopy =  [_previewsCopies objectAtIndex:previous];
         
-            if ((NSNull*)exhibitPreview == [NSNull null]) {
-                    Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
-                    ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
-                    
-                    NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
-                    
-                    NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
-                    exhibitPreview.number.text = number;
-                    
-                    CGRect frame = exhibitPreview.frame;
-                    frame.origin.x = totalWidth;
-                    exhibitPreview.frame = frame;
-                                    [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
-
-                [_previewScrollView addSubview:exhibitPreview];
-
-                
-            } else if (exhibitPreview.frame.origin.x != totalWidth) {
-                ExhibitPreview *copiedPreview = [exhibitPreview copy];
-                
-                CGRect frame = exhibitPreview.frame;
-                frame.origin.x = totalWidth;
-                copiedPreview.frame = frame;
-                
-                [_previewScrollView addSubview:copiedPreview];
-            }
-
+        if ((NSNull*)exhibitPreview == [NSNull null]) {
+            Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
+            ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
+            
+            NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
+            
+            NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
+            exhibitPreview.number.text = number;
+            
+            exhibitPreview.tag = previous;
+            
+            CGRect frame = exhibitPreview.frame;
+            frame.origin.x = totalWidth;
+            exhibitPreview.frame = frame;
+            [_previewsViews replaceObjectAtIndex:previous withObject:exhibitPreview];
+            
+            [_previewScrollView addSubview:exhibitPreview];
+            
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            [exhibitPreview addGestureRecognizer:recognizer];
+            
+        } else if (exhibitPreview.frame.origin.x != totalWidth) {
+            ExhibitPreview *copiedPreview = [exhibitPreview copy];
+            
+            CGRect frame = exhibitPreview.frame;
+            frame.origin.x = totalWidth;
+            copiedPreview.frame = frame;
+            
+            [_previewScrollView addSubview:copiedPreview];
+            
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            [copiedPreview addGestureRecognizer:recognizer];
+        }
+        
     }
 
 
-     
+    
     if (!(next < 0 || next >= _pageCount)) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenWidth = screenRect.size.width;
         CGFloat totalWidth = screen * screenWidth + screenWidth/2;
         
         ExhibitPreview *exhibitPreview = [_previewsViews objectAtIndex:next];
-            if ((NSNull*)exhibitPreview == [NSNull null]) {
-                    
-                Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
-                
-                ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
-                
-                                NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
-                
-                NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
-                exhibitPreview.number.text = number;
-
-                
-
-                
-                CGRect frame = exhibitPreview.frame;
-                frame.origin.x = totalWidth;
-                exhibitPreview.frame = frame;
-                                    [_previewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
-
-                [_previewScrollView addSubview:exhibitPreview];
-
-
-                
-            } else if (exhibitPreview.frame.origin.x != totalWidth) {
-                ExhibitPreview *copiedPreview = [exhibitPreview copy];
-                
-                CGRect frame = exhibitPreview.frame;
-                frame.origin.x = totalWidth;
-                copiedPreview.frame = frame;
-                
-                [_previewScrollView addSubview:copiedPreview];
-
-                
-            }
+        if ((NSNull*)exhibitPreview == [NSNull null]) {
+            
+            Exhibit *exhibit = [_exhibitsStorage objectAtIndex:next];
+            
+            ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
+            
+            NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
+            
+            NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
+            exhibitPreview.number.text = number;
+            
+            exhibitPreview.tag = next;
+            
+            
+            CGRect frame = exhibitPreview.frame;
+            frame.origin.x = totalWidth;
+            exhibitPreview.frame = frame;
+            [_previewsViews replaceObjectAtIndex:next withObject:exhibitPreview];
+            
+            [_previewScrollView addSubview:exhibitPreview];
+            
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            [exhibitPreview addGestureRecognizer:recognizer];
+            
+        } else if (exhibitPreview.frame.origin.x != totalWidth) {
+            ExhibitPreview *copiedPreview = [exhibitPreview copy];
+            
+            CGRect frame = exhibitPreview.frame;
+            frame.origin.x = totalWidth;
+            copiedPreview.frame = frame;
+            
+            [_previewScrollView addSubview:copiedPreview];
+            
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            [copiedPreview addGestureRecognizer:recognizer];
+        }
     }
-
-
+    
+    
 }
 
 
@@ -489,7 +470,7 @@
         newExhibitImageView.frame = frame;
 
         [_pictureScrollView addSubview:newExhibitImageView];
-        // 4
+
         [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
     }
 }
@@ -509,6 +490,17 @@
 }
 
 
+#pragma mark Scrolling Engine Delegate
+
+- (void)exhibitSelected:(NSInteger)exhibitNumber {
+    NSLog(@"EXHIBIT SELECTED: %ld", (long)exhibitNumber);
+    [_blocksScrollView setSelectedViewNumber:exhibitNumber];
+    
+    CGFloat contentOffsetNormalized = (CGFloat)exhibitNumber / (CGFloat)_pageCount;
+    [_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
+    
+    //[_previewScrollView scrollToPage:exhibitNumber];
+}
 
 #pragma mark - Navigation Button methods
 - (void)homeButtonPressed {
@@ -525,7 +517,7 @@
 }
 
 - (void)mapButtonPressed {
-    InteractiveMapViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InteractiveMapViewController"];
+    FloorSelectorViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FloorSelectorViewController"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
