@@ -21,58 +21,52 @@
     
     exhibitPreview.author.text = exhibit.author;
     exhibitPreview.title.text = exhibit.name;
-    
+
     return exhibitPreview;
 }
 
 - (id)initWithImage:(UIImage *)image {
     self = [super initWithImage:image];
     if (self) {
+        self.userInteractionEnabled = YES;
         
-        self.blackView = [self blackViewWithFrame:self.frame];
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
+        self.frame = frame;
+
+        //LEFT-RIGHT based code
+
+        self.blackView = [self blackViewWithFrame:self.bounds];
         [self addSubview:self.blackView];
+
+        
+        NSLog(@"PREVIEW BOUNDS: %f", self.bounds.size.width);
+        NSLog(@"PREVIEW BOUNDS: %f", self.bounds.size.height);
         
         NSLog(@"init with image");
+
         self.number = [[UILabel alloc] initWithFrame:CGRectMake(15, 22, 100, 30)];
         [self.number setTextColor:[UIColor whiteColor]];
         [self.number setBackgroundColor:[UIColor clearColor]];
         [self.number setFont:[UIFont fontWithName: @"Helvetica Neue" size: 24.0f]];
         self.number.numberOfLines = 0;
         self.number.textAlignment = NSTextAlignmentLeft;
-        //[self.numberLabel setText:@"1"];
         [self addSubview:self.number];
-       /*
-        self.title = [[UILabel alloc] initWithFrame:CGRectMake(15, 78, 120, 50)];
-        [self.title setTextColor:[UIColor whiteColor]];
-        [self.title setBackgroundColor:[UIColor clearColor]];
-        [self.title setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
-        self.title.lineBreakMode = NSLineBreakByWordWrapping;
-        self.title.numberOfLines = 0;
-//        self.title.textAlignment = nstexta
-        //[self.title setText:@"НОЧЛаааааааыаывавыаываываываываываываыаываываываываываЕГ"];
-        [self addSubview:self.title];
-//        [self.title sizeToFit];
-        */
         
         
-        self.title = [[UITextView alloc] initWithFrame:CGRectMake(15, 78, 230, 50)];
+        self.title = [[UITextView alloc] initWithFrame:CGRectMake(10, 78, 140, 50)];
         [self.title setTextColor:[UIColor whiteColor]];
         [self.title setBackgroundColor:[UIColor clearColor]];
         [self.title setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
         //self.title.lineBreakMode = NSLineBreakByWordWrapping;
         //self.title.numberOfLines = 0;
         self.title.textAlignment = NSTextAlignmentLeft;
-        //[self.title setText:@"НОЧЛаааааааыаывавыаываываываываываываыаываываываываываЕГ"];
-
         [self addSubview:self.title];
         [self.title setContentOffset: CGPointMake(0,0) animated:NO];
+        self.title.userInteractionEnabled = NO;
         
-        //        [self alignTitleBottom];
-        //        [self.title sizeToFit];
-        
-        
-        
-        self.author = [[UILabel alloc] initWithFrame:CGRectMake(15, 110, 100, 30)];
+        self.author = [[UILabel alloc] initWithFrame:CGRectMake(15, 110, 140, 30)];
         [self.author setTextColor:[UIColor whiteColor]];
         [self.author setBackgroundColor:[UIColor clearColor]];
         [self.author setFont:[UIFont fontWithName: @"Helvetica Neue" size: 8.0f]];
@@ -84,12 +78,7 @@
         
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
-        
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        
-        CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
-        self.frame = frame;   
+
     }
     return self;
 }

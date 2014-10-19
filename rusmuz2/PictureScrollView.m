@@ -10,6 +10,11 @@
 
 @implementation PictureScrollView
 
+- (void)scrollToPage:(NSInteger)page {
+    CGPoint contentOffset = CGPointZero;
+    contentOffset.x = page * self.frame.size.width;
+    [self setContentOffset:contentOffset animated:YES];
+}
 
 
 @end

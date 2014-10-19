@@ -229,7 +229,7 @@
             CGPoint offset = scrollView.contentOffset;
             offset.x = scrollView.frame.size.width * page;
             
-            [self.previewScrollView setContentOffset:offset animated:YES];
+            //[self.previewScrollView setContentOffset:offset animated:YES];
             [_blocksScrollView setSelectedViewNumber:page];
             previousPage = page;
             
@@ -323,7 +323,9 @@
             
             [_previewScrollView addSubview:exhibitPreview];
             
-            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+            recognizer.delegate = self;
+            recognizer.cancelsTouchesInView = NO;
             [exhibitPreview addGestureRecognizer:recognizer];
             
         } else if (exhibitPreview.frame.origin.x != totalWidth) {
@@ -335,7 +337,11 @@
             
             [_previewScrollView addSubview:copiedPreview];
             
-            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            copiedPreview.tag = previous;
+            
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+            recognizer.delegate = self;
+            recognizer.cancelsTouchesInView = NO;
             [copiedPreview addGestureRecognizer:recognizer];
         }
         
@@ -370,7 +376,9 @@
             
             [_previewScrollView addSubview:exhibitPreview];
             
-            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+            recognizer.delegate = self;
+            recognizer.cancelsTouchesInView = NO;
             [exhibitPreview addGestureRecognizer:recognizer];
             
         } else if (exhibitPreview.frame.origin.x != totalWidth) {
@@ -382,7 +390,11 @@
             
             [_previewScrollView addSubview:copiedPreview];
             
-            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.previewScrollView action:@selector(handleTap:)];
+            copiedPreview.tag = next;
+            
+            UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+            recognizer.delegate = self;
+            recognizer.cancelsTouchesInView = NO;
             [copiedPreview addGestureRecognizer:recognizer];
         }
     }
@@ -497,10 +509,21 @@
     [_blocksScrollView setSelectedViewNumber:exhibitNumber];
     
     CGFloat contentOffsetNormalized = (CGFloat)exhibitNumber / (CGFloat)_pageCount;
-    [_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
-    
+    //[_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
+
     //[_previewScrollView scrollToPage:exhibitNumber];
+    [_pictureScrollView scrollToPage:exhibitNumber];
 }
+
+
+- (void)handleTap:(UITapGestureRecognizer *)recognizer {
+    ExhibitPreview *view = (ExhibitPreview *)recognizer.view;
+    NSInteger number = view.tag;
+//    [self.exhibitTappedDelegate exhibitSelected:number];
+    [self exhibitSelected:number];
+
+}
+
 
 #pragma mark - Navigation Button methods
 - (void)homeButtonPressed {

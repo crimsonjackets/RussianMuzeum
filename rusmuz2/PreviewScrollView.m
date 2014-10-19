@@ -14,7 +14,7 @@
 - (void)scrollToPage:(NSInteger)page {
     CGPoint contentOffset = CGPointZero;
     contentOffset.x = page * self.frame.size.width;
-    [self setContentOffset:contentOffset animated:YES];
+    [self setContentOffset:contentOffset animated:NO];
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {

@@ -24,7 +24,7 @@
 #import "InteractiveMapViewController.h"
 #import "SponsorViewController.h"
 
-@interface ExhibitViewController : UIViewController <UIScrollViewDelegate, ExhibitTappedDelegate, NavigationButtonDelegate>
+@interface ExhibitViewController : UIViewController <UIScrollViewDelegate, ExhibitTappedDelegate, NavigationButtonDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
 
@@ -37,5 +37,7 @@
 @property (strong, nonatomic) NSString *exhibitQRCode;
 @property (strong, nonatomic) NSNumber *roomNumber;
 
+- (void)handleTap:(UITapGestureRecognizer *)recognizer;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface PictureScrollView : UIScrollView
 
+- (void)scrollToPage:(NSInteger)page;
+
 @end
