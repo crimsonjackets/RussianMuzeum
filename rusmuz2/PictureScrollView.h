@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExhibitsScrollView : UIScrollView
+@interface PictureScrollView : UIScrollView
+
+- (void)scrollToPage:(NSInteger)page;
 
 @end

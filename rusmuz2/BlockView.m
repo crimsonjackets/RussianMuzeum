@@ -27,7 +27,7 @@
         self.alpha = DESELECTED_BLOCK_ALPHA;
 
         [self addSubview:self.numberLabel];
-        
+
     }
     return self;
 }

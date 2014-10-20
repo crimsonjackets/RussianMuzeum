@@ -44,57 +44,17 @@
         view.frame = frame;
         NSString *number = [NSString stringWithFormat:@"%ld", (long)i + 1];
         view.numberLabel.text = number;
+        view.tag = i;
         
         [self addSubview:view];
         [_blocks addObject:view];
+        
+        UIGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        [view addGestureRecognizer:recognizer];
     }
     _minContentOffsetNormalized = (BLOCK_WIDTH * 6 - 22) / contentSize.width;
     _maxContentOffsetNormalized = (contentSize.width - (BLOCK_WIDTH * 6 + 5)) / contentSize.width;
 }
-
-/*
-- (void)setSelectedViewNumber:(NSInteger)selectedViewNumber {
-    for (int i = 0; i < selectedViewNumber; i++) {
-     BlockView *blockView = _blocks[i];
-     blockView.selected = NO;
-     }
-
-    BlockView *blockView = _blocks[selectedViewNumber];
-    blockView.selected = YES;
-
-     for (int i = selectedViewNumber + 1; i < _blocks.count; i++) {
-     BlockView *blockView = _blocks[i];
-     blockView.selected = NO;
-     }
-
-    if (selectedViewNumber <= 5) {
-        
-        [self setContentOffset:CGPointZero animated:YES];
-        
-    } else if ((selectedViewNumber > 5) && (selectedViewNumber < (_numberOfBlocks - 6))) {
-        
-        CGPoint blockPoint = blockView.frame.origin;
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        blockPoint.x = blockPoint.x - (screenWidth - BLOCK_WIDTH) / 2;
-        
-        [self setContentOffset:blockPoint animated:YES];
-        
-    } else if (selectedViewNumber > _numberOfBlocks - 6) {
-
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        
-        CGFloat maxXOffset = _numberOfBlocks * BLOCK_WIDTH - screenWidth;
-        CGPoint contentOffset = CGPointMake(maxXOffset, 0);
-        
-        [self setContentOffset:contentOffset animated:YES];
-    }
-
-    
-}
-
-*/
 
  - (void)setSelectedViewNumber:(NSInteger)selectedViewNumber {
  for (int i = 0; i < selectedViewNumber; i++) {
@@ -111,31 +71,43 @@
  }
 
  if (selectedViewNumber <= 5) {
- 
 
- 
+
  } else if ((selectedViewNumber > 5) && (selectedViewNumber < (_numberOfBlocks - 6))) {
- 
+
  
  } else if (selectedViewNumber > _numberOfBlocks - 6) {
- 
+
 
  }
  
  }
 
 
-- (void)scrollToContentOffsetNormalized:(CGFloat)contentOffsetNormalized {
-    
-    if ((contentOffsetNormalized < _minContentOffsetNormalized) || (contentOffsetNormalized > _maxContentOffsetNormalized)) {
-        return;
+- (void)scrollToContentOffsetNormalized:(CGFloat)contentOffsetNormalized animated:(BOOL)animated {
+    if (contentOffsetNormalized < _minContentOffsetNormalized) {
+        [self setContentOffset:CGPointZero animated:animated];
+    } else if (contentOffsetNormalized > _maxContentOffsetNormalized) {
+        CGPoint maxContentOffset = [self contentOffsetFromNormalized:_maxContentOffsetNormalized];
+        [self setContentOffset:maxContentOffset animated:animated];
     } else {
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        
-        CGPoint contentOffset = CGPointMake(contentOffsetNormalized * self.contentSize.width - (screenWidth - BLOCK_WIDTH) / 2, 0);
-        [self setContentOffset:contentOffset animated:NO];
+        [self setContentOffset:[self contentOffsetFromNormalized:contentOffsetNormalized] animated:animated];
     }
+}
+
+- (CGPoint)contentOffsetFromNormalized:(CGFloat)contentOffsetNormalized {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
+    CGPoint contentOffset = CGPointMake(contentOffsetNormalized * self.contentSize.width - (screenWidth - BLOCK_WIDTH) / 2, 0);
+    return contentOffset;
+}
+
+
+- (void)handleTap:(UITapGestureRecognizer *)recognizer {
+    BlockView *view = (BlockView *)recognizer.view;
+    NSInteger number = view.tag;
+    [self.exhibitTappedDelegate exhibitSelected:number];
 }
 
 @end

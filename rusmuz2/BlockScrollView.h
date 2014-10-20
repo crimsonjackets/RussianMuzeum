@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "BlockView.h"
 
+#import "ExhibitTappedDelegate.h"
+
 @interface BlockScrollView : UIScrollView
 
 @property (nonatomic) NSInteger numberOfBlocks;
 @property (nonatomic) NSInteger selectedViewNumber;
 
-- (void)scrollToContentOffsetNormalized:(CGFloat)contentOffsetNormalized;
+@property (nonatomic, assign) id <ExhibitTappedDelegate> exhibitTappedDelegate;
+
+- (void)scrollToContentOffsetNormalized:(CGFloat)contentOffsetNormalized animated:(BOOL)animated;
+
+- (void)handleTap:(UITapGestureRecognizer *)recognizer;
 
 @end
