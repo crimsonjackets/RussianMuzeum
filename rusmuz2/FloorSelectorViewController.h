@@ -16,8 +16,10 @@
 @interface FloorSelectorViewController : UIViewController <NavigationButtonDelegate>
 
 @property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
+@property (strong, nonatomic) IBOutlet UIButton *buttonBenois;
 
-- (IBAction)button1Floor:(id)sender;
 - (IBAction)button2Floor:(id)sender;
+- (IBAction)button1Floor:(id)sender;
+- (IBAction)buttonBenois:(id)sender;
 
 @end
