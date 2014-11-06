@@ -21,6 +21,8 @@
 
     self.navigationButton.buttonKind = startVC;
     self.navigationButton.delegate = self;
+    
+    _buttonBenois.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 
@@ -35,6 +37,10 @@
     InteractiveMapViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"InteractiveMapViewController"];
     vc.currentFloor = @2;
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)buttonBenois:(id)sender {
+    NSLog(@"Переход к корпусу Бенуа");
 }
 
 #pragma mark - Navigation Button methods

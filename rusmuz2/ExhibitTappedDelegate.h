@@ -10,6 +10,7 @@
 
 @protocol ExhibitTappedDelegate <NSObject>
 
+@optional
 - (void)exhibitSelected:(NSInteger)exhibitNumber;
-
+- (void)exhibitInfoSelected:(NSInteger)exhibitNumber;
 @end

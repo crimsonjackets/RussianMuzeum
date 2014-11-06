@@ -59,7 +59,7 @@
     self.imageView.frame = contentsFrame;
 }
 
-- (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
+- (void)scrollViewDoubleTapped:(UITapGestureRecognizer *)recognizer {
     // 1
     CGPoint pointInView = [recognizer locationInView:self.imageView];
     

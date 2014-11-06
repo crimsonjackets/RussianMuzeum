@@ -348,21 +348,7 @@
 				79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */,
 				09E80A1F193BEC5400D62ED1 /* InteractiveMapViewController.h */,
 				09E80A20193BEC5400D62ED1 /* InteractiveMapViewController.m */,
-				797DC06B19F3145B00EA0C03 /* ExhibitTappedDelegate.h */,
-				09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */,
-				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
-				797DC06C19F3375C00EA0C03 /* PreviewScrollView.h */,
-				797DC06D19F3375C00EA0C03 /* PreviewScrollView.m */,
-				79EA5C9A19B20FC00076E011 /* ExhibitPreview.h */,
-				79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */,
-				797BD01D19E9A31200A58B9D /* BlockScrollView.h */,
-				797BD01E19E9A31200A58B9D /* BlockScrollView.m */,
-				79EA5C9D19B2C59D0076E011 /* BlockView.h */,
-				79EA5C9E19B2C59D0076E011 /* BlockView.m */,
-				799A06C31982E4C700C83526 /* PictureScrollView.h */,
-				799A06C41982E4C700C83526 /* PictureScrollView.m */,
-				7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */,
-				7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */,
+				791A1C521A04787500607EA6 /* ExhibitViewController */,
 				79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */,
 				79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */,
 				793CDB21196236E600E97CCB /* CDCreatorViewController.h */,
@@ -452,6 +438,28 @@
 				09E80A6D193BF15500D62ED1 /* floor2.gif */,
 			);
 			path = FloorMaps;
+			sourceTree = "<group>";
+		};
+		791A1C521A04787500607EA6 /* ExhibitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				797DC06B19F3145B00EA0C03 /* ExhibitTappedDelegate.h */,
+				09E80A21193BEC5400D62ED1 /* ExhibitViewController.h */,
+				09E80A22193BEC5400D62ED1 /* ExhibitViewController.m */,
+				797DC06C19F3375C00EA0C03 /* PreviewScrollView.h */,
+				797DC06D19F3375C00EA0C03 /* PreviewScrollView.m */,
+				79EA5C9A19B20FC00076E011 /* ExhibitPreview.h */,
+				79EA5C9B19B20FC00076E011 /* ExhibitPreview.m */,
+				797BD01D19E9A31200A58B9D /* BlockScrollView.h */,
+				797BD01E19E9A31200A58B9D /* BlockScrollView.m */,
+				79EA5C9D19B2C59D0076E011 /* BlockView.h */,
+				79EA5C9E19B2C59D0076E011 /* BlockView.m */,
+				799A06C31982E4C700C83526 /* PictureScrollView.h */,
+				799A06C41982E4C700C83526 /* PictureScrollView.m */,
+				7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */,
+				7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */,
+			);
+			name = ExhibitViewController;
 			sourceTree = "<group>";
 		};
 		791F84D519D8EE040061BAB8 /* QRCodeFrame */ = {

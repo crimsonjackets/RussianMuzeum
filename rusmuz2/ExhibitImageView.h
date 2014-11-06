@@ -12,8 +12,10 @@
 
 @property (strong, nonatomic) UIView *blackView;
 
-@property (strong, nonatomic) UILabel *number;
+//@property (strong, nonatomic) UILabel *number;
+@property (nonatomic) UIButton *infoButton;
+@property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UILabel *author;
-@property (strong, nonatomic) UILabel *info;
+//@property (strong, nonatomic) UILabel *info;
 
 @end

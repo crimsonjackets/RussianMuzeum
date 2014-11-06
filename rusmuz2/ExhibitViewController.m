@@ -468,9 +468,10 @@
         
         ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
         NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
-        newExhibitImageView.number.text = number;
+        //newExhibitImageView.number.text = number;
+        newExhibitImageView.title.text = exhibit.name;
         newExhibitImageView.author.text = exhibit.author;
-        newExhibitImageView.info.text = exhibit.info;
+        //newExhibitImageView.info.text = exhibit.info;
         
         
         
@@ -511,7 +512,7 @@
     CGFloat contentOffsetNormalized = (CGFloat)exhibitNumber / (CGFloat)_pageCount;
     //[_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
 
-    //[_previewScrollView scrollToPage:exhibitNumber];
+    //[_previewScrollView scrollToPage:exhib≈≈itNumber];
     [_pictureScrollView scrollToPage:exhibitNumber];
 }
 
