@@ -472,7 +472,7 @@
         newExhibitImageView.title.text = exhibit.name;
         newExhibitImageView.author.text = exhibit.author;
         //newExhibitImageView.info.text = exhibit.info;
-        
+        //[newExhibitImageView.videoButton addTarget:self action:@selector(<#selector#>) forControlEvents:<#(UIControlEvents)#>];
         
         
         CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);

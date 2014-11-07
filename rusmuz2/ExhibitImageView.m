@@ -44,6 +44,11 @@
         [self addSubview:self.author];
         
         
+        self.videoButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [_videoButton setImage:[UIImage imageNamed:@"videoButton"] forState:UIControlStateNormal];
+        _videoButton.center = CGPointMake(self.frame.size.width / 2, 240);
+        [self addSubview:_videoButton];
+        
         /*
          CGRect numberFrame = CGRectMake(0, 20, self.frame.size.width, 100);
          

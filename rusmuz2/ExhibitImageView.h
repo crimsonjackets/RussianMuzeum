@@ -18,4 +18,5 @@
 @property (strong, nonatomic) UILabel *author;
 //@property (strong, nonatomic) UILabel *info;
 
+@property (nonatomic) UIButton *videoButton;
 @end
