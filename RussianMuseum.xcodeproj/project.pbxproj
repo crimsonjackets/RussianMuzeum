@@ -42,6 +42,7 @@
 		791F84DD19D8EE040061BAB8 /* qrUR.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D919D8EE040061BAB8 /* qrUR.png */; };
 		7923D9C4194E6BB6008C3013 /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C2194E6BB6008C3013 /* floor1.png */; };
 		7923D9C5194E6BB6008C3013 /* floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923D9C3194E6BB6008C3013 /* floor2.png */; };
+		792F57D31A0E7D35005C724B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792F57D21A0E7D35005C724B /* MediaPlayer.framework */; };
 		79395AE6198FCF850026F137 /* homeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79395AE3198FCF850026F137 /* homeButton@2x.png */; };
 		793CDB19196099B900E97CCB /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB18196099B900E97CCB /* NSManagedObjectContext+Queryable.m */; };
 		793CDB23196236E600E97CCB /* CDCreatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793CDB22196236E600E97CCB /* CDCreatorViewController.m */; };
@@ -152,6 +153,7 @@
 		791F84D919D8EE040061BAB8 /* qrUR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrUR.png; sourceTree = "<group>"; };
 		7923D9C2194E6BB6008C3013 /* floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor1.png; sourceTree = "<group>"; };
 		7923D9C3194E6BB6008C3013 /* floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor2.png; sourceTree = "<group>"; };
+		792F57D21A0E7D35005C724B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		79395AE3198FCF850026F137 /* homeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeButton@2x.png"; sourceTree = "<group>"; };
 		793CDB16196099B900E97CCB /* ios-queryable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ios-queryable-Prefix.pch"; sourceTree = "<group>"; };
 		793CDB17196099B900E97CCB /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792F57D31A0E7D35005C724B /* MediaPlayer.framework in Frameworks */,
 				79C01149195CF51700BF6784 /* CoreData.framework in Frameworks */,
 				09E809EA193BEB0700D62ED1 /* UIKit.framework in Frameworks */,
 				09E80A3C193BED1000D62ED1 /* AVFoundation.framework in Frameworks */,
@@ -312,6 +315,7 @@
 		09E809E4193BEB0700D62ED1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				792F57D21A0E7D35005C724B /* MediaPlayer.framework */,
 				79C01148195CF51700BF6784 /* CoreData.framework */,
 				09E80A3B193BED1000D62ED1 /* AVFoundation.framework */,
 				09E80A39193BECFF00D62ED1 /* CoreMedia.framework */,

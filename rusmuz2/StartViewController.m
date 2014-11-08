@@ -188,4 +188,16 @@
 }
 
 
+- (IBAction)playerButtonPressed:(id)sender {
+    NSURL *url = [NSURL URLWithString:
+                  @"http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v"];
+    
+    NSLog(@"URL: %@", url);
+
+    MPMoviePlayerViewController *c = [[MPMoviePlayerViewController alloc]
+                                      initWithContentURL:url];
+
+    
+    [self presentMoviePlayerViewControllerAnimated:c];
+}
 @end

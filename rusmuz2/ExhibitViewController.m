@@ -54,7 +54,7 @@
     self.previewScrollView.delegate = self;
     self.blocksScrollView.delegate = self;
     self.pictureScrollView.delegate = self;
-
+ 
     self.previewScrollView.exhibitTappedDelegate = self;
     self.blocksScrollView.exhibitTappedDelegate = self;
 

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "Exhibit.h"
 #import "Room.h"
 #import <CoreData/CoreData.h>
@@ -25,4 +26,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 
+- (IBAction)playerButtonPressed:(id)sender;
 @end
