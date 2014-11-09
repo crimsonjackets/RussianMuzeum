@@ -8,13 +8,19 @@
 
 #import "ExhibitImageView.h"
 
+@interface ExhibitImageView ()
+@property (strong, nonatomic) UIView *blackView;
+@end
+
+
 @implementation ExhibitImageView
 
-- (id)initWithImage:(UIImage *)image {
-    self = [super initWithImage:image];
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
     if (self) {
         
-        self.blackView = [self blackViewWithFrame:self.frame];
+        self.blackView = [self blackViewWithFrame:self.bounds];
         [self addSubview:self.blackView];
         
         self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
@@ -43,6 +49,8 @@
         //[self.author setText:@"ВАСНЕЦОВ"];
         [self addSubview:self.author];
         
+        [self setContentMode:UIViewContentModeScaleAspectFill];
+        self.clipsToBounds = YES;
         
         /*
          CGRect numberFrame = CGRectMake(0, 20, self.frame.size.width, 100);
@@ -60,19 +68,17 @@
         
         
         /*
-        CGRect infoFrame = CGRectMake(0, 200, self.frame.size.width, 100);
-       
-        self.info = [[UILabel alloc] initWithFrame:infoFrame];
-        [self.info setTextColor:[UIColor whiteColor]];
-        [self.info setBackgroundColor:[UIColor clearColor]];
-        [self.info setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
-        self.info.numberOfLines = 0;
-        self.info.textAlignment = NSTextAlignmentCenter;
-        //[self.info setText:@"НОЧЛЕГ"];
-        [self addSubview:self.info];
-        */
-        
-
+         CGRect infoFrame = CGRectMake(0, 200, self.frame.size.width, 100);
+         
+         self.info = [[UILabel alloc] initWithFrame:infoFrame];
+         [self.info setTextColor:[UIColor whiteColor]];
+         [self.info setBackgroundColor:[UIColor clearColor]];
+         [self.info setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
+         self.info.numberOfLines = 0;
+         self.info.textAlignment = NSTextAlignmentCenter;
+         //[self.info setText:@"НОЧЛЕГ"];
+         [self addSubview:self.info];
+         */
         
     }
     return self;
@@ -84,5 +90,7 @@
     blackView.alpha = 0.5;
     return blackView;
 }
+
+
 
 @end

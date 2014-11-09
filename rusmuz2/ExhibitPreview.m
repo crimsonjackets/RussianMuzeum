@@ -15,9 +15,7 @@
 
 
 - (ExhibitPreview *)initWithExhibit:(Exhibit *)exhibit {
-    UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
-    
-    ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:image];
+    ExhibitPreview *exhibitPreview = [ExhibitPreview new];
     
     exhibitPreview.author.text = exhibit.author;
     exhibitPreview.title.text = exhibit.name;
@@ -25,8 +23,9 @@
     return exhibitPreview;
 }
 
-- (id)initWithImage:(UIImage *)image {
-    self = [super initWithImage:image];
+- (instancetype)init
+{
+    self = [super init];
     if (self) {
         self.userInteractionEnabled = YES;
         
@@ -34,18 +33,18 @@
         CGFloat screenWidth = screenRect.size.width;
         CGRect frame = CGRectMake(0.0f, 0.0f, screenWidth/2, PREVIEW_HEIGHT);
         self.frame = frame;
-
+        
         //LEFT-RIGHT based code
-
+        
         self.blackView = [self blackViewWithFrame:self.bounds];
         [self addSubview:self.blackView];
-
+        
         
         NSLog(@"PREVIEW BOUNDS: %f", self.bounds.size.width);
         NSLog(@"PREVIEW BOUNDS: %f", self.bounds.size.height);
         
         NSLog(@"init with image");
-
+        
         self.number = [[UILabel alloc] initWithFrame:CGRectMake(15, 22, 100, 30)];
         [self.number setTextColor:[UIColor whiteColor]];
         [self.number setBackgroundColor:[UIColor clearColor]];
@@ -78,10 +77,10 @@
         
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
-
     }
     return self;
 }
+
 
 - (UIView *)blackViewWithFrame:(CGRect)frame {
     UIView *blackView = [[UIView alloc] initWithFrame:frame];
@@ -108,7 +107,7 @@
 
 
 - (ExhibitPreview *)copy {
-    ExhibitPreview *exhibitPreview =[[ExhibitPreview alloc] initWithImage:self.image];
+    ExhibitPreview *exhibitPreview =[ExhibitPreview new];
     
     exhibitPreview.number.text = self.number.text;
     exhibitPreview.author.text = self.author.text;

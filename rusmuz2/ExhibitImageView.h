@@ -10,7 +10,8 @@
 
 @interface ExhibitImageView : UIImageView
 
-@property (strong, nonatomic) UIView *blackView;
+//@property (nonatomic) UIImage *image;
+
 
 //@property (strong, nonatomic) UILabel *number;
 @property (nonatomic) UIButton *infoButton;

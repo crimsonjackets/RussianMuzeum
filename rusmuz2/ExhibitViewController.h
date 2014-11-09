@@ -19,6 +19,7 @@
 
 #import "ExhibitPreview.h"
 
+#import <AFNetworking.h>
 #import <UIImageView+AFNetworking.h>
 
 #import "StartViewController.h"

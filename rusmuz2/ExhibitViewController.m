@@ -309,6 +309,9 @@
             Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
             ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
             
+                    NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [exhibitPreview setImageWithURL:url];
+            
             NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
             
             NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
@@ -330,6 +333,9 @@
             
         } else if (exhibitPreview.frame.origin.x != totalWidth) {
             ExhibitPreview *copiedPreview = [exhibitPreview copy];
+            
+            NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [copiedPreview setImageWithURL:url];
             
             CGRect frame = exhibitPreview.frame;
             frame.origin.x = totalWidth;
@@ -361,6 +367,9 @@
             
             ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
             
+            NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [exhibitPreview setImageWithURL:url];
+            
             NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
             
             NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
@@ -383,6 +392,9 @@
             
         } else if (exhibitPreview.frame.origin.x != totalWidth) {
             ExhibitPreview *copiedPreview = [exhibitPreview copy];
+            
+            NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [copiedPreview setImageWithURL:url];
             
             CGRect frame = exhibitPreview.frame;
             frame.origin.x = totalWidth;
@@ -454,7 +466,7 @@
     }
     
 }
-
+/*
 - (void)loadPicture:(NSInteger)page  {
     if (page < 0 || page >= _pageCount) {
         // If it's outside the range of what you have to display, then do nothing
@@ -467,7 +479,12 @@
         
         UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
         
-        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+        //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+        
+        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
+        //newExhibitImageView.image = image;
+
+        newExhibitImageView.image = image;
         NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
         //newExhibitImageView.number.text = number;
         newExhibitImageView.title.text = exhibit.name;
@@ -488,6 +505,62 @@
         [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
     }
 }
+ */
+
+
+- (void)loadPicture:(NSInteger)page  {
+    if (page < 0 || page >= _pageCount) {
+        // If it's outside the range of what you have to display, then do nothing
+        return;
+    }
+    
+    UIView *pageView = [_picturesViews objectAtIndex:page];
+    if ((NSNull*)pageView == [NSNull null]) {
+        Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
+        
+        UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+        
+        //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+        
+        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
+        //newExhibitImageView.image = image;
+        
+        NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderImage"];
+        
+/*
+        __weak ExhibitImageView *weakExhibitImageView = newExhibitImageView;
+        
+        [newExhibitImageView setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            weakExhibitImageView.image = image;
+            [weakExhibitImageView setNeedsLayout];
+            [weakExhibitImageView setContentMode:UIViewContentModeScaleAspectFill];
+        } failure:nil];
+
+        */
+       [newExhibitImageView setImageWithURL:url];
+
+        NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
+        //newExhibitImageView.number.text = number;
+        newExhibitImageView.title.text = exhibit.name;
+        newExhibitImageView.author.text = exhibit.author;
+        //newExhibitImageView.info.text = exhibit.info;
+        
+ 
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+               CGRect frame = CGRectMake(0, 0, screenWidth, screenRect.size.height);
+        CGFloat totalWidth = page * screenWidth;
+        frame.origin.x = totalWidth;
+        newExhibitImageView.frame = frame;
+        
+        [_pictureScrollView addSubview:newExhibitImageView];
+        
+        [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
+    }
+}
+
 
 - (void)purgePicture:(NSInteger)page {
     if (page < 0 || page >= _picturesViews.count) {
