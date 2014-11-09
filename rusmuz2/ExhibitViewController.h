@@ -19,6 +19,7 @@
 
 #import "ExhibitPreview.h"
 
+#import <UIImageView+AFNetworking.h>
 
 #import "StartViewController.h"
 #import "InteractiveMapViewController.h"
@@ -38,6 +39,5 @@
 @property (strong, nonatomic) NSNumber *roomNumber;
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
 
 @end

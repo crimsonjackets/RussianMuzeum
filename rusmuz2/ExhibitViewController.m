@@ -464,6 +464,7 @@
     UIView *pageView = [_picturesViews objectAtIndex:page];
     if ((NSNull*)pageView == [NSNull null]) {
         Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
+        
         UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
         
         ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
