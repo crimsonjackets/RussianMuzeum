@@ -26,6 +26,11 @@
 #import "InteractiveMapViewController.h"
 #import "SponsorViewController.h"
 
+
+#import "LFDisplayBridge.h"
+#import "LFGlassView.h"
+
+
 @interface ExhibitViewController : UIViewController <UIScrollViewDelegate, ExhibitTappedDelegate, NavigationButtonDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) IBOutlet NavigationButton *navigationButton;
@@ -40,5 +45,6 @@
 @property (strong, nonatomic) NSNumber *roomNumber;
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer;
+- (void)exhibitInfoButtonPressed:(UIButton *)button;
 
 @end

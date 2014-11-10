@@ -29,9 +29,11 @@
 
 @property (nonatomic, strong) NSArray *exhibitsStorage;
 
+@property (nonatomic) LFGlassView *blurView;
 
 @property NSUInteger pageCount;
 @property (nonatomic) CGFloat contentOffsetNormalized;
+@property (nonatomic) BOOL userInteractionEnabled;
 
 @end
 
@@ -57,6 +59,8 @@
  
     self.previewScrollView.exhibitTappedDelegate = self;
     self.blocksScrollView.exhibitTappedDelegate = self;
+    
+    [self setUserInteractionEnabled:YES];
 
     [self lazyLoadPreviews];
 
@@ -518,16 +522,15 @@
     if ((NSNull*)pageView == [NSNull null]) {
         Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
         
-        UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
-        
         //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
         
         ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
-        //newExhibitImageView.image = image;
+
         
-        NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+        NSURL *url = [NSURL URLWithString:exhibit.photoURL];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         UIImage *placeholderImage = [UIImage imageNamed:@"placeholderImage"];
+        newExhibitImageView.exhibitTappedDelegate = self;
         
 /*
         __weak ExhibitImageView *weakExhibitImageView = newExhibitImageView;
@@ -541,8 +544,7 @@
         */
        [newExhibitImageView setImageWithURL:url];
 
-        NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
-        //newExhibitImageView.number.text = number;
+        newExhibitImageView.number = page;
         newExhibitImageView.title.text = exhibit.name;
         newExhibitImageView.author.text = exhibit.author;
         //newExhibitImageView.info.text = exhibit.info;
@@ -562,6 +564,7 @@
 }
 
 
+
 - (void)purgePicture:(NSInteger)page {
     if (page < 0 || page >= _picturesViews.count) {
         // If it's outside the range of what you have to display, then do nothing
@@ -577,7 +580,7 @@
 }
 
 
-#pragma mark Scrolling Engine Delegate
+#pragma mark Navigating the Exhibit Views
 
 - (void)exhibitSelected:(NSInteger)exhibitNumber {
     NSLog(@"EXHIBIT SELECTED: %ld", (long)exhibitNumber);
@@ -590,6 +593,74 @@
     [_pictureScrollView scrollToPage:exhibitNumber];
 }
 
+
+- (void)exhibitInfoButtonPressed:(UIButton *)button {
+    NSLog(@"Exhibit info button pressed %ld", (long)button.tag);
+    [self showBlurView];
+         [self showDismissButton];
+    
+}
+
+- (void)showBlurView {
+    _blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
+        _blurView.liveBlurring = YES;
+    _blurView.blurRadius = 5.0f;
+    _blurView.alpha = 0.0f;
+    [self.view addSubview:_blurView];
+    
+    [UIView animateWithDuration:0.4f animations:^{
+        _blurView.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        _blurView.liveBlurring = NO;
+    }];
+    
+}
+
+- (void)showDismissButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(dismissInfoPage:)
+     forControlEvents:UIControlEventTouchUpInside];
+    UIImage *image = [UIImage imageNamed:@"closeIcon"];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+
+    CGRect frame = CGRectMake(screenWidth - 50, -10, 0, 0);
+    frame.size = image.size;
+    button.frame = frame;
+    button.alpha = 0.0f;
+    [self.view addSubview:button];
+    
+    frame.origin.y = 50;
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        button.alpha = 1.0f;
+        button.frame = frame;
+    }];
+    
+
+
+}
+
+- (void)dismissInfoPage:(UIButton *)button {
+    _blurView.liveBlurring = YES;
+    CGRect frame = button.frame;
+    frame.origin.y = -10;
+    [UIView animateWithDuration:0.4f animations:^{
+        button.alpha = 0.0f;
+        button.frame = frame;
+        _blurView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [button removeFromSuperview];
+        [_blurView removeFromSuperview];
+    }];
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    
+}
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     ExhibitPreview *view = (ExhibitPreview *)recognizer.view;

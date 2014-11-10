@@ -12,5 +12,5 @@
 
 @optional
 - (void)exhibitSelected:(NSInteger)exhibitNumber;
-- (void)exhibitInfoSelected:(NSInteger)exhibitNumber;
+- (void)exhibitInfoButtonPressed:(UIButton *)button;
 @end

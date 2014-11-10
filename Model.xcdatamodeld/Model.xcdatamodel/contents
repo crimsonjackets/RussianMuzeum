@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A361p" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A388b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="timeStamp" optional="YES" attributeType="Date">
             <userInfo/>
@@ -10,8 +10,10 @@
         <attribute name="coordinates" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="picture" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="qrCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videoURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="exhibits" inverseEntity="Room" syncable="YES"/>
     </entity>
     <entity name="Room" representedClassName="Room" syncable="YES">
@@ -21,8 +23,8 @@
         <relationship name="exhibits" toMany="YES" deletionRule="Cascade" destinationEntity="Exhibit" inverseName="room" inverseEntity="Exhibit" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Exhibit" positionX="-99" positionY="-405" width="128" height="150"/>
-        <element name="Room" positionX="-443" positionY="-357" width="128" height="105"/>
+        <element name="Event" positionX="-290" positionY="-180" width="128" height="60"/>
+        <element name="Exhibit" positionX="-65" positionY="-360" width="128" height="178"/>
+        <element name="Room" positionX="-459" positionY="-357" width="128" height="105"/>
     </elements>
 </model>

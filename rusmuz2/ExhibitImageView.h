@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExhibitTappedDelegate.h"
 
 @interface ExhibitImageView : UIImageView
 
-//@property (nonatomic) UIImage *image;
 
+@property (nonatomic, assign) id <ExhibitTappedDelegate> exhibitTappedDelegate;
 
 //@property (strong, nonatomic) UILabel *number;
+@property (nonatomic) NSInteger number;
 @property (nonatomic) UIButton *infoButton;
 @property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UILabel *author;
 //@property (strong, nonatomic) UILabel *info;
+
+
 
 @end

@@ -133,10 +133,9 @@
         ex.name =[NSString stringWithFormat:@"Экспонат номер %d", i];
         ex.author = [NSString stringWithFormat:@"Автор экспоната номер %d", i];
         
-        
+        ex.photoURL = @"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg";
 
-        ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
-        
+        //ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
         
         
         

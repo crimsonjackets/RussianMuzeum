@@ -19,15 +19,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setUserInteractionEnabled:YES];
+        
         
         self.blackView = [self blackViewWithFrame:self.bounds];
         [self addSubview:self.blackView];
-        
-        self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        [_infoButton setTintColor:[UIColor redColor]];
-        _infoButton.center = CGPointMake(self.frame.size.width / 2, 90);
-        [self addSubview:_infoButton];
-        
+    
+
         self.title = [[UILabel alloc] initWithFrame:CGRectMake(0, 140, self.frame.size.width, 20)];
         [self.title setTextColor:[UIColor whiteColor]];
         [self.title setBackgroundColor:[UIColor clearColor]];
@@ -51,6 +49,13 @@
         
         [self setContentMode:UIViewContentModeScaleAspectFill];
         self.clipsToBounds = YES;
+        
+        self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        [_infoButton setTintColor:[UIColor redColor]];
+        _infoButton.center = CGPointMake(self.frame.size.width / 2, 90);
+        [_infoButton addTarget:self.exhibitTappedDelegate action:@selector(exhibitInfoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_infoButton];
+
         
         /*
          CGRect numberFrame = CGRectMake(0, 20, self.frame.size.width, 100);
@@ -84,13 +89,16 @@
     return self;
 }
 
+- (void)setNumber:(NSInteger)number {
+    _infoButton.tag = number;
+    _number = number;
+}
+
 - (UIView *)blackViewWithFrame:(CGRect)frame {
     UIView *blackView = [[UIView alloc] initWithFrame:frame];
     blackView.backgroundColor = [UIColor blackColor];
     blackView.alpha = 0.5;
     return blackView;
 }
-
-
 
 @end
