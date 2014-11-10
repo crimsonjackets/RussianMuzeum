@@ -97,6 +97,9 @@
 		79EA5C9F19B2C59D0076E011 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA5C9E19B2C59D0076E011 /* BlockView.m */; };
 		79EF8D5F19AD7FBE00BFB4DC /* floorSelectorImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */; };
 		84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84848CF3199BD7F400CFD4FD /* StartViewController.m */; };
+		84E7E5B31A10D3DE005F62CC /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5B21A10D3DE005F62CC /* video_icon.png */; };
+		84E7E5B51A10D670005F62CC /* video_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5B41A10D670005F62CC /* video_icon_2.png */; };
+		84E7E5BC1A10E34E005F62CC /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5BB1A10E34E005F62CC /* video.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +259,9 @@
 		82712E420A7C40A70C3CA0E3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84848CF2199BD7F400CFD4FD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		84848CF3199BD7F400CFD4FD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		84E7E5B21A10D3DE005F62CC /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon.png; sourceTree = "<group>"; };
+		84E7E5B41A10D670005F62CC /* video_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon_2.png; sourceTree = "<group>"; };
+		84E7E5BB1A10E34E005F62CC /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		917465903D0C5ECB2633B958 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -370,6 +376,7 @@
 				09E80A24193BEC5400D62ED1 /* ViewController.m */,
 				79C0114A195CF74500BF6784 /* Model.xcdatamodeld */,
 				79B184801972004C002A95C2 /* testButton.png */,
+				84E7E5BA1A10E341005F62CC /* video */,
 				799A06C6198314F000C83526 /* DesignElements */,
 				793CDB201960C2FB00E97CCB /* CoreDataClasses */,
 				793CDB15196099B900E97CCB /* ios-queryable */,
@@ -528,6 +535,8 @@
 		799A06C6198314F000C83526 /* DesignElements */ = {
 			isa = PBXGroup;
 			children = (
+				84E7E5B41A10D670005F62CC /* video_icon_2.png */,
+				84E7E5B21A10D3DE005F62CC /* video_icon.png */,
 				791F84D519D8EE040061BAB8 /* QRCodeFrame */,
 				79DC2C4219B0DAB000936425 /* mainLogo@2x.png */,
 				79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */,
@@ -614,6 +623,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		84E7E5BA1A10E341005F62CC /* video */ = {
+			isa = PBXGroup;
+			children = (
+				84E7E5BB1A10E34E005F62CC /* video.mp4 */,
+			);
+			name = video;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -696,6 +713,7 @@
 				798F524719944FE100FE021D /* floor2Button@2x.png in Resources */,
 				795852C219E71EBD0000BF0D /* sponsorScreen.png in Resources */,
 				795852BD19E70CA70000BF0D /* sponsorButton@2x.png in Resources */,
+				84E7E5B51A10D670005F62CC /* video_icon_2.png in Resources */,
 				09E80A66193BEDF500D62ED1 /* US_States.gif in Resources */,
 				7923D9C5194E6BB6008C3013 /* floor2.png in Resources */,
 				791F84DA19D8EE040061BAB8 /* qrLB.png in Resources */,
@@ -722,11 +740,13 @@
 				79E804DD194A918D00B2713C /* zbar-help.html in Resources */,
 				79B5D098194CD7080075345E /* testCoord.plist in Resources */,
 				798FFBC31957063A004B94A6 /* page1.png in Resources */,
+				84E7E5BC1A10E34E005F62CC /* video.mp4 in Resources */,
 				798FFBC51957063A004B94A6 /* page3.png in Resources */,
 				79B5D094194CD5570075345E /* testNumbers.plist in Resources */,
 				7998082D198E944100580214 /* pic3@2x.png in Resources */,
 				79E804DF194A918D00B2713C /* zbar-samples.png in Resources */,
 				79EF8D5F19AD7FBE00BFB4DC /* floorSelectorImage.png in Resources */,
+				84E7E5B31A10D3DE005F62CC /* video_icon.png in Resources */,
 				794A6FC519882FF6008A4A30 /* block@2x.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
 				7998082C198E944100580214 /* pic2@2x.png in Resources */,

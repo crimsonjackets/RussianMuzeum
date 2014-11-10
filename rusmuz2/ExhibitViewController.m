@@ -12,6 +12,7 @@
 #import "ExhibitPreview.h"
 #import "BlockView.h"
 #import "ExhibitImageView.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define PREVIEW_HEIGHT 146
 
@@ -472,7 +473,9 @@
         newExhibitImageView.title.text = exhibit.name;
         newExhibitImageView.author.text = exhibit.author;
         //newExhibitImageView.info.text = exhibit.info;
-        //[newExhibitImageView.videoButton addTarget:self action:@selector(<#selector#>) forControlEvents:<#(UIControlEvents)#>];
+        newExhibitImageView.videoButton.tag = page + 1;
+        newExhibitImageView.userInteractionEnabled = YES;
+        [newExhibitImageView.videoButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
         
         
         CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);
@@ -486,6 +489,16 @@
 
         [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
     }
+}
+
+-(IBAction)playVideo:(UIButton *)sender{
+    //Video that should be played is determined by videoButton's tag of ab ExhibitImageView
+    NSLog(@"button tag = %d", sender.tag);
+    NSString *filepath   =   [[NSBundle mainBundle] pathForResource:@"video.mp4" ofType:nil];
+    NSURL *movieURL = [NSURL fileURLWithPath:filepath];
+    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+    [self presentMoviePlayerViewControllerAnimated:movieController];
+    [movieController.moviePlayer play];
 }
 
 - (void)purgePicture:(NSInteger)page {
