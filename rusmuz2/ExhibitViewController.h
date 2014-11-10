@@ -19,10 +19,17 @@
 
 #import "ExhibitPreview.h"
 
+#import <AFNetworking.h>
+#import <UIImageView+AFNetworking.h>
 
 #import "StartViewController.h"
 #import "InteractiveMapViewController.h"
 #import "SponsorViewController.h"
+
+
+#import "LFDisplayBridge.h"
+#import "LFGlassView.h"
+
 
 @interface ExhibitViewController : UIViewController <UIScrollViewDelegate, ExhibitTappedDelegate, NavigationButtonDelegate, UIGestureRecognizerDelegate>
 
@@ -38,6 +45,6 @@
 @property (strong, nonatomic) NSNumber *roomNumber;
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer;
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;
+- (void)exhibitInfoButtonPressed:(UIButton *)button;
 
 @end

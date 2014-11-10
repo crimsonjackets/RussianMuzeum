@@ -29,9 +29,11 @@
 
 @property (nonatomic, strong) NSArray *exhibitsStorage;
 
+@property (nonatomic) LFGlassView *blurView;
 
 @property NSUInteger pageCount;
 @property (nonatomic) CGFloat contentOffsetNormalized;
+@property (nonatomic) BOOL userInteractionEnabled;
 
 @end
 
@@ -54,9 +56,11 @@
     self.previewScrollView.delegate = self;
     self.blocksScrollView.delegate = self;
     self.pictureScrollView.delegate = self;
-
+ 
     self.previewScrollView.exhibitTappedDelegate = self;
     self.blocksScrollView.exhibitTappedDelegate = self;
+    
+    [self setUserInteractionEnabled:YES];
 
     [self lazyLoadPreviews];
 
@@ -309,6 +313,9 @@
             Exhibit *exhibit = [_exhibitsStorage objectAtIndex:previous];
             ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
             
+                    NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [exhibitPreview setImageWithURL:url];
+            
             NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
             
             NSString *number = [NSString stringWithFormat:@"%ld", (long)previous + 1];
@@ -330,6 +337,9 @@
             
         } else if (exhibitPreview.frame.origin.x != totalWidth) {
             ExhibitPreview *copiedPreview = [exhibitPreview copy];
+            
+            NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [copiedPreview setImageWithURL:url];
             
             CGRect frame = exhibitPreview.frame;
             frame.origin.x = totalWidth;
@@ -361,6 +371,9 @@
             
             ExhibitPreview *exhibitPreview = [[ExhibitPreview alloc] initWithExhibit:exhibit];
             
+            NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [exhibitPreview setImageWithURL:url];
+            
             NSLog(@"Exhibit named: is previewd: %@", exhibit.name);
             
             NSString *number = [NSString stringWithFormat:@"%ld", (long)next + 1];
@@ -383,6 +396,9 @@
             
         } else if (exhibitPreview.frame.origin.x != totalWidth) {
             ExhibitPreview *copiedPreview = [exhibitPreview copy];
+            
+            NSURL *url = [NSURL URLWithString:@"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg"];
+            [copiedPreview setImageWithURL:url];
             
             CGRect frame = exhibitPreview.frame;
             frame.origin.x = totalWidth;
@@ -454,7 +470,7 @@
     }
     
 }
-
+/*
 - (void)loadPicture:(NSInteger)page  {
     if (page < 0 || page >= _pageCount) {
         // If it's outside the range of what you have to display, then do nothing
@@ -464,9 +480,15 @@
     UIView *pageView = [_picturesViews objectAtIndex:page];
     if ((NSNull*)pageView == [NSNull null]) {
         Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
+        
         UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
         
-        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+        //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+        
+        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
+        //newExhibitImageView.image = image;
+
+        newExhibitImageView.image = image;
         NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
         //newExhibitImageView.number.text = number;
         newExhibitImageView.title.text = exhibit.name;
@@ -487,6 +509,61 @@
         [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
     }
 }
+ */
+
+
+- (void)loadPicture:(NSInteger)page  {
+    if (page < 0 || page >= _pageCount) {
+        // If it's outside the range of what you have to display, then do nothing
+        return;
+    }
+    
+    UIView *pageView = [_picturesViews objectAtIndex:page];
+    if ((NSNull*)pageView == [NSNull null]) {
+        Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
+        
+        //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+        
+        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
+
+        
+        NSURL *url = [NSURL URLWithString:exhibit.photoURL];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        UIImage *placeholderImage = [UIImage imageNamed:@"placeholderImage"];
+        newExhibitImageView.exhibitTappedDelegate = self;
+        
+/*
+        __weak ExhibitImageView *weakExhibitImageView = newExhibitImageView;
+        
+        [newExhibitImageView setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            weakExhibitImageView.image = image;
+            [weakExhibitImageView setNeedsLayout];
+            [weakExhibitImageView setContentMode:UIViewContentModeScaleAspectFill];
+        } failure:nil];
+
+        */
+       [newExhibitImageView setImageWithURL:url];
+
+        newExhibitImageView.number = page;
+        newExhibitImageView.title.text = exhibit.name;
+        newExhibitImageView.author.text = exhibit.author;
+        //newExhibitImageView.info.text = exhibit.info;
+        
+ 
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+               CGRect frame = CGRectMake(0, 0, screenWidth, screenRect.size.height);
+        CGFloat totalWidth = page * screenWidth;
+        frame.origin.x = totalWidth;
+        newExhibitImageView.frame = frame;
+        
+        [_pictureScrollView addSubview:newExhibitImageView];
+        
+        [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
+    }
+}
+
+
 
 - (void)purgePicture:(NSInteger)page {
     if (page < 0 || page >= _picturesViews.count) {
@@ -503,7 +580,7 @@
 }
 
 
-#pragma mark Scrolling Engine Delegate
+#pragma mark Navigating the Exhibit Views
 
 - (void)exhibitSelected:(NSInteger)exhibitNumber {
     NSLog(@"EXHIBIT SELECTED: %ld", (long)exhibitNumber);
@@ -516,6 +593,74 @@
     [_pictureScrollView scrollToPage:exhibitNumber];
 }
 
+
+- (void)exhibitInfoButtonPressed:(UIButton *)button {
+    NSLog(@"Exhibit info button pressed %ld", (long)button.tag);
+    [self showBlurView];
+         [self showDismissButton];
+    
+}
+
+- (void)showBlurView {
+    _blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
+        _blurView.liveBlurring = YES;
+    _blurView.blurRadius = 6.0f;
+    _blurView.alpha = 0.0f;
+    [self.view addSubview:_blurView];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        _blurView.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        _blurView.liveBlurring = NO;
+    }];
+    
+}
+
+- (void)showDismissButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(dismissInfoPage:)
+     forControlEvents:UIControlEventTouchUpInside];
+    UIImage *image = [UIImage imageNamed:@"closeIcon"];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+
+    CGRect frame = CGRectMake(screenWidth - 50, -10, 0, 0);
+    frame.size = image.size;
+    button.frame = frame;
+    button.alpha = 0.0f;
+    [self.view addSubview:button];
+    
+    frame.origin.y = 50;
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        button.alpha = 1.0f;
+        button.frame = frame;
+    }];
+    
+
+
+}
+
+- (void)dismissInfoPage:(UIButton *)button {
+    _blurView.liveBlurring = YES;
+    CGRect frame = button.frame;
+    frame.origin.y = -10;
+    [UIView animateWithDuration:0.3f animations:^{
+        button.alpha = 0.0f;
+        button.frame = frame;
+        _blurView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [button removeFromSuperview];
+        [_blurView removeFromSuperview];
+    }];
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    
+}
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
     ExhibitPreview *view = (ExhibitPreview *)recognizer.view;

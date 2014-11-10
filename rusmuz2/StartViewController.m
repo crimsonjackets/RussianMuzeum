@@ -133,10 +133,9 @@
         ex.name =[NSString stringWithFormat:@"Экспонат номер %d", i];
         ex.author = [NSString stringWithFormat:@"Автор экспоната номер %d", i];
         
-        
+        ex.photoURL = @"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg";
 
-        ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
-        
+        //ex.picture = UIImageJPEGRepresentation([UIImage imageNamed:@"picture"], 1.0f);
         
         
         
@@ -188,4 +187,16 @@
 }
 
 
+- (IBAction)playerButtonPressed:(id)sender {
+    NSURL *url = [NSURL URLWithString:
+                  @"http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v"];
+    
+    NSLog(@"URL: %@", url);
+
+    MPMoviePlayerViewController *c = [[MPMoviePlayerViewController alloc]
+                                      initWithContentURL:url];
+
+    
+    [self presentMoviePlayerViewControllerAnimated:c];
+}
 @end

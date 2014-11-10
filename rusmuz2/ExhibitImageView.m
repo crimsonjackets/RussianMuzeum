@@ -8,20 +8,24 @@
 
 #import "ExhibitImageView.h"
 
+@interface ExhibitImageView ()
+@property (strong, nonatomic) UIView *blackView;
+@end
+
+
 @implementation ExhibitImageView
 
-- (id)initWithImage:(UIImage *)image {
-    self = [super initWithImage:image];
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
     if (self) {
+        [self setUserInteractionEnabled:YES];
         
-        self.blackView = [self blackViewWithFrame:self.frame];
+        
+        self.blackView = [self blackViewWithFrame:self.bounds];
         [self addSubview:self.blackView];
-        
-        self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        [_infoButton setTintColor:[UIColor redColor]];
-        _infoButton.center = CGPointMake(self.frame.size.width / 2, 90);
-        [self addSubview:_infoButton];
-        
+    
+
         self.title = [[UILabel alloc] initWithFrame:CGRectMake(0, 140, self.frame.size.width, 20)];
         [self.title setTextColor:[UIColor whiteColor]];
         [self.title setBackgroundColor:[UIColor clearColor]];
@@ -43,6 +47,15 @@
         //[self.author setText:@"ВАСНЕЦОВ"];
         [self addSubview:self.author];
         
+        [self setContentMode:UIViewContentModeScaleAspectFill];
+        self.clipsToBounds = YES;
+        
+        self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        [_infoButton setTintColor:[UIColor redColor]];
+        _infoButton.center = CGPointMake(self.frame.size.width / 2, 90);
+        [_infoButton addTarget:self.exhibitTappedDelegate action:@selector(exhibitInfoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_infoButton];
+
         
         /*
          CGRect numberFrame = CGRectMake(0, 20, self.frame.size.width, 100);
@@ -60,22 +73,25 @@
         
         
         /*
-        CGRect infoFrame = CGRectMake(0, 200, self.frame.size.width, 100);
-       
-        self.info = [[UILabel alloc] initWithFrame:infoFrame];
-        [self.info setTextColor:[UIColor whiteColor]];
-        [self.info setBackgroundColor:[UIColor clearColor]];
-        [self.info setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
-        self.info.numberOfLines = 0;
-        self.info.textAlignment = NSTextAlignmentCenter;
-        //[self.info setText:@"НОЧЛЕГ"];
-        [self addSubview:self.info];
-        */
-        
-
+         CGRect infoFrame = CGRectMake(0, 200, self.frame.size.width, 100);
+         
+         self.info = [[UILabel alloc] initWithFrame:infoFrame];
+         [self.info setTextColor:[UIColor whiteColor]];
+         [self.info setBackgroundColor:[UIColor clearColor]];
+         [self.info setFont:[UIFont fontWithName: @"Helvetica Neue" size: 14.0f]];
+         self.info.numberOfLines = 0;
+         self.info.textAlignment = NSTextAlignmentCenter;
+         //[self.info setText:@"НОЧЛЕГ"];
+         [self addSubview:self.info];
+         */
         
     }
     return self;
+}
+
+- (void)setNumber:(NSInteger)number {
+    _infoButton.tag = number;
+    _number = number;
 }
 
 - (UIView *)blackViewWithFrame:(CGRect)frame {
