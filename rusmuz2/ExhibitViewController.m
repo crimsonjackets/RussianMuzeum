@@ -604,11 +604,11 @@
 - (void)showBlurView {
     _blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
         _blurView.liveBlurring = YES;
-    _blurView.blurRadius = 5.0f;
+    _blurView.blurRadius = 6.0f;
     _blurView.alpha = 0.0f;
     [self.view addSubview:_blurView];
     
-    [UIView animateWithDuration:0.4f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         _blurView.alpha = 1.0f;
     } completion:^(BOOL finished) {
         _blurView.liveBlurring = NO;
@@ -648,7 +648,7 @@
     _blurView.liveBlurring = YES;
     CGRect frame = button.frame;
     frame.origin.y = -10;
-    [UIView animateWithDuration:0.4f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         button.alpha = 0.0f;
         button.frame = frame;
         _blurView.alpha = 0.0f;
