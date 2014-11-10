@@ -280,23 +280,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7DN-MX-00Y">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DN-MX-00Y">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <outlet property="delegate" destination="A9N-Fd-kBa" id="1y6-Km-p0E"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" customClass="NavigationButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0e-EL-YVn" userLabel="MenuButton" customClass="NavigationButton">
                                 <rect key="frame" x="225" y="490" width="54" height="60"/>
                                 <state key="normal" image="rmButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79i-8C-r0s" userLabel="Floor1Button">
+                                <rect key="frame" x="60" y="104" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="pEv-Is-FJt"/>
+                                    <constraint firstAttribute="height" constant="50" id="pIC-yj-GZe"/>
+                                </constraints>
+                                <state key="normal" image="floor1Button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFloorButtonPressed:" destination="A9N-Fd-kBa" eventType="touchUpInside" id="5UK-Be-vYl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJU-cJ-Q5F" userLabel="Floor2Button">
+                                <rect key="frame" x="135" y="104" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Gmg-7y-zQj"/>
+                                    <constraint firstAttribute="height" constant="50" id="nRq-HI-i5X"/>
+                                </constraints>
+                                <state key="normal" image="floor2Button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFloorButtonPressed:" destination="A9N-Fd-kBa" eventType="touchUpInside" id="uXq-Mk-oWI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qs-4k-dEb" userLabel="BenuaButton">
+                                <rect key="frame" x="210" y="104" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="547-nu-ubi"/>
+                                    <constraint firstAttribute="width" constant="50" id="Jy3-bw-8mY"/>
+                                </constraints>
+                                <state key="normal" image="benuaButton.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFloorButtonPressed:" destination="A9N-Fd-kBa" eventType="touchUpInside" id="ADA-29-DgF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="zJU-cJ-Q5F" firstAttribute="top" secondItem="DN6-1R-MSt" secondAttribute="bottom" constant="40" id="DrK-Or-EQc"/>
+                            <constraint firstAttribute="trailing" secondItem="1qs-4k-dEb" secondAttribute="trailing" constant="60" id="OHc-af-l8i"/>
                             <constraint firstItem="3qJ-g1-d8X" firstAttribute="top" secondItem="q0e-EL-YVn" secondAttribute="bottom" constant="18" id="RMu-k4-Toc"/>
+                            <constraint firstAttribute="trailing" secondItem="7DN-MX-00Y" secondAttribute="trailing" id="SrH-YO-7Y5"/>
+                            <constraint firstAttribute="centerX" secondItem="zJU-cJ-Q5F" secondAttribute="centerX" id="aAi-0k-aiL"/>
+                            <constraint firstAttribute="bottom" secondItem="7DN-MX-00Y" secondAttribute="bottom" id="bRB-Nb-rt4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q0e-EL-YVn" secondAttribute="trailing" constant="25" id="bVM-og-82S"/>
+                            <constraint firstItem="79i-8C-r0s" firstAttribute="top" secondItem="DN6-1R-MSt" secondAttribute="bottom" constant="40" id="f4R-4t-0Wk"/>
+                            <constraint firstItem="79i-8C-r0s" firstAttribute="leading" secondItem="Er3-Fk-uSa" secondAttribute="leading" constant="60" id="lPS-zL-kBc"/>
+                            <constraint firstItem="1qs-4k-dEb" firstAttribute="top" secondItem="DN6-1R-MSt" secondAttribute="bottom" constant="40" id="r6U-4e-2Sq"/>
+                            <constraint firstItem="7DN-MX-00Y" firstAttribute="leading" secondItem="Er3-Fk-uSa" secondAttribute="leading" id="wMz-nc-q7W"/>
+                            <constraint firstItem="7DN-MX-00Y" firstAttribute="top" secondItem="Er3-Fk-uSa" secondAttribute="top" id="ylL-Yf-QKc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="VAt-Ix-Lwq"/>
@@ -715,6 +764,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="benuaButton.png" width="123" height="124"/>
+        <image name="floor1Button.png" width="61" height="62"/>
+        <image name="floor2Button.png" width="61" height="62"/>
         <image name="floorSelectorImage.png" width="640" height="1136"/>
         <image name="mainLogo.png" width="112" height="124"/>
         <image name="qrLB.png" width="65" height="65"/>

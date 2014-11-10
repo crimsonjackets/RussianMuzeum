@@ -563,4 +563,7 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

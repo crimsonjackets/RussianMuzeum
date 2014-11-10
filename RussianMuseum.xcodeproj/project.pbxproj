@@ -100,6 +100,7 @@
 		84E7E5B31A10D3DE005F62CC /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5B21A10D3DE005F62CC /* video_icon.png */; };
 		84E7E5B51A10D670005F62CC /* video_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5B41A10D670005F62CC /* video_icon_2.png */; };
 		84E7E5BC1A10E34E005F62CC /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5BB1A10E34E005F62CC /* video.mp4 */; };
+		84E7E5C01A1101CD005F62CC /* benuaButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5BF1A1101CD005F62CC /* benuaButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +263,7 @@
 		84E7E5B21A10D3DE005F62CC /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon.png; sourceTree = "<group>"; };
 		84E7E5B41A10D670005F62CC /* video_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon_2.png; sourceTree = "<group>"; };
 		84E7E5BB1A10E34E005F62CC /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		84E7E5BF1A1101CD005F62CC /* benuaButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = benuaButton.png; sourceTree = "<group>"; };
 		917465903D0C5ECB2633B958 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -543,6 +545,7 @@
 				795852BC19E70CA70000BF0D /* sponsorButton@2x.png */,
 				795852C119E71EBD0000BF0D /* sponsorScreen.png */,
 				79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */,
+				84E7E5BF1A1101CD005F62CC /* benuaButton.png */,
 				79495A45199A525D00F5F354 /* testPicture@2x.png */,
 				798F524419944FE100FE021D /* floor1Button@2x.png */,
 				798F524519944FE100FE021D /* floor2Button@2x.png */,
@@ -746,6 +749,7 @@
 				7998082D198E944100580214 /* pic3@2x.png in Resources */,
 				79E804DF194A918D00B2713C /* zbar-samples.png in Resources */,
 				79EF8D5F19AD7FBE00BFB4DC /* floorSelectorImage.png in Resources */,
+				84E7E5C01A1101CD005F62CC /* benuaButton.png in Resources */,
 				84E7E5B31A10D3DE005F62CC /* video_icon.png in Resources */,
 				794A6FC519882FF6008A4A30 /* block@2x.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
