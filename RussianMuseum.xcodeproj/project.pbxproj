@@ -1007,7 +1007,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5DCB67E763318602A68094B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rusmuz2.app/rusmuz2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1028,7 +1027,6 @@
 		09E80A19193BEB0800D62ED1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rusmuz2.app/rusmuz2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
