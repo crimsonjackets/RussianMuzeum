@@ -472,49 +472,55 @@
     }
     
 }
-/*
-- (void)loadPicture:(NSInteger)page  {
-    if (page < 0 || page >= _pageCount) {
-        // If it's outside the range of what you have to display, then do nothing
-        return;
-    }
-    
-    UIView *pageView = [_picturesViews objectAtIndex:page];
-    if ((NSNull*)pageView == [NSNull null]) {
-        Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
-        
-        UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
-        
-        //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
-        
-        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
-        //newExhibitImageView.image = image;
 
-        newExhibitImageView.image = image;
-        NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
-        //newExhibitImageView.number.text = number;
-        newExhibitImageView.title.text = exhibit.name;
-        newExhibitImageView.author.text = exhibit.author;
-        //newExhibitImageView.info.text = exhibit.info;
-        newExhibitImageView.videoButton.tag = page + 1;
-        newExhibitImageView.userInteractionEnabled = YES;
-        [newExhibitImageView.videoButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);
-        CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGFloat screenWidth = screenRect.size.width;
-        CGFloat totalWidth = page * screenWidth;
-        frame.origin.x = totalWidth;
-        newExhibitImageView.frame = frame;
+//- (void)loadPicture:(NSInteger)page  {
+//    if (page < 0 || page >= _pageCount) {
+//        // If it's outside the range of what you have to display, then do nothing
+//        return;
+//    }
+//    
+//    UIView *pageView = [_picturesViews objectAtIndex:page];
+//    if ((NSNull*)pageView == [NSNull null]) {
+//        Exhibit *exhibit = [_exhibitsStorage objectAtIndex:page];
+//        
+//        UIImage *image = [UIImage imageWithData:exhibit.picture scale:2];
+//        
+//        //ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithImage:image];
+//        
+//        ExhibitImageView *newExhibitImageView = [[ExhibitImageView alloc] initWithFrame:_pictureScrollView.bounds];
+//        //newExhibitImageView.image = image;
+//
+//        newExhibitImageView.image = image;
+//        NSString *number = [NSString stringWithFormat:@"%ld", (long)page + 1];
+//        //newExhibitImageView.number.text = number;
+//        newExhibitImageView.title.text = exhibit.name;
+//        newExhibitImageView.author.text = exhibit.author;
+//        //newExhibitImageView.info.text = exhibit.info;
+//
+//        
+//        
+//        CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);
+//        CGRect screenRect = [[UIScreen mainScreen] bounds];
+//        CGFloat screenWidth = screenRect.size.width;
+//        CGFloat totalWidth = page * screenWidth;
+//        frame.origin.x = totalWidth;
+//        newExhibitImageView.frame = frame;
+//
+//        [_pictureScrollView addSubview:newExhibitImageView];
+//
+//        [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
+//    }
+//}
 
-        [_pictureScrollView addSubview:newExhibitImageView];
-
-        [_picturesViews replaceObjectAtIndex:page withObject:newExhibitImageView];
-    }
+-(IBAction)playVideo:(UIButton *)sender{
+    //Video that should be played is determined by videoButton's tag of ab ExhibitImageView
+    NSLog(@"button tag = %d", sender.tag);
+    NSString *filepath   =   [[NSBundle mainBundle] pathForResource:@"video.mp4" ofType:nil];
+    NSURL *movieURL = [NSURL fileURLWithPath:filepath];
+    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
+    [self presentMoviePlayerViewControllerAnimated:movieController];
+    [movieController.moviePlayer play];
 }
- */
-
 
 - (void)loadPicture:(NSInteger)page  {
     if (page < 0 || page >= _pageCount) {
@@ -552,7 +558,9 @@
         newExhibitImageView.title.text = exhibit.name;
         newExhibitImageView.author.text = exhibit.author;
         //newExhibitImageView.info.text = exhibit.info;
-        
+        newExhibitImageView.videoButton.tag = page + 1;
+        newExhibitImageView.userInteractionEnabled = YES;
+        [newExhibitImageView.videoButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
  
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         CGFloat screenWidth = screenRect.size.width;

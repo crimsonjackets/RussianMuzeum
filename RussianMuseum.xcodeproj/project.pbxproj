@@ -13,7 +13,6 @@
 		09E809F0193BEB0700D62ED1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09E809EE193BEB0700D62ED1 /* InfoPlist.strings */; };
 		09E809F2193BEB0700D62ED1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E809F1193BEB0700D62ED1 /* main.m */; };
 		09E809FE193BEB0800D62ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E809FD193BEB0800D62ED1 /* Images.xcassets */; };
-		09E80A05193BEB0800D62ED1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E80A04193BEB0800D62ED1 /* XCTest.framework */; };
 		09E80A06193BEB0800D62ED1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E809E5193BEB0700D62ED1 /* Foundation.framework */; };
 		09E80A07193BEB0800D62ED1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E809E9193BEB0700D62ED1 /* UIKit.framework */; };
 		09E80A0F193BEB0800D62ED1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A0D193BEB0800D62ED1 /* InfoPlist.strings */; };
@@ -36,7 +35,6 @@
 		09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6C193BF15500D62ED1 /* floor1.gif */; };
 		09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6D193BF15500D62ED1 /* floor2.gif */; };
 		15EE112B238CE02A995234DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82712E420A7C40A70C3CA0E3 /* libPods.a */; };
-		2E415D8664764CDB8AC6D034 /* libPods-RussianMuseum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0432D99F9AF4454C8182EA5E /* libPods-RussianMuseum.a */; };
 		791F84DA19D8EE040061BAB8 /* qrLB.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D619D8EE040061BAB8 /* qrLB.png */; };
 		791F84DB19D8EE040061BAB8 /* qrLT.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D719D8EE040061BAB8 /* qrLT.png */; };
 		791F84DC19D8EE040061BAB8 /* qrRB.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D819D8EE040061BAB8 /* qrRB.png */; };
@@ -303,7 +301,6 @@
 				09E80A34193BECCF00D62ED1 /* QuartzCore.framework in Frameworks */,
 				09E80A32193BECC900D62ED1 /* libiconv.dylib in Frameworks */,
 				09E809E6193BEB0700D62ED1 /* Foundation.framework in Frameworks */,
-				2E415D8664764CDB8AC6D034 /* libPods-RussianMuseum.a in Frameworks */,
 				15EE112B238CE02A995234DD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,7 +309,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E80A05193BEB0800D62ED1 /* XCTest.framework in Frameworks */,
 				09E80A07193BEB0800D62ED1 /* UIKit.framework in Frameworks */,
 				09E80A06193BEB0800D62ED1 /* Foundation.framework in Frameworks */,
 			);
@@ -1014,7 +1010,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/rusmuz2/ZBarSDK",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = RussianMuseum;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1040,11 +1036,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/rusmuz2/ZBarSDK",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-ObjC",
-				);
-				"OTHER_LDFLAGS[arch=*]" = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = RussianMuseum;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
