@@ -32,6 +32,7 @@
 @property (nonatomic) LFGlassView *blurView;
 
 @property NSUInteger pageCount;
+@property NSUInteger currentPage;
 @property (nonatomic) CGFloat contentOffsetNormalized;
 @property (nonatomic) BOOL userInteractionEnabled;
 
@@ -235,8 +236,8 @@
             
             //[self.previewScrollView setContentOffset:offset animated:YES];
             [_blocksScrollView setSelectedViewNumber:page];
+            _currentPage = page;
             previousPage = page;
-            
         }
         [_previewScrollView setContentOffset:self.pictureScrollView.contentOffset animated:NO];
         [_blocksScrollView scrollToContentOffsetNormalized:self.contentOffsetNormalized animated:NO];
@@ -596,25 +597,23 @@
 
 - (void)exhibitInfoButtonPressed:(UIButton *)button {
     NSLog(@"Exhibit info button pressed %ld", (long)button.tag);
-    [self showBlurView];
-    [self showDismissButton];
-    
+//    [self showDismissButton];
+
+    [self letsTry];
 }
 
-- (void)showBlurView {
-    _blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
-    _blurView.liveBlurring = YES;
-    _blurView.blurRadius = 6.0f;
-    _blurView.alpha = 0.0f;
-    [self.view addSubview:_blurView];
+- (void)letsTry {
+    Exhibit *exhibit = _exhibitsStorage[_currentPage];
+    ExhibitInfoView *view = [[ExhibitInfoView alloc] initWithFrame:self.view.bounds];
+    view.title = exhibit.name;
+    view.author = exhibit.author;
+    view.info = exhibit.info;
     
-    [UIView animateWithDuration:0.3f animations:^{
-        _blurView.alpha = 1.0f;
-    } completion:^(BOOL finished) {
-        _blurView.liveBlurring = NO;
-    }];
-    
+    [self.view addSubview:view];
+    [view animateIn];
+    [self showDismissButton];
 }
+
 
 - (void)showDismissButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -645,7 +644,6 @@
 }
 
 - (void)dismissInfoPage:(UIButton *)button {
-    _blurView.liveBlurring = YES;
     CGRect frame = button.frame;
     frame.origin.y = -10;
     [UIView animateWithDuration:0.3f animations:^{

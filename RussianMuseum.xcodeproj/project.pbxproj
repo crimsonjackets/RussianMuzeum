@@ -93,6 +93,7 @@
 		79CB3E5919AD8C5A00F9F062 /* FloorSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */; };
 		79D3102C196EFFEE00D7389D /* MockupExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */; };
 		79DC2C4319B0DAB000936425 /* mainLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DC2C4219B0DAB000936425 /* mainLogo@2x.png */; };
+		79E64D141A1214AB0070502A /* ExhibitInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E64D131A1214AB0070502A /* ExhibitInfoView.m */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
 		79E804DC194A918D00B2713C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D7194A918D00B2713C /* zbar-back.png */; };
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
@@ -236,6 +237,8 @@
 		79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockupExhibitViewController.h; sourceTree = "<group>"; };
 		79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockupExhibitViewController.m; sourceTree = "<group>"; };
 		79DC2C4219B0DAB000936425 /* mainLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainLogo@2x.png"; sourceTree = "<group>"; };
+		79E64D121A1214AB0070502A /* ExhibitInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitInfoView.h; sourceTree = "<group>"; };
+		79E64D131A1214AB0070502A /* ExhibitInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitInfoView.m; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		79E804C2194A918D00B2713C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		79E804C3194A918D00B2713C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -478,6 +481,8 @@
 				799A06C41982E4C700C83526 /* PictureScrollView.m */,
 				7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */,
 				7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */,
+				79E64D121A1214AB0070502A /* ExhibitInfoView.h */,
+				79E64D131A1214AB0070502A /* ExhibitInfoView.m */,
 			);
 			name = ExhibitViewController;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				798AF10C1A10471E009BC1EE /* Exhibit.m in Sources */,
 				09E80A2C193BEC5400D62ED1 /* InteractiveMapViewController.m in Sources */,
 				09E80A29193BEC5400D62ED1 /* AppDelegate.m in Sources */,
+				79E64D141A1214AB0070502A /* ExhibitInfoView.m in Sources */,
 				09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
 				797BD01F19E9A31200A58B9D /* BlockScrollView.m in Sources */,
