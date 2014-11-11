@@ -12,6 +12,7 @@
 #import "ExhibitPreview.h"
 #import "BlockView.h"
 #import "ExhibitImageView.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define PREVIEW_HEIGHT 146
 
@@ -32,6 +33,7 @@
 @property (nonatomic) LFGlassView *blurView;
 
 @property NSUInteger pageCount;
+@property NSUInteger currentPage;
 @property (nonatomic) CGFloat contentOffsetNormalized;
 @property (nonatomic) BOOL userInteractionEnabled;
 
@@ -235,8 +237,8 @@
             
             //[self.previewScrollView setContentOffset:offset animated:YES];
             [_blocksScrollView setSelectedViewNumber:page];
+            _currentPage = page;
             previousPage = page;
-            
         }
         [_previewScrollView setContentOffset:self.pictureScrollView.contentOffset animated:NO];
         [_blocksScrollView scrollToContentOffsetNormalized:self.contentOffsetNormalized animated:NO];
@@ -494,7 +496,9 @@
         newExhibitImageView.title.text = exhibit.name;
         newExhibitImageView.author.text = exhibit.author;
         //newExhibitImageView.info.text = exhibit.info;
-        
+        newExhibitImageView.videoButton.tag = page + 1;
+        newExhibitImageView.userInteractionEnabled = YES;
+        [newExhibitImageView.videoButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
         
         
         CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);
@@ -588,7 +592,7 @@
     
     CGFloat contentOffsetNormalized = (CGFloat)exhibitNumber / (CGFloat)_pageCount;
     //[_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
-
+    
     //[_previewScrollView scrollToPage:exhib≈≈itNumber];
     [_pictureScrollView scrollToPage:exhibitNumber];
 }
@@ -596,25 +600,23 @@
 
 - (void)exhibitInfoButtonPressed:(UIButton *)button {
     NSLog(@"Exhibit info button pressed %ld", (long)button.tag);
-    [self showBlurView];
-         [self showDismissButton];
-    
+//    [self showDismissButton];
+
+    [self letsTry];
 }
 
-- (void)showBlurView {
-    _blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
-        _blurView.liveBlurring = YES;
-    _blurView.blurRadius = 6.0f;
-    _blurView.alpha = 0.0f;
-    [self.view addSubview:_blurView];
+- (void)letsTry {
+    Exhibit *exhibit = _exhibitsStorage[_currentPage];
+    ExhibitInfoView *view = [[ExhibitInfoView alloc] initWithFrame:self.view.bounds];
+    view.title = exhibit.name;
+    view.author = exhibit.author;
+    view.info = exhibit.info;
     
-    [UIView animateWithDuration:0.3f animations:^{
-        _blurView.alpha = 1.0f;
-    } completion:^(BOOL finished) {
-        _blurView.liveBlurring = NO;
-    }];
-    
+    [self.view addSubview:view];
+    [view animateIn];
+    [self showDismissButton];
 }
+
 
 - (void)showDismissButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -626,7 +628,7 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
-
+    
     CGRect frame = CGRectMake(screenWidth - 50, -10, 0, 0);
     frame.size = image.size;
     button.frame = frame;
@@ -640,12 +642,11 @@
         button.frame = frame;
     }];
     
-
-
+    
+    
 }
 
 - (void)dismissInfoPage:(UIButton *)button {
-    _blurView.liveBlurring = YES;
     CGRect frame = button.frame;
     frame.origin.y = -10;
     [UIView animateWithDuration:0.3f animations:^{
@@ -695,4 +696,7 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

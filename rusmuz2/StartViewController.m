@@ -8,9 +8,6 @@
 
 #import "StartViewController.h"
 
-
-
-
 @interface StartViewController ()
 
 @end
@@ -86,7 +83,9 @@
     NSManagedObjectContext *context = self.managedObjectContext;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
     Room *room1 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    room1.number = [NSNumber numberWithInt:78];
+    
+    room1.number = @78;
+    
     NSLog(@"Room with number %@ created", room1.number);
     
     
@@ -130,7 +129,8 @@
     for (int i = 0; i < 20; i++) {
         Exhibit *ex = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibit" inManagedObjectContext:context];
         ex.room = room;
-        ex.name =[NSString stringWithFormat:@"Экспонат номер %d", i];
+        NSString *exhibit = [NSString stringWithFormat:@"Экспонат номер %d", i];
+        ex.name = exhibit;
         ex.author = [NSString stringWithFormat:@"Автор экспоната номер %d", i];
         
         ex.photoURL = @"http://spbfoto.spb.ru/foto/data/media/1/rusmus.jpg";
@@ -140,7 +140,7 @@
         
         
         
-        ex.info = @"Брюллов посетил Помпеи в 1828 году, сделав много набросков для будущей картины про известное извержение вулкана Везувий в 79 году н. э. и разрушение города Помпеи близ Неаполя. Полотно выставлялось в Риме, где получило восторженные отклики критиков и переправлено в парижский Лувр. Эта работа стала первой картиной художника, вызвавшей такой интерес за рубежом. Вальтер Скотт назвал картину «необычной, эпической».";
+        ex.info = [NSString stringWithFormat:@"%@ Брюллов посетил Помпеи в 1828 году, сделав много набросков для будущей картины про известное извержение вулкана Везувий в 79 году н. э. и разрушение города Помпеи близ Неаполя. Полотно выставлялось в Риме, где получило восторженные отклики критиков и переправлено в парижский Лувр. Эта работа стала первой картиной художника, вызвавшей такой интерес за рубежом. Вальтер Скотт назвал картину «необычной, эпической».", exhibit];
         
         CGFloat horizontal = ( arc4random() % 640);
         CGFloat vertical = ( arc4random() % 620);

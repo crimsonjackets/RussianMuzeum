@@ -35,6 +35,7 @@
 		09E80A6A193BEE0100D62ED1 /* MTImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E80A69193BEE0100D62ED1 /* MTImageMapView.m */; };
 		09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6C193BF15500D62ED1 /* floor1.gif */; };
 		09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6D193BF15500D62ED1 /* floor2.gif */; };
+		15EE112B238CE02A995234DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82712E420A7C40A70C3CA0E3 /* libPods.a */; };
 		2E415D8664764CDB8AC6D034 /* libPods-RussianMuseum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0432D99F9AF4454C8182EA5E /* libPods-RussianMuseum.a */; };
 		791F84DA19D8EE040061BAB8 /* qrLB.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D619D8EE040061BAB8 /* qrLB.png */; };
 		791F84DB19D8EE040061BAB8 /* qrLT.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D719D8EE040061BAB8 /* qrLT.png */; };
@@ -93,6 +94,7 @@
 		79CB3E5919AD8C5A00F9F062 /* FloorSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CB3E5819AD8C5A00F9F062 /* FloorSelectorViewController.m */; };
 		79D3102C196EFFEE00D7389D /* MockupExhibitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */; };
 		79DC2C4319B0DAB000936425 /* mainLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DC2C4219B0DAB000936425 /* mainLogo@2x.png */; };
+		79E64D141A1214AB0070502A /* ExhibitInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E64D131A1214AB0070502A /* ExhibitInfoView.m */; };
 		79E804DB194A918D00B2713C /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E804D5194A918D00B2713C /* libzbar.a */; };
 		79E804DC194A918D00B2713C /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D7194A918D00B2713C /* zbar-back.png */; };
 		79E804DD194A918D00B2713C /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 79E804D8194A918D00B2713C /* zbar-help.html */; };
@@ -102,6 +104,10 @@
 		79EA5C9F19B2C59D0076E011 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EA5C9E19B2C59D0076E011 /* BlockView.m */; };
 		79EF8D5F19AD7FBE00BFB4DC /* floorSelectorImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */; };
 		84848CF4199BD7F400CFD4FD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84848CF3199BD7F400CFD4FD /* StartViewController.m */; };
+		84E7E5B31A10D3DE005F62CC /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5B21A10D3DE005F62CC /* video_icon.png */; };
+		84E7E5B51A10D670005F62CC /* video_icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5B41A10D670005F62CC /* video_icon_2.png */; };
+		84E7E5BC1A10E34E005F62CC /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5BB1A10E34E005F62CC /* video.mp4 */; };
+		84E7E5C01A1101CD005F62CC /* benuaButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7E5BF1A1101CD005F62CC /* benuaButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +158,7 @@
 		09E80A69193BEE0100D62ED1 /* MTImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTImageMapView.m; sourceTree = "<group>"; };
 		09E80A6C193BF15500D62ED1 /* floor1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = floor1.gif; sourceTree = "<group>"; };
 		09E80A6D193BF15500D62ED1 /* floor2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = floor2.gif; sourceTree = "<group>"; };
+		5DCB67E763318602A68094B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		791F84D619D8EE040061BAB8 /* qrLB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrLB.png; sourceTree = "<group>"; };
 		791F84D719D8EE040061BAB8 /* qrLT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrLT.png; sourceTree = "<group>"; };
 		791F84D819D8EE040061BAB8 /* qrRB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrRB.png; sourceTree = "<group>"; };
@@ -236,6 +243,8 @@
 		79D3102A196EFFEE00D7389D /* MockupExhibitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockupExhibitViewController.h; sourceTree = "<group>"; };
 		79D3102B196EFFEE00D7389D /* MockupExhibitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockupExhibitViewController.m; sourceTree = "<group>"; };
 		79DC2C4219B0DAB000936425 /* mainLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainLogo@2x.png"; sourceTree = "<group>"; };
+		79E64D121A1214AB0070502A /* ExhibitInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitInfoView.h; sourceTree = "<group>"; };
+		79E64D131A1214AB0070502A /* ExhibitInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitInfoView.m; sourceTree = "<group>"; };
 		79E804C1194A918D00B2713C /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		79E804C2194A918D00B2713C /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		79E804C3194A918D00B2713C /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -266,9 +275,14 @@
 		79EA5C9D19B2C59D0076E011 /* BlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockView.h; sourceTree = "<group>"; };
 		79EA5C9E19B2C59D0076E011 /* BlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockView.m; sourceTree = "<group>"; };
 		79EF8D5E19AD7FBE00BFB4DC /* floorSelectorImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floorSelectorImage.png; sourceTree = "<group>"; };
+		82712E420A7C40A70C3CA0E3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84848CF2199BD7F400CFD4FD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		84848CF3199BD7F400CFD4FD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
-		A0A3BBF7512243EF91533307 /* Pods-RussianMuseum.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RussianMuseum.xcconfig"; path = "Pods/Pods-RussianMuseum.xcconfig"; sourceTree = "<group>"; };
+		84E7E5B21A10D3DE005F62CC /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon.png; sourceTree = "<group>"; };
+		84E7E5B41A10D670005F62CC /* video_icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon_2.png; sourceTree = "<group>"; };
+		84E7E5BB1A10E34E005F62CC /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		84E7E5BF1A1101CD005F62CC /* benuaButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = benuaButton.png; sourceTree = "<group>"; };
+		917465903D0C5ECB2633B958 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +304,7 @@
 				09E80A32193BECC900D62ED1 /* libiconv.dylib in Frameworks */,
 				09E809E6193BEB0700D62ED1 /* Foundation.framework in Frameworks */,
 				2E415D8664764CDB8AC6D034 /* libPods-RussianMuseum.a in Frameworks */,
+				15EE112B238CE02A995234DD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +328,7 @@
 				09E80A0A193BEB0800D62ED1 /* rusmuz2Tests */,
 				09E809E4193BEB0700D62ED1 /* Frameworks */,
 				09E809E3193BEB0700D62ED1 /* Products */,
-				A0A3BBF7512243EF91533307 /* Pods-RussianMuseum.xcconfig */,
+				21A665684D96F0FBCD8C330C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,6 +358,7 @@
 				09E809E9193BEB0700D62ED1 /* UIKit.framework */,
 				09E80A04193BEB0800D62ED1 /* XCTest.framework */,
 				0432D99F9AF4454C8182EA5E /* libPods-RussianMuseum.a */,
+				82712E420A7C40A70C3CA0E3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -385,6 +401,7 @@
 				79C0114A195CF74500BF6784 /* Model.xcdatamodeld */,
 				79B184801972004C002A95C2 /* testButton.png */,
 				798AF11A1A107D4B009BC1EE /* LiveFrost */,
+				84E7E5BA1A10E341005F62CC /* video */,
 				799A06C6198314F000C83526 /* DesignElements */,
 				793CDB201960C2FB00E97CCB /* CoreDataClasses */,
 				793CDB15196099B900E97CCB /* ios-queryable */,
@@ -460,6 +477,15 @@
 			path = FloorMaps;
 			sourceTree = "<group>";
 		};
+		21A665684D96F0FBCD8C330C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DCB67E763318602A68094B6 /* Pods.debug.xcconfig */,
+				917465903D0C5ECB2633B958 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		791A1C521A04787500607EA6 /* ExhibitViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +504,8 @@
 				799A06C41982E4C700C83526 /* PictureScrollView.m */,
 				7951B4DE19BB4F6A00F86AB4 /* ExhibitImageView.h */,
 				7951B4DF19BB4F6A00F86AB4 /* ExhibitImageView.m */,
+				79E64D121A1214AB0070502A /* ExhibitInfoView.h */,
+				79E64D131A1214AB0070502A /* ExhibitInfoView.m */,
 			);
 			name = ExhibitViewController;
 			sourceTree = "<group>";
@@ -546,6 +574,8 @@
 		799A06C6198314F000C83526 /* DesignElements */ = {
 			isa = PBXGroup;
 			children = (
+				84E7E5B41A10D670005F62CC /* video_icon_2.png */,
+				84E7E5B21A10D3DE005F62CC /* video_icon.png */,
 				791F84D519D8EE040061BAB8 /* QRCodeFrame */,
 				79DC2C4219B0DAB000936425 /* mainLogo@2x.png */,
 				793649FA1A0FA06E00F410BB /* placeholderImage@2x.png */,
@@ -554,6 +584,7 @@
 				795852BC19E70CA70000BF0D /* sponsorButton@2x.png */,
 				795852C119E71EBD0000BF0D /* sponsorScreen.png */,
 				79495A47199A5E0300F5F354 /* largePhoto@2x.jpg */,
+				84E7E5BF1A1101CD005F62CC /* benuaButton.png */,
 				79495A45199A525D00F5F354 /* testPicture@2x.png */,
 				798F524419944FE100FE021D /* floor1Button@2x.png */,
 				798F524519944FE100FE021D /* floor2Button@2x.png */,
@@ -634,6 +665,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		84E7E5BA1A10E341005F62CC /* video */ = {
+			isa = PBXGroup;
+			children = (
+				84E7E5BB1A10E34E005F62CC /* video.mp4 */,
+			);
+			name = video;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -683,9 +722,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Richard Topchiy";
 				TargetAttributes = {
-					09E809E1193BEB0700D62ED1 = {
-						DevelopmentTeam = FM33Y8RWW7;
-					};
 					09E80A02193BEB0800D62ED1 = {
 						TestTargetID = 09E809E1193BEB0700D62ED1;
 					};
@@ -720,6 +756,7 @@
 				795852C219E71EBD0000BF0D /* sponsorScreen.png in Resources */,
 				793649FB1A0FA06E00F410BB /* placeholderImage@2x.png in Resources */,
 				795852BD19E70CA70000BF0D /* sponsorButton@2x.png in Resources */,
+				84E7E5B51A10D670005F62CC /* video_icon_2.png in Resources */,
 				09E80A66193BEDF500D62ED1 /* US_States.gif in Resources */,
 				7923D9C5194E6BB6008C3013 /* floor2.png in Resources */,
 				791F84DA19D8EE040061BAB8 /* qrLB.png in Resources */,
@@ -747,11 +784,14 @@
 				79E804DD194A918D00B2713C /* zbar-help.html in Resources */,
 				79B5D098194CD7080075345E /* testCoord.plist in Resources */,
 				798FFBC31957063A004B94A6 /* page1.png in Resources */,
+				84E7E5BC1A10E34E005F62CC /* video.mp4 in Resources */,
 				798FFBC51957063A004B94A6 /* page3.png in Resources */,
 				79B5D094194CD5570075345E /* testNumbers.plist in Resources */,
 				7998082D198E944100580214 /* pic3@2x.png in Resources */,
 				79E804DF194A918D00B2713C /* zbar-samples.png in Resources */,
 				79EF8D5F19AD7FBE00BFB4DC /* floorSelectorImage.png in Resources */,
+				84E7E5C01A1101CD005F62CC /* benuaButton.png in Resources */,
+				84E7E5B31A10D3DE005F62CC /* video_icon.png in Resources */,
 				794A6FC519882FF6008A4A30 /* block@2x.png in Resources */,
 				09E80A64193BEDF500D62ED1 /* states_coord.plist in Resources */,
 				7998082C198E944100580214 /* pic2@2x.png in Resources */,
@@ -800,7 +840,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-RussianMuseum-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -832,6 +872,7 @@
 				798AF10C1A10471E009BC1EE /* Exhibit.m in Sources */,
 				09E80A2C193BEC5400D62ED1 /* InteractiveMapViewController.m in Sources */,
 				09E80A29193BEC5400D62ED1 /* AppDelegate.m in Sources */,
+				79E64D141A1214AB0070502A /* ExhibitInfoView.m in Sources */,
 				09E80A2D193BEC5400D62ED1 /* ExhibitViewController.m in Sources */,
 				79C01145195CF4F100BF6784 /* DetailViewController.m in Sources */,
 				797BD01F19E9A31200A58B9D /* BlockScrollView.m in Sources */,
@@ -948,6 +989,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -955,11 +997,11 @@
 		};
 		09E80A15193BEB0800D62ED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0A3BBF7512243EF91533307 /* Pods-RussianMuseum.xcconfig */;
+			baseConfigurationReference = 5DCB67E763318602A68094B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Richard Topchiy";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -981,11 +1023,11 @@
 		};
 		09E80A16193BEB0800D62ED1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A0A3BBF7512243EF91533307 /* Pods-RussianMuseum.xcconfig */;
+			baseConfigurationReference = 917465903D0C5ECB2633B958 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Richard Topchiy";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1011,6 +1053,7 @@
 		};
 		09E80A18193BEB0800D62ED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DCB67E763318602A68094B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rusmuz2.app/rusmuz2";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1018,8 +1061,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "rusmuz2/rusmuz2-Prefix.pch";
+				GCC_PREFIX_HEADER = "rusmuz2/RussianMuseum-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1040,8 +1082,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "rusmuz2/rusmuz2-Prefix.pch";
+				GCC_PREFIX_HEADER = "rusmuz2/RussianMuseum-Prefix.pch";
 				INFOPLIST_FILE = "rusmuz2Tests/RussianMuseumTests-Info.plist";
 				PRODUCT_NAME = RussianMuseumTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";

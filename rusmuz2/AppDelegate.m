@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <RestKit.h>
 #import "MasterViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation AppDelegate
 
@@ -47,6 +48,8 @@
     return YES;
      
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

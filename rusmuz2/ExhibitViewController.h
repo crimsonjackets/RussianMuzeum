@@ -30,6 +30,8 @@
 #import "LFDisplayBridge.h"
 #import "LFGlassView.h"
 
+#import "ExhibitInfoView.h"
+
 
 @interface ExhibitViewController : UIViewController <UIScrollViewDelegate, ExhibitTappedDelegate, NavigationButtonDelegate, UIGestureRecognizerDelegate>
 

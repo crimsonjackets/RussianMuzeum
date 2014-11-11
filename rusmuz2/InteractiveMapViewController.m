@@ -100,15 +100,22 @@
     [self centerScrollViewContents];
 }
 
-- (void)changeFloor {
+- (void)changeFloor:(int)number {
+    //number == 1 - first floor
+    //number == 2 - second floor
+    //number == 3 - Benua
+    if (number == 3){
+        NSLog(@"Change map to Benua");
+        return;
+    }
     CGFloat zoomScale = self.scrollView.zoomScale;
     CGPoint contentOffset = self.scrollView.contentOffset;
     
-    if ([_currentFloor  isEqual: @2]) {
+    if (number == 1) {
         [self.imageView removeFromSuperview];
         [self reloadMapWithImageNamed:@"floor1.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
         _currentFloor = @1;
-        NSLog(@"Current floor number 11111is %@", _currentFloor);
+        NSLog(@"Current floor number is %@", _currentFloor);
     } else {
         [self.imageView removeFromSuperview];
         [self reloadMapWithImageNamed:@"floor2.png" CoordinatesNamed:@"testCoord" andRoomNumbersNamed:@"testNumbers"];
@@ -119,6 +126,7 @@
     self.scrollView.zoomScale = zoomScale;
     self.scrollView.contentOffset = contentOffset;
 }
+
 
 - (void)reloadMapWithImageNamed: (NSString *)imageName CoordinatesNamed: (NSString *)coordinatesName andRoomNumbersNamed: (NSString *)roomNumbersName
 {
@@ -225,8 +233,8 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-- (void)changeFloorButtonPressed {
-    [self changeFloor];
+- (IBAction)changeFloorButtonPressed:(UIButton*)sender {
+    [self changeFloor:sender.tag];
     NSLog(@"Change Floor button pressed, ViewController");
 }
 
