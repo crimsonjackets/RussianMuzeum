@@ -36,7 +36,7 @@
 @property NSUInteger currentPage;
 @property (nonatomic) CGFloat contentOffsetNormalized;
 @property (nonatomic) BOOL userInteractionEnabled;
-
+@property (nonatomic) ExhibitInfoView *infoView;
 @end
 
 @implementation ExhibitViewController
@@ -615,13 +615,13 @@
 
 - (void)letsTry {
     Exhibit *exhibit = _exhibitsStorage[_currentPage];
-    ExhibitInfoView *view = [[ExhibitInfoView alloc] initWithFrame:self.view.bounds];
-    view.title = exhibit.name;
-    view.author = exhibit.author;
-    view.info = exhibit.info;
+    _infoView= [[ExhibitInfoView alloc] initWithFrame:self.view.bounds];
+    _infoView.title = exhibit.name;
+    _infoView.author = exhibit.author;
+    _infoView.info = exhibit.info;
     
-    [self.view addSubview:view];
-    [view animateIn];
+    [self.view addSubview:_infoView];
+    [_infoView animateIn];
     [self showDismissButton];
 }
 
@@ -664,6 +664,7 @@
     } completion:^(BOOL finished) {
         [button removeFromSuperview];
         [_blurView removeFromSuperview];
+        [_infoView removeFromSuperview];
     }];
 }
 

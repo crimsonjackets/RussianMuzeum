@@ -67,6 +67,7 @@
     
     UITextView *textview = [[UITextView alloc] initWithFrame:self.bounds];
     textview.text = _info;
+    [textview setCenter:CGPointMake(textview.center.x, author.center.y + author.frame.size.height + textview.frame.size.height/2)];
     textview.backgroundColor = [UIColor clearColor];
     textview.textColor = [UIColor whiteColor];
     [self addSubview:textview];
