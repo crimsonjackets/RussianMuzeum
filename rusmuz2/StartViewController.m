@@ -8,9 +8,6 @@
 
 #import "StartViewController.h"
 
-
-
-
 @interface StartViewController ()
 
 @end
@@ -86,7 +83,9 @@
     NSManagedObjectContext *context = self.managedObjectContext;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
     Room *room1 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    room1.number = [NSNumber numberWithInt:78];
+    
+    room1.number = @78;
+    
     NSLog(@"Room with number %@ created", room1.number);
     
     

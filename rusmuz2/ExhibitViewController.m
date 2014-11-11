@@ -588,7 +588,7 @@
     
     CGFloat contentOffsetNormalized = (CGFloat)exhibitNumber / (CGFloat)_pageCount;
     //[_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
-
+    
     //[_previewScrollView scrollToPage:exhib≈≈itNumber];
     [_pictureScrollView scrollToPage:exhibitNumber];
 }
@@ -597,13 +597,13 @@
 - (void)exhibitInfoButtonPressed:(UIButton *)button {
     NSLog(@"Exhibit info button pressed %ld", (long)button.tag);
     [self showBlurView];
-         [self showDismissButton];
+    [self showDismissButton];
     
 }
 
 - (void)showBlurView {
     _blurView = [[LFGlassView alloc] initWithFrame:self.view.bounds];
-        _blurView.liveBlurring = YES;
+    _blurView.liveBlurring = YES;
     _blurView.blurRadius = 6.0f;
     _blurView.alpha = 0.0f;
     [self.view addSubview:_blurView];
@@ -626,7 +626,7 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
-
+    
     CGRect frame = CGRectMake(screenWidth - 50, -10, 0, 0);
     frame.size = image.size;
     button.frame = frame;
@@ -640,8 +640,8 @@
         button.frame = frame;
     }];
     
-
-
+    
+    
 }
 
 - (void)dismissInfoPage:(UIButton *)button {
