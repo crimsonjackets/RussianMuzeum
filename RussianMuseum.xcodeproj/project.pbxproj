@@ -36,7 +36,6 @@
 		09E80A6E193BF15500D62ED1 /* floor1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6C193BF15500D62ED1 /* floor1.gif */; };
 		09E80A6F193BF15500D62ED1 /* floor2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 09E80A6D193BF15500D62ED1 /* floor2.gif */; };
 		15EE112B238CE02A995234DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82712E420A7C40A70C3CA0E3 /* libPods.a */; };
-		2E415D8664764CDB8AC6D034 /* libPods-RussianMuseum.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0432D99F9AF4454C8182EA5E /* libPods-RussianMuseum.a */; };
 		791F84DA19D8EE040061BAB8 /* qrLB.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D619D8EE040061BAB8 /* qrLB.png */; };
 		791F84DB19D8EE040061BAB8 /* qrLT.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D719D8EE040061BAB8 /* qrLT.png */; };
 		791F84DC19D8EE040061BAB8 /* qrRB.png in Resources */ = {isa = PBXBuildFile; fileRef = 791F84D819D8EE040061BAB8 /* qrRB.png */; };
@@ -303,7 +302,6 @@
 				09E80A34193BECCF00D62ED1 /* QuartzCore.framework in Frameworks */,
 				09E80A32193BECC900D62ED1 /* libiconv.dylib in Frameworks */,
 				09E809E6193BEB0700D62ED1 /* Foundation.framework in Frameworks */,
-				2E415D8664764CDB8AC6D034 /* libPods-RussianMuseum.a in Frameworks */,
 				15EE112B238CE02A995234DD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1014,7 +1012,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/rusmuz2/ZBarSDK",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = RussianMuseum;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1041,10 +1039,9 @@
 					"$(PROJECT_DIR)/rusmuz2/ZBarSDK",
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-ObjC",
+					"$(inherited)",
+					"$(inherited)",
 				);
-				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = RussianMuseum;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1055,7 +1052,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5DCB67E763318602A68094B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rusmuz2.app/rusmuz2";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
