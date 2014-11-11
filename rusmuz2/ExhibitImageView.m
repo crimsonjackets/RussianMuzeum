@@ -57,6 +57,11 @@
         [self addSubview:_infoButton];
 
         
+        self.videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_videoButton setImage:[UIImage imageNamed:@"video_icon_2"] forState:UIControlStateNormal];
+        _videoButton.frame = CGRectMake(140, 240, 40, 40);
+        [self addSubview:_videoButton];
+        
         /*
          CGRect numberFrame = CGRectMake(0, 20, self.frame.size.width, 100);
          
