@@ -569,16 +569,6 @@
 
 
 
--(IBAction)playVideo:(UIButton *)sender{
-    //Video that should be played is determined by videoButton's tag of ab ExhibitImageView
-    NSLog(@"button tag = %d", sender.tag);
-    NSString *filepath   =   [[NSBundle mainBundle] pathForResource:@"video.mp4" ofType:nil];
-    NSURL *movieURL = [NSURL fileURLWithPath:filepath];
-    MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
-    [self presentMoviePlayerViewControllerAnimated:movieController];
-    [movieController.moviePlayer play];
-}
-
 - (void)purgePicture:(NSInteger)page {
     if (page < 0 || page >= _picturesViews.count) {
         // If it's outside the range of what you have to display, then do nothing

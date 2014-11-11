@@ -401,6 +401,7 @@
 				79C0114A195CF74500BF6784 /* Model.xcdatamodeld */,
 				79B184801972004C002A95C2 /* testButton.png */,
 				798AF11A1A107D4B009BC1EE /* LiveFrost */,
+				84E7E5BA1A10E341005F62CC /* video */,
 				799A06C6198314F000C83526 /* DesignElements */,
 				793CDB201960C2FB00E97CCB /* CoreDataClasses */,
 				793CDB15196099B900E97CCB /* ios-queryable */,

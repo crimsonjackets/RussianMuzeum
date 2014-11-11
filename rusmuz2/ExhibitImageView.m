@@ -56,7 +56,6 @@
         [_infoButton addTarget:self.exhibitTappedDelegate action:@selector(exhibitInfoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_infoButton];
 
-        
         self.videoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_videoButton setImage:[UIImage imageNamed:@"video_icon_2"] forState:UIControlStateNormal];
         _videoButton.frame = CGRectMake(140, 240, 40, 40);
