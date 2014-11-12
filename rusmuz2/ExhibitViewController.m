@@ -601,14 +601,13 @@
     CGFloat contentOffsetNormalized = (CGFloat)exhibitNumber / (CGFloat)_pageCount;
     //[_blocksScrollView scrollToContentOffsetNormalized:contentOffsetNormalized animated:YES];
     
-    //[_previewScrollView scrollToPage:exhib≈≈itNumber];
+    //[_previewScrollView scrollToPage:exhibitNumber];
     [_pictureScrollView scrollToPage:exhibitNumber];
 }
 
 
 - (void)exhibitInfoButtonPressed:(UIButton *)button {
     NSLog(@"Exhibit info button pressed %ld", (long)button.tag);
-//    [self showDismissButton];
 
     [self letsTry];
 }
@@ -649,12 +648,11 @@
         button.alpha = 1.0f;
         button.frame = frame;
     }];
-    
-    
-    
 }
 
 - (void)dismissInfoPage:(UIButton *)button {
+    [_infoView animateOut];
+    
     CGRect frame = button.frame;
     frame.origin.y = -10;
     [UIView animateWithDuration:0.3f animations:^{
@@ -663,13 +661,7 @@
         _blurView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [button removeFromSuperview];
-        [_blurView removeFromSuperview];
-        [_infoView removeFromSuperview];
     }];
-}
-
-- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
-    
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
